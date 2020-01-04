@@ -1,0 +1,55 @@
+ 
+ <% rows.forEach(function(row) { %>
+
+
+ <form action="/update_article2" method="post">
+ <input type="hidden" id="cod" name="cod" value="<%= row.cod %>">
+  Titulo<br>
+  <input type="text" name="title" value="<%= row.title %>" ><br>
+  Subtitulo<br>
+  <input type="text" name="subtitle" value="<%= row.subtitle %>"><br><br>
+  Autor<br>
+  <input type="text" name="author"  value="<%= row.author %>"><br><br>
+  Texto<br>
+  <input type="text" name="article" value="<%= row.article %>"><br><br>
+  Seção<br>
+  <input type="text" name="section" value="<%= row.section %>"><br><br>
+  
+  Photo1<br>
+  <input type="text" name="photo1" value="<%= row.photo1 %>"><br><br>
+  Legenda1<br>
+  <input type="text" name="legend1" value="<%= row.legend1 %>"><br><br>
+  
+  
+  Photo2<br>
+  <input type="text" name="photo2" value="<%= row.photo2 %>"><br><br>
+  Legenda 2<br>
+  <input type="text" name="legend2" value="<%= row.legend2 %>"><br><br>
+  
+
+  Photo3<br>
+  <input type="text" name="photo3" value="<%= row.photo3 %>"><br><br>
+  Legenda3<br>
+  <input type="text" name="legend3" value="<%= row.legend3 %>"><br><br>
+  
+
+  Photo4<br>
+  <input type="text" name="photo4" value="<%= row.photo4 %>"><br><br>
+  Legenda4<br>
+  <input type="text" name="legend4" value="<%= row.legend4 %>"><br><br>
+  
+  Photo5<br>
+  <input type="text" name="photo5" value="<%= row.photo5 %>"><br><br>
+  Legenda 5<br>
+  <input type="text" name="legend5" value="<%= row.legend5 %>"><br><br>
+  
+ Photo High Light<br>
+  <input type="text" name="photo_highlight" ><br><br>
+    Hightlight
+  <input type = "checkbox" name="highlight" value="1">
+  
+
+  <input type="submit" value="Cadastrar">
+</form> 
+
+ <% }); %>

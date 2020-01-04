@@ -1,0 +1,11 @@
+<h1>CMS ZEV.NEWS </h1>
+
+ <% rows.forEach(function(row) { %>
+        <hr>
+        <br><br>
+        <%= row.title %> <a href="delete_article/<%= row.cod%>">DELETE ARTICLE</a> - <a href="update_article/<%= row.cod%>">UPDATE ARTICLE</a>
+        <br><br>
+        <hr>
+    <% }); %>
+
+    <a href="/new_article">INSERIR NOVO ARTIGO</a>

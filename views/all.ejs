@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-149422532-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-149422532-1');
+</script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+<title>Zev.News | Notícias e Análises sobre a indústria de veículos com emissão zero</title>
+
+
+<link rel="stylesheet" type="text/css" href="css/frame_style.css">
+<link href="https://fonts.googleapis.com/css?family=Teko&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=DM+Sans:700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/menu_style.css">
+<script type="text/javascript" src="includes/main_nav_menu.js"></script>
+<script src="includes/page_actions.js"></script>
+<% var main_title
+   var main_subtitle
+   var main_cod
+   var highlight
+   var main_author
+
+   var control  = 0;
+   var contador = 1;
+
+%>
+	
+	
+	<script>
+ 	  var mndFileds=new Array('Last Name','Email');
+ 	  var fldLangVal=new Array('Sobrenome','E-mail'); 
+		var name='';
+		var email='';
+
+ 	  function checkMandatory4087730000000224112() {
+		for(i=0;i<mndFileds.length;i++) {
+		  var fieldObj=document.forms['WebToContacts4087730000000224112'][mndFileds[i]];
+		  if(fieldObj) {
+			if (((fieldObj.value).replace(/^\s+|\s+$/g, '')).length==0) {
+			 if(fieldObj.type =='file')
+				{ 
+				 alert('Selecione um ficheiro para carregar.'); 
+				 fieldObj.focus(); 
+				 return false;
+				} 
+			alert(fldLangVal[i] +' não pode estar em branco.'); 
+   	   	  	  fieldObj.focus();
+   	   	  	  return false;
+			}  else if(fieldObj.nodeName=='SELECT') {
+  	   	   	 if(fieldObj.options[fieldObj.selectedIndex].value=='-None-') {
+				alert(fldLangVal[i] +' não pode estar em branco.'); 
+				fieldObj.focus();
+				return false;
+			   }
+			} else if(fieldObj.type =='checkbox'){
+ 	 	 	 if(fieldObj.checked == false){
+				alert('Please accept  '+fldLangVal[i]);
+				fieldObj.focus();
+				return false;
+			   } 
+			 } 
+			 try {
+			     if(fieldObj.name == 'Last Name') {
+				name = fieldObj.value;
+ 	 	 	    }
+			} catch (e) {}
+		    }
+		}
+		document.getElementById('formsubmit').disabled=true;
+	}
+</script>
+<script type="text/javascript">
+
+
+$(document).ready(function() {
+        alert("Hello world!");
+       
+        $("#news1").css("background-color","green");
+
+
+		var valor1 = $('#news1').width();
+		var valor2 = $('#news1').height();
+        alert (valor1 + " " + valor2  ); 
+
+			<% rows.slice(0,9).forEach(function(row) { %>
+       		
+       				<%if (row.highlight == 1 && control == 0) { %>
+						alert("Cheio");
+						 $('#news1').css('background-image', 'url(/images/<%=row.photo1 %>)');
+						 <% main_title = row.title
+                            main_subtitle = row.subtitle
+                            main_cod = row.cod
+                            main_author = row.author
+                            control = 1; 
+						 %>
+					<% } %>	 
+				
+			<% }); %>
+
+        
+});
+    
+</script>
+
+</head>
+<body onload="activate_main_menu()"><input type="hidden" name="page_section" id="page_section" value="home"></input>
+
+<div id="container">
+	<div id="top"><img src="icons/logo_zev_news.png" id="main_logo"><h1 id="zev_description"> ANÁLISES & NOTÍCIAS SOBRE VEÍCULOS COM EMISSÃO ZERO</h1></div>
+	<div class="topnav" id="myTopnav">
+    <!-- HERE GOES THE MENU ITEMS -->
+	</div>
+
+	<div id="content">
+		<div id="box1">
+			<div id="news1">
+				<a href="article/<%= main_cod%>/<%= main_title.replace(/,/g, '').replace(/ /g, '-').toLowerCase()%>">
+				<h1 id="main_title"><%= main_title %></h1>
+				<h2 id="main_subtitle"><%= main_subtitle %></h2></a>
+				<a href="author/<%= main_author%>"><h3 id="main_author">POR JOSE QUEIROZ</h3></a>
+				
+			</div>
+		</div> 
+		<div id="box2">
+
+			<% rows.slice(0,4).forEach(function(row) { %>
+ 
+
+       		   <%if (row.highlight == 0 && contador < 4) { %>
+       		    <div class="news_inside">
+ 				<a href="article/<%=row.cod%>"><img src="images/<%=row.photo1%>" class="news_photo" /></a>
+				<span class="news_section"><a href="<%=  row.section%>"><%= row.section.toUpperCase() %></a></span>
+				<h1 class="news_title"><a href="article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').toLowerCase()%>">
+				<%= row.title %></a></h1>
+				<!-- <h2 class="news_subtitle">Este é um teste de subtítulo</h2> -->
+				<span class="news_author">Por <a href="author/<%= row.author %>"><%= row.author %></a></span>
+				</div>
+				<%contador = contador + 1%> 
+				<% } %>	
+			<% }); %>
+
+			   		    
+
+		</div>
+		<div id="box3">
+			<%contador = 1 %>	   
+			<% rows.slice(3,11).forEach(function(row) { %>
+       		<%if (row.highlight == 0 && contador < 6) { %>
+       		    <div class="news_inside">
+ 				<a href="article/<%=row.cod%>"><img src="images/<%=row.photo1%>" class="news_photo" /></a>
+				<span class="news_section"><a href="<%=  row.section%>"><%= row.section.toUpperCase() %></a></span>
+				<h1 class="news_title"><a href="article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').toLowerCase()%>">
+				<%= row.title %></a></h1>
+				<!-- <h2 class="news_subtitle">Este é um teste de subtítulo</h2> -->
+				<span class="news_author">Por <a href="author/<%= row.author%>"><%= row.author %></a></span>
+				</div> 
+				<%contador = contador + 1%> 
+				<% } %>	 
+				
+			<% }); %>
+
+			
+		</div>
+	</div>
+	<div id="newsletter">
+		<form action='https://crm.zoho.com/crm/WebToContactForm' name=WebToContacts4087730000000224112 method='POST' onSubmit='javascript:document.charset="UTF-8"; return checkMandatory4087730000000224112()' accept-charset='UTF-8'>
+		<input type='text' style='display:none;' name='xnQsjsdp' value='986d5572184fa0eeca62d5158d27c8989375f1e1c92d6492c6cf8026241b6de9'></input> 
+		<input type='hidden' name='zc_gad' id='zc_gad' value=''></input> 
+		<input type='text' style='display:none;' name='xmIwtLD' value='00748001d565152516d1d9617ef2ed1538b8071822d8042ed3d6fb4ca4cec32e'></input> 
+		<input type='text'  style='display:none;' name='actionType' value='Q29udGFjdHM='></input>
+		<input type='text' style='display:none;' name='returnURL' value='https://www.zev.news/home2.html' > </input>
+		<legend>RECEBA NOSSAS MATÉRIAS</legend>
+		<label for="firstname">Nome:</label><input type="text" name="First Name" required>
+		<label for="lasttname">Sobrenome:</label><input type="text" name="Last Name" required>
+		<label for="email">E-mail:</label><input type="email" name="Email" required>
+		<input type="submit" value="Cadastrar" id="send_data">
+</form>
+	</div>
+	<div id="menu_footer">
+		<!-- HERE GO THE MEU FOOTER-->
+	</div>
+	<div id="footer"><span> ® 2019 Zev.News - Todos os direitos reservados</span></div>
+</div>
+</body>
+</html>
