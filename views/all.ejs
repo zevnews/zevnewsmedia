@@ -81,20 +81,17 @@
 
 
 $(document).ready(function() {
-        alert("Hello world!");
-       
-        $("#news1").css("background-color","green");
 
-
-		var valor1 = $('#news1').width();
-		var valor2 = $('#news1').height();
-        alert (valor1 + " " + valor2  ); 
-
-			<% rows.slice(0,9).forEach(function(row) { %>
+	
+		   $("#news1").hover(function(){
+			$(this).css("opacity", "0.4");
+			}, function(){
+				$(this).css("opacity", "1");
+ 			});
+       	<% rows.slice(0,9).forEach(function(row) { %>
        		
        				<%if (row.highlight == 1 && control == 0) { %>
-						alert("Cheio");
-						 $('#news1').css('background-image', 'url(/images/<%=row.photo1 %>)');
+						 $('#news1').css('background-image', 'url(/images/<%=row.photo_highlight %>)');
 						 <% main_title = row.title
                             main_subtitle = row.subtitle
                             main_cod = row.cod

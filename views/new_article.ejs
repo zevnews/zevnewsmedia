@@ -1,41 +1,89 @@
- <form action="/insert_article" method="post">
-  Titulo<br>
-  <input type="text" name="title" ><br>
-  Subtitulo<br>
-  <input type="text" name="subtitle" ><br><br>
-  Autor<br>
-  <input type="text" name="author" ><br><br>
-  Texto<br>
-  <input type="text" name="article" ><br><br>
-  Seção<br>
-  <input type="text" name="section" ><br><br>
-  Photo1<br>
-  <input type="text" name="photo1" ><br><br>
-  Legenda1<br>
-  <input type="text" name="legend1" ><br><br>
-  Photo2<br>
-  <input type="text" name="photo2" ><br><br>
-  Legenda2<br>
-  <input type="text" name="legend2" ><br><br>
-  Photo3<br>
-  <input type="text" name="photo3" ><br><br>
-  Legenda3<br>
-  <input type="text" name="legend3" ><br><br>
-  Photo4<br>
-  <input type="text" name="photo4" ><br><br>
-  Legenda4<br>
-  <input type="text" name="legend4" ><br><br>
-  Photo5<br>
-  <input type="text" name="photo5" ><br><br>
-  Legenda5<br>
-  <input type="text" name="legend5" ><br><br>
-  Photo High Light<br>
-  <input type="text" name="photo_highlight" ><br><br>
-    Hightlight
-  <input type = "checkbox" name="highlight" value="1">
-  
-  
+<style>
 
-  <input type="submit" value="Cadastrar">
+*{
+  margin: 0px;
 
-</form> 
+}
+
+
+
+#main_box {width: 100%; }
+
+#box1 {background-color: #cccccc ; float: left; width: 65%; padding: 2%; height: 1000px}
+
+#box2 {background-color: #999999; float: left; width: 25%; padding: 2%; height: 1000px;}
+
+#box1 input {width: 1000px;}
+
+textarea {width: 1000px; height: 600px}
+
+#btn_cadastrar {background-color: blue; width: 400px; padding: 2%; color: #ffffff; border: 0px; margin-top: 30px;}
+
+label {display: block; margin-top: 1%; margin-bottom: 1%; }
+
+hr {margin-bottom: 20px; margin-top: 20px;}
+
+</style>
+
+<form action="/insert_article" method="post">
+ 
+
+<div id="main_box">
+ <div id="box1">
+      <label>Titulo</label>
+      <input type="text" name="title">
+      <label>Subtitulo</label>
+      <input type="text" name="subtitle">
+      <label>Autor</label>
+      <input type="text" name="author" >
+      <label>Texto</label>
+      <textarea id="story" name="article">
+      </textarea>  
+      <label>Seção</label>
+      <input type="text" name="section" >
+</div>
+
+<div id="box2">       
+      <label>Foto1</label>
+      <input type="text" name="photo1" >
+      <label>Legenda1</label>
+      <input type="text" name="legend1" >
+      <hr>
+
+      <label>Foto2</label>
+      <input type="text" name="photo2" >
+      <label>Legenda2</label>
+      <input type="text" name="legend2" >
+      <hr>
+
+      <label>Foto3</label>
+      <input type="text" name="photo3" >
+      <label>Legenda3</label>
+      <input type="text" name="legend3" >
+      <hr>
+
+      <label>Foto4</label>
+      <input type="text" name="photo4" >
+      <label>Legenda4</label>
+      <input type="text" name="legend4" >
+      <hr>
+      
+      <label>Foto5</label>
+      <input type="text" name="photo5" >
+      <label>Legenda5</label>
+      <input type="text" name="legend5" >
+      <hr>
+      
+      <label>Foto para Destaque</label>
+      <input type="text" name="photo_highlight" >
+      <label>Destacar?</label>
+      <input type = "checkbox" name="highlight" value="1">
+      <input type="submit" value="Cadastrar" id="btn_cadastrar">
+    
+</div>      
+
+</div>
+
+
+ 
+      </form> 

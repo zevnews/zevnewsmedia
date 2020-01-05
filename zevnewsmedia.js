@@ -88,7 +88,7 @@ app.get("/cms", function(req, res) { // user route
 
 
       
-      connection.query("SELECT * FROM ARTICLES", (err,rows) => {
+      connection.query("SELECT * FROM ARTICLES ORDER BY COD DESC", (err,rows) => {
       if(err) throw err;
       res.render("cms.ejs", {rows});
       
@@ -210,7 +210,7 @@ app.post('/update_article2',function(req,res){
   var highlight = req.body.highlight;
 
 
-  var sql = "UPDATE ARTICLES SET title = '"+ titulo +"', subtitle='"+ subtitulo +"', author='"+ author +"', article='"+ article +"', section='"+ section +"', photo1='"+ photo1 +"', legend1='"+ legend1 +"', photo2='"+ photo2 +"', legend2='"+ legend2 +"', photo3='"+ photo3 +"', legend3='"+ legend3 +"', photo4='"+ photo4 +"', legend4='"+ legend4 +"', photo5='"+ photo5 +"', legend5='"+ legend5 +"', highlight='"+ highlight +"' WHERE COD ="+ cod +" ;";
+  var sql = "UPDATE ARTICLES SET title = '"+ titulo +"', subtitle='"+ subtitulo +"', author='"+ author +"', article='"+ article +"', section='"+ section +"', photo1='"+ photo1 +"', legend1='"+ legend1 +"', photo2='"+ photo2 +"', legend2='"+ legend2 +"', photo3='"+ photo3 +"', legend3='"+ legend3 +"', photo4='"+ photo4 +"', legend4='"+ legend4 +"', photo5='"+ photo5 +"', legend5='"+ legend5 +"', highlight='"+ highlight +"', photo_highlight='"+ photo_highlight +"' WHERE COD ="+ cod +" ;";
   connection.query(sql, function (err, result) {
     if (err) throw err;
     console.log("1 record inserted" + cod);

@@ -1,11 +1,16 @@
 <h1>CMS ZEV.NEWS </h1>
-
+<% var total = 1%>
  <% rows.forEach(function(row) { %>
-        <hr>
+   
         <br><br>
-        <%= row.title %> <a href="delete_article/<%= row.cod%>">DELETE ARTICLE</a> - <a href="update_article/<%= row.cod%>">UPDATE ARTICLE</a>
+         <%= total%> || <strong><%= row.title %></strong> ||  <a href="update_article/<%= row.cod%>">Atualizar</a> -  <a href="delete_article/<%= row.cod%>">Deletar?</a>
+          <% if (row.highlight == 1){%>
+          => DESTACADO <=
+          <%}%>
         <br><br>
         <hr>
+         <%total = total + 1%>
     <% }); %>
-
+     <br><br>
     <a href="/new_article">INSERIR NOVO ARTIGO</a>
+    <br><br>
