@@ -25,60 +25,57 @@ hr {margin-bottom: 20px; margin-top: 20px;}
 
 </style>
 
-<form action="/update_article2" method="post">
-<% rows.forEach(function(row) { %>
-<input type="hidden" id="cod" name="cod" value="<%= row.cod %>">
+<form action="/insert_article" method="post">
  
 
 <div id="main_box">
  <div id="box1">
       <label>Titulo</label>
-      <input type="text" name="title" value="<%= row.title %>" >
+      <input type="text" name="title">
       <label>Subtitulo</label>
-      <input type="text" name="subtitle" value="<%= row.subtitle %>" >
+      <input type="text" name="subtitle">
       <label>Autor</label>
-      <input type="text" name="author" value="<%= row.author %>" >
+      <input type="text" name="author" >
       <label>Texto</label>
       <textarea id="story" name="article">
-      <%= row.article %>
       </textarea>  
       <label>Seção</label>
-      <input type="text" name="section"  value="<%= row.section %>">
+      <input type="text" name="section" >
 </div>
 
 <div id="box2">       
       <label>Foto1</label>
-      <input type="text" name="photo1" value="<%= row.photo1 %>">
+      <input type="text" name="photo1" >
       <label>Legenda1</label>
-      <input type="text" name="legend1" value="<%= row.legend1 %>">
+      <input type="text" name="legend1" >
       <hr>
 
       <label>Foto2</label>
-      <input type="text" name="photo2" value="<%= row.photo2 %>">
+      <input type="text" name="photo2" >
       <label>Legenda2</label>
-      <input type="text" name="legend2" value="<%= row.legend2 %>">
+      <input type="text" name="legend2" >
       <hr>
 
       <label>Foto3</label>
-      <input type="text" name="photo3" value="<%= row.photo3 %>">
+      <input type="text" name="photo3" >
       <label>Legenda3</label>
-      <input type="text" name="legend3" value="<%= row.legend3 %>">
+      <input type="text" name="legend3" >
       <hr>
 
       <label>Foto4</label>
-      <input type="text" name="photo4" value="<%= row.photo4 %>">
+      <input type="text" name="photo4" >
       <label>Legenda4</label>
-      <input type="text" name="legend4" value="<%= row.legend4 %>">
+      <input type="text" name="legend4" >
       <hr>
       
       <label>Foto5</label>
-      <input type="text" name="photo5" value="<%= row.photo5 %>">
+      <input type="text" name="photo5" >
       <label>Legenda5</label>
-      <input type="text" name="legend5" value="<%= row.legend5 %>">
+      <input type="text" name="legend5" >
       <hr>
       
       <label>Foto para Destaque</label>
-      <input type="text" name="photo_highlight" value="<%= row.photo_highlight %>">
+      <input type="text" name="photo_highlight" >
       <label>Destacar?</label>
       <input type = "checkbox" name="highlight" value="1">
       <input type="submit" value="Cadastrar" id="btn_cadastrar">
@@ -87,6 +84,6 @@ hr {margin-bottom: 20px; margin-top: 20px;}
 
 </div>
 
- <% }); %>
+
  
       </form> 
