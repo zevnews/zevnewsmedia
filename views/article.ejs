@@ -94,7 +94,7 @@
 <div id="container">
 	<div id="top"><img src="/icons/logo_zev_news.png" id="main_logo"><h1 id="zev_description"> ANÁLISES & NOTÍCIAS SOBRE VEÍCULOS COM EMISSÃO ZERO</h1></div>
 	<div class="topnav" id="myTopnav">
-  
+  <%- include('menu_superior') %>
 </div>
 	<div id="content_story">
 		<div id="box_story">
@@ -161,12 +161,7 @@ s.setAttribute('data-timestamp', +new Date());
 </form>
 	</div>
 	<div id="menu_footer">
-	<ul>
-			<li><a href="">Termos de Uso</a></li>
-			<li><a href="">Política de Privacidade</a></li>
-			<li><a href="">Sobre Zev.News</a></li>
-			<li><a href="">Entre em Contato</a></li>
-		</ul>
+	<%- include('menu_inferior') %>
 	</div>
 	<div id="footer"><span> ® 2019 Zev.News - Todos os direitos reservados</span></div>
 </div>

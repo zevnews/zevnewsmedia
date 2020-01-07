@@ -114,6 +114,7 @@ $(document).ready(function() {
 	<div id="top"><img src="icons/logo_zev_news.png" id="main_logo"><h1 id="zev_description"> ANÁLISES & NOTÍCIAS SOBRE VEÍCULOS COM EMISSÃO ZERO</h1></div>
 	<div class="topnav" id="myTopnav">
     <!-- HERE GOES THE MENU ITEMS -->
+    <%- include('menu_superior') %>
 	</div>
 
 	<div id="content">
@@ -133,7 +134,7 @@ $(document).ready(function() {
 
        		   <%if (row.highlight == 0 && contador < 4) { %>
        		    <div class="news_inside">
- 				<a href="article/<%=row.cod%>"><img src="images/<%=row.photo1%>" class="news_photo" /></a>
+ 				<a href="article/<%=row.cod%>/<%= row.section.toUpperCase() %>"><img src="images/<%=row.photo1%>" class="news_photo" /></a>
 				<span class="news_section"><a href="<%=  row.section%>"><%= row.section.toUpperCase() %></a></span>
 				<h1 class="news_title"><a href="article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').toLowerCase()%>">
 				<%= row.title %></a></h1>
@@ -152,7 +153,7 @@ $(document).ready(function() {
 			<% rows.slice(3,11).forEach(function(row) { %>
        		<%if (row.highlight == 0 && contador < 6) { %>
        		    <div class="news_inside">
- 				<a href="article/<%=row.cod%>"><img src="images/<%=row.photo1%>" class="news_photo" /></a>
+ 				<a href="article/<%=row.cod%>/<%= row.section.toUpperCase() %>""><img src="images/<%=row.photo1%>" class="news_photo" /></a>
 				<span class="news_section"><a href="<%=  row.section%>"><%= row.section.toUpperCase() %></a></span>
 				<h1 class="news_title"><a href="article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').toLowerCase()%>">
 				<%= row.title %></a></h1>
@@ -183,6 +184,7 @@ $(document).ready(function() {
 	</div>
 	<div id="menu_footer">
 		<!-- HERE GO THE MEU FOOTER-->
+		<%- include('menu_inferior') %>
 	</div>
 	<div id="footer"><span> ® 2019 Zev.News - Todos os direitos reservados</span></div>
 </div>
