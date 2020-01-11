@@ -1,35 +1,21 @@
-<style>
+<!DOCTYPE html>
+<html>
+ <head>
+  <link rel="stylesheet" type="text/css" href="css/css_estilo.css">
+</head> 
+<body>
 
-*{
-  margin: 0px;
-
-}
-
-
-
-#main_box {width: 100%; }
-
-#box1 {background-color: #cccccc ; float: left; width: 65%; padding: 2%; height: 1000px}
-
-#box2 {background-color: #999999; float: left; width: 25%; padding: 2%; height: 1000px;}
-
-#box1 input {width: 1000px;}
-
-textarea {width: 1000px; height: 600px}
-
-#btn_cadastrar {background-color: blue; width: 400px; padding: 2%; color: #ffffff; border: 0px; margin-top: 30px;}
-
-label {display: block; margin-top: 1%; margin-bottom: 1%; }
-
-hr {margin-bottom: 20px; margin-top: 20px;}
-
-</style>
 
 <form action="/insert_article" method="post">
+
  
 
-<div id="main_box">
+
  <div id="box1">
+ <h2>Bem-vindo <%= sessao_usuario %></h2> 
+ <a href="/logout">Desconectar</a> - <a href="/cms">Início</a>
+ <hr> 
+
       <label>Titulo</label>
       <input type="text" name="title">
       <label>Subtitulo</label>
@@ -41,6 +27,8 @@ hr {margin-bottom: 20px; margin-top: 20px;}
       </textarea>  
       <label>Seção</label>
       <input type="text" name="section" >
+      <label>Data Publicação</label>
+      <input type="text" name="publi_date" value="<%= data_p%>">
 </div>
 
 <div id="box2">       
@@ -83,7 +71,6 @@ hr {margin-bottom: 20px; margin-top: 20px;}
 </div>      
 
 </div>
-
-
- 
-      </form> 
+    </form>
+    </body>
+</html> 
