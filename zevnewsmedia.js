@@ -135,11 +135,15 @@ app.get("/cms", function(req, res) { // user route
       if(err) throw err;
       res.render("cms.ejs", {rows, sessao_usuario});
        
-      console.log( "Ok");
+    
+    rows.forEach(row => { 
+  console.log(row.publi_date); 
+}); 
+
        
     });
 
-    console.log( "sessao motocas " + req.session.name);
+    console.log( "Sessao" + req.session.name);
     }
     else
     {

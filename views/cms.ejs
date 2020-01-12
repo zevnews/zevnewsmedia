@@ -7,20 +7,121 @@
  <h2>Bem-vindo <%= sessao_usuario %></h2> 
  <hr> 
 <br><br>
-<% var total = 1%>
- <% rows.forEach(function(row) { %>
+
+<% var total = 1
+
+rows.forEach(function(row) { %>
+ <% include('funcoes') %>
+
+ <%var dia = new Date();
+  dia = row.publi_date;%>
+
+
+  <%  data = dia.getDate();
+  mes = dia.getMonth() + 1;
+  ano = dia.getFullYear();
+  dsemana = dia.getDay ();
+
+  switch (dsemana) {
+  case 0:
+    dsemana = "Domingo"
+    break;
+    case 1:
+    dsemana = "Segunda-Feira"
+    break;
+    case 2:
+    dsemana = "Terça-Feira"
+    break;
+    case 3:
+    dsemana = "Quarta-Feira"
+    break;
+    case 4:
+    dsemana = "Quinta-Feira"
+    break;
+    case 5:
+    dsemana = "Sexta-Feira"
+    break;
+    case 6:
+    dsemana = "Sábado"
+    break;
+  
+  
+}
+
+switch (mes) {
+  case 1:
+  mes = "janeiro"
+  break;
+  
+  case 2:
+  mes = "fevereiro"
+  break;
+  
+  case 3:
+  mes = "março"
+  break;
+  
+  case 4:
+  mes = "abril"
+  break;
+  
+  case 5:
+  mes = "maio"
+  break;
+  
+  case 6:
+  mes = "junho"
+  break;
+  
+  case 7:
+  mes = "julho"
+  break;
+  
+  case 8:
+  mes = "agosto"
+  break;
+  
+  case 9:
+  mes = "setembro"
+  break;
+
+  case 10:
+  mes = "outubro"
+  break;
+
+  case 10:
+  mes = "outubro"
+  break;
+
+  case 11:
+  mes = "novembro"
+  break;
+  
+  case 12:
+  mes = "dezembro"
+  break;
+  
+
+  }
+
+
+ %>
    
         <br><br>
-         <%= total%> || <strong><%= row.title %></strong> || <strong> Publicado em: <%= row.publi_date %></strong> ||  <a href="update_article/<%= row.cod%>">Atualizar</a> -  <a href="delete_article/<%= row.cod%>" onclick="return confirm('Deseja Deletar?')" >Deletar?</a>
+         <%= total%> || <strong><%= row.title %></strong> || <strong> Publicado em: <%= dsemana+ ", " + data + " de " + mes + " de " + ano %></strong> ||  <a href="update_article/<%= row.cod%>">Atualizar</a> -  <a href="delete_article/<%= row.cod%>" onclick="return confirm('Deseja Deletar?')" >Deletar?</a>
           <% if (row.highlight == 1){%>
           => DESTACADO <=
           <%}%>
         <br><br>
+          <% include('funcoes') %>
+            
+         
         <hr>
          <%total = total + 1%>
+
     <% }); %>
     <a href="/logout" onclick="return confirm('Deseja Desconectar?')">Desconectar</a> - <a href="/new_article">Incluir novo artigo?</a>
-
+ 
     </body>
 </html>
     
