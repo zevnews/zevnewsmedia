@@ -6,8 +6,31 @@
  
 <body>
 
+
+
 <form action="/update_article2" method="post">
-<% rows.forEach(function(row) { %>
+<% var total = 1
+
+rows.forEach(function(row) { %>
+
+
+ <%var dia = new Date();
+  dia = row.publi_date;%>
+
+
+  <%  var data = dia.getDate();
+      
+    var mes = dia.getMonth() + 1;
+    
+    var ano = dia.getFullYear();
+
+   var publi = data+"-"+mes+"-"+ano
+  
+ 
+
+ %>
+
+
 <input type="hidden" id="cod" name="cod" value="<%= row.cod %>">
  
 
@@ -29,7 +52,7 @@
       <label>Seção</label>
       <input type="text" name="section"  value="<%= row.section %>">
        <label>Data Publicação</label>
-      <input type="text" name="publi_date" value="<%= row.publi_date%>">
+      <input type="text" name="publi_date" value="<%= publi %>">
 </div>
 
 <div id="box2">       
