@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Zev.News | Notícias e Análises sobre a indústria de veículos com emissão zero</title>
+<link rel="stylesheet" type="text/css" href="/css/contato.css">
+<link href="https://fonts.googleapis.com/css?family=Teko&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=DM+Sans:700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="/css/menu_style.css">
+<script type="text/javascript" src="includes/main_nav_menu.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/includes/page_actions.js">
+</script>
+	<script>
+ 	  var mndFileds=new Array('Last Name','Email');
+ 	  var fldLangVal=new Array('Sobrenome','E-mail'); 
+		var name='';
+		var email='';
+
+ 	  function checkMandatory4087730000000224112() {
+		for(i=0;i<mndFileds.length;i++) {
+		  var fieldObj=document.forms['WebToContacts4087730000000224112'][mndFileds[i]];
+		  if(fieldObj) {
+			if (((fieldObj.value).replace(/^\s+|\s+$/g, '')).length==0) {
+			 if(fieldObj.type =='file')
+				{ 
+				 alert('Selecione um ficheiro para carregar.'); 
+				 fieldObj.focus(); 
+				 return false;
+				} 
+			alert(fldLangVal[i] +' não pode estar em branco.'); 
+   	   	  	  fieldObj.focus();
+   	   	  	  return false;
+			}  else if(fieldObj.nodeName=='SELECT') {
+  	   	   	 if(fieldObj.options[fieldObj.selectedIndex].value=='-None-') {
+				alert(fldLangVal[i] +' não pode estar em branco.'); 
+				fieldObj.focus();
+				return false;
+			   }
+			} else if(fieldObj.type =='checkbox'){
+ 	 	 	 if(fieldObj.checked == false){
+				alert('Please accept  '+fldLangVal[i]);
+				fieldObj.focus();
+				return false;
+			   } 
+			 } 
+			 try {
+			     if(fieldObj.name == 'Last Name') {
+				name = fieldObj.value;
+ 	 	 	    }
+			} catch (e) {}
+		    }
+		}
+		document.getElementById('formsubmit').disabled=true;
+	}
+	
+	
+	
+	
+</script>
+<script>
+
+
+  $(document).ready(function() {
+ 
+ 
+ $("#contact_form").submit(function(e) {
+ e.preventDefault();
+   /*alert("Em breve retornaremos o contato!");*/
+   /*$( "#contact_form" ).replaceWith( "<p>OBRIGADO por cadastrar-se!!</p>" );*/
+   /*alert("Obrigado");*/
+   var $form = $(this);
+   $.post($form.attr("action"), $form.serialize()).then(function() {
+    /*alert("Thank you!");*/
+	$( "#contact_form" ).replaceWith( "<span id='answer_contact'>Obrigado! Reponderemos em alguns minutos.</span>" );
+  
+  });
+  
+   
+ });
+
+
+
+}); 
+  
+  
+  
+  
+ 
+</script>
+
+</head>
+<body onload="activate_main_menu()">
+<div id="container">
+	<div id="top"><img src="/icons/logo_zev_news.png" id="main_logo"><h1 id="zev_description"> ANÁLISES & NOTÍCIAS SOBRE VEÍCULOS COM EMISSÃO ZERO</h1></div>
+	<div class="topnav" id="myTopnav">
+  <%- include('menu_superior') %>
+</div>
+	<div id="content_contact">
+	
+		<div id="box_content">
+<h3 class="capitular">Termo de Uso</h3>
+
+<p>Atualização mais recente: 14 de setembro de 2019.</p>
+
+<p>Por favor leia este Termo de Uso atenciosamente antes de utilizar <a href=”https://zev.news/ ”>www.zev.news</a>.</p>
+
+<p>O acesso e uso de <span class="zevnews">Zev.News</span> é condicionado à aceitação e à concordância com este Termo de Uso. Este Termo de Uso aplica-se a todos os visitantes, usuários e a todos demais que acessem ou utilizem os serviços de <span class="zevnews">Zev.News</span>.</p>
+
+<p>Ao acessar ou utilizar <span class="zevnews">Zev.News</span> você concorda com este Termos de Uso. Caso discorde de qualquer parte deste termo pedimos que não acesse ou utilize os serviços de <span class="zevnews">Zev.News</span>. </p>
+
+<h3 class="capitular">Término das Atividades</h3>
+
+<p><span class="zevnews">Zev.News</span> pode terminar ou suspender o acesso seus serviços imediatamente, sem qualquer aviso prévio, por quaisquer razões, incluindo as brechas deste termo.</p>
+
+<h3 class="capitular">Conteúdo</h3>
+
+<p><span class="zevnews">Zev.News</span> permite que o usuário publique comentários, links, compartilhe e disponibilize informações, textos, gráficos, vídeos e outros materiais, pelos quais o usuário é o único e total responsável.</p>
+
+<h3 class="capitular">Links para outros sites</h3>
+
+<p><span class="zevnews">Zev.News</span> pode conter links a sites e a serviços de terceiros, dos quais não é proprietário ou possui controle.</p>
+
+<p><span class="zevnews">Zev.News</span> não te controle, e não assume responsabilidade pelos conteúdos, políticas de privacidade, ou práticas de quaisquer sites ou serviços de terceiros. Assim, o usuário reconhece e concorda que <span class="zevnews">Zev.News</span> não será responsável, direta ou indiretamente, por qualquer dano ou prejuízo causado, ou supostamente causado, relacionados a conteúdos, bens ou serviços disponibilizados por meio de tais sites ou serviços. </p>
+
+<h3 class="capitular">Mudanças</h3>
+
+<p><span class="zevnews">Zev.News</span> reserva-se no direito de modificar ou substituir este Termo de Uso a qualquer momento. Caso este Termo de Uso seja alterado, tentaremos comunicar a modificação ou alteração do mesmo com pelo menos 30 dias de antecedência antes que o novo Termo de Uso tenha efeito.</p>
+
+<h3 class="capitular">Entre em contato</h3>
+
+<p>Caso tenha alguma dúvida ou pergunta sobre este Termo de Uso, por favor, entre em contato.</p>
+
+<%- include('formulario_contato') %>
+
+
+
+
+		</div>
+	</div>
+	<div id="newsletter">
+	<form action='https://crm.zoho.com/crm/WebToContactForm' name=WebToContacts4087730000000224112 method='POST' onSubmit='javascript:document.charset="UTF-8"; return checkMandatory4087730000000224112()' accept-charset='UTF-8'>
+		<input type='text' style='display:none;' name='xnQsjsdp' value='986d5572184fa0eeca62d5158d27c8989375f1e1c92d6492c6cf8026241b6de9'></input> 
+		<input type='hidden' name='zc_gad' id='zc_gad' value=''></input> 
+		<input type='text' style='display:none;' name='xmIwtLD' value='00748001d565152516d1d9617ef2ed1538b8071822d8042ed3d6fb4ca4cec32e'></input> 
+		<input type='text'  style='display:none;' name='actionType' value='Q29udGFjdHM='></input>
+		<input type='text' style='display:none;' name='returnURL' value='https://www.zev.news/home2.html' > </input>
+		<legend>RECEBA NOSSAS MATÉRIAS</legend>
+		<label for="firstname">Nome:</label><input type="text" name="First Name" required>
+		<label for="lasttname">Sobrenome:</label><input type="text" name="Last Name" required>
+		<label for="email">E-mail:</label><input type="email" name="Email" required>
+		<input type="submit" value="Cadastrar" id="send_data">
+		</form>
+	</div>
+	<div id="menu_footer">
+	<%- include('menu_inferior') %>
+	</div>
+	<div id="footer"><span> ® 2019 Zev.News - Todos os direitos reservados</span></div>
+</div>
+</body>
+</html>

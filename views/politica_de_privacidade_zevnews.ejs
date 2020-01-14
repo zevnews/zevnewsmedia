@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Zev.News | Notícias e Análises sobre a indústria de veículos com emissão zero</title>
+<link rel="stylesheet" type="text/css" href="/css/contato.css">
+<link href="https://fonts.googleapis.com/css?family=Teko&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=DM+Sans:700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="/css/menu_style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="/includes/main_nav_menu.js"></script>
+<script src="/includes/page_actions.js">
+</script>
+	<script>
+ 	  var mndFileds=new Array('Last Name','Email');
+ 	  var fldLangVal=new Array('Sobrenome','E-mail'); 
+		var name='';
+		var email='';
+
+ 	  function checkMandatory4087730000000224112() {
+		for(i=0;i<mndFileds.length;i++) {
+		  var fieldObj=document.forms['WebToContacts4087730000000224112'][mndFileds[i]];
+		  if(fieldObj) {
+			if (((fieldObj.value).replace(/^\s+|\s+$/g, '')).length==0) {
+			 if(fieldObj.type =='file')
+				{ 
+				 alert('Selecione um ficheiro para carregar.'); 
+				 fieldObj.focus(); 
+				 return false;
+				} 
+			alert(fldLangVal[i] +' não pode estar em branco.'); 
+   	   	  	  fieldObj.focus();
+   	   	  	  return false;
+			}  else if(fieldObj.nodeName=='SELECT') {
+  	   	   	 if(fieldObj.options[fieldObj.selectedIndex].value=='-None-') {
+				alert(fldLangVal[i] +' não pode estar em branco.'); 
+				fieldObj.focus();
+				return false;
+			   }
+			} else if(fieldObj.type =='checkbox'){
+ 	 	 	 if(fieldObj.checked == false){
+				alert('Please accept  '+fldLangVal[i]);
+				fieldObj.focus();
+				return false;
+			   } 
+			 } 
+			 try {
+			     if(fieldObj.name == 'Last Name') {
+				name = fieldObj.value;
+ 	 	 	    }
+			} catch (e) {}
+		    }
+		}
+		document.getElementById('formsubmit').disabled=true;
+	}
+	
+	
+	
+	
+</script>
+<script>
+
+
+  $(document).ready(function() {
+ 
+ 
+ $("#contact_form").submit(function(e) {
+ e.preventDefault();
+   /*alert("Em breve retornaremos o contato!");*/
+   /*$( "#contact_form" ).replaceWith( "<p>OBRIGADO por cadastrar-se!!</p>" );*/
+   /*alert("Obrigado");*/
+   var $form = $(this);
+   $.post($form.attr("action"), $form.serialize()).then(function() {
+    /*alert("Thank you!");*/
+	$( "#contact_form" ).replaceWith( "<span id='answer_contact'>Obrigado! Reponderemos em alguns minutos.</span>" );
+  
+  });
+  
+   
+ });
+
+
+
+}); 
+  
+  
+  
+  
+ 
+</script>
+
+</head>
+<body onload="activate_main_menu()">
+<div id="container">
+	<div id="top"><img src="/icons/logo_zev_news.png" id="main_logo"><h1 id="zev_description"> ANÁLISES & NOTÍCIAS SOBRE VEÍCULOS COM EMISSÃO ZERO</h1></div>
+	<div class="topnav" id="myTopnav">
+  <%- include('menu_superior') %>
+</div>
+	<div id="content_contact">
+	
+		<div id="box_content">
+
+<h3 class="capitular">Política de Privacidade</h3>
+
+<p><span class="zevnews">Zev.News</span> funciona a partir do endereço <a href="https://zev.news/">www.zev.news</a>. Esta página informa nossas políticas referentes à coleta e ao sigilo das informações pessoais que recebemos por meio deste site.</p>
+
+<p>Utilizamos informações pessoais unicamente com o propósito de aprimorar <span class="zevnews">Zev.News</span>. Ao utilizar <span class="zevnews">Zev.News</span>, você concorda com a coleta e a utilização das suas informações pessoais segundo os termos descritos nesta página de Política de Privacidade.</p> 
+
+<h3 class="capitular">Coleta e Uso de Dados</h3>
+
+<p>Durante a utilização de <span class="zevnews">Zev.News</span> podemos solicitar algumas informações pessoais, que podem ser utilizadas para entrar em contato ou para identificá-lo. Informações pessoais podem incluir, mas não limitar-se, às informações como nome, endereço de IP do seu computador, tipo de navegador, versão do navegador, páginas de <span class="zevnews">Zev.News</span> acessadas, hora, data, e o tempo nestas páginas, entre outras estatísticas.</p>
+
+<p>Também podemos utilizar serviços de terceiros, como, por exemplo, o Google Analytics, a fim de coletar, mapear e analisar informações pessoais.</p> 
+
+<h3 class="capitular">Comunicação</h3>
+
+<p>Podemos utilizar as suas informações pessoais para entrar em contato por meio de uma das newsletters de <span class="zevnews">Zev.News</span>.</p> 
+
+<h3 class="capitular">Cookies</h3>
+
+<p>Cookies são arquivos contendo pequenas porções de dados, que podem incluir identificadores anônimos. Cookies são enviados para o seu navegador a partir de um site e armazenados no disco rígido do seu computador.</p>
+
+<p>Como muitos outros sites, <span class="zevnews">Zev.News</span> utiliza cookies para coletar informações. Você pode configurar o seu navegador para recusar cookies ou alertá-lo quando cookies são enviados. Entretanto, caso não aceite cookies, você pode não ser capaz de utilizar certas partes de <span class="zevnews">Zev.News</span>.</p>
+
+<h3 class="capitular">Segurança</h3>
+
+<p>A segurança de suas informações pessoais é de fundamental importância para <span class="zevnews">Zev.News</span>. Porém, lembramos que nenhum meio de transmissão via internet, ou método de armazenamento de dados, é 100% seguro. Assim, embora <span class="zevnews">Zev.News</span> empenhe-se ao máximo para garantir a segurança dos seus dados, e utilize todos os recursos comercialmente disponíveis para tal, não podemos garantir segurança absoluta. </p>
+
+<h3 class="capitular">Atualização de Política de Privacidade</h3>
+
+<p><span class="zevnews">Zev.News</span> reserva-se no direito de atualizar ou alterar sua Política de Privacidade a qualquer momento. Por isso, recomendamos a checagem periódica da nossa Política de Privacidade. A continuação da utilização de <span class="zevnews">Zev.News</span> implica automaticamente no seu aceite da Política de Privacidade modificada.</p>
+
+<h3 class="capitular">Fale conosco</h3>
+
+<p>Caso tenha qualquer dúvida sobre esta Política de Privacidade, por favor, entre em contato conosco.</p>
+
+
+
+<%- include('formulario_contato') %>
+
+
+
+
+
+		</div>
+	</div>
+	<div id="newsletter">
+	<form action='https://crm.zoho.com/crm/WebToContactForm' name=WebToContacts4087730000000224112 method='POST' onSubmit='javascript:document.charset="UTF-8"; return checkMandatory4087730000000224112()' accept-charset='UTF-8'>
+		<input type='text' style='display:none;' name='xnQsjsdp' value='986d5572184fa0eeca62d5158d27c8989375f1e1c92d6492c6cf8026241b6de9'></input> 
+		<input type='hidden' name='zc_gad' id='zc_gad' value=''></input> 
+		<input type='text' style='display:none;' name='xmIwtLD' value='00748001d565152516d1d9617ef2ed1538b8071822d8042ed3d6fb4ca4cec32e'></input> 
+		<input type='text'  style='display:none;' name='actionType' value='Q29udGFjdHM='></input>
+		<input type='text' style='display:none;' name='returnURL' value='https://www.zev.news/home2.html' > </input>
+		<legend>RECEBA NOSSAS MATÉRIAS</legend>
+		<label for="firstname">Nome:</label><input type="text" name="First Name" required>
+		<label for="lasttname">Sobrenome:</label><input type="text" name="Last Name" required>
+		<label for="email">E-mail:</label><input type="email" name="Email" required>
+		<input type="submit" value="Cadastrar" id="send_data">
+		</form>
+	</div>
+	<div id="menu_footer">
+	<%- include('menu_inferior') %>
+	</div>
+	<div id="footer"><span> ® 2019 Zev.News - Todos os direitos reservados</span></div>
+</div>
+</body>
+</html>

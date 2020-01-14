@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Zev.News | Notícias e Análises sobre a indústria de veículos com emissão zero</title>
+<link rel="stylesheet" type="text/css" href="/css/contato.css">
+<link href="https://fonts.googleapis.com/css?family=Teko&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=DM+Sans:700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="/css/menu_style.css">
+<script type="text/javascript" src="/includes/main_nav_menu.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/includes/page_actions.js">
+</script>
+	<script>
+ 	  var mndFileds=new Array('Last Name','Email');
+ 	  var fldLangVal=new Array('Sobrenome','E-mail'); 
+		var name='';
+		var email='';
+
+ 	  function checkMandatory4087730000000224112() {
+		for(i=0;i<mndFileds.length;i++) {
+		  var fieldObj=document.forms['WebToContacts4087730000000224112'][mndFileds[i]];
+		  if(fieldObj) {
+			if (((fieldObj.value).replace(/^\s+|\s+$/g, '')).length==0) {
+			 if(fieldObj.type =='file')
+				{ 
+				 alert('Selecione um ficheiro para carregar.'); 
+				 fieldObj.focus(); 
+				 return false;
+				} 
+			alert(fldLangVal[i] +' não pode estar em branco.'); 
+   	   	  	  fieldObj.focus();
+   	   	  	  return false;
+			}  else if(fieldObj.nodeName=='SELECT') {
+  	   	   	 if(fieldObj.options[fieldObj.selectedIndex].value=='-None-') {
+				alert(fldLangVal[i] +' não pode estar em branco.'); 
+				fieldObj.focus();
+				return false;
+			   }
+			} else if(fieldObj.type =='checkbox'){
+ 	 	 	 if(fieldObj.checked == false){
+				alert('Please accept  '+fldLangVal[i]);
+				fieldObj.focus();
+				return false;
+			   } 
+			 } 
+			 try {
+			     if(fieldObj.name == 'Last Name') {
+				name = fieldObj.value;
+ 	 	 	    }
+			} catch (e) {}
+		    }
+		}
+		document.getElementById('formsubmit').disabled=true;
+	}
+	
+	
+	
+	
+</script>
+<script>
+
+
+  $(document).ready(function() {
+ 
+ 
+ $("#contact_form").submit(function(e) {
+ e.preventDefault();
+   /*alert("Em breve retornaremos o contato!");*/
+   /*$( "#contact_form" ).replaceWith( "<p>OBRIGADO por cadastrar-se!!</p>" );*/
+   /*alert("Obrigado");*/
+   var $form = $(this);
+   $.post($form.attr("action"), $form.serialize()).then(function() {
+    /*alert("Thank you!");*/
+	$( "#contact_form" ).replaceWith( "<span id='answer_contact'>Obrigado! Reponderemos em alguns minutos.</span>" );
+  
+  });
+  
+   
+ });
+
+
+
+}); 
+  
+  
+  
+  
+ 
+</script>
+
+</head>
+<body onload="activate_main_menu()">
+<div id="container">
+	<div id="top"><img src="/icons/logo_zev_news.png" id="main_logo"><h1 id="zev_description"> ANÁLISES & NOTÍCIAS SOBRE VEÍCULOS COM EMISSÃO ZERO</h1></div>
+	<div class="topnav" id="myTopnav">
+   <%- include('menu_superior') %>
+</div>
+	<div id="content_contact">
+	
+		<div id="box_content">
+<h3 class="capitular">Sobre Zev.News</h3>
+
+<p><span class="zev_news_media">Zev.News</span> é a fonte para compreender as transformações da indústria automotiva, provocadas pela ascensão dos veículos com emissão zero, os chamados ZEV (Zero Emission Vehicles). Carros, motos e todos os tipos de veículos elétricos.
+
+<p>Mais do que apenas publicar notícias, trata-se de explicar por que são notícia. De modo analítico, contextualizador. <span class="zev_news_media">Zev.News</span> tem como objetivo oferecer perspectivas claras à audiência, baseadas nos fatos responsáveis pelas mudanças em curso.
+
+<p>As reportagens abordam das startups às corridas. Da política aos negócios. Englobando ainda tecnologia e mobilidade. Tudo sempre de modo claro e categorizado.</p>
+
+<p>Por isso, <span class="zev_news_media">Zev.News<span> divide-se nas seguintes seções:</p>
+
+<p><span class="zev_news_media">Startups</span> – Análise de empresas inovadoras e entrevistas com fundadores e responsáveis por suas operações.</p>
+
+<p><span class="zev_news_media">Tecnologia</span> – Como funcionam as tecnologias responsáveis pela transformação da indústria automotiva.</p>
+
+<p><span class="zev_news_media">Política</span> - Como estados e sociedade estimulam e se integram aos veículos com emissão zero.</p>
+
+<p><span class="zev_news_media">Negócios</span> -  Como empresas aproveitam oportunidades para desenvolver nos novos negócios.</p>
+
+<p><span class="zev_news_media">Racing</span> - Análises de provas, recordes e Raio-X dos mais diversos veículos que correm nas categorias elétricas.</p> 
+
+
+<p>Caso tenha alguma dúvida ou pergunta sobre <span class="zev_news_media">Zev.News<span>, por favor, entre em contato.</p>
+
+<%- include('formulario_contato') %>
+
+
+
+		</div>
+	</div>
+	<div id="newsletter">
+	<form action='https://crm.zoho.com/crm/WebToContactForm' name=WebToContacts4087730000000224112 method='POST' onSubmit='javascript:document.charset="UTF-8"; return checkMandatory4087730000000224112()' accept-charset='UTF-8'>
+		<input type='text' style='display:none;' name='xnQsjsdp' value='986d5572184fa0eeca62d5158d27c8989375f1e1c92d6492c6cf8026241b6de9'></input> 
+		<input type='hidden' name='zc_gad' id='zc_gad' value=''></input> 
+		<input type='text' style='display:none;' name='xmIwtLD' value='00748001d565152516d1d9617ef2ed1538b8071822d8042ed3d6fb4ca4cec32e'></input> 
+		<input type='text'  style='display:none;' name='actionType' value='Q29udGFjdHM='></input>
+		<input type='text' style='display:none;' name='returnURL' value='https://www.zev.news/home.html' > </input>
+		<legend>RECEBA NOSSAS MATÉRIAS</legend>
+		<label for="firstname">Nome:</label><input type="text" name="First Name" required>
+		<label for="lasttname">Sobrenome:</label><input type="text" name="Last Name" required>
+		<label for="email">E-mail:</label><input type="email" name="Email" required>
+		<input type="submit" value="Cadastrar" id="send_data">
+		</form>
+	</div>
+	<div id="menu_footer">
+		<%- include('menu_inferior') %>
+	</div>
+	<div id="footer"><span> ® 2019 Zev.News - Todos os direitos reservados</span></div>
+</div>
+</body>
+</html>

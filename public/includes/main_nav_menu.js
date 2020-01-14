@@ -13,6 +13,14 @@ function activate_main_menu() {
 	  var page_section = document.getElementById("page_section");
 	  
 	  switch (page_section.value) {
+		
+	  	case "home":
+		var page = page_section.value + "_item";
+		var element = document.getElementById(page);
+	    element.classList.add("active");
+        break;
+    
+
 		case "carros":
 		var page = page_section.value + "_item";
 		var element = document.getElementById(page);

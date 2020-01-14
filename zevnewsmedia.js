@@ -155,6 +155,27 @@ app.get("/cms", function(req, res) { // user route
       
 });
 
+app.get("/politica_de_privacidade_zevnews", function(req, res) { // root route or home route
+    //res.send('welcome to home page');
+    res.render("politica_de_privacidade_zevnews.ejs")
+});
+
+
+app.get("/termos_de_uso_zevnews", function(req, res) { // root route or home route
+    //res.send('welcome to home page');
+    res.render("termos_de_uso_zevnews.ejs")
+});
+
+app.get("/contato", function(req, res) { // root route or home route
+    //res.send('welcome to home page');
+    res.render("contato.ejs")
+});
+
+app.get("/sobre_zevnews", function(req, res) { // root route or home route
+    //res.send('welcome to home page');
+    res.render("sobre_zevnews.ejs")
+});
+
 
 app.get("/all", function(req, res) { // user route
    // res.render("testes.ejs", {
