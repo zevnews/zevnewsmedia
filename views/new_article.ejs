@@ -2,11 +2,13 @@
 <html>
  <head>
   <link rel="stylesheet" type="text/css" href="css/css_estilo.css">
+<script type="text/javascript" src="/includes/validadata.js"></script>
 </head> 
-<body>
+
+<body >
 
 
-<form action="/insert_article" method="post">
+<form action="/insert_article" method="post" id="form1" name="form1" onsubmit="return validatedate(document.form1.publi_date);">
 
  
 
@@ -28,7 +30,7 @@
       <label>Seção</label>
       <input type="text" name="section" >
       <label>Data Publicação</label>
-      <input type="text" name="publi_date" value="<%= data_p%>">
+      <input type="text" name="publi_date" id="publi_date" value="<%= data_p%>">
 </div>
 
 <div id="box2">       
@@ -66,7 +68,7 @@
       <input type="text" name="photo_highlight" >
       <label>Destacar?</label>
       <input type = "checkbox" name="highlight" value="1">
-      <input type="submit" value="Cadastrar" id="btn_cadastrar">
+      <input type="submit" value="Cadastrar" id="btn_cadastrar" >
     
 </div>      
 
