@@ -1,81 +1,90 @@
-<style>
+<!DOCTYPE html>
+<html>
+ <head>
+  <link rel="stylesheet" type="text/css" href="css/css_estilo.css">
+</head>
+ 
+<body>
 
-*{
-  margin: 0px;
-
-}
 
 
+<form action="/update_article2" method="post">
+<% var total = 1
 
-#main_box {width: 100%; }
+rows.forEach(function(row) { %>
 
-#box1 {background-color: #cccccc ; float: left; width: 65%; padding: 2%; height: 1000px}
 
-#box2 {background-color: #999999; float: left; width: 25%; padding: 2%; height: 1000px;}
+ <%var dia = new Date();
+  dia = row.publi_date;%>
 
-#box1 input {width: 1000px;}
 
-textarea {width: 1000px; height: 600px}
+  <%  var data = dia.getDate();
+      
+    var mes = dia.getMonth() + 1;
+    
+    var ano = dia.getFullYear();
 
-#btn_cadastrar {background-color: blue; width: 400px; padding: 2%; color: #ffffff; border: 0px; margin-top: 30px;}
-
-label {display: block; margin-top: 1%; margin-bottom: 1%; }
-
-hr {margin-bottom: 20px; margin-top: 20px;}
-
-</style>
-
-<form action="/insert_article" method="post">
+   var publi = data+"-"+mes+"-"+ano
+  
  
 
-<div id="main_box">
+ %>
+
+
+<input type="hidden" id="cod" name="cod" value="<%= row.cod %>">
  <div id="box1">
+ <h2>Bem-vindo <%= sessao_usuario %></h2> 
+ <a href="/logout">Desconectar</a> - <a href="/cms">Início</a>
+ <hr> 
       <label>Titulo</label>
-      <input type="text" name="title">
+      <input type="text" name="title" value="<%= row.title %>" >
       <label>Subtitulo</label>
-      <input type="text" name="subtitle">
+      <input type="text" name="subtitle" value="<%= row.subtitle %>" >
       <label>Autor</label>
-      <input type="text" name="author" >
+      <input type="text" name="author" value="<%= row.author %>" >
       <label>Texto</label>
       <textarea id="story" name="article">
+      <%= row.article %>
       </textarea>  
       <label>Seção</label>
-      <input type="text" name="section" >
+      <input type="text" name="section"  value="<%= row.section %>">
+       <label>Data Publicação</label>
+      <input type="text" name="publi_date" value="<%= publi %>">
 </div>
 
 <div id="box2">       
       <label>Foto1</label>
-      <input type="text" name="photo1" >
+      <input type="text" name="photo1" value="<%= row.photo1 %>">
       <label>Legenda1</label>
-      <input type="text" name="legend1" >
+      <input type="text" name="legend1" value="<%= row.legend1 %>">
       <hr>
 
       <label>Foto2</label>
-      <input type="text" name="photo2" >
+      <input type="text" name="photo2" value="<%= row.photo2 %>">
       <label>Legenda2</label>
-      <input type="text" name="legend2" >
+      <input type="text" name="legend2" value="<%= row.legend2 %>">
       <hr>
 
       <label>Foto3</label>
-      <input type="text" name="photo3" >
+      <input type="text" name="photo3" value="<%= row.photo3 %>">
       <label>Legenda3</label>
-      <input type="text" name="legend3" >
+      <input type="text" name="legend3" value="<%= row.legend3 %>">
       <hr>
 
       <label>Foto4</label>
-      <input type="text" name="photo4" >
+      <input type="text" name="photo4" value="<%= row.photo4 %>">
       <label>Legenda4</label>
-      <input type="text" name="legend4" >
+      <input type="text" name="legend4" value="<%= row.legend4 %>">
       <hr>
       
       <label>Foto5</label>
-      <input type="text" name="photo5" >
+      <input type="text" name="photo5" value="<%= row.photo5 %>">
       <label>Legenda5</label>
-      <input type="text" name="legend5" >
+      <input type="text" name="legend5" value="<%= row.legend5 %>">
       <hr>
       
       <label>Foto para Destaque</label>
-      <input type="text" name="photo_highlight" >
+      <input type="text" name="photo_highlight" value="<%= row.photo_highlight %>">
       <label>Destacar?</label>
       <input type = "checkbox" name="highlight" value="1">
       <input type="submit" value="Cadastrar" id="btn_cadastrar">
@@ -84,6 +93,8 @@ hr {margin-bottom: 20px; margin-top: 20px;}
 
 </div>
 
-
+ <% }); %>
  
-      </form> 
+      </form>
+       </body>
+</html>  

@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
  <head>
-  <link rel="stylesheet" type="text/css" href="css/css_estilo.css">
+  <link rel="stylesheet" type="text/css" href="/css/css_estilo.css">
+  <script type="text/javascript" src="/includes/validadata.js"></script>
 </head>
  
 <body>
 
 
 
-<form action="/update_article2" method="post">
+<form action="/update_article2" method="post" id="form1" name="form1" onsubmit="return validatedate(document.form1.publi_date);">
 <% var total = 1
 
 rows.forEach(function(row) { %>
@@ -32,9 +33,6 @@ rows.forEach(function(row) { %>
 
 
 <input type="hidden" id="cod" name="cod" value="<%= row.cod %>">
- 
-
-<div id="main_box">
  <div id="box1">
  <h2>Bem-vindo <%= sessao_usuario %></h2> 
  <a href="/logout">Desconectar</a> - <a href="/cms">Início</a>
@@ -52,7 +50,7 @@ rows.forEach(function(row) { %>
       <label>Seção</label>
       <input type="text" name="section"  value="<%= row.section %>">
        <label>Data Publicação</label>
-      <input type="text" name="publi_date" value="<%= publi %>">
+      <input type="text" name="publi_date" id="publi_date" value="<%= publi %>">
 </div>
 
 <div id="box2">       

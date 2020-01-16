@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <link rel="stylesheet" type="text/css" href="css/css_estilo.css">
+<script type="text/javascript" src="/includes/validadata.js"></script>
+</head> 
+
+<body >
+
+<h1>ok</h1>
+<form action="/insert_article" method="post" id="form1" name="form1" >
+
+ 
+
+
+ <div id="box1">
+ <h2>Bem-vindo <%= sessao_usuario %></h2> 
+ <a href="/logout">Desconectar</a> - <a href="/cms">Início</a>
+ <hr> 
+
+      <label>Titulo</label>
+      <input type="text" name="title">
+      <label>Subtitulo</label>
+      <input type="text" name="subtitle">
+      <label>Autor</label>
+      <input type="text" name="author" >
+      <label>Texto</label>
+      <textarea id="story" name="article">
+      </textarea>  
+      <label>Seção</label>
+      <input type="text" name="section" >
+      <label>Data Publicação</label>
+      <input type="text" name="publi_date" id="publi_date" value="">
+</div>
+
+<div id="box2">       
+      <label>Foto1</label>
+      <input type="text" name="photo1" >
+      <label>Legenda1</label>
+      <input type="text" name="legend1" >
+      <hr>
+
+      <label>Foto2</label>
+      <input type="text" name="photo2" >
+      <label>Legenda2</label>
+      <input type="text" name="legend2" >
+      <hr>
+
+      <label>Foto3</label>
+      <input type="text" name="photo3" >
+      <label>Legenda3</label>
+      <input type="text" name="legend3" >
+      <hr>
+
+      <label>Foto4</label>
+      <input type="text" name="photo4" >
+      <label>Legenda4</label>
+      <input type="text" name="legend4" >
+      <hr>
+      
+      <label>Foto5</label>
+      <input type="text" name="photo5" >
+      <label>Legenda5</label>
+      <input type="text" name="legend5" >
+      <hr>
+      
+      <label>Foto para Destaque</label>
+      <input type="text" name="photo_highlight" >
+      <label>Destacar?</label>
+      <input type = "checkbox" name="highlight" value="1">
+      <input type="submit" value="Cadastrar" id="btn_cadastrar" >
+    
+</div>      
+
+</div>
+    </form>
+    </body>
+</html> 
