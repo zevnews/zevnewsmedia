@@ -1,8 +1,11 @@
 
 <!DOCTYPE html>
-<%var title
- var publidate;
- var dia;
+<%
+var title
+var subtitle
+var publidate;
+var photo1
+var dia;
 
  var f1;
  var legenda1; 
@@ -238,16 +241,12 @@ switch (mes) {
 <script type="text/javascript">
        $(document).ready(function(){
 
-         alert("Hello Zev!!!!");
-         
-         $( "foto1" ).html("<img src='/images/<%= photo1 %>' class='photo_article'><legend class='photo_legend'><%= legend1%></legend>");
-         $( "foto2" ).html("<img src='/images/<%= photo2 %>' class='photo_article'><legend class='photo_legend'><%= legend2%></legend>");
-         $( "foto3" ).html("<img src='/images/<%= photo3 %>' class='photo_article'><legend class='photo_legend'><%= legend3%></legend>");
-         $( "foto4" ).html("<img src='/images/<%= photo2 %>' class='photo_article'><legend class='photo_legend'><%= legend4%></legend>");
-         $( "foto5" ).html("<img src='/images/<%= photo2 %>' class='photo_article'><legend class='photo_legend'><%= legend5%></legend>");
-         
-         
-
+         $( "foto1" ).html("<img src='/images/<%= photo1 %>' class='photo_article'><legend class='photo_legend'><%= legend1.toUpperCase()%></legend>");
+         $( "foto2" ).html("<img src='/images/<%= photo2 %>' class='photo_article'><legend class='photo_legend'><%= legend2.toUpperCase()%></legend>");
+         $( "foto3" ).html("<img src='/images/<%= photo3 %>' class='photo_article'><legend class='photo_legend'><%= legend3.toUpperCase()%></legend>");
+         $( "foto4" ).html("<img src='/images/<%= photo4 %>' class='photo_article'><legend class='photo_legend'><%= legend4.toUpperCase()%></legend>");
+         $( "foto5" ).html("<img src='/images/<%= photo5 %>' class='photo_article'><legend class='photo_legend'><%= legend5.toUpperCase()%></legend>");
+         $( "h3" ).addClass( "capitular" );
          });
        
    </script>
@@ -273,7 +272,7 @@ switch (mes) {
 
 <img src="/images/<%= photo1 %>" class="photo_article">
 <legend class="photo_legend">
-Os ângulos de entrada (35º) em saída (28º) indicam que a Cybertruck tem vocação para o fora de estrada – Foto: Divulgação Tesla
+<%= legend1 %>
 </legend>
 <h1 class="story_title"><%= title %></h1>
 <h2 class="story_subtitle"><%= subtitle %></h2>
