@@ -2,7 +2,10 @@
 <!DOCTYPE html>
 <%var title
  var publidate;
- var dia; 
+ var dia;
+
+ var f1;
+ var legenda1; 
 
  %>
  <% rows.forEach(function(row) { %>
@@ -17,6 +20,10 @@
        
        photo1 = row.photo1
        legend1 = row.legend1
+
+       legenda1 = legend1
+
+       foto1 = photo1;
        
        photo2 = row.photo2
        legend2 = row.legend2
@@ -29,17 +36,15 @@
      
       photo5 = row.photo5
       legend5 = row.legend5
+      %>
+
+
+<%});%> 
 
 
 
 
-       %>
-    <% }); 
-
-
-
-
-
+<%
 
 function teste(x){
 	
@@ -156,6 +161,7 @@ switch (mes) {
 <link rel="stylesheet" type="text/css" href="/css/menu_style.css">
 <script type="text/javascript" src="/includes/main_nav_menu.js"></script>
 <script src="/includes/page_actions.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
 	<script>
  	  var mndFileds=new Array('Last Name','Email');
  	  var fldLangVal=new Array('Sobrenome','E-mail'); 
@@ -200,6 +206,58 @@ switch (mes) {
 	}
 </script>
 
+<% rows.forEach(function(row) { %>
+       <%
+
+       title = row.title
+       subtitle = row.subtitle
+       text = row.article
+       section = row.section
+       author = row.author
+       publidate = row.publi_date
+       
+       photo1 = row.photo1
+       legend1 = row.legend1
+
+       legenda1 = legend1
+
+       foto1 = photo1;
+       
+       photo2 = row.photo2
+       legend2 = row.legend2
+
+      photo3 = row.photo3
+      legend3 = row.legend3
+
+      photo4 = row.photo4
+      legend4 = row.legend4
+     
+      photo5 = row.photo5
+      legend5 = row.legend5
+      %>
+<script type="text/javascript">
+       $(document).ready(function(){
+
+         alert("Hello Zev!!!!");
+         
+         $( "foto1" ).html("<img src='/images/<%= photo1 %>' class='photo_article'><legend class='photo_legend'><%= legend1%></legend>");
+         $( "foto2" ).html("<img src='/images/<%= photo2 %>' class='photo_article'><legend class='photo_legend'><%= legend2%></legend>");
+         $( "foto3" ).html("<img src='/images/<%= photo3 %>' class='photo_article'><legend class='photo_legend'><%= legend3%></legend>");
+         $( "foto4" ).html("<img src='/images/<%= photo2 %>' class='photo_article'><legend class='photo_legend'><%= legend4%></legend>");
+         $( "foto5" ).html("<img src='/images/<%= photo2 %>' class='photo_article'><legend class='photo_legend'><%= legend5%></legend>");
+         
+         
+
+         });
+       
+   </script>
+
+
+<%});%> 
+
+
+
+
 
 
 </head>
@@ -223,8 +281,6 @@ Os ângulos de entrada (35º) em saída (28º) indicam que a Cybertruck tem voca
 	<div id="author_date">
 		<span id="author">Por <a href="" rel="author"><%= author%></a></span> | <time datetime="2019-07-30" id="published_date"> <%= teste(publidate) %></time>
 	</div>
-
-
 
 <%- text%>
 

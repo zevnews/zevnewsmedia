@@ -22,6 +22,12 @@
 <link rel="stylesheet" type="text/css" href="css/menu_style.css">
 <script type="text/javascript" src="includes/main_nav_menu.js"></script>
 <script src="includes/page_actions.js"></script>
+<script type="text/javascript">
+       $(document).ready(function(){
+         alert("Hello World!");
+         $( "img.foto1" ).replaceWith( "<h2>New heading</h2>" );   
+       });
+   </script>
 <% var main_title
    var main_subtitle
    var main_cod
@@ -226,7 +232,7 @@ switch (mes) {
 
   }
 
-   var resultado = "Publicado "+  dsemana + ", " + data + " de " + mes + " de " + ano
+   var resultado = " "+  dsemana + ", " + data + " de " + mes + " de " + ano
 
 	return resultado;
 }
@@ -335,14 +341,14 @@ $(document).ready(function() {
  
 
        		   <%if (row.highlight == 0 && contador < 4) { %>
-       		    <div class="news_inside">
+       	<div class="news_inside">
  				<a href="article/<%=row.cod%>/<%= row.section.toUpperCase() %>"><img src="images/<%=row.photo1%>" class="news_photo" /></a>
 				<span class="news_section"><a href="<%=  row.section%>"><%= row.section.toUpperCase() %></a></span>
 				<h1 class="news_title"><a href="article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').toLowerCase()%>">
 				<%= row.title %></a></h1>
 				<!-- <h2 class="news_subtitle">Este é um teste de subtítulo</h2> -->
-				<span class="news_author">Por <a href="author/<%= row.author %>"><%= row.author %></a></span> | 
-				<time datetime="<%= row.publi_date %>" class="publi_date_main"><%= teste(row.publi_date)%></time>
+				<span class="news_author">Por <a href="author/<%= row.author %>"><%= row.author %></a></span> 
+				<time datetime="<%= row.publi_date %>" class="publi_date_main">em <%= teste(row.publi_date)%></time>
 				</div>
 				<%contador = contador + 1%> 
 				<% } %>	
@@ -355,14 +361,14 @@ $(document).ready(function() {
 			<%contador = 1 %>	   
 			<% rows.slice(3,11).forEach(function(row) { %>
        		<%if (row.highlight == 0 && contador < 6) { %>
-       		    <div class="news_inside">
- 				<a href="article/<%=row.cod%>/<%= row.section.toUpperCase() %>""><img src="images/<%=row.photo1%>" class="news_photo" /></a>
-				<span class="news_section"><a href="<%=  row.section%>"><%= row.section.toUpperCase() %></a><%= teste(row.publi_date)%></span> 
+       	 <div class="news_inside">
+ 				<a href="article/<%=row.cod%>/<%= row.section.toUpperCase() %>"><img src="images/<%=row.photo1%>" class="news_photo" /></a>
+				<span class="news_section"><a href="<%=  row.section%>"><%= row.section.toUpperCase() %></a></span> 
 				<h1 class="news_title"><a href="article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').toLowerCase()%>">
 				<%= row.title %></a></h1>
 				<!-- <h2 class="news_subtitle">Este é um teste de subtítulo</h2> -->
 				<span class="news_author">Por <a href="author/<%= row.author%>"><%= row.author %></a></span>
-				<time datetime="<%= row.publi_date %>" class="publi_date_main"><%= teste(row.publi_date)%></time>
+				<time datetime="<%= row.publi_date %>" class="publi_date_main">em <%= teste(row.publi_date)%></time>
 				</div> 
 				<%contador = contador + 1%> 
 				<% } %>	 
