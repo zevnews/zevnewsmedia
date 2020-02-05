@@ -1,9 +1,69 @@
-<form action="/home2.html" method="post"  data-netlify="true" id="contact_form">
+<!-- Note :
+   - You can modify the font style and form style to suit your website. 
+   - Code lines with comments ���Do not remove this code���  are required for the form to work properly, make sure that you do not remove these lines of code. 
+   - The Mandatory check script can modified as to suit your business needs. 
+   - It is important that you test the modified form before going live.-->
+  <META HTTP-EQUIV ='content-type' CONTENT='text/html;charset=UTF-8'>
+   <form action='https://crm.zoho.com/crm/WebToLeadForm' id="contact_form" name=WebToLeads4087730000000304001 method='POST' onSubmit='javascript:document.charset="UTF-8"; return checkMandatory4087730000000304001()' accept-charset='UTF-8'>
+ <input type='text' style='display:none;' name='xnQsjsdp' value='986d5572184fa0eeca62d5158d27c8989375f1e1c92d6492c6cf8026241b6de9'></input> 
+ <input type='hidden' name='zc_gad' id='zc_gad' value=''></input> 
+ <input type='text' style='display:none;' name='xmIwtLD' value='00748001d565152516d1d9617ef2ed157211fbac52b8d9916f7e0421c52896b1'></input> 
+ <input type='text'  style='display:none;' name='actionType' value='TGVhZHM='></input>
+ <input type='text' style='display:none;' name='returnURL' value='https://www.zev.news' > </input><br></br>
+	 <!-- Do not remove this code. -->
+
+
 <legend>PREENCHA SEUS DADOS</legend>
-<label>Nome: <input type="text" name="name" required /></label>   
-<label>Sobrenome: <input type="text" name="lastname" required /></label>   
-<label>Email: <input type="email" name="email" required /></label>
-<label>Assunto<input type="text" name="title"  required/></label>   
-<label>Mensagem: <textarea name="message" required></textarea></label>
-<button type="submit" id="send_message">Enviar Mensagem</button>
+<label>Nome: <input type="text" name="First Name" required /></label>   
+<label>Sobrenome: <input type="text" name="Last Name" required /></label>   
+<label>Email: <input type="email" name="Email" required /></label>
+<label>Assunto<input type="text" name="Company"  required/></label>   
+<label>Mensagem: <textarea name="Description" required></textarea></label>
+<button type="submit" id="formsubmit">Enviar Contato</button>
+
+
+	
+	<script>
+ 	  var mndFileds=new Array('Company','First Name','Last Name','Email','Description');
+ 	  var fldLangVal=new Array('Assunto','Nome','Sobrenome','E-mail','Mensagem'); 
+		var name='';
+		var email='';
+
+ 	  function checkMandatory4087730000000304001() {
+		for(i=0;i<mndFileds.length;i++) {
+		  var fieldObj=document.forms['WebToLeads4087730000000304001'][mndFileds[i]];
+		  if(fieldObj) {
+			if (((fieldObj.value).replace(/^\s+|\s+$/g, '')).length==0) {
+			 if(fieldObj.type =='file')
+				{ 
+				 alert('Selecione um ficheiro para carregar.'); 
+				 fieldObj.focus(); 
+				 return false;
+				} 
+			alert(fldLangVal[i] +' não pode estar em branco.'); 
+   	   	  	  fieldObj.focus();
+   	   	  	  return false;
+			}  else if(fieldObj.nodeName=='SELECT') {
+  	   	   	 if(fieldObj.options[fieldObj.selectedIndex].value=='-None-') {
+				alert(fldLangVal[i] +' não pode estar em branco.'); 
+				fieldObj.focus();
+				return false;
+			   }
+			} else if(fieldObj.type =='checkbox'){
+ 	 	 	 if(fieldObj.checked == false){
+				alert('Please accept  '+fldLangVal[i]);
+				fieldObj.focus();
+				return false;
+			   } 
+			 } 
+			 try {
+			     if(fieldObj.name == 'Last Name') {
+				name = fieldObj.value;
+ 	 	 	    }
+			} catch (e) {}
+		    }
+		}
+		document.getElementById('formsubmit').disabled=true;
+	}
+</script>
 </form>
