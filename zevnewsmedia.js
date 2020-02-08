@@ -181,7 +181,7 @@ app.get("/all", function(req, res) { // user route
    // res.render("testes.ejs", {
 
       var section = req.params.x;
-      connection.query("SELECT * FROM ARTICLES ORDER BY COD DESC LIMIT 8 ", (err,rows) => {
+      connection.query("SELECT * FROM ARTICLES ORDER BY COD DESC LIMIT 10 ", (err,rows) => {
       if(err) throw err;
       
       var estado = "";

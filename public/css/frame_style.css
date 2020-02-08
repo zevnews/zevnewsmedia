@@ -240,6 +240,13 @@ h2 {
 }
 
 
+box3 .news_author, .news_author a{
+	font-size: 8pt;
+	font-weight: bold;
+	
+}
+
+
 
 .zev_news_media
 {
@@ -253,9 +260,18 @@ h2 {
 	font-size: 8pt;
 	font-weight: bold;
 	color: #333333;
-	
-
 }
+
+#box3 .publi_date_main
+{
+	font-size: 8pt;
+	font-weight: bold;
+	color: #333333;
+	display: block;
+	margin-left: 8pt;
+	margin-top: 4pt;
+}
+
 
 /*-> END OF FONTS AND SIZES <-*/
 
@@ -471,11 +487,11 @@ margin-right: 5%;
 #main_title
 {
 	color: #ECEFF1;
-	width: 40%;
+	width: 45%;
 	font-size: 40pt;
 	text-shadow: 5px 5px 6px #212121;
 	font-weight: bold;
-	margin-left: 60%;
+	margin-left: 55%;
 	margin-top: 2%;
 	font-family: font-family: 'DM Sans', sans-serif;
 	margin-bottom: 1%;
@@ -1310,6 +1326,7 @@ font-size: 55pt;
 	font-weight: bold;
 	
 }
+
 
 
 #box1 {
