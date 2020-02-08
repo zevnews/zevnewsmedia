@@ -289,7 +289,7 @@ $(document).ready(function() {
  
 var clientHeight = document.getElementById('news1').clientHeight;
 var largura = document.getElementById('news1').clientWidth;
-alert("altuta" +  clientHeight + " largura " + largura);
+//alert("altuta" +  clientHeight + " largura " + largura);
 	
 		   $("#news1").hover(function(){
 			$(this).css("opacity", "0.4");
@@ -367,8 +367,7 @@ alert("altuta" +  clientHeight + " largura " + largura);
 				<%= row.title %></a></h1>
 				<!-- <h2 class="news_subtitle">Este é um teste de subtítulo</h2> -->
 				<span class="news_author">Por <a href="author/<%= row.author%>"><%= row.author %></a></span>
-        <br />
-				<time datetime="<%= row.publi_date %>" class="publi_date_main"><%= teste(row.publi_date)%></time>
+        <time datetime="<%= row.publi_date %>" class="publi_date_main"><%= teste(row.publi_date)%></time>
 				</div> 
 				<%contador = contador + 1%> 
 				<% } %>	 

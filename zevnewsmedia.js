@@ -131,7 +131,7 @@ app.get("/cms", function(req, res) { // user route
     if (req.session.name == "junior")
     {
       sessao_usuario = req.session.name; 
-      connection.query("SELECT * FROM ARTICLES ORDER BY COD DESC", (err,rows) => {
+      connection.query("SELECT * FROM ARTICLES ORDER BY PUBLI_DATE DESC", (err,rows) => {
       if(err) throw err;
       res.render("cms.ejs", {rows, sessao_usuario});
        
@@ -181,7 +181,7 @@ app.get("/all", function(req, res) { // user route
    // res.render("testes.ejs", {
 
       var section = req.params.x;
-      connection.query("SELECT * FROM ARTICLES ORDER BY COD DESC LIMIT 10 ", (err,rows) => {
+      connection.query("SELECT * FROM ARTICLES ORDER BY PUBLI_DATE DESC LIMIT 10 ", (err,rows) => {
       if(err) throw err;
       
       var estado = "";
