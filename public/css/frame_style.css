@@ -921,7 +921,35 @@ form{
 
 }	
 	
+
+#box3 .publi_date_main, #box2 .publi_date_main, .box_news_block .publi_date_main{
+
+	display: inline;
+	font-size: 22pt;
+}	
+
 	
+
+#box3 .news_author, #box2 .news_author
+
+{
+	display: inline;
+	font-size: 22pt;
+	
+}	
+
+
+#box3 .news_author a, #box2 .news_author a, .box_news_block .news_author a
+
+{
+	display: inline;
+	font-size: 22pt;
+	
+}	
+	
+
+
+
 #newsletter {
 	
 	background-color: #cccccc;

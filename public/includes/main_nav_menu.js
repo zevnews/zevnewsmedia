@@ -39,7 +39,7 @@ function activate_main_menu() {
 	    element.classList.add("active");
 		break;
 		
-		case "negócios":
+		case "mercado":
 		var page = page_section.value + "_item";
 		var element = document.getElementById(page);
 	    element.classList.add("active");
