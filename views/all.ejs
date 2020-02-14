@@ -289,7 +289,7 @@ $(document).ready(function() {
  
 var clientHeight = document.getElementById('news1').clientHeight;
 var largura = document.getElementById('news1').clientWidth;
-//alert("altuta" +  clientHeight + " largura " + largura);
+alert("altuta" +  clientHeight + " largura " + largura);
 	
 		   $("#news1").hover(function(){
 			$(this).css("opacity", "0.4");
@@ -299,7 +299,21 @@ var largura = document.getElementById('news1').clientWidth;
        	<% rows.slice(0,9).forEach(function(row) { %>
        		
        				<%if (row.highlight == 1 && control == 0) { %>
-						 $('#news1').css('background-image', 'url(/images/<%=row.photo_highlight %>)');
+
+                var foto_main;
+
+                if (largura > 980)
+                {
+                 foto_main = "<%=row.photo_highlight %>"+".jpg" 
+                }
+                else
+                {
+                  foto_main = "<%=row.photo_highlight %>"+"_mob.jpg" 
+                }
+                
+                alert(foto_main);
+
+						 $('#news1').css('background-image', 'url(/images/'+ foto_main +')');
 						 <% main_title = row.title
                             main_subtitle = row.subtitle
                             main_cod = row.cod
