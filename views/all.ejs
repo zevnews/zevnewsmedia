@@ -289,7 +289,7 @@ $(document).ready(function() {
  
 var clientHeight = document.getElementById('news1').clientHeight;
 var largura = document.getElementById('news1').clientWidth;
-alert("altuta" +  clientHeight + " largura " + largura);
+//alert("altuta" +  clientHeight + " largura " + largura);
 	
 		   $("#news1").hover(function(){
 			$(this).css("opacity", "0.4");
@@ -311,7 +311,7 @@ alert("altuta" +  clientHeight + " largura " + largura);
                   foto_main = "<%=row.photo_highlight %>"+"_mob.jpg" 
                 }
                 
-                alert(foto_main);
+                //alert(foto_main);
 
 						 $('#news1').css('background-image', 'url(/images/'+ foto_main +')');
 						 <% main_title = row.title
@@ -350,7 +350,7 @@ alert("altuta" +  clientHeight + " largura " + largura);
 		</div> 
 		<div id="box2">
 
-			<% rows.slice(0,4).forEach(function(row) { %>
+			<% rows.slice(0,3).forEach(function(row) { %>
  
 
        		   <%if (row.highlight == 0 && contador < 5) { %>
@@ -372,7 +372,7 @@ alert("altuta" +  clientHeight + " largura " + largura);
 		</div>
 		<div id="box3">
 			<%contador = 1 %>	   
-			<% rows.slice(4,9).forEach(function(row) { %>
+			<% rows.slice(3,8).forEach(function(row) { %>
        		<%if (row.highlight == 0 && contador < 5) { %>
        	 <div class="news_inside">
  				<a href="article/<%=row.cod%>/<%= row.section.toUpperCase() %>"><img src="images/<%=row.photo1%>" class="news_photo" /></a>

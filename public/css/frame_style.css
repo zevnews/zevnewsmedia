@@ -72,6 +72,7 @@ body {
 	flex-direction: column;
 	margin-right: 5%;
 	margin-left: 5%;
+	margin-top: 0.5%;
 		
 }
 
@@ -96,6 +97,7 @@ body {
 	width: 100%;
 	margin-bottom: 0px;
 	padding: 0px;
+	margin-top: 0.8%;
 }
 
 
@@ -311,13 +313,13 @@ box3 .news_author, .news_author a{
 /*----------------------------------------------------------------------------------------------------------------------*/
 
 #box1 {
-	height: 35%;
+	height: 32%;
 	width: 100%;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
 	align-items: center;
-	margin-top: 0.3%;
+	margin-top: 0%;
 	
 	
 }
@@ -361,6 +363,8 @@ box3 .news_author, .news_author a{
 .story_title {
 	
 	padding-top: 2.5%;
+	padding-right: 2%;
+	padding-left: 2%;
 	text-align: center;
 	font-family: 'Teko', sans-serif;
     font-weight: lighter;
@@ -473,6 +477,12 @@ margin-right: 5%;
 	margin-top: 0.1%;
 	
 }
+
+ p:first-of-type{
+	
+	margin-top: 3%;
+}
+
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
@@ -808,8 +818,13 @@ form{
 	
 	
 
+#content_story{
+
+	margin-top: 4%;
+}	
 	
-	
+
+
 
 #content{
 	display: flex;
@@ -818,6 +833,7 @@ form{
 	/* this removes the margins from desktop versions*/
 	margin-right: 0px;
 	margin-left: 0px;
+	margin-top: 4%;
 }
 
 #top{
@@ -843,12 +859,13 @@ form{
 
 
 .box_news_block {
-	background-color: red;
+	background-color: /3ffffff;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
 	align-items: center;
+	
 	
 	
 }
@@ -1063,6 +1080,8 @@ form{
 
 #box1 {
 	height: 12.5%;
+	margin-top: 0%;
+	
 	}	
 
 
@@ -1178,12 +1197,21 @@ input {
 
 #box_story p{
 	
-	line-height: 45pt;
+	line-height: 50pt;
 	font-size: 34pt;
-	margin-bottom: 45pt;
-	padding-left: 2%;
-	padding-right: 2%;
+	margin-bottom: 90pt;
+	padding-left: 5%;
+	padding-right: 5%;
 	
+}
+
+
+
+
+#box_story h3
+{
+	padding-left: 5%;
+	padding-right: 5%;
 }
 
 
@@ -1235,8 +1263,8 @@ input {
 #author_date {
 	margin-top: 0%;
 	margin-bottom: 6%;
-	padding-left: 2%;
-	padding-right: 2%;
+	padding-left: 5%;
+	padding-right: 5%;
 	
 	
 	

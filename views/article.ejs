@@ -241,11 +241,11 @@ switch (mes) {
 <script type="text/javascript">
        $(document).ready(function(){
 
-         $( "foto1" ).html("<img src='/images/<%= photo1 %>' class='photo_article'><legend class='photo_legend'><%= legend1.toUpperCase()%></legend>");
-         $( "foto2" ).html("<img src='/images/<%= photo2 %>' class='photo_article'><legend class='photo_legend'><%= legend2.toUpperCase()%></legend>");
-         $( "foto3" ).html("<img src='/images/<%= photo3 %>' class='photo_article'><legend class='photo_legend'><%= legend3.toUpperCase()%></legend>");
-         $( "foto4" ).html("<img src='/images/<%= photo4 %>' class='photo_article'><legend class='photo_legend'><%= legend4.toUpperCase()%></legend>");
-         $( "foto5" ).html("<img src='/images/<%= photo5 %>' class='photo_article'><legend class='photo_legend'><%= legend5.toUpperCase()%></legend>");
+         $( "foto1" ).html("<img src='/images/<%= photo1 %>' class='photo_article'><legend class='photo_legend'><%= legend1 %></legend>");
+         $( "foto2" ).html("<img src='/images/<%= photo2 %>' class='photo_article'><legend class='photo_legend'><%= legend2 %></legend>");
+         $( "foto3" ).html("<img src='/images/<%= photo3 %>' class='photo_article'><legend class='photo_legend'><%= legend3 %></legend>");
+         $( "foto4" ).html("<img src='/images/<%= photo4 %>' class='photo_article'><legend class='photo_legend'><%= legend4 %></legend>");
+         $( "foto5" ).html("<img src='/images/<%= photo5 %>' class='photo_article'><legend class='photo_legend'><%= legend5 %></legend>");
          $( "h3" ).addClass( "capitular" );
          });
        
@@ -263,23 +263,24 @@ switch (mes) {
 <body onload="activate_main_menu()">
 <input type="hidden" name="page_section" id="page_section" value="<%= section%>"></input>
 <div id="container">
-	<div id="top"><img src="/icons/logo_zev_news.png" id="main_logo"><h1 id="zev_description"> ANÁLISES & NOTÍCIAS SOBRE VEÍCULOS COM EMISSÃO ZERO</h1><%= section%></div>
+	<div id="top"><img src="/icons/logo_zev_news.png" id="main_logo"><h1 id="zev_description"> ANÁLISES & NOTÍCIAS SOBRE VEÍCULOS COM EMISSÃO ZERO</h1></div>
 	<div class="topnav" id="myTopnav">
   <%- include('menu_superior') %>
 </div>
 	<div id="content_story">
 		<div id="box_story">
 
-<img src="/images/<%= photo1 %>" class="photo_article">
-<legend class="photo_legend">
-<%= legend1 %>
-</legend>
+
 <h1 class="story_title"><%= title %></h1>
 <h2 class="story_subtitle"><%= subtitle %></h2>
 
 	<div id="author_date">
 		<span id="author">Por <a href="" rel="author"><%= author%></a></span> | <time datetime="2019-07-30" id="published_date"> <%= teste(publidate) %></time>
 	</div>
+  <img src="/images/<%= photo1 %>" class="photo_article">
+<legend class="photo_legend">
+<%= legend1 %>
+</legend>
 
 <%- text%>
 
