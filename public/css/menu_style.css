@@ -118,8 +118,12 @@ border-right: 6px solid #e1e8f0;}
 	
 #myTopnav { padding-left: 0%;	
 	
-border-left: 6px solid #e1e8f0;
-border-right: 6px solid #e1e8f0;
+border-left: 0px solid #e1e8f0;
+border-right: 0px solid #e1e8f0;
+margin-right: 0%;
+padding-left:  0%;
+padding-right: 0%;
+/*background-color: green;*/
 }
 
   
@@ -130,6 +134,11 @@ border-right: 6px solid #e1e8f0;
 
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
 @media screen and (max-device-width: 600px) {
+  .topnav {
+
+    margin-right: : 0px;
+    margin-left: 0px;
+  }
 	
 	 .topnav a
 	 {
