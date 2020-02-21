@@ -293,11 +293,11 @@ $(document).ready(function() {
  e.preventDefault();
    /*alert("Em breve retornaremos o contato!");*/
    /*$( "#contact_form" ).replaceWith( "<p>OBRIGADO por cadastrar-se!!</p>" );*/
-   alert("Obrigado");
+   /*alert("Obrigado");*/
    var $form = $(this);
    $.post($form.attr("action"), $form.serialize()).then(function() {
     /*alert("Thank you!");*/
-  $( "#form_newsletter_zev" ).replaceWith( "<span id='answer_contact'>Obrigado! Reponderemos em alguns minutos.</span>" );
+  $( "#form_newsletter_zev" ).replaceWith( "<span id='cadastro_realizado'>Obrigado por se cadastrar!</span>" );
   
   });
   
