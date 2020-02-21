@@ -56,3 +56,49 @@ margin-right: 20px;
 	
 
 	}
+
+
+@media screen and (max-device-width: 480px) {
+
+#newsletter_zev{
+	display: flex;
+    align-items: center;
+    /*justify-content: center;*/
+  	height: 650px;
+  
+	    
+}
+
+
+#lbl_first_name, #lbl_last_name, #lbl_email  {
+font-weight: bold;
+color: #333333;
+font-size: 30pt;
+margin-right: 5px;
+
+
+}
+
+#newsletter_first_name, #newsletter_last_name, #newsletter_email{
+
+height: 45pt;
+border: 1px solid #333333;
+margin-right: 20px;
+
+
+
+	
+}
+
+#btn_cadastrar {
+	height: 60pt;
+	width: 300px;
+	background-color: #e62739;
+	border: 0px;
+	color: #ffffff;
+	
+
+	}
+
+
+}	
