@@ -1,0 +1,68 @@
+#newsletter_zev{
+	display: flex;
+    align-items: center;
+    background-color: blue;
+	height: 150px;
+	    
+}
+
+#form_newsletter_zev {
+
+
+ background-color: red;
+ margin-left: 5%;
+
+}
+
+#newsletter_zev legend {
+	
+	display: block;
+	margin-bottom: 15px;
+
+}
+
+
+
+#lbl_first_name {
+ margin-right: 5px;
+
+}
+
+#newsletter_first_name{
+margin-right: 5px;
+height: 15pt;
+border: 2px solid;
+	
+}
+
+
+#lbl_last_name {
+ margin-right: 5px;
+
+}
+
+#newsletter_last_name
+{ height: 15pt;
+  border: 2px solid;
+	
+
+}
+
+#newsletter_email {
+	height: 15pt;
+	border: 2px solid;
+}
+
+#lbl_email{
+	margin-right: 5px;
+
+
+}
+
+#btn_cadastrar {
+	height: 16.5pt;
+	width: 100px;
+	background-color: yellow;
+	border: 0px;
+
+	}

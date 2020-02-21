@@ -1135,6 +1135,10 @@ input {
 	margin: 0px;
 }
 
+#newsletter input {
+	height: 45pt;
+}
+
 
 #main_title
 {

@@ -761,7 +761,7 @@ form{
 	background-color: #e62739;
 	color: #ffffff;
 	font-weight: bold;
-	width: 145px;
+	width: 90px;
 	margin-left: 0px;
 	border: none;
 }
@@ -993,7 +993,7 @@ form{
 }
 
 #newsletter input {
-	/*height: 45pt;*/
+	height: 45pt;
 }
 
 .logo_social {
@@ -1037,7 +1037,7 @@ form{
 
 
 #top{
-	background-color: #ffffff;
+	background-color: #ffffff
 	/*background-color: red;*/
 }
 
@@ -1131,9 +1131,9 @@ height: 50%;}
 	background-color: #e62739;
 	color: #ffffff;
 	width: 40%;
-	height: 80px;
 	border: none;
 	font-size: 30pt;
+	padding: 5%;
 	margin-top: 2%;
 }
 
