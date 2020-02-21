@@ -1,68 +1,58 @@
 #newsletter_zev{
 	display: flex;
     align-items: center;
-    background-color: blue;
-	height: 150px;
+    /*justify-content: center;*/
+  	height: 150px;
+  
 	    
 }
 
 #form_newsletter_zev {
-
-
- background-color: red;
  margin-left: 5%;
+ /*background-color: yellow;*/
 
 }
 
 #newsletter_zev legend {
 	
 	display: block;
-	margin-bottom: 15px;
+	margin-bottom: 30px;
+	font-weight: bold;
+    color: #333333;
 
 }
 
 
 
-#lbl_first_name {
- margin-right: 5px;
+#lbl_first_name, #lbl_last_name, #lbl_email  {
 
-}
-
-#newsletter_first_name{
+font-weight: bold;
+color: #333333;
+font-size: 12pt;
+color: #333333;
 margin-right: 5px;
+
+}
+
+#newsletter_first_name, #newsletter_last_name, #newsletter_email{
+
 height: 15pt;
-border: 2px solid;
+border: 1px solid #333333;
+margin-right: 20px;
+
+
+
 	
 }
 
 
-#lbl_last_name {
- margin-right: 5px;
-
-}
-
-#newsletter_last_name
-{ height: 15pt;
-  border: 2px solid;
-	
-
-}
-
-#newsletter_email {
-	height: 15pt;
-	border: 2px solid;
-}
-
-#lbl_email{
-	margin-right: 5px;
-
-
-}
 
 #btn_cadastrar {
-	height: 16.5pt;
+	height: 20pt;
 	width: 100px;
-	background-color: yellow;
+	background-color: #e62739;
 	border: 0px;
+	color: #ffffff;
+	
 
 	}
