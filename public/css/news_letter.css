@@ -64,7 +64,7 @@ margin-right: 20px;
 	display: flex;
     align-items: center;
     /*justify-content: center;*/
-  	height: 650px;
+  	height: 680px;
   
 	    
 }
@@ -82,8 +82,10 @@ margin-right: 5px;
 #newsletter_first_name, #newsletter_last_name, #newsletter_email{
 
 height: 45pt;
+width: 600px;
 border: 1px solid #333333;
 margin-right: 20px;
+margin-bottom: 25px;
 
 
 
@@ -92,7 +94,7 @@ margin-right: 20px;
 
 #btn_cadastrar {
 	height: 60pt;
-	width: 300px;
+	width: 360px;
 	background-color: #e62739;
 	border: 0px;
 	color: #ffffff;
