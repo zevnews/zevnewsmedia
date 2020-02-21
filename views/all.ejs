@@ -287,6 +287,24 @@ switch (mes) {
 
 $(document).ready(function() {
 
+
+
+ $("#form_newsletter_zev").submit(function(e) {
+ e.preventDefault();
+   /*alert("Em breve retornaremos o contato!");*/
+   /*$( "#contact_form" ).replaceWith( "<p>OBRIGADO por cadastrar-se!!</p>" );*/
+   alert("Obrigado");
+   var $form = $(this);
+   $.post($form.attr("action"), $form.serialize()).then(function() {
+    /*alert("Thank you!");*/
+  $( "#form_newsletter_zev" ).replaceWith( "<span id='answer_contact'>Obrigado! Reponderemos em alguns minutos.</span>" );
+  
+  });
+  
+   
+ });
+
+
  
 var clientHeight = document.getElementById('news1').clientHeight;
 var largura = document.getElementById('news1').clientWidth;
@@ -328,6 +346,15 @@ var largura = document.getElementById('news1').clientWidth;
         
 });
     
+</script>
+
+<script>
+
+
+  
+  
+  
+ 
 </script>
 
 </head>
