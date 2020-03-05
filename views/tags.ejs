@@ -1,0 +1,25 @@
+<div id="tags_topics">
+<h4>TÓPICOS RELACIONADOS</h4>
+<ul >
+<%
+var z = -1;
+var tag = tags
+var topix = tag.split(",");
+var compri =  topix.length;
+%>
+
+
+<%do {z = z + 1 %>
+
+
+<%if (z != compri) {%>
+<li><a href="/<%= topix[z]%>"><%= topix[z].toUpperCase()%></a></li>
+<%} %>
+
+
+
+<%}while (z < compri)%>
+</ul>
+
+</div>
+
