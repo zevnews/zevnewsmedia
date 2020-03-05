@@ -62,6 +62,9 @@ var connection = mysql.createConnection({
 });
 
 
+
+
+
 app.get("/access", function(req, res) { // root route or home route
     //res.send('welcome to home page');
     res.render("access.ejs")
@@ -449,7 +452,23 @@ app.get("/:x", function(req, res) { // user route
 
 
       var section = req.params.x;
-      connection.query("SELECT * FROM ARTICLES WHERE section='"+ section +"' OR subsection='"+ section +"' ORDER BY COD DESC LIMIT 9 ", (err,rows) => {
+      var conexao;
+
+      if (section == "mercado" || section == "mercado" || section == "carros" || section == "motos" || section == "startupftopis" || section == "bikes" || section == "tech" || section == "racing")
+      {
+         
+         conexao1 = "SELECT * FROM ARTICLES WHERE section='"+ section +"' OR subsection='"+ section +"' ORDER BY COD DESC LIMIT 9 "
+         
+
+      }
+      else
+      {
+         
+         conexao1 = "select * from ARTICLES where TAGS like '%"+ section +"%';" 
+      }
+     
+      
+      connection.query(conexao1, (err,rows) => {
       if(err) throw err;
       
       var estado = "";
@@ -473,11 +492,9 @@ app.get("/:x", function(req, res) { // user route
 
 
 app.get("/", function(req, res) { // root route or home route
-    var variavel = "All about zevs";
-    var topicos = "tesla,baterias,carros,musk";
-    res.render("index.ejs", {variavel, topicos})
+   
+    res.render("index.ejs")
 });
-
 
 
 

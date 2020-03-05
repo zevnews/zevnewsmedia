@@ -1,4 +1,3 @@
-<%= "Insercao de função" %>
 <%
 var z = -1;
 var topix = topicos.split(",");
@@ -9,9 +8,10 @@ var compri =  topix.length;
 <%do {z = z + 1 %>
 
 
-<%if (z < compri) {%>
-<%- "<h1>" + topix[z] + ","  + "</h1>"%>
-<% } %>
+<%if (z != compri) {%>
+<a href=""><%= topix[z]%></a> 
+<%} %>
+
 
 
 <%}while (z < compri)%>
