@@ -473,8 +473,9 @@ app.get("/:x", function(req, res) { // user route
 
 
 app.get("/", function(req, res) { // root route or home route
-    var variavel = "All about zevs"
-    res.render("index.ejs", {variavel})
+    var variavel = "All about zevs";
+    var topicos = "tesla,baterias,carros,musk";
+    res.render("index.ejs", {variavel, topicos})
 });
 
 

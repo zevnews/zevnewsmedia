@@ -28,7 +28,52 @@
 </form>
 </div>
 <span class="info">Mais informações: <a href="mailto:info@zev.news">info@zev.news</a></span>
+<%= topicos %>
+<%
 
+var topics = topicos.split(",");
+
+var lixo = "teste"%>
+<% var comprimento =  topics.length;
+
+ var z = 0;%>
+<%
+
+
+while (z < comprimento){
+%>
+
+<%if (z < comprimento) {%>
+<%= topics[z] + "," %>
+<% } %>
+
+<%
+	
+	z = z + 1;
+}
+
+z = -1;
+%>
+
+
+<%
+do {z = z + 1;
+
+%>
+<%if (z < comprimento) {%>
+
+<%- topics[z] + ","  + "<br>"
+%>
+
+
+
+
+<% } %>
+<%
+}while (z < comprimento)
+%>
+
+<%- include('funcao')%>
 </div>
 </body>
 </html>
