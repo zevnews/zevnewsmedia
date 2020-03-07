@@ -592,6 +592,8 @@ margin-right: 5%;
 	
 }
 
+
+/* STARTS  MENU TAGS*/
 h4{
 
 	background-color: #cccccc;
@@ -601,6 +603,9 @@ h4{
 	text-align: center;
 	padding: 0.5%;
 }
+
+
+
 #tags_topics ul li{
 	margin-top: 50px;
 	display: inline;
@@ -616,6 +621,7 @@ h4{
 	color: #ffffff;
 
 }
+/* END MENU TAGS*/
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
@@ -1366,6 +1372,45 @@ line-height: 50pt;
 
 
 /*-> END OF FONTS AND SIZES <-*/
+
+
+
+/* MOBILE  STARTS  MENU TAGS*/
+
+#tags_topics {
+	height: 200px;
+}
+h4{
+
+
+	background-color: #cccccc;
+	font-weight: bold;
+	margin-bottom: 40px;
+	width: 60%;
+	text-align: center;
+	padding: 1%;
+	font-size: 25pt;
+}
+
+
+
+#tags_topics ul li{
+	margin-top: 50px;
+	display: inline;
+	background-color: #000000;
+	padding: 2%;
+	font-size: 22pt;
+	
+	
+	/*background-color: red;*/
+	
+}
+
+#tags_topics ul li a{
+	color: #ffffff;
+
+}
+/*  MOBILE END MENU TAGS*/
 	
 	
 /*--->	END OF DIMENSIONS FOR MOBILE <----*/

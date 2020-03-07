@@ -263,6 +263,8 @@ app.post('/insert_article',function(req,res){
   var photo_highlight = req.body.photo_highlight; 
   var highlight = req.body.highlight;
 
+   var tags = req.body.tags;
+
   var publi_date = req.body.publi_date //data_publica();
 
   var publi_date = converte_data(publi_date);
@@ -271,7 +273,7 @@ app.post('/insert_article',function(req,res){
 //var formatted_date = current_datetime.getDate() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getFullYear();
 
 
-  var sql = "INSERT INTO ARTICLES (title, subtitle, publi_date, section, subsection, author, article, photo1,legend1, photo2,legend2, photo3,legend3,photo4,legend4,photo5,legend5, highlight, photo_highlight) VALUES ('"+ titulo +"', '"+ subtitulo +"', '"+ publi_date +"','"+ section +"','"+ subsection +"','"+ author +"','"+ article +"','"+ photo1 +"','"+ legend1 +"','"+ photo2 +"','"+ legend2 +"','"+ photo3 +"','"+ legend3 +"','"+ photo4 +"','"+ legend4 +"','"+ photo5 +"','"+ legend5 +"','"+ highlight +"','"+ photo_highlight +"')";
+  var sql = "INSERT INTO ARTICLES (title, subtitle, publi_date, section, subsection, author, article, photo1,legend1, photo2,legend2, photo3,legend3,photo4,legend4,photo5,legend5, highlight, photo_highlight,tags) VALUES ('"+ titulo +"', '"+ subtitulo +"', '"+ publi_date +"','"+ section +"','"+ subsection +"','"+ author +"','"+ article +"','"+ photo1 +"','"+ legend1 +"','"+ photo2 +"','"+ legend2 +"','"+ photo3 +"','"+ legend3 +"','"+ photo4 +"','"+ legend4 +"','"+ photo5 +"','"+ legend5 +"','"+ highlight +"','"+ photo_highlight +"','"+ tags +"')";
   connection.query(sql, function (err, result) {
     if (err) throw err;
     var lixo = converte_data(publi_date)
@@ -381,9 +383,10 @@ app.post('/update_article2',function(req,res){
   var legend5 = req.body.legend5;
 
   var photo_highlight = req.body.photo_highlight; 
-  var highlight = req.body.highlight;
+  var highlight = req.body.highlight;               
 
   var publi_date =  req.body.publi_date;
+  var tags =  req.body.tags;
 
   publi_date = req.body.publi_date;
 
@@ -391,7 +394,7 @@ app.post('/update_article2',function(req,res){
 
 
 
-  var sql = "UPDATE ARTICLES SET title = '"+ titulo +"', subtitle='"+ subtitulo +"', publi_date='"+ publi_date +"', author='"+ author +"', article='"+ article +"', section='"+ section +"', subsection='"+ subsection +"', photo1='"+ photo1 +"', legend1='"+ legend1 +"', photo2='"+ photo2 +"', legend2='"+ legend2 +"', photo3='"+ photo3 +"', legend3='"+ legend3 +"', photo4='"+ photo4 +"', legend4='"+ legend4 +"', photo5='"+ photo5 +"', legend5='"+ legend5 +"', highlight='"+ highlight +"', photo_highlight='"+ photo_highlight +"' WHERE COD ="+ cod +" ;";
+  var sql = "UPDATE ARTICLES SET title = '"+ titulo +"', subtitle='"+ subtitulo +"', publi_date='"+ publi_date +"', author='"+ author +"', article='"+ article +"', section='"+ section +"', subsection='"+ subsection +"', photo1='"+ photo1 +"', legend1='"+ legend1 +"', photo2='"+ photo2 +"', legend2='"+ legend2 +"', photo3='"+ photo3 +"', legend3='"+ legend3 +"', photo4='"+ photo4 +"', legend4='"+ legend4 +"', photo5='"+ photo5 +"', legend5='"+ legend5 +"', highlight='"+ highlight +"', photo_highlight='"+ photo_highlight +"', tags='"+ tags +"' WHERE COD ="+ cod +" ;";
   connection.query(sql, function (err, result) {
     if (err) throw err;
     console.log("1 record inserted" + cod + "data original" + publi_date);
