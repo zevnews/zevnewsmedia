@@ -508,8 +508,18 @@ app.get("/article/:cod/:valor", function(req, res) { // user route
       var cod = req.params.cod;
       connection.query("SELECT * FROM ARTICLES WHERE cod = "+ cod +"", (err,rows) => {
       if(err) throw err;
-      res.render("article.ejs", {rows});
-      console.log( "Rows" + cod + req);
+
+      var titulo_noticia;
+       rows.forEach(row => { 
+      console.log(row.title);
+      titulo_noticia = row.title;
+
+        }); 
+
+      res.render("article.ejs", {rows, titulo_noticia});
+
+     
+      console.log( "Rows" + cod + req );
        });
        //res.render("article.ejs")
 });

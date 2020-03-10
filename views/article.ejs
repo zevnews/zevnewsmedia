@@ -16,7 +16,8 @@ var dia;
 
        title = row.title
        subtitle = row.subtitle
-       text = row.article
+      
+
        section = row.section
        author = row.author
        publidate = row.publi_date
@@ -218,6 +219,17 @@ switch (mes) {
        title = row.title
        subtitle = row.subtitle
        text = row.article
+
+       var empresas = ["NIO","Tesla","Rivian","Drako"];
+       var empresas_count = empresas.length
+       var j = 0
+       while (j  < empresas_count)
+       {
+       text = text.replace(empresas[j],'<a href="\\'+ empresas[j] +'" title="Leia todas as notícias sobre '+ empresas[j] +'">'+ empresas[j] +'</a>')
+       j = j + 1;
+        }
+       
+
        section = row.section
        author = row.author
        publidate = row.publi_date
@@ -274,7 +286,7 @@ switch (mes) {
 		<div id="box_story">
 
 
-<h1 class="story_title"><%= title %></h1>
+<h1 class="story_title"><%= titulo_noticia %></h1>
 <h2 class="story_subtitle"><%= subtitle %></h2>
 
 	<div id="author_date">
