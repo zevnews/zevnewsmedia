@@ -506,6 +506,13 @@ app.get("/", function(req, res) { // root route or home route
 app.get("/article/:cod/:valor", function(req, res) { // user route
    // res.render("testes.ejs", {
       var cod = req.params.cod;
+      var empresas;
+
+      connection.query("select * from empresas", (err,empresas_x) => {
+      if(err) throw err;
+      empresas = empresas_x
+
+    });
       connection.query("SELECT * FROM ARTICLES WHERE cod = "+ cod +"", (err,rows) => {
       if(err) throw err;
 
@@ -516,7 +523,7 @@ app.get("/article/:cod/:valor", function(req, res) { // user route
 
         }); 
 
-      res.render("article.ejs", {rows, titulo_noticia});
+      res.render("article.ejs", {rows, titulo_noticia, empresas});
 
      
       console.log( "Rows" + cod + req );

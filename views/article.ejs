@@ -213,19 +213,32 @@ switch (mes) {
 	}
 </script>
 
+<%var empresas_zev = [];%>
+<% empresas.forEach(function(empresa) { %>
+
+<%   
+       
+       empresas_zev.push(empresa.nome);
+%>
+
+<%})%>
+
 <% rows.forEach(function(row) { %>
+
        <%
 
        title = row.title
        subtitle = row.subtitle
        text = row.article
 
-       var empresas = ["NIO","Tesla","Rivian","Drako"];
-       var empresas_count = empresas.length
+       
+
+
+       var empresas_count = empresas_zev.length
        var j = 0
        while (j  < empresas_count)
        {
-       text = text.replace(empresas[j],'<a href="\\'+ empresas[j] +'" title="Leia todas as notícias sobre '+ empresas[j] +'">'+ empresas[j] +'</a>')
+       text = text.replace(empresas_zev[j],'<a href="\\'+ empresas_zev[j] +'" title="Leia todas as notícias sobre '+ empresas_zev[j] +'">'+ empresas_zev[j] +'</a>')
        j = j + 1;
         }
        
