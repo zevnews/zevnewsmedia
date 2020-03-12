@@ -471,10 +471,22 @@ app.get("/:navega/:cod/:section/:ordem", function(req, res) {
  
  if (section == "all" )
  { 
-        var cod2 = (parseInt(cod)) + 9;
+        var cod2 = (parseInt(cod)) + (9-2);
         cod2 = cod2.toString();
 
-        conexao1 = "select * from ARTICLES where cod "+ operador +" "+ cod + " ORDER BY COD DESC LIMIT 9";
+        cod3 = (parseInt(cod)) + 18;
+        cod3 = cod3.toString();
+
+        if (ordem == "before"){
+          operador = ">"
+           conexao1 = "select * from ARTICLES where cod "+ operador +" "+ cod3 +" ORDER BY COD DESC LIMIT 9";
+        }
+        else
+        {
+        conexao1 = "select * from ARTICLES where cod "+ operador +" "+ cod +" ORDER BY COD DESC LIMIT 9";
+        }
+        // precisa pegar os 9 anteriores
+        
         console.log (" primeira conexao " + conexao1 + "ordem1 " + ordem);
         console.log ("secao " + section + " operador 1 é " + operador + "o fim é" + fim );
        
@@ -504,10 +516,12 @@ app.get("/:x", function(req, res) { // user route
       var section = req.params.x;
       var conexao;
 
-      if (section == "mercado" || section == "mercado" || section == "carros" || section == "motos" || section == "startups" || section == "bikes" || section == "tech" || section == "racing")
+      if (section == "mercado" || section == "carros" || section == "motos" || section == "startups" || section == "bikes" || section == "tech" || section == "racing")
       {
          
-         conexao1 = "SELECT * FROM ARTICLES WHERE section='"+ section +"' OR subsection='"+ section +"' ORDER BY COD DESC LIMIT 9 "
+        //  conexao1 = "SELECT * FROM ARTICLES WHERE section='"+ section +"' OR subsection='"+ section +"' ORDER BY COD DESC LIMIT 9 "
+
+        conexao1 = "SELECT * FROM ARTICLES WHERE section='"+ section +"' ORDER BY COD DESC LIMIT 9 "
          
 
       }
