@@ -449,6 +449,17 @@ app.get('/logout',(req,res) => {
 
 // 	AQUI COMEÇAM AS ROTAS DO SITE
 
+app.get("/next/:cod/:section", function(req, res) { 
+   var cod = req.params.cod;
+   var section = req.params.section;
+ 
+  conexao1 = "select * from ARTICLES where cod <"+ cod + " and section ='"+ section +"' ORDER by cod DESC";
+   connection.query(conexao1, (err,rows) => {
+      if(err) throw err;
+      res.render("news.ejs", {rows, section});
+    });
+   
+});
 
 app.get("/:x", function(req, res) { // user route
    // res.render("testes.ejs", {
