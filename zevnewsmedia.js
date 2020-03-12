@@ -455,19 +455,32 @@ app.get("/:navega/:cod/:section/:ordem", function(req, res) {
    var navega = req.params.navega
    var ordem = req.params.ordem
 
-   /*navega = parseInt(navega);
-   navega = navega + 9
-   var navega2 = navega + 9;*/
 
    var dia = navega;
     console.log(dia);
+    if (section == "all")
+    {
+      complemento_sql = ""
+    }
+    else
+    {
+      complemento_sql = " and section ='"+ section +"'";
+    }
 
- 
+   if (ordem  == "antigas")
+   {
+     ordem = "<"
+   }
+   else
+   {
+     ordem = ">"
+   }
 
-   string_sql= "select * from ARTICLES where publi_date < '"+ dia +"' ORDER by publi_date DESC LIMIT 9";
+   string_sql= "select * from ARTICLES where publi_date "+ ordem +" '"+ dia +"' "+ complemento_sql +" ORDER by publi_date DESC LIMIT 9";
    connection.query(string_sql, (err,rows) => {
       if(err) throw err;
       console.log(string_sql);
+      console.log("ordem " + ordem);
      
       res.render("news.ejs", {rows, section});
 
@@ -538,7 +551,7 @@ app.get("/:x", function(req, res) { // user route
          
         //  conexao1 = "SELECT * FROM ARTICLES WHERE section='"+ section +"' OR subsection='"+ section +"' ORDER BY COD DESC LIMIT 9 "
 
-        conexao1 = "SELECT * FROM ARTICLES WHERE section='"+ section +"' ORDER BY COD DESC LIMIT 9 "
+        conexao1 = "SELECT * FROM ARTICLES WHERE section='"+ section +"' ORDER BY publi_date DESC LIMIT 9 "
          
 
       }
