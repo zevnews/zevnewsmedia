@@ -412,12 +412,15 @@ var largura = document.getElementById('news1').clientWidth;
         <time datetime="<%= row.publi_date %>" class="publi_date_main"><%= teste(row.publi_date)%></time>
 				</div> 
 				<%contador = contador + 1%> 
+        <% proxima = row.cod %>
 				<% } %>	 
 				
 			<% }); %>
 
 			
 		</div>
+    <% secao = "all"%>
+    <a href="/navigate/<%= proxima %>/<%= secao %>/next">MAIS ANTIGAS</a>
 	</div>
 	<%- include('formulario_newsletter_zev') %>
 

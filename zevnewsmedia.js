@@ -449,14 +449,50 @@ app.get('/logout',(req,res) => {
 
 // 	AQUI COMEÇAM AS ROTAS DO SITE
 
-app.get("/next/:cod/:section", function(req, res) { 
+app.get("/:navega/:cod/:section/:ordem", function(req, res) { 
    var cod = req.params.cod;
-   var section = req.params.section;
+   var section = req.params.section.toLowerCase();
+   var navega = req.params.navega
+   var ordem = req.params.ordem
+   var operador
+   var fim;
+
+   if (ordem == "next")
+   {
+     operador = "<"
+     fim = " ORDER by cod DESC"
+
+   }
+   else
+   {
+       operador = ">"
+       fim = ""
+   }
  
-  conexao1 = "select * from ARTICLES where cod <"+ cod + " and section ='"+ section +"' ORDER by cod DESC";
+ if (section == "all" )
+ { 
+        var cod2 = (parseInt(cod)) + 9;
+        cod2 = cod2.toString();
+
+        conexao1 = "select * from ARTICLES where cod "+ operador +" "+ cod + " ORDER BY COD DESC LIMIT 9";
+        console.log (" primeira conexao " + conexao1 + "ordem1 " + ordem);
+        console.log ("secao " + section + " operador 1 é " + operador + "o fim é" + fim );
+       
+ }
+ else
+ {
+    conexao1 = "select * from ARTICLES where cod "+ operador +" "+ cod + " and section ='"+ section +"' ORDER by cod DESC";
+ }
+
    connection.query(conexao1, (err,rows) => {
       if(err) throw err;
+     conexao1 = "";
+     ordem = "";
+     operador = "";
+
+      console.log ( " a conexao é " + conexao1 + "operador é" + operador);
       res.render("news.ejs", {rows, section});
+
     });
    
 });
@@ -468,7 +504,7 @@ app.get("/:x", function(req, res) { // user route
       var section = req.params.x;
       var conexao;
 
-      if (section == "mercado" || section == "mercado" || section == "carros" || section == "motos" || section == "startupftopis" || section == "bikes" || section == "tech" || section == "racing")
+      if (section == "mercado" || section == "mercado" || section == "carros" || section == "motos" || section == "startups" || section == "bikes" || section == "tech" || section == "racing")
       {
          
          conexao1 = "SELECT * FROM ARTICLES WHERE section='"+ section +"' OR subsection='"+ section +"' ORDER BY COD DESC LIMIT 9 "

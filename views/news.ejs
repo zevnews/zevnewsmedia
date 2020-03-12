@@ -307,6 +307,7 @@ switch (mes) {
 		<div class="box_news_block">
 		
 <% rows.slice(0,3).forEach(function(row) { %>
+ <% anterior = row.cod %>
        		
        		    <div class="item_news">
  				<a href="article/<%=row.cod%>/<%= row.section.toUpperCase() %>""><img src="/images/<%=row.photo1%>" class="news_photo" /></a>
@@ -327,6 +328,7 @@ switch (mes) {
 		<div class="box_news_block">
 
 			<% rows.slice(3,6).forEach(function(row) { %>
+     
 			
        		
        		    <div class="item_news">
@@ -345,6 +347,7 @@ switch (mes) {
 		</div>
 		
 		<div class="box_news_block">
+      <% var proxima %>
 			
        <% rows.slice(6,9).forEach(function(row) { %>
        		
@@ -357,13 +360,14 @@ switch (mes) {
 				<span class="news_author">Por <a href="author/<%= row.author %>"><%= row.author %></a></span>
 				<time datetime="<%= row.publi_date %>" class="publi_date_main"> | <%= teste(row.publi_date)%></time>
 				</div> 
-				
+				<% proxima = row.cod %>
 			<% }); %>	
 
 
 
 		</div>
-		
+    <a href="/navigate/<%= anterior %>/<%= secao %>/before">MAIS RECENTES</a> 
+		<a href="/navigate/<%= proxima %>/<%= secao %>/next">MAIS ANTIGAS</a>
 		
 	</div>
 	
