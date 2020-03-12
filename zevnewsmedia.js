@@ -451,12 +451,29 @@ app.get('/logout',(req,res) => {
 
 app.get("/:navega/:cod/:section/:ordem", function(req, res) { 
    var cod = req.params.cod;
-   var section = req.params.section.toLowerCase();
+   var section = req.params.section.toLowerCase()
    var navega = req.params.navega
    var ordem = req.params.ordem
-   var operador
-   var fim;
 
+   /*navega = parseInt(navega);
+   navega = navega + 9
+   var navega2 = navega + 9;*/
+
+   var dia = navega;
+    console.log(dia);
+
+ 
+
+   string_sql= "select * from ARTICLES where publi_date < '"+ dia +"' ORDER by publi_date DESC LIMIT 9";
+   connection.query(string_sql, (err,rows) => {
+      if(err) throw err;
+      console.log(string_sql);
+     
+      res.render("news.ejs", {rows, section});
+
+    });
+
+/*
    if (ordem == "next")
    {
      operador = "<"
@@ -505,7 +522,7 @@ app.get("/:navega/:cod/:section/:ordem", function(req, res) {
       console.log ( " a conexao é " + conexao1 + "operador é" + operador);
       res.render("news.ejs", {rows, section});
 
-    });
+    });*/
    
 });
 

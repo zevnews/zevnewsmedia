@@ -134,7 +134,16 @@ switch (mes) {
 
 })
 
-
+function data_extenso2(x){
+  
+  dia = x;
+  data = dia.getDate();
+  mes = dia.getMonth() + 1;
+  ano = dia.getFullYear();
+ 
+  datax = ano+"-"+mes+"-"+data
+  return datax;
+  } 
 
 function teste(x){
 	
@@ -411,8 +420,10 @@ var largura = document.getElementById('news1').clientWidth;
 				<span class="news_author">Por <a href="author/<%= row.author%>"><%= row.author %></a></span>
         <time datetime="<%= row.publi_date %>" class="publi_date_main"><%= teste(row.publi_date)%></time>
 				</div> 
+        <% diaxx = row.publi_date %>
 				<%contador = contador + 1%> 
         <% proxima = row.cod %>
+          
 				<% } %>	 
 				
 			<% }); %>
@@ -420,7 +431,9 @@ var largura = document.getElementById('news1').clientWidth;
 			
 		</div>
     <% secao = "all"%>
-    <a href="/navigate/<%= proxima %>/<%= secao %>/next">MAIS ANTIGAS</a>
+   
+    <%= data_extenso2(diaxx)%>ddd
+    <a href="/<%= data_extenso2(diaxx)%>/<%= proxima %>/<%= secao %>/next">MAIS ANTIGAS</a> 
 	</div>
 	<%- include('formulario_newsletter_zev') %>
 

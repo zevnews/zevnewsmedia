@@ -130,7 +130,18 @@ switch (mes) {
 
 
 
-function teste(x){
+function data_extenso2(x){
+  
+  dia = x;
+  data = dia.getDate();
+  mes = dia.getMonth() + 1;
+  ano = dia.getFullYear();
+ 
+  datax = ano+"-"+mes+"-"+data
+  return datax;
+  } 
+
+function data_extenso(x){
 	
   dia = x
   data = dia.getDate();
@@ -316,7 +327,7 @@ switch (mes) {
 				<%= row.title %></a></h1>
 				<!-- <h2 class="news_subtitle">Este é um teste de subtítulo</h2> -->
 				<span class="news_author">Por <a href="author/<%= row.author %>"><%= row.author %></a></span>
-				<time datetime="<%= row.publi_date %>" class="publi_date_main"> | <%= teste(row.publi_date)%></time>
+				<time datetime="<%= row.publi_date %>" class="publi_date_main"> | <%= data_extenso(row.publi_date)%></time>
 				
 				</div> 
 				
@@ -338,7 +349,7 @@ switch (mes) {
 				<%= row.title %></a></h1>
 				<!-- <h2 class="news_subtitle">Este é um teste de subtítulo</h2> -->
 				<span class="news_author">Por <a href="author/<%= row.author %>"><%= row.author %></a></span>
-				<time datetime="<%= row.publi_date %>" class="publi_date_main"> | <%= teste(row.publi_date)%></time>
+				<time datetime="<%= row.publi_date %>" class="publi_date_main"> | <%= data_extenso(row.publi_date)%></time>
 				</div> 
 				
 			<% }); %>	
@@ -358,16 +369,19 @@ switch (mes) {
 				<%= row.title %></a></h1>
 				<!-- <h2 class="news_subtitle">Este é um teste de subtítulo</h2> -->
 				<span class="news_author">Por <a href="author/<%= row.author %>"><%= row.author %></a></span>
-				<time datetime="<%= row.publi_date %>" class="publi_date_main"> | <%= teste(row.publi_date)%></time>
+				<time datetime="<%= row.publi_date %>" class="publi_date_main"> | <%= data_extenso(row.publi_date)%></time>
 				</div> 
 				<% proxima = row.cod %>
+        <% diaxx = row.publi_date %>
+       
 			<% }); %>	
 
 
 
 		</div>
-    <a href="/navigate/<%= anterior %>/<%= secao %>/before">MAIS RECENTES</a> 
-		<a href="/navigate/<%= proxima %>/<%= secao %>/next">MAIS ANTIGAS</a>
+    <a href="/1/lixo/<%= secao %>/before">MAIS RECENTES</a> 
+    <%= data_extenso2(diaxx)%>
+		<a href="/<%= data_extenso2(diaxx)%>/<%= proxima %>/<%= secao %>/next">MAIS ANTIGAS</a>
 		
 	</div>
 	
