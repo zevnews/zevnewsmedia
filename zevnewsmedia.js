@@ -454,6 +454,10 @@ app.get("/:navega/:cod/:section/:ordem", function(req, res) {
    var section = req.params.section.toLowerCase()
    var navega = req.params.navega
    var ordem = req.params.ordem
+   
+   var complemento_sql2 = ""
+
+ 
 
 
    var dia = navega;
@@ -470,13 +474,20 @@ app.get("/:navega/:cod/:section/:ordem", function(req, res) {
    if (ordem  == "antigas")
    {
      ordem = "<"
+      
+     
    }
    else
    {
      ordem = ">"
+ 
+      cod = 137 + 18;
+     complemento_sql2 = "and cod < "+ cod +""
+
+
    }
 
-   string_sql= "select * from ARTICLES where publi_date "+ ordem +" '"+ dia +"' "+ complemento_sql +" ORDER by publi_date DESC LIMIT 9";
+   string_sql= "select * from ARTICLES where publi_date "+ ordem +" '"+ dia +"' "+ complemento_sql +""+ complemento_sql2 +" ORDER by publi_date DESC LIMIT 9";
    connection.query(string_sql, (err,rows) => {
       if(err) throw err;
       console.log(string_sql);
@@ -558,7 +569,7 @@ app.get("/:x", function(req, res) { // user route
       else
       {
          
-         conexao1 = "select * from ARTICLES where TAGS like '%"+ section +"%';" 
+         conexao1 = "select * from ARTICLES where TAGS like '%"+ section +"%' ORDER BY publi_date DESC LIMIT 9; " 
       }
      
       
