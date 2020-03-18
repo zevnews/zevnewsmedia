@@ -712,6 +712,32 @@ input[type="text"], input[type="email"] {
 }
 
 
+/*------> DATA NAVIGATION <--------------*/
+
+#navegacao_datas{
+	width: 100%;
+	/*background-color: red;*/
+	text-align: center;
+	height: 50pt;
+}
+
+#navegacao_datas a:hover{
+	text-decoration: underline;
+}
+
+#navegacao_datas a{
+	line-height: 50pt;
+	font-weight: bold;
+	color: #333333;
+}
+
+#navegacao_datas span
+{
+		/*background-color: green;*/
+}
+
+
+/*-------------------------------------*/
 
 /*------> FOOTER <--------*/
 
@@ -1372,6 +1398,33 @@ line-height: 50pt;
 
 
 /*-> END OF FONTS AND SIZES <-*/
+
+
+/*------> MOBILE DATA NAVIGATION <--------------*/
+
+#navegacao_datas{
+	
+	/*background-color: red;*/
+	text-align: center;
+	height: 150pt;
+}
+
+#navegacao_datas a{
+	line-height: 150pt;
+	font-size: 25pt;
+	font-weight: bold;
+	color: #333333;
+}
+
+#navegacao_datas span
+{
+		/*background-color: green;*/
+		line-height: 150pt;
+	font-size: 25pt;
+}
+
+
+/*-------------------------------------*/
 
 
 
