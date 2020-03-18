@@ -1,0 +1,19 @@
+ <%
+function data_extenso2(x){
+  
+  dia = x;
+  data = dia.getDate();
+  mes = dia.getMonth() + 1;
+  ano = dia.getFullYear();
+ 
+  datax = ano+"-"+mes+"-"+data
+  return datax;
+  } 
+
+ %>
+ <div>
+ <% if ( secao != "all") {%>
+ <a href="/<%= data_extenso2(diaxx)%>/<%= proxima %>/<%= secao %>/recentes">MAIS RECENTES</a>
+ <% }%>
+ <a href="/<%= data_extenso2(diaxx)%>/<%= proxima %>/<%= secao %>/antigas">MAIS ANTIGAS</a>
+</div>

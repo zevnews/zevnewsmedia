@@ -454,6 +454,13 @@ app.get("/:navega/:cod/:section/:ordem", function(req, res) {
    var section = req.params.section.toLowerCase()
    var navega = req.params.navega
    var ordem = req.params.ordem
+
+   codz = parseInt(cod) + 18;
+
+   var cod_cod = (codz.toString());
+
+   
+
    
    var complemento_sql2 = ""
 
@@ -481,8 +488,8 @@ app.get("/:navega/:cod/:section/:ordem", function(req, res) {
    {
      ordem = ">"
  
-      cod = 137 + 18;
-     complemento_sql2 = "and cod < "+ cod +""
+     
+     complemento_sql2 = "and cod < "+ cod_cod +""
 
 
    }
@@ -491,8 +498,9 @@ app.get("/:navega/:cod/:section/:ordem", function(req, res) {
    connection.query(string_sql, (err,rows) => {
       if(err) throw err;
       console.log(string_sql);
-      console.log("ordem " + ordem);
-     
+      //console.log("ordem " + ordem);
+      console.log ("tipo da var " + typeof cod_cod + "valor" + cod_cod )
+    
       res.render("news.ejs", {rows, section});
 
     });
