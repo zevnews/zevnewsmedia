@@ -342,6 +342,7 @@ box3 .news_author, .news_author a{
 }
 
 
+
 #box_story p{
 	
 	line-height: 20pt;
@@ -351,6 +352,26 @@ box3 .news_author, .news_author a{
 	
 }
 
+
+
+
+#interview p:nth-child(odd) {
+  background: red;
+  margin: 0px;
+  
+
+}
+
+#interview p:nth-child(even) {
+  background: blue;
+  margin-top: 2pt;
+
+}
+
+p strong {
+	font-weight: bold;
+	
+}
 
 
 #disqus_thread
@@ -485,9 +506,9 @@ margin-right: 5%;
 	margin-top: 3%;
 }
 
-p strong {
-	font-weight: bold;
-}
+
+
+
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
