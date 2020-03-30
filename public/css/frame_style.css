@@ -1301,18 +1301,15 @@ input {
 	padding-left: 5%;
 	padding-right: 5%;
 	
-	
 }
 
 #interview p:nth-child(odd) {
-	margin: 0pt;
-   margin-top: 2pt;
-   margin-bottom: 10pt;
-  }
+   margin: 0px;
+}
 
 #interview p:nth-child(even) {
-	
-     
+   margin-top: 5pt;
+ 
 
 }
 
