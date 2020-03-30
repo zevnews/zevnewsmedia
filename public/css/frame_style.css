@@ -356,15 +356,12 @@ box3 .news_author, .news_author a{
 
 
 #interview p:nth-child(odd) {
-  background: red;
-  margin: 0px;
-  
+   margin: 0px;
 
 }
 
 #interview p:nth-child(even) {
-  background: blue;
-  margin-top: 2pt;
+   margin-top: 2pt;
 
 }
 
