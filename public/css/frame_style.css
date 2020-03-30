@@ -353,8 +353,6 @@ box3 .news_author, .news_author a{
 }
 
 
-
-
 #interview p:nth-child(odd) {
    margin: 0px;
 
@@ -914,6 +912,9 @@ form{
 
 
 
+
+
+
 #content{
 	display: flex;
 	flex-direction: column;
@@ -1300,7 +1301,21 @@ input {
 	padding-left: 5%;
 	padding-right: 5%;
 	
+	
 }
+
+#interview p:nth-child(odd) {
+	margin: 0pt;
+   margin-top: 2pt;
+   margin-bottom: 10pt;
+  }
+
+#interview p:nth-child(even) {
+	
+     
+
+}
+
 
 
 
