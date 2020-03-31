@@ -1,0 +1,25 @@
+<div id="noticias_relacionadas">
+<h4>VEJAD AS SUGESTÕES DO EDITOR</h4>
+<ul >
+<%
+var z = -1;
+
+noticias_relacionadas = noticias_relacionadas.split(",");
+var compri =  noticias_relacionadas.length;
+%>
+
+
+<%do {z = z + 1 %>
+
+
+<%if (z != compri) {%>
+<li><a href="/article/<%= noticias_relacionadas[z]%>/<%=titulo_noticia.replace(/,/g, '').replace(/ /g, '-').replace(/%/g,'').toLowerCase()%>"><%= noticias_relacionadas[z].toUpperCase()%></a></li>
+<%} %>
+
+
+
+<%}while (z < compri)%>
+</ul>
+
+</div>
+

@@ -42,6 +42,8 @@ var dia;
       legend5 = row.legend5
 
       tags = row.tags
+
+      noticias_relacionadas = row.noticias_relacionadas
       %>
 
 
@@ -312,9 +314,11 @@ switch (mes) {
 
 <%- text%>
 <%- include('tags') %>
+<%- include('noticias_relacionadas') %>
 
 
 <!-- COMMENTS SECTION-->
+
 
 <div id="disqus_thread"></div>
 <script>

@@ -5,6 +5,8 @@ var app = express();
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
+var testelixo;
+
 var bodyParser = require('body-parser')
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
@@ -617,6 +619,9 @@ app.get("/article/:cod/:valor", function(req, res) { // user route
    // res.render("testes.ejs", {
       var cod = req.params.cod;
       var empresas;
+      var teste;
+
+      
 
       connection.query("select * from empresas", (err,empresas_x) => {
       if(err) throw err;
@@ -626,9 +631,12 @@ app.get("/article/:cod/:valor", function(req, res) { // user route
       connection.query("SELECT * FROM ARTICLES WHERE cod = "+ cod +"", (err,rows) => {
       if(err) throw err;
 
+      //teste = noticiasSemelhantes(cod);
+     
+
       var titulo_noticia;
        rows.forEach(row => { 
-      console.log(row.title);
+      //console.log(row.title);
       titulo_noticia = row.title;
 
         }); 
@@ -636,15 +644,12 @@ app.get("/article/:cod/:valor", function(req, res) { // user route
       res.render("article.ejs", {rows, titulo_noticia, empresas});
 
      
-      console.log( "Rows" + cod + req );
+     
        });
-       //res.render("article.ejs")
+     
 });
 
 // AQUI ACABAM AS ROTAS DO SITE
-
-
-
 
 
 
@@ -654,5 +659,6 @@ app.get("/article/:cod/:valor", function(req, res) { // user route
 
 app.listen(21171, function() {
     console.log("Servidor em operacao");
+  //  console.log("Funcao" + noticiasSemelhantes(168))
 });
 
