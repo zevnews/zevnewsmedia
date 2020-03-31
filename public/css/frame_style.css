@@ -221,6 +221,13 @@ h2 {
 	
 }
 
+#box3 .news_title {
+
+	font-size: 12.8pt;
+	margin-top: 3%;
+	margin-bottom: 3%;
+}
+
  .news_title a {
 	color: #000000;
 	
@@ -1309,7 +1316,6 @@ input {
 
 #interview p:nth-child(even) {
    margin-top: 5pt;
- 
 
 }
 
@@ -1359,8 +1365,9 @@ input {
 	font-size: 26pt;
 }
 
+/* SETS A NEW SIZE FOR TITLES IN BOX1, BOX2 AND BOX3*/
 
-.news_title{	
+.news_title, #box3 .news_title{	
 	font-family: 'Work Sans', sans-serif;
 	font-weight: bold;
 	/*font-family: 'Quicksand', sans-serif;*/
