@@ -630,6 +630,12 @@ app.get("/article/:cod/:valor", function(req, res) { // user route
       empresas = empresas_x
 
     });
+
+      connection.query("select * from ARTICLES where cod = 167 or cod = 165;", (err,registros_x) => {
+      if(err) throw err;
+      registros = registros_x
+
+    });
       connection.query("SELECT * FROM ARTICLES WHERE cod = "+ cod +"", (err,rows) => {
       if(err) throw err;
 
@@ -638,65 +644,7 @@ app.get("/article/:cod/:valor", function(req, res) { // user route
        rows.forEach(row => { titulo_noticia = row.title; noticias_relacionadas = row.noticias_relacionadas; });
 
 
-      //////////////////////////////////////////////////
-
-
-console.log("Essas são as noticias noticias_relacionadas" + noticias_relacionadas); 
-       var cont = 0;
-       var not_rel = noticias_relacionadas.split(",");
-       var compr = not_rel.length;
-       do{
-        console.log("Valor de array" + not_rel[cont])
-        if (cont == (compr -1))
-        {
-            sqlOr = sqlOr + " cod = " +  not_rel[cont] + " "
-        }                  
-        
-        else
-        {
-        sqlOr = sqlOr + " cod = " + not_rel[cont] + " or ";
-        }
-        cont =  cont + 1;
-
-      }while (cont < compr)
-
-
-
-      connection.query(sqlOr, (err,registros_x) => {
-          if(err) throw err;
-          registros = registros_x;
-            
-            registros.forEach(row =>{ console.log(row.title);});  
-            
-              console.log("Instrução" + sqlOr); 
-              console.log("Registros dentro da conexao" + registros);
-            
-            }); 
-
-
-
-
-      /////////////////////////////////////////////////
-       
-     
-
-
-
-
-       
-
-       
-
-
-       
-        
-      
-
-            console.log("Registros fora da conexao " + registros); 
-            console.log(empresas);
-
-        //////
-
+      console.log("Aqui estao os registros" +registros);
       res.render("article.ejs", {rows, titulo_noticia, empresas, registros});
         
      
