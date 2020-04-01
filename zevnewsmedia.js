@@ -619,7 +619,9 @@ app.get("/article/:cod/:valor", function(req, res) { // user route
    // res.render("testes.ejs", {
       var cod = req.params.cod;
       var empresas;
-      var teste;
+      var noticias_relacionadas;
+      var sqlOr = " select * from ARTICLES where ";
+      var registros;
 
       
 
@@ -631,19 +633,72 @@ app.get("/article/:cod/:valor", function(req, res) { // user route
       connection.query("SELECT * FROM ARTICLES WHERE cod = "+ cod +"", (err,rows) => {
       if(err) throw err;
 
-      //teste = noticiasSemelhantes(cod);
-     
-
       var titulo_noticia;
-       rows.forEach(row => { 
-      //console.log(row.title);
-      titulo_noticia = row.title;
+        
+       rows.forEach(row => { titulo_noticia = row.title; noticias_relacionadas = row.noticias_relacionadas; });
 
-        }); 
 
-      res.render("article.ejs", {rows, titulo_noticia, empresas});
+      //////////////////////////////////////////////////
 
+
+console.log("Essas são as noticias noticias_relacionadas" + noticias_relacionadas); 
+       var cont = 0;
+       var not_rel = noticias_relacionadas.split(",");
+       var compr = not_rel.length;
+       do{
+        console.log("Valor de array" + not_rel[cont])
+        if (cont == (compr -1))
+        {
+            sqlOr = sqlOr + " cod = " +  not_rel[cont] + " "
+        }                  
+        
+        else
+        {
+        sqlOr = sqlOr + " cod = " + not_rel[cont] + " or ";
+        }
+        cont =  cont + 1;
+
+      }while (cont < compr)
+
+
+
+      connection.query(sqlOr, (err,registros_x) => {
+          if(err) throw err;
+          registros = registros_x;
+            
+            registros.forEach(row =>{ console.log(row.title);});  
+            
+              console.log("Instrução" + sqlOr); 
+              console.log("Registros dentro da conexao" + registros);
+            
+            }); 
+
+
+
+
+      /////////////////////////////////////////////////
+       
      
+
+
+
+
+       
+
+       
+
+
+       
+        
+      
+
+            console.log("Registros fora da conexao " + registros); 
+            console.log(empresas);
+
+        //////
+
+      res.render("article.ejs", {rows, titulo_noticia, empresas, registros});
+        
      
        });
      
