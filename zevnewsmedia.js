@@ -617,28 +617,23 @@ app.get("/article/:cod/:valor", function(req, res) { // user route
    // res.render("testes.ejs", {
       var cod = req.params.cod;
       var empresas;
+      var rows;
+      var titulo_noticia = "teste"; 
 
-      connection.query("select * from empresas", (err,empresas_x) => {
-      if(err) throw err;
-      empresas = empresas_x
+//connection.query("select * from empresas", (err,empresas_x) => {if(err) throw err;empresas = empresas_x});
 
-    });
-      connection.query("SELECT * FROM ARTICLES WHERE cod = "+ cod +"", (err,rows) => {
-      if(err) throw err;
 
-      var titulo_noticia;
-       rows.forEach(row => { 
-      console.log(row.title);
-      titulo_noticia = row.title;
-
-        }); 
-
-      res.render("article.ejs", {rows, titulo_noticia, empresas});
-
-     
-      console.log( "Rows" + cod + req );
-       });
-       //res.render("article.ejs")
+connection.query("SELECT * FROM ARTICLES WHERE cod = "+ cod +"", (err,rows_x) => {if(err) throw err;
+  
+  /*rows.forEach(row => {console.log(row.title);titulo_noticia = row.title;});*/
+// res.render("article.ejs", {rows, titulo_noticia, empresas});
+rows = rows_x;
+  });
+      connection.query("select * from empresas", (err,empresas_x) => {if(err) throw err;
+        empresas = empresas_x
+    res.render("article.ejs", {rows, titulo_noticia, empresas}); 
+      });
+      
 });
 
 // AQUI ACABAM AS ROTAS DO SITE
