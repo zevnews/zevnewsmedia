@@ -313,6 +313,11 @@ switch (mes) {
 <%- text%>
 <%- include('tags') %>
 
+<% sugestoes.forEach(function(row) { %>
+
+<%= row.title %>
+<br>
+<%});%> 
 
 <!-- COMMENTS SECTION-->
 

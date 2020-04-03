@@ -618,20 +618,31 @@ app.get("/article/:cod/:valor", function(req, res) { // user route
       var cod = req.params.cod;
       var empresas;
       var rows;
-      var titulo_noticia = "teste"; 
+      var titulo_noticia = "teste";
+      var sugestoes;
+      var variaveis;
+     variaveis = "select sugestoes.artigo, ARTICLES.title from sugestoes inner join ARTICLES on sugestoes.artigo = ARTICLES.COD where sugestoes.COD = "+ cod +""; 
 
 //connection.query("select * from empresas", (err,empresas_x) => {if(err) throw err;empresas = empresas_x});
 
 
 connection.query("SELECT * FROM ARTICLES WHERE cod = "+ cod +"", (err,rows_x) => {if(err) throw err;
-  
-  /*rows.forEach(row => {console.log(row.title);titulo_noticia = row.title;});*/
-// res.render("article.ejs", {rows, titulo_noticia, empresas});
-rows = rows_x;
+    /*rows.forEach(row => {console.log(row.title);titulo_noticia = row.title;});*/
+    //variaveis = "select * from ARTICLES where cod = 165 or cod = 167";
+    console.log("ordem");
+  rows = rows_x;
   });
+
+
+connection.query(variaveis, (err,sugestoes_x) => {if(err) throw err;
+    /*rows.forEach(row => {console.log(row.title);titulo_noticia = row.title;});*/
+  console.log(variaveis);
+  sugestoes = sugestoes_x;
+  });
+
       connection.query("select * from empresas", (err,empresas_x) => {if(err) throw err;
         empresas = empresas_x
-    res.render("article.ejs", {rows, titulo_noticia, empresas}); 
+    res.render("article.ejs", {rows, titulo_noticia, empresas, sugestoes}); 
       });
       
 });
