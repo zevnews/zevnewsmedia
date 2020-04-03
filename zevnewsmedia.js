@@ -642,7 +642,7 @@ connection.query(variaveis, (err,sugestoes_x) => {if(err) throw err;
 
       connection.query("select * from empresas", (err,empresas_x) => {if(err) throw err;
         empresas = empresas_x
-    res.render("article.ejs", {rows, titulo_noticia, empresas, sugestoes}); 
+    res.render("article.ejs", {rows, empresas, sugestoes}); 
       });
       
 });
