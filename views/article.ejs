@@ -313,12 +313,18 @@ switch (mes) {
 <%- text%>
 <%- include('tags') %>
 
+<h4> O EDITOR INDICA</h4>
+<div id="sugestoes_editor">
+
 <% sugestoes.forEach(function(row) { %>
 
-<%= row.title %>
-<br>
-<%});%> 
+<div>
+  <img src="/images/<%=row.photo1%>" width="100%" >
+  <h5><a href="/article/<%=row.artigo%>/<%= row.title %>"><%= row.title %></a></h5>
+</div>
 
+<%});%> 
+</div >
 <!-- COMMENTS SECTION-->
 
 <div id="disqus_thread"></div>

@@ -621,7 +621,7 @@ app.get("/article/:cod/:valor", function(req, res) { // user route
       var titulo_noticia = "teste";
       var sugestoes;
       var variaveis;
-     variaveis = "select sugestoes.artigo, ARTICLES.title from sugestoes inner join ARTICLES on sugestoes.artigo = ARTICLES.COD where sugestoes.COD = "+ cod +""; 
+     variaveis = "select sugestoes.artigo, ARTICLES.title, ARTICLES.photo1 from sugestoes inner join ARTICLES on sugestoes.artigo = ARTICLES.COD where sugestoes.COD = "+ cod +""; 
 
 //connection.query("select * from empresas", (err,empresas_x) => {if(err) throw err;empresas = empresas_x});
 

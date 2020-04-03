@@ -618,6 +618,28 @@ margin-right: 5%;
 	
 }
 
+#sugestoes_editor
+{
+	width: 100%;
+	/*background-color: red;*/
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	
+}
+
+#sugestoes_editor div
+{
+	/*float: left;*/
+	width: 20%;
+}
+
+h5 {
+	width: 100%;
+	text-align: center;
+	/*background-color:  green;*/
+	font-size: 12pt;
+}
 
 /* STARTS  MENU TAGS*/
 h4{
