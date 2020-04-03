@@ -42,6 +42,8 @@ var dia;
       legend5 = row.legend5
 
       tags = row.tags
+
+      noticias_relacionadas = row.noticias_relacionadas
       %>
 
 
@@ -214,15 +216,9 @@ switch (mes) {
 </script>
 
 <%var empresas_zev = [];%>
-<% empresas.forEach(function(empresa) { %>
 
-<%   
-       
-       empresas_zev.push(empresa.nome);
-%>
 
-<%})%>
-
+          
 <% rows.forEach(function(row) { %>
 
        <%
@@ -234,13 +230,7 @@ switch (mes) {
        
 
 
-       var empresas_count = empresas_zev.length
-       var j = 0
-       while (j  < empresas_count)
-       {
-       text = text.replace(empresas_zev[j],'<a href="\\'+ empresas_zev[j] +'" title="Leia todas as notícias sobre '+ empresas_zev[j] +'">'+ empresas_zev[j] +'</a>')
-       j = j + 1;
-        }
+      
        
 
        section = row.section
@@ -311,10 +301,12 @@ switch (mes) {
 </legend>
 
 <%- text%>
-<%- include('tags') %>
+
+<%- include('noticias_relacionadas') %>
 
 
 <!-- COMMENTS SECTION-->
+
 
 <div id="disqus_thread"></div>
 <script>

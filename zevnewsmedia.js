@@ -5,8 +5,6 @@ var app = express();
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
-var testelixo;
-
 var bodyParser = require('body-parser')
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
@@ -619,40 +617,34 @@ app.get("/article/:cod/:valor", function(req, res) { // user route
    // res.render("testes.ejs", {
       var cod = req.params.cod;
       var empresas;
-      var noticias_relacionadas;
-      var sqlOr = " select * from ARTICLES where ";
-      var registros;
-
-      
 
       connection.query("select * from empresas", (err,empresas_x) => {
       if(err) throw err;
       empresas = empresas_x
 
     });
-
-      connection.query("select * from ARTICLES where cod = 167 or cod = 165;", (err,registros_x) => {
-      if(err) throw err;
-      registros = registros_x
-
-    });
       connection.query("SELECT * FROM ARTICLES WHERE cod = "+ cod +"", (err,rows) => {
       if(err) throw err;
 
       var titulo_noticia;
-        
-       rows.forEach(row => { titulo_noticia = row.title; noticias_relacionadas = row.noticias_relacionadas; });
+       rows.forEach(row => { 
+      console.log(row.title);
+      titulo_noticia = row.title;
 
+        }); 
 
-      console.log("Aqui estao os registros" +registros);
-      res.render("article.ejs", {rows, titulo_noticia, empresas, registros});
-        
+      res.render("article.ejs", {rows, titulo_noticia, empresas});
+
      
+      console.log( "Rows" + cod + req );
        });
-     
+       //res.render("article.ejs")
 });
 
 // AQUI ACABAM AS ROTAS DO SITE
+
+
+
 
 
 
@@ -662,6 +654,5 @@ app.get("/article/:cod/:valor", function(req, res) { // user route
 
 app.listen(21171, function() {
     console.log("Servidor em operacao");
-  //  console.log("Funcao" + noticiasSemelhantes(168))
 });
 
