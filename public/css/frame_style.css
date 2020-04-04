@@ -618,6 +618,8 @@ margin-right: 5%;
 	
 }
 
+/*-> Caixa sugestões do editor <-*/
+
 #sugestoes_editor
 {
 	width: 100%;
@@ -639,7 +641,15 @@ h5 {
 	text-align: center;
 	/*background-color:  green;*/
 	font-size: 12pt;
+	margin-top: 20pt;
+	margin-bottom: 20pt;
 }
+
+#editor_indica{
+	margin-left: 5%;
+	}
+
+/*-- Fim caixa de sugestões do editor> <--*/
 
 /* STARTS  MENU TAGS*/
 h4{
@@ -1487,6 +1497,43 @@ line-height: 50pt;
 
 
 /*-------------------------------------*/
+
+/*-> Mobile -> Caixa sugestões do editor <-*/
+
+#sugestoes_editor
+{
+	width: 100%;
+	/*background-color: red;*/
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	
+}
+
+#sugestoes_editor div
+{
+	/*float: left;*/
+	width: 100%;
+	    
+}
+
+h5 {
+	width: 90%;
+	text-align: center;
+	/*background-color:  green;*/
+	font-size: 35pt;
+	margin-top: 40pt;
+	margin-bottom: 40pt;
+	padding-left: 5%;
+	
+}
+
+h4 #editor_indica{
+	margin-left: 5%;
+	}
+
+/*-- Fim caixa de sugestões do editor> <--*/
+
 
 
 
