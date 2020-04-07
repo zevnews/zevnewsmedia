@@ -391,7 +391,7 @@ p strong {
 	text-align: center;
 	font-family: 'Teko', sans-serif;
     font-weight: lighter;
-    line-height: 40pt;
+    line-height: 45pt;
 	font-size: 40pt
 }
 
@@ -402,7 +402,7 @@ padding-bottom: 2.5%;
 text-align: center;
 font-family: 'Work Sans', sans-serif;
 font-weight: lighter;
-line-height:25pt;
+line-height:30pt;
 font-size: 25pt;
 margin-left: 5%;
 margin-right: 5%;
@@ -1441,7 +1441,7 @@ input {
 	font-family: 'Teko', sans-serif;
     font-weight: lighter;
 	font-size: 80pt;
-	line-height: 60pt;
+	line-height: 85pt;
 }
 
 .story_subtitle{
@@ -1452,7 +1452,7 @@ text-align: center;
 font-family: 'Work Sans', sans-serif;
 font-weight: lighter;
 font-size: 55pt;
-line-height: 50pt;
+line-height: 70pt;
 
 }
 
