@@ -109,6 +109,7 @@ switch (mes) {
    
         <br><br>
          <%= total%> || <strong><%= row.title %></strong> || <strong> Publicado em: <%= dsemana+ ", " + data + " de " + mes + " de " + ano %></strong> ||  <a href="update_article/<%= row.cod%>">Atualizar</a> -  <a href="delete_article/<%= row.cod%>" onclick="return confirm('Deseja Deletar?')" >Deletar?</a>
+         <a href="sugestoes/<%= row.cod%>">Incluir Sugestões </a>
           <% if (row.highlight == 1){%>
           => DESTACADO <=
           <%}%>

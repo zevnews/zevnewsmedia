@@ -230,6 +230,46 @@ app.get("/new_article", function(req, res) { // root route or home route
 
 });
 
+app.get("/sugestoes/:cod", function(req, res) { // root route or home route
+    //res.send('Motos');
+   
+
+   
+    if (req.session.name == "junior")
+    {
+     res.render("sugestao.ejs", {sessao_usuario})
+    console.log( "sessao usua " + sessao_usuario);
+    }
+    else
+    {
+      res.redirect('/access')
+    }
+
+});
+
+
+/*INSERIR SUGESTÕES */
+app.post('/sugestao2',function(req,res){
+ if (req.session.name == "junior")
+    {
+    
+  var sugestao1 = req.body.sugestao1;
+ 
+  var cod = req.body.cod;
+  var sql = "INSERT INTO sugestoes (cod,artigo) VALUES ("+ cod +","+ sugestao1 +")";
+  connection.query(sql, function (err, result) {
+    if (err) throw err;
+       
+   res.redirect("/cms");
+  }); 
+
+    }
+    else
+    {
+      res.redirect('/access')
+    }
+  });
+
 
 
 app.post('/insert_article',function(req,res){
