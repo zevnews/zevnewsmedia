@@ -232,13 +232,13 @@ app.get("/new_article", function(req, res) { // root route or home route
 
 app.get("/sugestoes/:cod", function(req, res) { // root route or home route
     //res.send('Motos');
-   
+     var cod = req.params.cod;
 
    
     if (req.session.name == "junior")
     {
-     res.render("sugestao.ejs", {sessao_usuario})
-    console.log( "sessao usua " + sessao_usuario);
+     res.render("sugestao.ejs", {sessao_usuario, cod})
+      
     }
     else
     {
@@ -250,6 +250,8 @@ app.get("/sugestoes/:cod", function(req, res) { // root route or home route
 
 /*INSERIR SUGESTÕES */
 app.post('/sugestao2',function(req,res){
+
+  var sessao = req.session.name;
  if (req.session.name == "junior")
     {
     
@@ -281,11 +283,18 @@ app.post('/sugestao2',function(req,res){
                     zx = zx + 1;
                 }
                 //res.render("cms.ejs", {rows, sessao_usuario});
+               //res.redirect('/all');
                 console.log(sugestoes[1] + " " + sugestoes[2] + " " + sugestoes[3] + " " + sugestoes[4])
                 console.log(sql);
+
+                
       
     }
+    else
+    {
     res.redirect('/access')
+  }
+  res.redirect("/cms");
   });
 
 
