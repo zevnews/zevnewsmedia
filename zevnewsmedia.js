@@ -253,21 +253,27 @@ app.post('/sugestao2',function(req,res){
  if (req.session.name == "junior")
     {
     
+  //var sugestoes = [];
+ 
+
   var sugestao1 = req.body.sugestao1;
+
  
   var cod = req.body.cod;
-  var sql = "INSERT INTO sugestoes (cod,artigo) VALUES ("+ cod +","+ sugestao1 +")";
-  connection.query(sql, function (err, result) {
-    if (err) throw err;
-       
-   res.redirect("/cms");
-  }); 
 
+  var zx = 1;
+  var sql = "INSERT INTO sugestoes (cod,artigo) VALUES ("+ cod +","+ sugestao1 +")";
+  
+  while (zx < 6){
+                    connection.query(sql, function (err, result) {
+                     if (err) throw err;  
+                   }); 
+                    zx = zx + 1;
+                }
+                //res.render("cms.ejs", {rows, sessao_usuario});
+      
     }
-    else
-    {
-      res.redirect('/access')
-    }
+    res.redirect('/access')
   });
 
 
