@@ -254,23 +254,35 @@ app.post('/sugestao2',function(req,res){
     {
     
   //var sugestoes = [];
- 
-
-  var sugestao1 = req.body.sugestao1;
+  
+  var sugestoes = [];
+ sugestoes[1] = req.body.sugestao1;
+ sugestoes[2] = req.body.sugestao2;
+ sugestoes[3] = req.body.sugestao3;
+ sugestoes[4] = req.body.sugestao4; 
 
  
   var cod = req.body.cod;
 
   var zx = 1;
-  var sql = "INSERT INTO sugestoes (cod,artigo) VALUES ("+ cod +","+ sugestao1 +")";
+  var sql;
   
-  while (zx < 6){
-                    connection.query(sql, function (err, result) {
-                     if (err) throw err;  
-                   }); 
+  
+  while (zx < 5){
+                    sql = "INSERT INTO sugestoes (cod,artigo) VALUES ("+ cod +","+ sugestoes[zx] +")";
+                    
+                    if (sugestoes[zx] |= null)
+                      {
+                        connection.query(sql, function (err, result) {
+                        if (err) throw err;  
+                        });
+                      }
+                    
                     zx = zx + 1;
                 }
                 //res.render("cms.ejs", {rows, sessao_usuario});
+                console.log(sugestoes[1] + " " + sugestoes[2] + " " + sugestoes[3] + " " + sugestoes[4])
+                console.log(sql);
       
     }
     res.redirect('/access')
@@ -667,7 +679,7 @@ app.get("/article/:cod/:valor", function(req, res) { // user route
       var titulo_noticia = "teste";
       var sugestoes;
       var variaveis;
-     variaveis = "select sugestoes.artigo, ARTICLES.title, ARTICLES.photo1 from sugestoes inner join ARTICLES on sugestoes.artigo = ARTICLES.COD where sugestoes.COD = "+ cod +""; 
+     variaveis = "select sugestoes.artigo, ARTICLES.title, ARTICLES.photo1 from sugestoes inner join ARTICLES on sugestoes.artigo = ARTICLES.COD where sugestoes.COD = "+ cod +" LIMIT 4"; 
 
 //connection.query("select * from empresas", (err,empresas_x) => {if(err) throw err;empresas = empresas_x});
 
