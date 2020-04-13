@@ -11,6 +11,7 @@ function data_extenso2(x){
   } 
 
  %>
+ <% if (proxima != null) {%>
  <div id="navegacao_datas">
  <% if ( secao != "all") {%>
  <a href="/<%= data_extenso2(diaxx)%>/<%= proxima %>/<%= secao %>/recentes">MAIS RECENTES</a>
@@ -18,3 +19,4 @@ function data_extenso2(x){
  <% }%>
  <a href="/<%= data_extenso2(diaxx)%>/<%= proxima %>/<%= secao %>/antigas">MAIS ANTIGAS</a>
 </div>
+<%}%>
