@@ -373,9 +373,10 @@ switch (mes) {
 				</div> 
 				<% proxima = row.cod %>
         <% diaxx = row.publi_date %>
+        <
        
 			<% }); %>	
-
+   
 
 
 
@@ -383,14 +384,16 @@ switch (mes) {
 
 
 		</div>
-
-   <% if (pagina != 0) {%>
-    <a href="/prior/<%= pagina %>">Anterior</a> <--->
+   
+  <div id="navegacao_datas"> 
+  <% if (pagina != 0) {%>
+    <a href="/prior/<%= pagina %>"><< Anterior</a>
     <%}%>
-    
-    <% if (proxima != "") {%>
-    <a href="/next/<%= parseInt(pagina) + 1 %>">Próxima</a>
+     <% if (proxima != linha) {%>
+    <a href="/next/<%= parseInt(pagina) + 1 %>">Próxima >></a>
      <%}%>
+   </div>
+
 
 	</div>
 	

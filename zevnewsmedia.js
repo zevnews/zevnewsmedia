@@ -520,14 +520,23 @@ app.get("/next/:pagina", function(req, res) { // user route
   
   var pagina = req.params.pagina;
   var offSet = parseInt(pagina);
-
+  var linha = "";
 
   connection.query("select * from ARTICLES order by publi_date DESC limit 10 offset "+ (offSet * 10) +"", (err,rows) => {
       if(err) throw err;
-     
-          //estado = "cheio";
-          var section = "teste";
-          res.render("conteudos.ejs", {rows, pagina, section});
+
+         connection.query("select cod from ARTICLES order by publi_date  limit 1", (err,linhas) => {
+         if(err) throw err;
+         
+            linhas.forEach(linha => { 
+            linha = linha.cod; 
+             section = "all";
+             res.render("conteudos.ejs", {rows, pagina, section, linha});
+             }); 
+      
+      });
+      
+          
 
      
       //console.log(estado);
@@ -549,10 +558,17 @@ app.get("/prior/:pagina", function(req, res) { // user route
   connection.query("select * from ARTICLES order by publi_date DESC limit 10 offset "+ (offSet * 10) +"", (err,rows) => {
       if(err) throw err;
      
-          console.log("Segunda paginacao retorno" + pagina);
-          //estado = "cheio";
-          var section = "teste";
-          res.render("conteudos.ejs", {rows, pagina, section});
+          connection.query("select cod from ARTICLES order by publi_date  limit 1", (err,linhas) => {
+         if(err) throw err;
+         
+            linhas.forEach(linha => { 
+            linha = linha.cod; 
+             section = "all";
+             res.render("conteudos.ejs", {rows, pagina, section, linha});
+             }); 
+      
+      });
+      
 
      
       //console.log(estado);
