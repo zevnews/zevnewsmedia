@@ -422,7 +422,7 @@ var largura = document.getElementById('news1').clientWidth;
 				</div> 
         <% diaxx = row.publi_date %>
 				<%contador = contador + 1%> 
-        <% proxima = row.cod %>
+        <% cod = row.cod %>
           
 				<% } %>	 
 				
@@ -431,8 +431,22 @@ var largura = document.getElementById('news1').clientWidth;
 			
 		</div>
     <% secao = "all"%>
-  <%- include('menu_navegacao') %>
+ 
 	</div>
+  <%
+function data_extenso2(x){
+  
+  dia = x;
+  data = dia.getDate();
+  mes = dia.getMonth() + 1;
+  ano = dia.getFullYear();
+ 
+  datax = ano+"-"+mes+"-"+data
+  return datax;
+  } 
+
+ %>
+    <a href="/next/1">Próxima</a>
 	<%- include('formulario_newsletter_zev') %>
 
 

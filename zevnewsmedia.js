@@ -516,6 +516,54 @@ app.get('/logout',(req,res) => {
 
 // 	AQUI COMEÇAM AS ROTAS DO SITE
 
+app.get("/next/:pagina", function(req, res) { // user route
+  
+  var pagina = req.params.pagina;
+  var offSet = parseInt(pagina);
+
+
+  connection.query("select cod, publi_date, title from ARTICLES order by publi_date DESC limit 10 offset "+ (offSet * 10) +"", (err,rows) => {
+      if(err) throw err;
+     
+          //estado = "cheio";
+          res.render("next.ejs", {rows, pagina});
+
+     
+      //console.log(estado);
+       });
+
+
+
+
+
+});
+
+app.get("/prior/:pagina", function(req, res) { // user route
+  
+  
+   var pagina = req.params.pagina;
+    pagina = pagina - 1;
+   var offSet = parseInt(pagina);
+
+  connection.query("select cod, publi_date, title from ARTICLES order by publi_date DESC limit 10 offset "+ (offSet * 10) +"", (err,rows) => {
+      if(err) throw err;
+     
+          console.log("Segunda paginacao retorno" + pagina);
+          //estado = "cheio";
+          res.render("next.ejs", {rows, pagina});
+
+     
+      //console.log(estado);
+       });
+
+
+
+
+
+});
+
+
+
 app.get("/:navega/:cod/:section/:ordem", function(req, res) { 
    var cod = req.params.cod;
    var section = req.params.section.toLowerCase()

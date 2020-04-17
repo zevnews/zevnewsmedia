@@ -1,0 +1,23 @@
+<h1>Anterior</h1>
+<%= dia%>
+
+<% rows.forEach(function(row) { %>
+<hr />
+<%= row.title%> - <%=row.publi_date %>
+<hr />
+<% diaxx = row.publi_date %>
+<%});%>
+ <%
+function data_extenso2(x){
+  
+  dia = x;
+  data = dia.getDate();
+  mes = dia.getMonth() + 1;
+  ano = dia.getFullYear();
+ 
+  datax = ano+"-"+mes+"-"+data
+  return datax;
+  } 
+
+ %>
+    <a href="/prior/<%= data_extenso2(diaxx) %>">Prior</a>

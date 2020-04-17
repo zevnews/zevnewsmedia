@@ -1,0 +1,35 @@
+<h1>Próxima</h1>
+<%= dia%>
+
+<h2> Valores </h2>
+
+<%var teste = ""%>
+
+<% rows.forEach(function(row) { %>
+
+<%if (teste == ""){%>
+   <% teste = row.cod %>
+<%}%>
+<%= row.cod %> - <%= row.title%> - <%=row.publi_date %>
+<hr />
+<% diaxx = row.publi_date %>
+<% cod = row.cod %>
+<%});%>
+ <%
+function data_extenso2(x){
+  
+  dia = x;
+  data = dia.getDate();
+  mes = dia.getMonth() + 1;
+  ano = dia.getFullYear();
+ 
+  datax = ano+"-"+mes+"-"+data
+  return datax;
+  } 
+  
+  
+ %>
+    
+    <a href="/prior/<%= pagina %>">Anterior</a> <--->
+
+    <a href="/next/<%= parseInt(pagina) + 1 %>">Próxima</a>
