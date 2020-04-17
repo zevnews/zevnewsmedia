@@ -29,7 +29,10 @@ function data_extenso2(x){
   
   
  %>
-    
+    <% if (pagina != 0) {%>
     <a href="/prior/<%= pagina %>">Anterior</a> <--->
-
+    <%}%>
+    
+    <% if (teste != "") {%>
     <a href="/next/<%= parseInt(pagina) + 1 %>">Próxima</a>
+     <%}%>
