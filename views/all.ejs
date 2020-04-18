@@ -422,7 +422,7 @@ var largura = document.getElementById('news1').clientWidth;
 				</div> 
         <% diaxx = row.publi_date %>
 				<%contador = contador + 1%> 
-        <% cod = row.cod %>
+        <% proxima = row.cod %>
           
 				<% } %>	 
 				
@@ -446,7 +446,11 @@ function data_extenso2(x){
   } 
 
  %>
-    <a href="/next/1">Próxima</a>
+   
+ <div id="navegacao_datas">
+ <a href="/next/1">Próxima >></a> 
+</div>
+
 	<%- include('formulario_newsletter_zev') %>
 
 

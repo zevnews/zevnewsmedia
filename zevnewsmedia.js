@@ -195,8 +195,8 @@ app.get("/all", function(req, res) { // user route
       }
       else
       {
-          //estado = "cheio";
-          res.render("all.ejs", {rows, section});
+          pagina = 0;
+          res.render("all.ejs", {rows, section, pagina});
 
       } 
 
