@@ -392,7 +392,7 @@ var largura = document.getElementById('news1').clientWidth;
 
        		   <%if (row.highlight == 0 && contador < 5) { %>
        	<div class="news_inside">
- 				<a href="article/<%=row.cod%>/<%= row.section.toUpperCase() %>"><img src="images/<%=row.photo1%>" class="news_photo" /></a>
+ 				<a href="article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').replace(/%/g,'').toLowerCase()%>"><img src="images/<%=row.photo1%>" class="news_photo" /></a>
 				<span class="news_section"><a href="<%=  row.section%>"><%= row.section.toUpperCase() %></a></span>
 				<h1 class="news_title"><a href="article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').replace(/%/g,'').toLowerCase()%>">
 				<%= row.title %></a></h1>
@@ -412,7 +412,7 @@ var largura = document.getElementById('news1').clientWidth;
 			<% rows.slice(3,8).forEach(function(row) { %>
        		<%if (row.highlight == 0 && contador < 5) { %>
        	 <div class="news_inside">
- 				<a href="article/<%=row.cod%>/<%= row.section.toUpperCase() %>"><img src="images/<%=row.photo1%>" class="news_photo" /></a>
+ 				<a href="article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').replace(/%/g,'').toLowerCase()%>"><img src="images/<%=row.photo1%>" class="news_photo" /></a>
 				<span class="news_section"><a href="<%=  row.section%>"><%= row.section.toUpperCase() %></a></span> 
 				<h1 class="news_title"><a href="article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').replace(/%/g,'').toLowerCase()%>">
 				<%= row.title %></a></h1>
@@ -448,7 +448,7 @@ function data_extenso2(x){
  %>
    
  <div id="navegacao_datas">
- <a href="/next/1">Próxima >></a> 
+ <a href="/next/1/all">Próxima >></a> 
 </div>
 
 	<%- include('formulario_newsletter_zev') %>

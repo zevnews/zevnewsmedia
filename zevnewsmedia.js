@@ -516,21 +516,31 @@ app.get('/logout',(req,res) => {
 
 // 	AQUI COMEÇAM AS ROTAS DO SITE
 
-app.get("/next/:pagina", function(req, res) { // user route
+app.get("/next/:pagina/:secao", function(req, res) { // user route
   
   var pagina = req.params.pagina;
   var offSet = parseInt(pagina);
+  var section = req.params.secao;
+
+  var instSQl = "";
+  
+   if (section != "all")
+   {
+     var  instSQl = "where section = '" + section +"'";
+   }
+
+  
   var linha = "";
 
-  connection.query("select * from ARTICLES order by publi_date DESC limit 10 offset "+ (offSet * 10) +"", (err,rows) => {
+  connection.query("select * from ARTICLES "+ instSQl +" order by publi_date DESC limit 10 offset "+ (offSet * 10) +"", (err,rows) => {
       if(err) throw err;
 
-         connection.query("select cod from ARTICLES order by publi_date  limit 1", (err,linhas) => {
+         connection.query("select cod from ARTICLES "+ instSQl +"  order by publi_date  limit 1", (err,linhas) => {
          if(err) throw err;
          
             linhas.forEach(linha => { 
             linha = linha.cod; 
-             section = "all";
+             console.log(linha);
              res.render("conteudos.ejs", {rows, pagina, section, linha});
              }); 
       
@@ -548,22 +558,30 @@ app.get("/next/:pagina", function(req, res) { // user route
 
 });
 
-app.get("/prior/:pagina", function(req, res) { // user route
+app.get("/prior/:pagina/:secao", function(req, res) { // user route
   
   
    var pagina = req.params.pagina;
     pagina = pagina - 1;
    var offSet = parseInt(pagina);
+   var section = req.params.secao;
 
-  connection.query("select * from ARTICLES order by publi_date DESC limit 10 offset "+ (offSet * 10) +"", (err,rows) => {
+  var instSQl = "";
+  
+   if (section != "all")
+   {
+     var  instSQl = "where section = '" + section +"'";
+   }
+
+  connection.query("select * from ARTICLES "+ instSQl +" order by publi_date DESC limit 10 offset "+ (offSet * 10) +"", (err,rows) => {
       if(err) throw err;
      
-          connection.query("select cod from ARTICLES order by publi_date  limit 1", (err,linhas) => {
+          connection.query("select cod from ARTICLES "+ instSQl +" order by publi_date  limit 1", (err,linhas) => {
          if(err) throw err;
          
             linhas.forEach(linha => { 
             linha = linha.cod; 
-             section = "all";
+             
              res.render("conteudos.ejs", {rows, pagina, section, linha});
              }); 
       

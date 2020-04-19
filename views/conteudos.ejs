@@ -321,7 +321,7 @@ switch (mes) {
  <% anterior = row.cod %>
        		
        		    <div class="item_news">
- 				<a href="article/<%=row.cod%>/<%= row.section.toUpperCase() %>""><img src="/images/<%=row.photo1%>" class="news_photo" /></a>
+ 				<a href="/article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').replace(/%/g,'').toLowerCase()%>"><img src="/images/<%=row.photo1%>" class="news_photo" /></a>
 				<span class="news_section"><a href="<%=  row.section%>"><%= row.section.toUpperCase() %></a></span>
 				<h1 class="news_title"><a href="/article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').toLowerCase()%>">
 				<%= row.title %></a></h1>
@@ -343,7 +343,7 @@ switch (mes) {
 			
        		
        		    <div class="item_news">
- 				<a href="article/<%=row.cod%>/<%= row.section.toUpperCase() %>""><img src="/images/<%=row.photo1%>" class="news_photo" /></a>
+ 				<a href="/article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').replace(/%/g,'').toLowerCase()%>"><img src="/images/<%=row.photo1%>" class="news_photo" /></a>
 				<span class="news_section"><a href="<%=  row.section%>"><%= row.section.toUpperCase() %></a></span>
 				<h1 class="news_title"><a href="/article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').toLowerCase()%>">
 				<%= row.title %></a></h1>
@@ -363,7 +363,7 @@ switch (mes) {
        <% rows.slice(6,9).forEach(function(row) { %>
        		
        		    <div class="item_news">
- 				<a href="article/<%=row.cod%>/<%= row.section.toUpperCase() %>"><img src="/images/<%=row.photo1%>" class="news_photo" /></a>
+ 				<a href="/article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').replace(/%/g,'').toLowerCase()%>"><img src="/images/<%=row.photo1%>" class="news_photo" /></a>
 				<span class="news_section"><a href="<%=  row.section%>"><%= row.section.toUpperCase() %></a></span>
 				<h1 class="news_title"><a href="/article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').toLowerCase()%>">
 				<%= row.title %></a></h1>
@@ -387,10 +387,10 @@ switch (mes) {
    
   <div id="navegacao_datas"> 
   <% if (pagina != 0) {%>
-    <a href="/prior/<%= pagina %>"><< Anterior</a>
+    <a href="/prior/<%= pagina %>/<%= section %>"><< Anterior</a>
     <%}%>
      <% if (proxima != linha) {%>
-    <a href="/next/<%= parseInt(pagina) + 1 %>">Próxima >></a>
+    <a href="/next/<%= parseInt(pagina) + 1 %>/<%= section %>">Próxima >></a>
      <%}%>
    </div>
 
