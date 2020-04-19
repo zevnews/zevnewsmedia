@@ -714,18 +714,23 @@ app.get("/:x", function(req, res) { // user route
 
 
       var section = req.params.x;
-      var conexao;
+      var conexao1;
+     
 
       if (section == "mercado" || section == "carros" || section == "motos" || section == "startups" || section == "bikes" || section == "tech" || section == "racing")
       {
          
         //  conexao1 = "SELECT * FROM ARTICLES WHERE section='"+ section +"' OR subsection='"+ section +"' ORDER BY COD DESC LIMIT 9 "
 
-        conexao1 = "SELECT * FROM ARTICLES WHERE section='"+ section +"' ORDER BY publi_date DESC LIMIT 9 "
+        //conexao1 = "SELECT * FROM ARTICLES WHERE section='"+ section +"' ORDER BY publi_date DESC LIMIT 9 "
+         
+         var url = '/next/0/'+ section +'';
+        res.redirect(url);
+
          
 
       }
-      else
+     /* else
       {
          
          conexao1 = "select * from ARTICLES where TAGS like '%"+ section +"%' ORDER BY publi_date DESC LIMIT 9; " 
@@ -738,19 +743,19 @@ app.get("/:x", function(req, res) { // user route
       var estado = "";
       if (Array.isArray(rows) && rows.length === 0.)
       {
-           // estado vazio
+           // estado vazi
            res.render("vazio.ejs");
-      }
+      }*/
       else
       {
           //estado = "cheio";
-          res.render("news.ejs", {rows, section});
+          res.render("vazio.ejs");
 
       } 
 
       //console.log(estado);
        });
-});
+
 
 
 
