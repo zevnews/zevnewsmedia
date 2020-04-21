@@ -61,7 +61,7 @@ var connection = mysql.createConnection({
 
 });
 
-
+var route_selector = 0;
 
 
 
@@ -523,24 +523,34 @@ app.get("/next/:pagina/:secao", function(req, res) { // user route
   var section = req.params.secao;
 
   var instSQl = "";
+  var Sql1 = "";
+  var Sql2 = "";
   
    if (section != "all")
    {
      var  instSQl = "where section = '" + section +"'";
-   }
 
+     if (route_selector != 1)
+     {
+       instSQl = "where TAGS like '%"+ section +"%'";
+     }
+   }
+ 
+  Sql1 =  "select * from ARTICLES "+ instSQl +" order by publi_date DESC limit 9 offset "+ (offSet * 10) +""
+
+  Sql2 = "select cod from ARTICLES "+ instSQl +"  order by publi_date  limit 1";
   
   var linha = "";
 
-  connection.query("select * from ARTICLES "+ instSQl +" order by publi_date DESC limit 10 offset "+ (offSet * 10) +"", (err,rows) => {
+  connection.query(Sql1, (err,rows) => {
       if(err) throw err;
 
-         connection.query("select cod from ARTICLES "+ instSQl +"  order by publi_date  limit 1", (err,linhas) => {
+         connection.query(Sql2, (err,linhas) => {
          if(err) throw err;
          
             linhas.forEach(linha => { 
             linha = linha.cod; 
-             console.log(linha);
+              console.log ("linha é" + linha);
              res.render("conteudos.ejs", {rows, pagina, section, linha});
              }); 
       
@@ -567,20 +577,32 @@ app.get("/prior/:pagina/:secao", function(req, res) { // user route
    var section = req.params.secao;
 
   var instSQl = "";
+  var Sql1 = "";
+  var Sql2 = "";
+
   
    if (section != "all")
    {
      var  instSQl = "where section = '" + section +"'";
+     if (route_selector != 1)
+     {
+       instSQl = "where TAGS like '%"+ section +"%'";
+     }
    }
 
-  connection.query("select * from ARTICLES "+ instSQl +" order by publi_date DESC limit 10 offset "+ (offSet * 10) +"", (err,rows) => {
+  Sql1 = "select * from ARTICLES "+ instSQl +" order by publi_date DESC limit 10 offset "+ (offSet * 10) +"";
+  Sql2 = "select cod from ARTICLES "+ instSQl +" order by publi_date  limit 1"
+  
+
+  connection.query(Sql1, (err,rows) => {
       if(err) throw err;
      
-          connection.query("select cod from ARTICLES "+ instSQl +" order by publi_date  limit 1", (err,linhas) => {
+          connection.query(Sql2, (err,linhas) => {
          if(err) throw err;
          
             linhas.forEach(linha => { 
             linha = linha.cod; 
+            console.log ("linha é" + linha);
              
              res.render("conteudos.ejs", {rows, pagina, section, linha});
              }); 
@@ -723,6 +745,7 @@ app.get("/:x", function(req, res) { // user route
         //  conexao1 = "SELECT * FROM ARTICLES WHERE section='"+ section +"' OR subsection='"+ section +"' ORDER BY COD DESC LIMIT 9 "
 
         //conexao1 = "SELECT * FROM ARTICLES WHERE section='"+ section +"' ORDER BY publi_date DESC LIMIT 9 "
+        route_selector = 1;
          
          var url = '/next/0/'+ section +'';
         res.redirect(url);
@@ -730,13 +753,26 @@ app.get("/:x", function(req, res) { // user route
          
 
       }
-     /* else
+     else  
       {
-         
+          var linha = "";   
          conexao1 = "select * from ARTICLES where TAGS like '%"+ section +"%' ORDER BY publi_date DESC LIMIT 9; " 
+          connection.query(conexao1, (err,rows) => {
+          if(err) throw err;
+                
+          rows.forEach(linha => { 
+            linha = linha.cod; 
+            pagina = 0;
+             console.log("Linha"  + linha + " secao " + section);
+           })
+             res.render("conteudos.ejs", {rows, pagina, section, linha});
+        
+         
+         //res.render("vazio.ejs");
+       });
       }
      
-      
+      /*
       connection.query(conexao1, (err,rows) => {
       if(err) throw err;
       
@@ -745,7 +781,7 @@ app.get("/:x", function(req, res) { // user route
       {
            // estado vazi
            res.render("vazio.ejs");
-      }*/
+      }*
       else
       {
           //estado = "cheio";
@@ -753,7 +789,7 @@ app.get("/:x", function(req, res) { // user route
 
       } 
 
-      //console.log(estado);
+      //console.log(estado);*/
        });
 
 

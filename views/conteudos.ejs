@@ -330,6 +330,9 @@ switch (mes) {
 				<time datetime="<%= row.publi_date %>" class="publi_date_main"> | <%= data_extenso(row.publi_date)%></time>
 				
 				</div> 
+        <% proxima = row.cod %>
+
+        <% diaxx = row.publi_date %>
 				
 			<% }); %>	
 
@@ -351,7 +354,9 @@ switch (mes) {
 				<span class="news_author">Por <a href="author/<%= row.author %>"><%= row.author %></a></span>
 				<time datetime="<%= row.publi_date %>" class="publi_date_main"> | <%= data_extenso(row.publi_date)%></time>
 				</div> 
-				
+			<% proxima = row.cod %>
+
+        <% diaxx = row.publi_date %>	
 			<% }); %>	
 
 
@@ -372,6 +377,7 @@ switch (mes) {
 				<time datetime="<%= row.publi_date %>" class="publi_date_main"> | <%= data_extenso(row.publi_date)%></time>
 				</div> 
 				<% proxima = row.cod %>
+
         <% diaxx = row.publi_date %>
         
        
@@ -381,9 +387,10 @@ switch (mes) {
 
 
 
-
+<!-- precisa remover para funcionar -->
 
 		</div>
+    Proxima <%= proxima %> - Linha <%= linha %>
    
   <div id="navegacao_datas"> 
   <% if (pagina != 0) {%>

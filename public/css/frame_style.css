@@ -1401,6 +1401,28 @@ input {
 	margin-bottom: 6%;
 }
 	
+
+
+	#navegacao_datas{
+	display: flex;
+	justify-content: space-evenly;
+	
+
+}
+
+#navegacao_datas a:hover{
+	
+	
+	color: #999999;
+}
+
+#navegacao_datas a{
+	
+	
+	border: none;
+	
+	
+}
 /*---> SET FONTS AND SIZES <--*/
 
 
