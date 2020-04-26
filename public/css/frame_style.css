@@ -179,12 +179,7 @@ body {
 
 /*---> SET FONTS AND SIZES <--*/
 
-h1 {
-	
-	font-size: 18pt;
-	font-weight: 100;
-	
-}
+
 
 h2 {
 	
@@ -215,7 +210,7 @@ h2 {
 
 .news_title{
 	
-	font-size: 112%;
+	font-size: 103%;
 	margin-top: 3%;
 	margin-bottom: 3%;
 	
@@ -243,15 +238,20 @@ h2 {
 	
 }
 
-.news_author, .news_author a{
-	font-size: 10pt;
+#box2 .news_author, #box2 .news_author a{
+	font-size: 9pt;
 	font-weight: bold;
 	
 }
 
+.box_news_block .news_author, .box_news_block .news_author a{
+	font-size: 9pt;
+	font-weight: bold;
+	
+}
 
-box3 .news_author, .news_author a{
-	font-size: 8pt;
+#box3 .news_author, #box3 .news_author a{
+	font-size: 8.5pt;
 	font-weight: bold;
 	
 }
@@ -265,16 +265,16 @@ box3 .news_author, .news_author a{
 	
 }
 
-.publi_date_main
+#box2 .publi_date_main, .box_news_block .publi_date_main
 {
-	font-size: 8pt;
+	font-size: 9pt;
 	font-weight: bold;
 	color: #333333;
 }
 
 #box3 .publi_date_main
 {
-	font-size: 8pt;
+	font-size: 8.5pt;
 	font-weight: bold;
 	color: #333333;
 	display: block;
@@ -355,9 +355,10 @@ box3 .news_author, .news_author a{
 	
 	line-height: 20pt;
 	margin-bottom: 20pt;
-	padding-left: 2%;
-	padding-right: 2%;
-	
+	padding-left: 25%;
+	padding-right: 25%;
+	font-size: 13.5pt;
+	text-align: left;
 }
 
 
@@ -526,15 +527,17 @@ margin-right: 5%;
 #main_title
 {
 	color: #ECEFF1;
-	width: 48%;
+	width: 45%;
 	font-size: 30pt;
-	text-shadow: 3px 3px 3px #212121;
+	text-shadow: 2px 2px 6px #212121;
 	font-weight: bold;
-	margin-left: 50%;
+	margin-left: 45%;
 	margin-right: 2%;
 	margin-top: 4%;
 	font-family: font-family: 'DM Sans', sans-serif;
 	margin-bottom: 1%;
+	text-align: center;
+	padding: 0.5%;
 }
 
 #main_subtitle
@@ -554,7 +557,7 @@ margin-right: 5%;
 	color: #ECEFF1;
 	width: 40%;
 	font-size: 12pt;
-	text-shadow: 1px 1px 1px #212121;
+	text-shadow: 2px 2px 4px #212121;
 	font-weight: bold;
 	margin-left: 52%;
 	font-family: font-family: 'DM Sans', sans-serif;
@@ -827,8 +830,8 @@ input[type="text"], input[type="email"] {
 
 #table_specs{
 	
-	width: 60%;
-	margin-left: 5%;
+	width: 50%;
+	margin-left: 25%;
 	margin-top: 5%;
 	margin-bottom: 5%;
 	
@@ -842,7 +845,7 @@ table {
 table, td, th {
 	
 	border: 1px solid;
-	padding: 1%;
+	padding: 2%;
 }
 
 /*--->TABLE SPECS <---*/
@@ -1164,10 +1167,29 @@ form{
 	font-size: 25pt;
 }
 
-
 #table_specs{
 	
+	width: 85%;
+	margin-left: 5%;
+	margin-top: 5%;
+	margin-bottom: 5%;
 	font-size: 25pt;
+	
+}
+
+table {
+  border-collapse: collapse;
+}
+
+
+table, td, th {
+	
+	border: 1px solid;
+	padding: 2%;
+}
+#table_specs{
+	
+	
 }
 
 

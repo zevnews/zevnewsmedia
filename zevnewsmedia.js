@@ -184,7 +184,7 @@ app.get("/all", function(req, res) { // user route
    // res.render("testes.ejs", {
 
       var section = req.params.x;
-      connection.query("SELECT * FROM ARTICLES ORDER BY PUBLI_DATE DESC LIMIT 10 ", (err,rows) => {
+      connection.query("SELECT * FROM ARTICLES ORDER BY PUBLI_DATE DESC LIMIT 9 ", (err,rows) => {
       if(err) throw err;
       
       var estado = "";
@@ -536,7 +536,7 @@ app.get("/next/:pagina/:secao", function(req, res) { // user route
      }
    }
  
-  Sql1 =  "select * from ARTICLES "+ instSQl +" order by publi_date DESC limit 9 offset "+ (offSet * 10) +""
+  Sql1 =  "select * from ARTICLES "+ instSQl +" order by publi_date DESC limit 9 offset "+ (offSet * 9) +""
 
   Sql2 = "select cod from ARTICLES "+ instSQl +"  order by publi_date  limit 1";
   
@@ -590,7 +590,7 @@ app.get("/prior/:pagina/:secao", function(req, res) { // user route
      }
    }
 
-  Sql1 = "select * from ARTICLES "+ instSQl +" order by publi_date DESC limit 10 offset "+ (offSet * 10) +"";
+  Sql1 = "select * from ARTICLES "+ instSQl +" order by publi_date DESC limit 9 offset "+ (offSet * 9) +"";
   Sql2 = "select cod from ARTICLES "+ instSQl +" order by publi_date  limit 1"
   
 
