@@ -322,11 +322,11 @@ switch (mes) {
        		
        		    <div class="item_news">
  				<a href="/article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').replace(/%/g,'').toLowerCase()%>"><img src="/images/<%=row.photo1%>" class="news_photo" /></a>
-				<span class="news_section"><a href="<%=  row.section%>"><%= row.section.toUpperCase() %></a></span>
+				<span class="news_section"><a href="/<%=  row.section%>"><%= row.section.toUpperCase() %></a></span>
 				<h1 class="news_title"><a href="/article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').toLowerCase()%>">
 				<%= row.title %></a></h1>
 				<!-- <h2 class="news_subtitle">Este é um teste de subtítulo</h2> -->
-				<span class="news_author">Por <a href="author/<%= row.author %>"><%= row.author %></a></span>
+				<span class="news_author">Por <a href="/author/<%= row.author %>"><%= row.author %></a></span>
 				<time datetime="<%= row.publi_date %>" class="publi_date_main"> | <%= data_extenso(row.publi_date)%></time>
 				
 				</div> 
@@ -347,11 +347,11 @@ switch (mes) {
        		
        		    <div class="item_news">
  				<a href="/article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').replace(/%/g,'').toLowerCase()%>"><img src="/images/<%=row.photo1%>" class="news_photo" /></a>
-				<span class="news_section"><a href="<%=  row.section%>"><%= row.section.toUpperCase() %></a></span>
+				<span class="news_section"><a href="/<%=  row.section%>"><%= row.section.toUpperCase() %></a></span>
 				<h1 class="news_title"><a href="/article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').toLowerCase()%>">
 				<%= row.title %></a></h1>
 				<!-- <h2 class="news_subtitle">Este é um teste de subtítulo</h2> -->
-				<span class="news_author">Por <a href="author/<%= row.author %>"><%= row.author %></a></span>
+				<span class="news_author">Por <a href="/author/<%= row.author %>"><%= row.author %></a></span>
 				<time datetime="<%= row.publi_date %>" class="publi_date_main"> | <%= data_extenso(row.publi_date)%></time>
 				</div> 
 			<% proxima = row.cod %>
@@ -369,11 +369,11 @@ switch (mes) {
        		
        		    <div class="item_news">
  				<a href="/article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').replace(/%/g,'').toLowerCase()%>"><img src="/images/<%=row.photo1%>" class="news_photo" /></a>
-				<span class="news_section"><a href="<%=  row.section%>"><%= row.section.toUpperCase() %></a></span>
+				<span class="news_section"><a href="/<%=  row.section%>"><%= row.section.toUpperCase() %></a></span>
 				<h1 class="news_title"><a href="/article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').toLowerCase()%>">
 				<%= row.title %></a></h1>
 				<!-- <h2 class="news_subtitle">Este é um teste de subtítulo</h2> -->
-				<span class="news_author">Por <a href="author/<%= row.author %>"><%= row.author %></a></span>
+				<span class="news_author">Por <a href="/author/<%= row.author %>"><%= row.author %></a></span>
 				<time datetime="<%= row.publi_date %>" class="publi_date_main"> | <%= data_extenso(row.publi_date)%></time>
 				</div> 
 				<% proxima = row.cod %>
