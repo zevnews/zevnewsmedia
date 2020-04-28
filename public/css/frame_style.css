@@ -427,7 +427,7 @@ margin-right: 10%;
 #author_date {
 	margin-top: 0%;
 	margin-bottom: 2%;
-	padding-left: 2%;
+	padding-left: 10%;
 	padding-right: 2%;
 	
 	
@@ -839,6 +839,7 @@ input[type="text"], input[type="email"] {
 
 table {
   border-collapse: collapse;
+  table-layout:fixed;
 }
 
 
@@ -847,6 +848,8 @@ table, td, th {
 	border: 1px solid;
 	padding: 2%;
 }
+
+td{width:1px;white-space:wrap;}
 
 /*--->TABLE SPECS <---*/
 
