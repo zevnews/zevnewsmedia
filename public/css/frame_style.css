@@ -1099,7 +1099,7 @@ form{
 }	
 
 
-#box3 .news_author a, #box2 .news_author a, .box_news_block .news_author a
+#box3 .news_author a, #box2 .news_author a, .box_news_block .news_author a, .box_news_block .news_author
 
 {
 	display: inline;
@@ -1169,7 +1169,7 @@ form{
 
 #table_specs{
 	
-	width: 85%;
+	width: 90%;
 	margin-left: 5%;
 	margin-top: 5%;
 	margin-bottom: 5%;
@@ -1186,10 +1186,6 @@ table, td, th {
 	
 	border: 1px solid;
 	padding: 2%;
-}
-#table_specs{
-	
-	
 }
 
 
