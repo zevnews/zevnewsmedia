@@ -158,6 +158,7 @@ app.get("/cms", function(req, res) { // user route
       
 });
 
+
 app.get("/politica_de_privacidade_zevnews", function(req, res) { // root route or home route
     //res.send('welcome to home page');
     res.render("politica_de_privacidade_zevnews.ejs")
@@ -197,6 +198,31 @@ app.get("/all", function(req, res) { // user route
       {
           pagina = 0;
           res.render("all.ejs", {rows, section, pagina});
+
+      } 
+
+      //console.log(estado);
+       });
+});
+
+
+app.get("/author", function(req, res) { // user route
+   // res.render("testes.ejs", {
+
+      var section = req.params.x;
+      connection.query("SELECT * FROM ARTICLES ORDER BY PUBLI_DATE DESC LIMIT 9 ", (err,rows) => {
+      if(err) throw err;
+      
+      var estado = "";
+      if (Array.isArray(rows) && rows.length === 0.)
+      {
+           // estado vazio
+           res.render("vazio.ejs");
+      }
+      else
+      {
+          pagina = 0;
+          res.render("author.ejs", {rows, section, pagina});
 
       } 
 
