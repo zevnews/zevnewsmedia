@@ -328,6 +328,21 @@ h2 {
 	justify-content: space-evenly;
 	align-items: center;
 	margin-top: 0%;
+	background-color: #ffffff;
+	
+	
+}
+
+
+#box_autor {
+	height: 32%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: flex-start;
+	margin-top: 0%;
+	background-color: #ffffff;
 	
 	
 }
@@ -362,6 +377,16 @@ h2 {
 }
 
 
+#box_autor p{
+	margin-top: 0px;
+	line-height: 20pt;
+	margin-bottom: 20pt;
+	font-size: 13.5pt;
+	text-align: left;
+	width: 80%; 
+	margin-left: 2%;
+}
+
 #interview p:nth-child(odd) {
    margin: 0px;
 
@@ -395,6 +420,18 @@ p strong {
     font-weight: lighter;
     line-height: 45pt;
 	font-size: 40pt
+}
+
+.autor_title {
+	
+	
+	text-align: left;
+	font-family: 'Teko', sans-serif;
+    font-weight: lighter;
+    line-height: 45pt;
+	font-size: 40pt;
+	margin-left: 2%;
+	margin-top: 2%;
 }
 
 .story_subtitle{
@@ -575,7 +612,8 @@ margin-right: 10%;
 #box_author{
 	width: 99%;
 	height: 98.5%;
-	background-color: #ffffff;
+	background-color: red;
+	text-align: left;
 	
 
 }
@@ -1252,7 +1290,7 @@ table, td, th {
 	height: 88%;
 }
 
-#box1 {
+#box1, #box_autor {
 	height: 12.5%;
 	margin-top: 0%;
 	margin-left: 0%;
@@ -1388,6 +1426,18 @@ input {
 	
 }
 
+#box_autor p{
+	
+	line-height: 40pt;
+	font-size: 30pt;
+	padding-left: 2%;
+	padding-right: 2%;
+	width: 90%;
+	
+	
+	
+}
+
 #interview p:nth-child(odd) {
    margin: 0px;
 }
@@ -1493,6 +1543,18 @@ input {
     font-weight: lighter;
 	font-size: 80pt;
 	line-height: 85pt;
+}
+
+
+
+.autor_title {
+	
+	padding-top: 2%;
+	text-align: center;
+	font-family: 'Teko', sans-serif;
+    font-weight: lighter;
+	font-size: 60pt;
+	line-height: 75pt;
 }
 
 .story_subtitle{

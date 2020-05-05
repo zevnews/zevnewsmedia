@@ -14,15 +14,15 @@
 <title>Zev.News | Notícias e Análises sobre a indústria de veículos com emissão zero</title>
 
 
-<link rel="stylesheet" type="text/css" href="css/frame_style.css">
+<link rel="stylesheet" type="text/css" href="/css/frame_style.css">
 <link href="https://fonts.googleapis.com/css?family=Teko&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=DM+Sans:700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="css/menu_style.css">
-<link rel="stylesheet" type="text/css" href="css/news_letter.css">
-<script type="text/javascript" src="includes/main_nav_menu.js"></script>
-<script src="includes/page_actions.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/menu_style.css">
+<link rel="stylesheet" type="text/css" href="/css/news_letter.css">
+<script type="text/javascript" src="/includes/main_nav_menu.js"></script>
+<script src="/includes/page_actions.js"></script>
 
 <% var main_title
    var main_subtitle
@@ -370,16 +370,24 @@ var largura = document.getElementById('news1').clientWidth;
 <body onload="activate_main_menu()">
 <input type="hidden" name="page_section" id="page_section" value="home"></input>
 <div id="container">
-	<div id="top"><img src="icons/logo_zev_news.png" id="main_logo"><h1 id="zev_description"> ANÁLISES & NOTÍCIAS SOBRE VEÍCULOS COM EMISSÃO ZERO</h1></div>
+	<div id="top"><img src="/icons/logo_zev_news.png" id="main_logo"><h1 id="zev_description"> ANÁLISES & NOTÍCIAS SOBRE VEÍCULOS COM EMISSÃO ZERO</h1></div>
 	<div class="topnav" id="myTopnav">
     <!-- HERE GOES THE MENU ITEMS -->
     <%- include('menu_superior') %>
 	</div>
 
 	<div id="content">
-		<div id="box1">
-			<div id="box_author">
-				Teste de
+		<div id="box_autor">
+			<div>
+        <h1 class="autor_title"> Sobre Jose Gaspar</h1>
+			     
+            <p>Jose Gaspar é editor de Zev.News. Especialista em novas tecnologias, startups e negócios que compõe a indústria de veículos com emissões zero (ZEV).</p> 
+
+            <p>Ainda comunicação, Jose Gaspar foi o responsável pela seção Moto-X do portal X Games, braço dedicado à cobertura dos esportes radicais de <i>ESPN</i>. Também colaborou em mídias como <i>GloboEsporte.com</i>, <i>TV Globo</i> e <i>ESPN</i> Internacional.</p>
+
+            <p>No âmbito esportivo, contribuiu no desenvolvimento do Red Bull X-Fighters freestyle motocross.</p>
+           
+
 			</div>
 		</div> 
 		<div id="box2">
@@ -389,12 +397,12 @@ var largura = document.getElementById('news1').clientWidth;
 
        		   <%if (row.highlight == 0 && contador < 5) { %>
        	<div class="news_inside">
- 				<a href="article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').replace(/%/g,'').toLowerCase()%>"><img src="images/<%=row.photo1%>" class="news_photo" /></a>
-				<span class="news_section"><a href="<%=  row.section%>"><%= row.section.toUpperCase() %></a></span>
-				<h1 class="news_title"><a href="article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').replace(/%/g,'').toLowerCase()%>">
+ 				<a href="/article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').replace(/%/g,'').toLowerCase()%>"><img src="/images/<%=row.photo1%>" class="news_photo" /></a>
+				<span class="news_section"><a href="/<%=  row.section%>"><%= row.section.toUpperCase() %></a></span>
+				<h1 class="news_title"><a href="/article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').replace(/%/g,'').toLowerCase()%>">
 				<%= row.title %></a></h1>
 				<!-- <h2 class="news_subtitle">Este é um teste de subtítulo</h2> -->
-				<span class="news_author">Por <a href="author/<%= row.author %>"><%= row.author %></a></span> 
+				<span class="news_author">Por <a href="/author/<%= row.author %>"><%= row.author %></a></span> 
 				<time datetime="<%= row.publi_date %>" class="publi_date_main"> | <%= teste(row.publi_date)%></time>
 				</div>
 				<%contador = contador + 1%> 
@@ -409,12 +417,12 @@ var largura = document.getElementById('news1').clientWidth;
 			<% rows.slice(3,8).forEach(function(row) { %>
        		<%if (row.highlight == 0 && contador < 5) { %>
        	 <div class="news_inside">
- 				<a href="article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').replace(/%/g,'').toLowerCase()%>"><img src="images/<%=row.photo1%>" class="news_photo" /></a>
-				<span class="news_section"><a href="<%= row.section%>"><%= row.section.toUpperCase() %></a></span> 
-				<h1 class="news_title"><a href="article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').replace(/%/g,'').toLowerCase()%>">
+ 				<a href="/article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').replace(/%/g,'').toLowerCase()%>"><img src="/images/<%=row.photo1%>" class="news_photo" /></a>
+				<span class="news_section"><a href="/<%= row.section%>"><%= row.section.toUpperCase() %></a></span> 
+				<h1 class="news_title"><a href="/article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').replace(/%/g,'').toLowerCase()%>">
 				<%= row.title %></a></h1>
 				<!-- <h2 class="news_subtitle">Este é um teste de subtítulo</h2> -->
-				<span class="news_author">Por <a href="author/<%= row.author%>"><%= row.author %></a></span>
+				<span class="news_author">Por <a href="/author/<%= row.author%>"><%= row.author %></a></span>
         <time datetime="<%= row.publi_date %>" class="publi_date_main"><%= teste(row.publi_date)%></time>
 				</div> 
         <% diaxx = row.publi_date %>

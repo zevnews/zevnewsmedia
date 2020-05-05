@@ -206,7 +206,7 @@ app.get("/all", function(req, res) { // user route
 });
 
 
-app.get("/author", function(req, res) { // user route
+app.get("/author/:id", function(req, res) { // user route
    // res.render("testes.ejs", {
 
       var section = req.params.x;
