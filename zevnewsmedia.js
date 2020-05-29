@@ -206,6 +206,39 @@ app.get("/all", function(req, res) { // user route
 });
 
 
+app.get("/search", function(req, res) { // root route or home route
+    //res.send('welcome to home page');
+    res.render("search.ejs")
+});
+
+app.post("/search", function(req, res) { // user route
+   // res.render("testes.ejs", {
+
+      //var section = req.params.x;
+      var searchItem = req.body.searchItem;
+      connection.query("select * from ARTICLES where article like '%"+ searchItem +"%' ORDER BY PUBLI_DATE DESC LIMIT 9", (err,rows) => {
+      if(err) throw err;
+      
+      var estado = "";
+      if (Array.isArray(rows) && rows.length === 0.)
+      {
+           // estado vazio
+           res.render("vazio.ejs");
+      }
+      else
+      {
+          pagina = 0;
+          section = "mercado";
+          linha = 1;
+          res.render("conteudos.ejs", {rows, section, pagina, linha});
+
+      } 
+
+      //console.log(estado);
+       });
+});
+
+
 app.get("/author/:id", function(req, res) { // user route
    // res.render("testes.ejs", {
 
