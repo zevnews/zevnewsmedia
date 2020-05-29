@@ -25,6 +25,7 @@ app.use(session({
 var sessao_usuario = "";
 
 
+var searchTest = "";
 
 // CRIA A CONEXÃO MYSQL
 
@@ -214,8 +215,10 @@ app.get("/search", function(req, res) { // root route or home route
 app.post("/search", function(req, res) { // user route
    // res.render("testes.ejs", {
 
+     
       //var section = req.params.x;
       var searchItem = req.body.searchItem;
+      searchTest = searchItem;
       connection.query("select * from ARTICLES where article like '%"+ searchItem +"%' ORDER BY PUBLI_DATE DESC LIMIT 9", (err,rows) => {
       if(err) throw err;
       
@@ -228,7 +231,7 @@ app.post("/search", function(req, res) { // user route
       else
       {
           pagina = 0;
-          section = "mercado";
+          section = "all";
           linha = 1;
           res.render("conteudos.ejs", {rows, section, pagina, linha});
 
@@ -594,6 +597,11 @@ app.get("/next/:pagina/:secao", function(req, res) { // user route
        instSQl = "where TAGS like '%"+ section +"%'";
      }
    }
+
+   if (searchTest != "")
+   {
+     var instSQl = "where article like '%"+ searchTest +"%'";
+   }
  
   Sql1 =  "select * from ARTICLES "+ instSQl +" order by publi_date DESC limit 9 offset "+ (offSet * 9) +""
 
@@ -610,6 +618,7 @@ app.get("/next/:pagina/:secao", function(req, res) { // user route
             linhas.forEach(linha => { 
             linha = linha.cod; 
               console.log ("linha é" + linha);
+              console.log("O termo é " + searchTest);
              res.render("conteudos.ejs", {rows, pagina, section, linha});
              }); 
       
@@ -647,6 +656,10 @@ app.get("/prior/:pagina/:secao", function(req, res) { // user route
      {
        instSQl = "where TAGS like '%"+ section +"%'";
      }
+   }
+   if (searchTest != "")
+   {
+     var instSQl = "where article like '%"+ searchTest +"%'";
    }
 
   Sql1 = "select * from ARTICLES "+ instSQl +" order by publi_date DESC limit 9 offset "+ (offSet * 9) +"";
