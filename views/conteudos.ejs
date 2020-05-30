@@ -423,4 +423,46 @@ switch (mes) {
 	<div id="footer"><span> ® 2019 Zev.News - Todos os direitos reservados</span></div>
 </div>
 </body>
+
+<script type="text/javascript">
+//var btnSearchItem = document.getElementById("btnSearchItem");
+//btnSearchItem.addEventListener("click",fieldCheck)
+
+
+//var box = document.getElementById("searchItem");
+//box.addEventListener("click",fieldCheck)
+
+//btnSearchItem.addEventListener("click",fieldCheck)
+
+/*function fieldCheck()
+{
+  
+  var searchItem = document.getElementById("searchItem");
+
+   alert("Ola" + searchItem.value);
+
+  if (searchItem.value == null)
+  {
+    event.preventDefault();
+  }
+
+
+ 
+
+}
+
+var searchForm = document.getElementById("searchForm");
+searchForm.addEventListener("submit",fieldCheck(event));*/
+
+document.getElementById("searchForm").addEventListener("submit", function(event){
+
+  var searchItem = document.getElementById("searchItem");
+  if (searchItem.value == ""){
+      event.preventDefault()
+      alert("vazio");
+  }
+}); 
+
+
+</script>
 </html>
