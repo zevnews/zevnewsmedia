@@ -185,6 +185,7 @@ app.get("/sobre_zevnews", function(req, res) { // root route or home route
 app.get("/all", function(req, res) { // user route
    // res.render("testes.ejs", {
 
+      searchTest = "";
       var section = req.params.x;
       connection.query("SELECT * FROM ARTICLES ORDER BY PUBLI_DATE DESC LIMIT 9 ", (err,rows) => {
       if(err) throw err;
@@ -233,6 +234,7 @@ app.post("/search", function(req, res) { // user route
           pagina = 0;
           section = "all";
           linha = 1;
+          console.log("Refe " + searchTest);
           res.render("conteudos.ejs", {rows, section, pagina, linha});
 
       } 
@@ -806,6 +808,8 @@ app.get("/:navega/:cod/:section/:ordem", function(req, res) {
 app.get("/:x", function(req, res) { // user route
    // res.render("testes.ejs", {
 
+
+      searchTest = "";
 
       var section = req.params.x;
       var conexao1;
