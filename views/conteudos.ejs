@@ -14,7 +14,7 @@ secao = section.charAt(0).toUpperCase() + section.slice(1)
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="/css/menu_style.css">
 <link rel="stylesheet" type="text/css" href="/css/news_letter.css">
-<script type="text/javascript" src="/ncludes/main_nav_menu.js"></script>
+<script type="text/javascript" src="/includes/main_nav_menu.js"></script>
 <script src="/includes/page_actions.js"></script>
 
 
@@ -424,44 +424,7 @@ switch (mes) {
 </div>
 </body>
 
-<script type="text/javascript">
-//var btnSearchItem = document.getElementById("btnSearchItem");
-//btnSearchItem.addEventListener("click",fieldCheck)
-
-
-//var box = document.getElementById("searchItem");
-//box.addEventListener("click",fieldCheck)
-
-//btnSearchItem.addEventListener("click",fieldCheck)
-
-/*function fieldCheck()
-{
-  
-  var searchItem = document.getElementById("searchItem");
-
-   alert("Ola" + searchItem.value);
-
-  if (searchItem.value == null)
-  {
-    event.preventDefault();
-  }
-
-
- 
-
-}
-
-var searchForm = document.getElementById("searchForm");
-searchForm.addEventListener("submit",fieldCheck(event));*/
-
-document.getElementById("searchForm").addEventListener("submit", function(event){
-
-  var searchItem = document.getElementById("searchItem");
-  if (searchItem.value == ""){
-      event.preventDefault()
-      alert("vazio");
-  }
-}); 
+<script type="text/javascript" src="/includes/validadores.js">
 
 
 </script>

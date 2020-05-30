@@ -10,13 +10,14 @@ function myFunction() {
 }
 
 
-/*document.getElementById("searchForm").addEventListener("submit", function(event){
+
+  document.getElementById("searchForm").addEventListener("submit", function(event){
 
   var searchItem = document.getElementById("searchItem");
   if (searchItem.value == ""){
       event.preventDefault()
-      alert("Campo Vazio");
+      alert("Campo Vazio!");
   }
-});*/
+});
 
-alert("Bem vindo");
+
