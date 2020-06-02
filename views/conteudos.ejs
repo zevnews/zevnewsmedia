@@ -320,7 +320,12 @@ switch (mes) {
 </div>
 	<div id="content">
 		<div class="box_news_block">
-		
+
+      <% if (secao == "Nenhum resultado") {%>
+
+        <h1>Nenhum resultado encontrado na pesquisa.</h1>
+     
+		 <%}%>
 <% rows.slice(0,3).forEach(function(row) { %>
  <% anterior = row.cod %>
        		
@@ -389,7 +394,7 @@ switch (mes) {
         
        
 			<% }); %>	
-   
+       
 
 
 
@@ -405,10 +410,14 @@ switch (mes) {
     <a href="/prior/<%= pagina %>/<%= section %>">MATÉRIAS ANTERIORES</a>
   
     <%}%>
+
+    <%if (secao !="Nenhum resultado") {%>
      <% if (proxima != linha) {%>
+    
      
     <a href="/next/<%= parseInt(pagina) + 1 %>/<%= section %>">PRÓXIMAS MATÉRIAS</a>
  
+     <%}%>
      <%}%>
    </div>
 

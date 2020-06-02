@@ -227,7 +227,12 @@ app.post("/search", function(req, res) { // user route
       if (Array.isArray(rows) && rows.length === 0.)
       {
            // estado vazio
-           res.render("vazio.ejs");
+           //res.render("vazio.ejs");
+           //res.render("vazio.ejs");
+          pagina = 0;
+          section = "Nenhum resultado";
+          linha = null;
+          res.render("conteudos.ejs", {rows, section, pagina, linha});
       }
       else
       {

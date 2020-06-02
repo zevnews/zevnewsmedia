@@ -65,6 +65,30 @@ margin-right: 20px;
 	font-size: 20pt;
 }
 
+
+/* SEARCH BOX */
+
+
+#searchItem
+	{
+		border: solid 1px;
+		height: 20pt;
+		width: 50%;
+		margin-left: 10pt;
+		}
+
+#btnSearch{
+	height: 22pt;
+	width: 100px;
+	background-color: #e62739;
+	border: 0px;
+	color: #ffffff;
+}
+	
+
+
+/* */
+
 @media screen and (max-device-width: 480px) {
 
 #newsletter_zev{
