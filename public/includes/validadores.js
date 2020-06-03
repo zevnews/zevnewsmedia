@@ -7,3 +7,21 @@ document.getElementById("searchForm").addEventListener("submit", function(event)
       document.getElementById("searchItem").focus();
   }
 });
+
+
+function getResolution() {
+        //alert("Your screen resolution is: " + screen.width + "x" + screen.height);
+
+        var tela = screen.width;
+
+        var elemento = document.getElementById("contat_item");
+
+        if (tela > 700)
+        {
+          document.getElementById("contat_item").remove();
+        }
+
+        //alert(elemento.id + " " + tela);
+    }
+
+    getResolution();
