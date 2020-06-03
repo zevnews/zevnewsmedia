@@ -148,4 +148,36 @@ margin-bottom: 25px;
 }
 
 
+
+/* SEARCH BOX */
+
+
+#searchItem
+	{
+		border: solid 1px;
+		height: 50pt;
+		width: 80%;
+		margin-left: 2pt;
+		padding-left: 2pt;
+	}
+
+#btnSearch{
+	height: 50pt;
+	width: 250px;
+	background-color: #999999;
+	border: 0px;
+	color: #ffffff;
+}
+	
+
+#searchForm{
+
+
+	width: 50%;
+}
+
+
+/* */
+
+
 }	
