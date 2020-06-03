@@ -11,6 +11,10 @@
 	
 }
 
+
+
+
+
 /*----> SET LINKS BEHAVIOUR <-------*/
 
 a:link {text-decoration: none;}
@@ -905,6 +909,8 @@ td{width:1px;white-space:wrap;}
 
 
 @media only screen and (max-width: 950px){
+
+
   
 #newsletter{
 		
@@ -1003,6 +1009,11 @@ form{
 
 
 @media screen and (max-device-width: 480px) {
+
+	#search_item{
+		display: block;
+		
+	}
 	
 	
 

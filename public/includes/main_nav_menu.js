@@ -70,6 +70,7 @@ function activate_main_menu() {
 	    element.classList.add("active");
 		break;
 		
+		
 	  
 	  }
    }

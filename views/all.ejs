@@ -10,6 +10,8 @@
 
   gtag('config', 'UA-149422532-1');
 </script>
+
+
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
 <title>Zev.News | Notícias e Análises sobre a indústria de veículos com emissão zero</title>
 
@@ -467,5 +469,24 @@ function data_extenso2(x){
 </div>
 </body>
 <script type="text/javascript" src="/includes/validadores.js">
+
 </script>
+<script>
+    function getResolution() {
+        //alert("Your screen resolution is: " + screen.width + "x" + screen.height);
+
+        var tela = screen.width;
+
+        var elemento = document.getElementById("contat_item");
+
+        if (tela > 700)
+        {
+          document.getElementById("contat_item").remove();
+        }
+
+        //alert(elemento.id + " " + tela);
+    }
+
+    getResolution();
+    </script>
 </html>

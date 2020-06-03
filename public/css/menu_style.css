@@ -1,4 +1,6 @@
 /* Add a black background color to the top navigation */
+
+
 .topnav {
   background-color: #3b3a36;
   /*background-color: orange;*/
@@ -50,7 +52,8 @@ padding-left: 25%;
 
 
 @media only screen and (max-width: 1100px){
-	
+
+
 #myTopnav {
 border-left: 6px solid #e1e8f0;
 border-right: 6px solid #e1e8f0;
@@ -83,6 +86,8 @@ border-right: 6px solid #e1e8f0;}
 }
  
  @media only screen and (max-width: 850px){
+
+
 	 
   .topnav.responsive {position: relative;}
   .topnav.responsive a.icon {
@@ -113,9 +118,12 @@ border-right: 6px solid #e1e8f0;}
   .topnav a.icon {
     float: right;
     display: block;	
-  }
-    
-	
+
+
+}
+
+
+
 #myTopnav { padding-left: 0%;	
 	
 border-left: 0px solid #e1e8f0;
@@ -126,10 +134,9 @@ padding-right: 0%;
 /*background-color: green;*/
 }
 
+
   
 }
-
-
 
 
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
@@ -157,5 +164,14 @@ padding-right: 0%;
 	 font-size: 45pt;
   }
 
+
+ #searchForm{
+  display: none;
+ }
+
+
   
 }
+
+
+
