@@ -10,7 +10,7 @@ function myFunction() {
 }
 
 
-
+/*
   document.getElementById("searchForm").addEventListener("submit", function(event){
 
   var searchItem = document.getElementById("searchItem");
@@ -18,6 +18,6 @@ function myFunction() {
       event.preventDefault()
       alert("Campo Vazio!");
   }
-});
+});*/
 
 

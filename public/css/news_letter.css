@@ -152,28 +152,29 @@ margin-bottom: 25px;
 /* SEARCH BOX */
 
 
-#searchItem
+#searchItem2
 	{
 		border: solid 1px;
 		height: 50pt;
 		width: 80%;
 		margin-left: 2pt;
 		padding-left: 2pt;
+		
 	}
 
-#btnSearch{
+#btnSearch2{
 	height: 50pt;
-	width: 250px;
+	width: 350pt;
 	background-color: #999999;
 	border: 0px;
 	color: #ffffff;
 }
 	
 
-#searchForm{
+#searchForm2{
 
 
-	width: 50%;
+	width: 100%;
 }
 
 

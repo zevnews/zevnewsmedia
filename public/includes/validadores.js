@@ -8,6 +8,20 @@ document.getElementById("searchForm").addEventListener("submit", function(event)
   }
 });
 
+document.getElementById("searchForm2").addEventListener("submit", function(event){
+
+  var searchItem = document.getElementById("searchItem2");
+  if (searchItem.value == ""){
+      event.preventDefault()
+      alert("Digite termo para pesquisa");
+      document.getElementById("searchItem").focus();
+  }
+});
+
+
+
+
+
 
 function getResolution() {
         //alert("Your screen resolution is: " + screen.width + "x" + screen.height);
