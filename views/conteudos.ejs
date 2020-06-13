@@ -405,6 +405,7 @@ switch (mes) {
    
    
   <div id="navegacao_datas"> 
+   
   <% if (pagina != 0) {%>
   
     <a href="/prior/<%= pagina %>/<%= section %>">MATÉRIAS ANTERIORES</a>
@@ -412,7 +413,7 @@ switch (mes) {
     <%}%>
 
     <%if (secao !="Nenhum resultado") {%>
-     <% if (proxima != linha) {%>
+     <% if (proxima != linha && paginaBuscas == 9) {%>
     
      
     <a href="/next/<%= parseInt(pagina) + 1 %>/<%= section %>">PRÓXIMAS MATÉRIAS</a>

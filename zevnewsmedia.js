@@ -199,7 +199,8 @@ app.get("/all", function(req, res) { // user route
       else
       {
           pagina = 0;
-          res.render("all.ejs", {rows, section, pagina});
+          paginaBuscas = 9;
+          res.render("all.ejs", {rows, section, pagina, paginaBuscas});
 
       } 
 
@@ -240,7 +241,15 @@ app.post("/search", function(req, res) { // user route
           section = "all";
           linha = 1;
           console.log("Refe " + searchTest);
-          res.render("conteudos.ejs", {rows, section, pagina, linha});
+
+
+          paginaBuscas = 0;
+
+           rows.forEach(row => { 
+              console.log(row.publi_date); 
+              paginaBuscas = paginaBuscas + 1;
+          }); 
+          res.render("conteudos.ejs", {rows, section, pagina, linha, paginaBuscas});
 
       } 
 
