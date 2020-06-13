@@ -387,13 +387,13 @@ var largura = document.getElementById('news1').clientWidth;
 			<div id="news1">
 				<a href="article/<%= main_cod%>/<%= main_title.replace(/,/g, '').replace(/ /g, '-').replace(/%/g,'').toLowerCase()%>">
 				<h1 id="main_title"><%= main_title %></h1>
-				<a href="author/<%= main_author%>"><h3 id="main_author">POR JOSE QUEIROZ</h3></a>
+				<a href="author/<%= main_author%>"><h3 id="main_author">Por <%= main_author%></h3></a>
 				
 			</div>
 		</div> 
 		<div id="box2">
 
-			<% rows.slice(0,3).forEach(function(row) { %>
+			<% rows.slice(0,4).forEach(function(row) { %>
  
 
        		   <%if (row.highlight == 0 && contador < 5) { %>
@@ -415,7 +415,7 @@ var largura = document.getElementById('news1').clientWidth;
 		</div>
 		<div id="box3">
 			<%contador = 1 %>	   
-			<% rows.slice(3,8).forEach(function(row) { %>
+			<% rows.slice(4,9).forEach(function(row) { %>
        		<%if (row.highlight == 0 && contador < 5) { %>
        	 <div class="news_inside">
  				<a href="article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').replace(/%/g,'').toLowerCase()%>"><img src="images/<%=row.photo1%>" class="news_photo" /></a>
