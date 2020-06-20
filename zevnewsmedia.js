@@ -128,6 +128,10 @@ app.get("/news", function(req, res) { // root route or home route
 */
 
 
+app.get("/ajax", (req, res) => {
+    res.render("ajax.ejs");
+});
+
 app.get("/jqueryajaxcarrega", (req, res) => {
     res.render("jqueryajaxcarrega.ejs");
 });
