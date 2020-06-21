@@ -1,0 +1,128 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>EVDI</title>
+ 	<link rel="stylesheet" href="css/structure.css">
+ 	<link rel="stylesheet" href="css/elements.css">
+ 	<link rel="stylesheet" href="css/chart.css"> 
+ 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet"> 
+</head>
+<body>
+
+<div id="container">
+	<div id="boxStart">
+		<section id="startNavigation">
+			<form id="formSearchBox" name="formSearchBox">
+				<input type="box" name="searchBox" id="searchBox" required="required"><input type="submit" name="btnSearchBox" value="SEARCH" id="btnSearchBox">
+			</form>
+					<ul id="mainMenu">
+						<li><a href="">Type</a></li>
+						<li><a href="">Brand</a></li>
+						<li><a href="">Range</a></li>
+						<li><a href="">Speed</a></li>
+						<li><a href="">Acceleration</a></li>
+					</ul>
+		</section>
+	</div>
+	<div class="box">
+		<h1 class="boxTitle">Most Searched Vehicle</h1>	
+		<div class="boxContent">
+			<section class="boxInfo2">
+			<ul id="searchResultsList">
+				<li>Cake Osa  					<input type="checkbox" id="vehicle1" name="vehicle1" value="Cake Osa"  class="selectVehicle"></li>
+				<li>Cake Kalk 					<input type="checkbox" id="vehicle2" name="vehicle2" value="Cake Kalk" class="selectVehicle"></li>
+				<li>Verge Motorcycles TS  		<input type="checkbox" id="vehicle3" name="vehicle3" value="Verge TS"  class="selectVehicle"></li>
+				<li>Cake Osa  					<input type="checkbox" id="vehicle4" name="vehicle1" value="Cake Osa"  class="selectVehicle"></li>
+				<li>Cake Kalk 					<input type="checkbox" id="vehicle5" name="vehicle2" value="Cake Kalk" class="selectVehicle"></li>
+			<ul>
+				
+			</section>
+		    <section class="boxInfo3">
+		    	<img src="photos/cake_osa_zevnews_1.jpg" class="vehicleImage">
+		       	<ul class="vehicleSpecs">
+		    		<li>Brand: Cake</li>
+		    		<li>Model: Osa</li>
+		    		<li>Power: 12Kw</li>
+		    		<li>Torque: 50Nm</li>
+		    		<li><a href="" class="moreVehicleInfo">See full specs</a></li>
+		    	</ul>
+		    	
+		    </section>
+		</div>
+		
+	</div>
+	<div class="box">
+		<h1 class="boxTitle">Most Compared Vehicles</h1>	
+		<div class="boxContent">
+			<section class="boxInfo">
+				<img src="photos/cake_osa_zevnews_1.jpg" class="vehicleImage">
+				<h3 class="boxVehicleTitle" id="vehicle1ToCompare">Select Vehicle to Compare</h3>
+				<h4 id="remove1" class="removeVehicle">REMOVE</h4>	
+			</section>
+		    <section class="boxInfo">
+		    	<img src="photos/cake_osa_zevnews_1.jpg" class="vehicleImage">
+		    	<h3 class="boxVehicleTitle" id="vehicle2ToCompare">Select Vehicle to Compare</h3>
+		    	<h4 id="remove2" class="removeVehicle">REMOVE</h4>
+			</section>
+		</div>
+
+		<h2 class="boxTitleBottom"><a href="" class="linkinfo">Make your comparision</a></h2>
+	</div>
+	
+	
+
+	<div class="box">
+		<h1 class="boxTitle">Powertrain</h1>
+		<div class="boxContent">
+			<section class="boxInfo3">
+				<ul id="topSearchList">
+					<li><a href="">Engine: Center</a></li>
+					<li><a href="">Type: Permanent</a></li>
+					<li><a href="">Gearbox: 1</a></li>
+				<ul>
+			</section>
+			<section class="boxInfo3">
+				<ul id="topSearchList">
+					<li><a href="">Engine: Center</a></li>
+					<li><a href="">Type: Permanent</a></li>
+					<li><a href="">Gearbox: 1</a></li>
+				<ul>
+			</section>
+		</div>			
+		<h2 class="boxTitleBottom"></h2>
+	</div>
+
+	<div class="box">
+		<h1 class="boxTitle">Dimensions</h1>
+		<div class="boxContent">
+			<section class="boxInfo3">
+				<ul id="topSearchList">
+					<li><a href="">Weight: 79Kg</a></li>
+					<li><a href="">Wheelbase: 1310mm</a></li>
+					<li><a href="">Height: 200mm</a></li>
+				<ul>
+			</section>
+			<section class="boxInfo3">
+				<ul id="topSearchList">
+					<li><a href="">Weight: 79Kg</a></li>
+					<li><a href="">Wheelbase: 1310mm</a></li>
+					<li><a href="">Height: 200mm</a></li>
+				<ul>
+			</section>
+		</div>			
+		<h2 class="boxTitleBottom"></h2>
+	</div>
+
+	<div id="boxEnd">
+		<span id="newsletter">
+			<form name="formNewsletter" id="formNewsletter">
+				<label id="lblNewsletter">Would you like to receive updates?</label>
+				<input type="email" id="newsletterBox" name="newsletterBox" required="required"><input type="submit" value="Submit" id="btnNewsletter" name="btnNewsletter">
+			</form>
+		</span>
+	</div>
+
+</div>
+ <script type="text/javascript" src="includes/comparator.js"></script>
+</body>
+</html> 

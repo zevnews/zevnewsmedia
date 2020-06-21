@@ -127,6 +127,13 @@ app.get("/news", function(req, res) { // root route or home route
 
 */
 
+app.get("/evdi", (req, res) => {
+    res.render("evdi.ejs");
+});
+
+app.get("/comparator", (req, res) => {
+    res.render("comparator.ejs");
+});
 
 app.get("/ajax", (req, res) => {
     res.render("ajax.ejs");

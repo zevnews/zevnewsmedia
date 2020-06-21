@@ -1,0 +1,198 @@
+*{
+	margin: 0px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 10pt;
+	color: #333333;
+}
+
+/* General colors applied in the elements*/
+:root {
+  --btnColor: #0066CC;
+  --btnTextColor: #ffffff;
+  --generalLinkTextColor: #0066CC;
+  --generalBorderColor: #666666;
+  --boxTopBottomColor: #cccccc;}
+
+
+
+
+
+
+
+
+#container{
+	display: flex;
+	flex-flow: column;
+	align-items: center;}
+
+
+#boxStart{
+	width: 100%;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	background-color: var(--boxTopBottomColor);
+	padding-top: 4%;
+	padding-bottom: 4%;}
+
+	/* Main box containng Seach elements where the used should start*/
+#startNavigation{
+	border: 2px solid #666666;
+	width: 50%;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	padding: 2%;}
+
+
+
+/* Main menu*/
+#mainMenu {
+	margin-top: 2%;
+	width: 100%;
+	text-align: center;}
+
+#mainMenu li{
+	display: inline;
+	margin-left: 3%;
+	margin-right:  3%;}
+
+#mainMenu li a{
+	font-size: 14pt;
+	font-weight: 400;
+	text-decoration: none;
+	font-weight: bold;}
+
+
+
+/* The main boxes used in the interface*/
+.box{
+	display: flex;
+	flex-flow: row;
+	margin: 1%;
+	border:  solid 2px var(--generalBorderColor);
+	width: 80%;
+	display: flex;
+	flex-flow: column;}
+
+.boxTitle{
+	width: 99%;
+	display: block;
+	border-bottom: solid 2px #666666;
+	padding: 0.5%;}
+
+
+.boxVehicleTitle{
+	width: 100%;
+	font-size: 20pt;
+	text-align: center;
+	margin-top: 3%;
+	margin-bottom: 3%;}
+
+
+.boxTitleBottom{
+	width: 100%;
+	display: block;
+	border-top: solid 2px #666666;
+	text-align: center;
+	padding-top: 0.8%;
+	padding-bottom: 0.8%;
+	background-color: #cccccc;}
+
+
+.boxContent{
+	width: 100%;
+	display: flex;
+	flex-flow: row;}
+
+
+.boxInfo{
+	width: 50%;
+	height: 100%;
+	padding: 0%;}
+
+
+.boxInfo2{
+	width: 30%;
+	height: 100%;
+	padding: 0%;
+	background-color: pink;}
+
+.boxInfo3{
+	width: 70%;
+	height: 100%;
+	padding: 0%;
+	background-color: orange;}
+
+
+#boxEnd{
+	background-color: var(--boxTopBottomColor);
+	width: 100%;
+	display: flex;
+	flex-flow: row;
+	justify-content: flex-end;
+	padding-top: 2%;
+	padding-bottom: 2%;}
+
+
+	/* Search Box */
+#formSearchBox{
+	width: 100%;}
+
+
+#searchBox{
+	width: 80%;
+	height: 40pt;
+	border: none;	
+	padding: 0px;}
+
+
+#btnSearchBox{
+	height: 40pt;
+	width: 19%;
+	background-color: var(--btnColor);
+	color: var(--btnTextColor);
+	border: none;}
+
+
+
+
+
+
+
+
+
+
+
+/* Newsletter Box */
+#formNewsletter{
+	width: 400pt;
+	padding-top: 2%;
+	padding-bottom: 2%}
+
+
+#formNewsletter label{
+	font-size: 16pt;
+	margin-top: 2%;
+	margin-bottom: 2%;}
+
+#newsletterBox{
+	margin: 0px;
+	padding: 0px;
+	width: 60%;
+	height: 20pt;
+	border: none;}
+
+#btnNewsletter{
+	margin: 0px;
+	padding: 0px;
+	background-color: var(--btnColor);
+	border: 0px;
+	height: 20pt;
+	color: var(--btnTextColor);
+	width: 20%}
+
+#lblNewsletter{
+	display: block;
+	font-weight: bolder;}
+

@@ -1,0 +1,54 @@
+
+#chart{
+	width: 100%;
+	display: flex;
+	align-items: flex-end;
+	background-color: #cccccc;
+	justify-content: center;
+	height: 200pt;
+	
+}
+
+#bar1, #bar2, #bar3, #bar4, #bar5{
+	
+	background-color: red;
+	margin-left: 1%;
+	margin-right: 1%;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	width: 10%;
+	}
+
+
+#bar1{
+	background-color: red;
+	height: 50%;
+}
+
+#bar2{
+	background-color: cyan;
+	height: 30%;}
+
+#bar3{
+	background-color: orange;
+	height: 20%;}
+
+
+#bar4{
+	background-color: green;
+	height: 20%;}
+
+
+#bar5{
+	background-color: yellow;
+	height: 20%;}
+
+.barlabel{
+	width: 100%;
+	background-color: #cccccc;
+	text-align: center;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	font-weight: bold;
+}
