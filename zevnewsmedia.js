@@ -65,6 +65,48 @@ var connection = mysql.createConnection({
 var route_selector = 0;
 
 
+var conexao = require('mongodb').MongoClient;
+var url = "mongodb://zev01:r4ps4g08@mongodb.zev.news/zev01";
+//var url = "mongodb://zev01:zevnews2020@mongodb.zev.news/zev01";
+var database = "zev01";
+var collection1 = "vehicles";
+
+
+app.get('/documento', function (req, res) {
+ 
+    // Read all the documents in "veiculo" collection
+  conexao.connect(url, function(err, db) {
+      if (err) throw err;
+      var resultado;
+      var dbo = db.db(database);
+      dbo.collection(collection1).find().toArray(function(err, result) {
+        if (err) throw err;
+        result.forEach(element => {console.log("O nome é " + element.brand); });
+        var page = "list_documents_test";
+       
+        res.send("ok");
+      });
+    });
+  // End of Read
+});
+
+
+app.get('/testeenvia', function (req, res) {
+ 
+    // Read all the documents in "veiculo" collection
+  conexao.connect(url, function(err, db) {
+      if (err) throw err;
+      var resultado;
+      var dbo = db.db(database);
+      dbo.collection(collection1).find({},{fields:{_id: 0, "brand":1}}).toArray(function(err, result) {
+        if (err) throw err;
+        result.forEach(element => {/*console.log("O nome é " + element.brand);*/ });
+        console.log(result);
+        res.send(result);
+      });
+    });
+  // End of Read
+});
 
 app.get("/access", function(req, res) { // root route or home route
     //res.send('welcome to home page');
@@ -953,8 +995,7 @@ connection.query(variaveis, (err,sugestoes_x) => {if(err) throw err;
 
 
 
-
-
+// End of starting route
 
 
 

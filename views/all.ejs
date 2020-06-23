@@ -415,7 +415,7 @@ var largura = document.getElementById('news1').clientWidth;
 		</div>
 		<div id="box3">
 			<%contador = 1 %>	   
-			<% rows.slice(4,9).forEach(function(row) { %>
+			<% rows.slice(3,8).forEach(function(row) { %>
        		<%if (row.highlight == 0 && contador < 5) { %>
        	 <div class="news_inside">
  				<a href="article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').replace(/%/g,'').toLowerCase()%>"><img src="images/<%=row.photo1%>" class="news_photo" /></a>
