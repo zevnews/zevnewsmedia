@@ -118,24 +118,34 @@ app.get('/testeenvia', function (req, res) {
 });
 */
 
-app.get('/mongodb', function (req, res) {
+app.get('/mongodb/:valor', function (req, res) {
  
     // Read all the documents in "veiculo" collection
   conexao.connect(url, function(err, db) {
       if (err) throw err;
       var resultado;
       var dbo = db.db(database);
-      var referencia = "Ri";
+     
+       var referencia = req.params.valor;
+       console.log( "referencia" + referencia);
       dbo.collection(collection1).find({"brand": new RegExp(referencia, 'i')}).toArray(function(err, result) {
         if (err) throw err;
-        result.forEach(element => {/*console.log("O nome é " + element.brand);*/ });
+        var codigo = '<ul id="searchResultsList">';
+        result.forEach(element => {
+          console.log(element.brand);
+        /*console.log("O nome é " + element.brand);*/
+       codigo = codigo + '<li>'+ element.brand + " " + element.model + '</li>';
+         });
         var page = "list_documents_test";
+        codigo = codigo + "</ul>";
         console.log(result + "resul")
-        res.render('comparator.ejs',{result});
+        //res.render('comparator.ejs',{result});
+        res.send(codigo)
       });
     });
   // End of Read
 });
+
 
 
 

@@ -6,14 +6,13 @@
   <h2>Let AJAX change this text</h2>
 
   <input type="text" name="searchItem" id="searchItem">
-  <input type="button" value="Pesquisar"  onclick="searchVeh()">
- 
+  <button type="button" onclick="manda()">Pesquisar</button>
 </div>
  <button type="button" onclick="loadDoc()">Change Content</button>
 
   <button type="button" onclick="loadDoc2()">Change Content</button>
 
-  <button type="button" onclick="manda()">Clica</button>
+ 
 
   <p id="teste"></p>
 
@@ -37,7 +36,7 @@ function manda()
 
   var http = new XMLHttpRequest();
   var teste = searchVeh();
-var url = '/searchteste/'+ teste +'';
+var url = '/mongodb/'+ teste +'';
 var searchItem = 'Tesla';
 http.open('GET', url, true);
 
