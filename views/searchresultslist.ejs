@@ -1,7 +1,8 @@
 <ul id="searchResultsList">
-<li>Cake Osa  						<input type="checkbox" id="vehicle1" name="vehicle1" value="Cake Osa"  class="selectVehicle"></li>
-	<li>Cake Kalk 					<input type="checkbox" id="vehicle2" name="vehicle2" value="Cake Kalk" class="selectVehicle"></li>
-	<li>Verge Motorcycles TS  		<input type="checkbox" id="vehicle3" name="vehicle3" value="Verge TS"  class="selectVehicle"></li>
-	<li>Cake Osa  					<input type="checkbox" id="vehicle4" name="vehicle1" value="Cake Osa"  class="selectVehicle"></li>
-	<li>Cake Kalk 					<input type="checkbox" id="vehicle5" name="vehicle2" value="Cake Kalk" class="selectVehicle"></li>
+<% x = 1%>
+<% result.forEach((result) => { %>	
+	<li><%= result.brand %>	<%= result.model %>			<input type="checkbox" id="vehicle<%= x %>"  name="vehicle<%= x %>" value="<%= result.model %>"  class="selectVehicle"></li>
+	<% x = x + 1%>
+	
+<%}) %>
 <ul>

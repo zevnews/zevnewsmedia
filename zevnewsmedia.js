@@ -90,6 +90,34 @@ app.get('/documento', function (req, res) {
   // End of Read
 });
 
+/*
+app.get('/testeenvia', function (req, res) {
+ 
+    // Read all the documents in "veiculo" collection
+  conexao.connect(url, function(err, db) {
+      if (err) throw err;
+      var resultado;
+      var dbo = db.db(database);
+      var teste = new Array();
+      var x = 0;
+
+      var parametro =  dbo.collection(collection1).find();
+
+      dbo.collection(collection1).find({},{fields:{_id: 0, "brand":1}}).toArray(function(err, result)
+      {
+        if (err) throw err;
+        result.forEach(element => {
+          teste[x] = element.brand;
+          console.log(teste[x]);
+          x = x + 1;});
+          res.send(teste);
+      });
+      console.log(parametro);
+    });
+  // End of Read
+});
+*/
+
 
 app.get('/testeenvia', function (req, res) {
  
@@ -98,16 +126,16 @@ app.get('/testeenvia', function (req, res) {
       if (err) throw err;
       var resultado;
       var dbo = db.db(database);
-      dbo.collection(collection1).find({},{fields:{_id: 0, "brand":1}}).toArray(function(err, result) {
+      dbo.collection(collection1).find().toArray(function(err, result) {
         if (err) throw err;
         result.forEach(element => {/*console.log("O nome é " + element.brand);*/ });
-        console.log(result);
-        res.send(result);
+        var page = "list_documents_test";
+        console.log(result + "resul")
+        res.render('comparator.ejs',{result});
       });
     });
   // End of Read
 });
-
 app.get("/access", function(req, res) { // root route or home route
     //res.send('welcome to home page');
     res.render("access.ejs")
