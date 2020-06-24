@@ -118,6 +118,31 @@ app.get('/testeenvia', function (req, res) {
 });
 */
 
+app.get('/mongodb', function (req, res) {
+ 
+    // Read all the documents in "veiculo" collection
+  conexao.connect(url, function(err, db) {
+      if (err) throw err;
+      var resultado;
+      var dbo = db.db(database);
+      var referencia = "Ri";
+      dbo.collection(collection1).find({"brand": new RegExp(referencia, 'i')}).toArray(function(err, result) {
+        if (err) throw err;
+        result.forEach(element => {/*console.log("O nome é " + element.brand);*/ });
+        var page = "list_documents_test";
+        console.log(result + "resul")
+        res.render('comparator.ejs',{result});
+      });
+    });
+  // End of Read
+});
+
+
+
+app.get("/access", function(req, res) { // root route or home route
+    //res.send('welcome to home page');
+    res.render("access.ejs")
+});
 
 app.get('/testeenvia', function (req, res) {
  
