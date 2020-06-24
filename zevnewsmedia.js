@@ -307,9 +307,10 @@ app.get("/search", function(req, res) { // root route or home route
 app.post("/search", function(req, res) { // user route
    // res.render("testes.ejs", {
 
-     
-      //var section = req.params.x;
-      var searchItem = req.body.searchItem;
+     //searchItem = req.params.searchItem;
+      //var section = req.params.x; 
+     var searchItem = req.body.searchItem;
+      console.log("valor" + searchItem);
       searchTest = searchItem;
       connection.query("select * from ARTICLES where article like '%"+ searchItem +"%' ORDER BY PUBLI_DATE DESC LIMIT 9", (err,rows) => {
       if(err) throw err;
@@ -323,6 +324,7 @@ app.post("/search", function(req, res) { // user route
           pagina = 0;
           section = "Nenhum resultado";
           linha = null;
+          console.log("nada");
           res.render("conteudos.ejs", {rows, section, pagina, linha});
       }
       else
@@ -346,6 +348,62 @@ app.post("/search", function(req, res) { // user route
       //console.log(estado);
        });
 });
+
+app.get("/searchteste/:valor", function(req, res) { // user route
+   // res.render("testes.ejs", {
+
+     //searchItem = req.params.searchItem;
+      //var section = req.params.x; 
+     var searchItem = req.params.valor;
+      console.log("valor " + searchItem);
+      searchTest = searchItem;
+      connection.query("select * from ARTICLES where article like '%"+ searchItem +"%' ORDER BY PUBLI_DATE DESC LIMIT 9", (err,rows) => {
+      if(err) throw err;
+
+      var escopo = "";
+      
+      var estado = "";
+      if (Array.isArray(rows) && rows.length === 0.)
+      {
+           // estado vazio
+           //res.render("vazio.ejs");
+           //res.render("vazio.ejs");
+          pagina = 0;
+          section = "Nenhum resultado";
+          linha = null;
+          console.log("nadaaaa");
+          //res.render("conteudos.ejs", {rows, section, pagina, linha});
+          res.send("Yepppp");
+      }
+      else
+      {
+          pagina = 0;
+          section = "all";
+          linha = 1;
+          console.log("Refe " + searchTest);
+
+
+          paginaBuscas = 0;
+
+          escopo = '<ul id="searchResultsList">';
+
+           rows.forEach(row => { 
+              console.log(row.publi_date); 
+              paginaBuscas = paginaBuscas + 1;
+              
+              escopo = escopo + '<li>'+ row.title + '</li>';
+
+          }); 
+          //res.render("conteudos.ejs", {rows, section, pagina, linha, paginaBuscas});
+          escopo = escopo + '</ul>'
+           res.send(escopo);
+
+      } 
+
+      //console.log(estado);
+       });
+});
+
 
 
 app.get("/author/:id", function(req, res) { // user route

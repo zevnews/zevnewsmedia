@@ -10,6 +10,8 @@
 
   <button type="button" onclick="loadDoc2()">Change Content</button>
 
+  <button type="button" onclick="manda()">Clica</button>
+
   <p id="teste"></p>
 
 <script>
@@ -17,6 +19,32 @@
 </script> 
 </body>
 <script type="text/javascript">
+
+
+function manda()
+{
+
+  var http = new XMLHttpRequest();
+var url = '/searchteste/cake';
+var searchItem = 'Tesla';
+http.open('GET', url, true);
+
+//Send the proper header information along with the request
+http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+http.onreadystatechange = function() {//Call a function when the state changes.
+    if(http.readyState == 4 && http.status == 200) {
+       // alert(http.responseText);
+         document.getElementById("demo").innerHTML = this.responseText;
+    }
+}
+alert(searchItem);
+http.send(searchItem);
+}
+
+
+ 
+
   function loadDoc() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
