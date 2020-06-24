@@ -1,7 +1,7 @@
 <ul id="searchResultsList">
 <% x = 1%>
 <% result.forEach((result) => { %>	
-	<li><%= result.brand %>	<%= result.model %>			<input type="checkbox" id="vehicle<%= x %>"  name="vehicle<%= x %>" value="<%= result.model %>"  class="selectVehicle"></li>
+	<li><%= result.brand %> - <%= result.model %>	<input type="checkbox" id="vehicle<%= x %>"  name="vehicle<%= x %>" value="<%= result.model %>"  class="selectVehicle"></li>
 	<% x = x + 1%>
 	
 <%}) %>
