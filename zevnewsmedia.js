@@ -131,15 +131,19 @@ app.get('/mongodb/:valor', function (req, res) {
       dbo.collection(collection1).find({"brand": new RegExp(referencia, 'i')}).toArray(function(err, result) {
         if (err) throw err;
         var codigo = '<ul id="searchResultsList">';
+        var soma = 1;
         result.forEach(element => {
           console.log(element.brand);
         /*console.log("O nome é " + element.brand);*/
-       codigo = codigo + '<li>'+ element.brand + " " + element.model + '</li>';
+       codigo = codigo + '<li>'+ element.brand + ''  + element.model +'<input type="checkbox" id="vehicle'+soma+'  value="'+ element.model +'" onclick="pow()" ></li>';
+        soma =  soma + 1;
          });
-        var page = "list_documents_test";
+
+         var page = "list_documents_test";
         codigo = codigo + "</ul>";
-        console.log(result + "resul")
+       // console.log(result + "resul")
         //res.render('comparator.ejs',{result});
+        console.log(codigo);
         res.send(codigo)
       });
     });

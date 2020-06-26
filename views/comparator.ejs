@@ -13,7 +13,7 @@
 	<div id="boxStart">
 		<section id="startNavigation">
 			<form id="formSearchBox" name="formSearchBox">
-				<input type="box" name="searchBox" id="searchBox" required="required"><input type="submit" name="btnSearchBox" value="SEARCH" id="btnSearchBox">
+				<input type="box" name="searchBox" id="searchBox" required="required"><input type="button" name="btnSearchBox" value="SEARCH" id="btnSearchBox" onclick="manda()">
 			</form>
 					<ul id="mainMenu">
 						<li><a href="">Type</a></li>
@@ -27,7 +27,7 @@
 	<div class="box">
 		<h1 class="boxTitle">Most Searched Vehicle</h1>	
 		<div class="boxContent">
-			<section class="boxInfo2">
+			<section class="boxInfo2" id="caixadeareia">
 			<ul id="searchResultsList">
 		<%- include('searchresultslist') %>
 				
@@ -119,5 +119,41 @@
 
 </div>
  <script type="text/javascript" src="includes/comparator.js"></script>
+ <script type="text/javascript">
+
+ 	function pow(){
+ 		alert("POWWWW");
+ 	}
+ 	function searchVeh()
+  {
+
+    var valor = document.getElementById("searchBox").value;
+    alert(valor);
+    return valor;
+  }
+
+
+function manda()
+{
+
+  var http = new XMLHttpRequest();
+  var teste = searchVeh();
+var url = '/mongodb/'+ teste +'';
+var searchItem = 'Tesla';
+http.open('GET', url, true);
+
+//Send the proper header information along with the request
+http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+http.onreadystatechange = function() {//Call a function when the state changes.
+    if(http.readyState == 4 && http.status == 200) {
+       // alert(http.responseText);
+         document.getElementById("caixadeareia").innerHTML = this.responseText;
+    }
+}
+alert(searchItem);
+http.send(searchItem);
+}
+ </script>
 </body>
 </html> 
