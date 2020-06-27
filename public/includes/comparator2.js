@@ -20,6 +20,65 @@ var vehicles = new Array();
         z = z + 1;
     }
 
+    function comeca(){
+   // var xz = document.getElementById("vehicle1");
+    var vehicles = new Array();
+    //alert("comeca aqui" + xz + "op");
+    z = 1;
+
+    while (z <= 5)
+    {
+
+        vehicles[z] = document.getElementById("vehicle" + z)
+
+        //alert(vehicles[z].id + "comeca");
+        vehicles[z].addEventListener("click",addVehicle);
+        z = z + 1;
+    }
+
+
+    document.getElementById("remove1").addEventListener("click",removeVehicle);
+    document.getElementById("remove2").addEventListener("click",removeVehicle);
+
+    document.getElementById("remove1").style.visibility = "hidden";
+    document.getElementById("remove2").style.visibility = "hidden";
+
+    alert("Isso ai");
+    //addVehicle();
+}
+
+
+function searchVeh()
+  {
+
+    var valor = document.getElementById("searchBox").value;
+    alert(valor);
+    return valor;
+  }
+
+function manda()
+{
+
+  var http = new XMLHttpRequest();
+  var teste = searchVeh();
+var url = '/mongodb/'+ teste +'';
+var searchItem = 'Tesla';
+http.open('GET', url, true);
+
+//Send the proper header information along with the request
+http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+http.onreadystatechange = function() {//Call a function when the state changes.
+    if(http.readyState == 4 && http.status == 200) {
+       // alert(http.responseText);
+         document.getElementById("caixadeareia").innerHTML = this.responseText;
+         comeca();
+         //comeca();
+    }
+}
+alert(searchItem);
+http.send(searchItem);
+}
 
  function addVehicle()
     {
@@ -65,28 +124,7 @@ var vehicles = new Array();
 
              
     }
-    document.getElementById("remove1").addEventListener("click",removeVehicle);
-    document.getElementById("remove2").addEventListener("click",removeVehicle);
-
-    document.getElementById("remove1").style.visibility = "hidden";
-    document.getElementById("remove2").style.visibility = "hidden";
-
-   function comeca(){
-   // var xz = document.getElementById("vehicle1");
-    var vehicles = new Array();
-    //alert("comeca aqui" + xz + "op");
-    z = 1;
-
-    while (z <= 3)
-    {
-
-        vehicles[z] = document.getElementById("vehicle" + z)
-
-        alert(vehicles[z].id + "comeca");
-        vehicles[z].addEventListener("click",addVehicle);
-        z = z + 1;
-    }
-
+    
 
     document.getElementById("remove1").addEventListener("click",removeVehicle);
     document.getElementById("remove2").addEventListener("click",removeVehicle);
@@ -94,10 +132,12 @@ var vehicles = new Array();
     document.getElementById("remove1").style.visibility = "hidden";
     document.getElementById("remove2").style.visibility = "hidden";
 
-    alert("Isso ai");
-    //addVehicle();
-}
+   
 
+
+
+
+   
     // showItens();
 
     
