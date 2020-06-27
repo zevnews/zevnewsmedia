@@ -1,37 +1,69 @@
-//alert("BEM-VINDO A EVDI!");
 
-var z = 1;
+
 var totalChecks = 0;
 var removeDisplay = 0;
 
 var vehicles = new Array();
- var caixa = 0;
+var caixa = 0;
     
-     var vehicle_1 = "";
-     var vehcile_2 = "";
+var vehicle_1 = "";
+var vehcile_2 = "";
 
-    while (z <= 5)
+
+
+
+
+
+
+function vehicleSearch()
+  {
+
+    var searchBoxValue = document.getElementById("searchBox").value;
+    
+    if (searchBoxValue == ""){
+        alert("Not empty");
+        document.getElementById("searchBox").focus();
+    }
+    else
     {
+    document.getElementById("searchBox").value = "";
+    return searchBoxValue;
+    }
+  }
 
-        vehicles[z] = document.getElementById("vehicle" + z)
 
-      //  alert(vehicles[z].id);
-        vehicles[z].addEventListener("click",addVehicle);
-        z = z + 1;
+
+function vehiclesSearchList()
+{
+  var http = new XMLHttpRequest();
+  var vehicleToSearch = vehicleSearch();
+  var url = '/mongodb/'+ vehicleToSearch +'';
+   http.open('GET', url, true);
+
+//Send the proper header information along with the request
+     http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    http.onreadystatechange = function()
+    {//Call a function when the state changes.
+    if(http.readyState == 4 && http.status == 200) 
+        {
+         
+         document.getElementById("caixadeareia").innerHTML = this.responseText;
+         loadSearchResult();
+        }
     }
 
-    function comeca(){
-   // var xz = document.getElementById("vehicle1");
+        http.send();
+}
+
+function loadSearchResult()
+{
+  
     var vehicles = new Array();
-    //alert("comeca aqui" + xz + "op");
     z = 1;
 
     while (z <= 5)
     {
-
         vehicles[z] = document.getElementById("vehicle" + z)
-
-        //alert(vehicles[z].id + "comeca");
         vehicles[z].addEventListener("click",addVehicle);
         z = z + 1;
     }
@@ -39,56 +71,18 @@ var vehicles = new Array();
 
     document.getElementById("remove1").addEventListener("click",removeVehicle);
     document.getElementById("remove2").addEventListener("click",removeVehicle);
-
     document.getElementById("remove1").style.visibility = "hidden";
     document.getElementById("remove2").style.visibility = "hidden";
-
-    alert("Funcao comeca");
-    //addVehicle();
 }
 
 
-function searchVeh()
-  {
 
-    var valor = document.getElementById("searchBox").value;
-    //alert(valor);
-    return valor;
-  }
-
-function manda()
-{
-
-  var http = new XMLHttpRequest();
-  var teste = searchVeh();
-var url = '/mongodb/'+ teste +'';
-var searchItem = 'Tesla';
-http.open('GET', url, true);
-
-//Send the proper header information along with the request
-http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-http.onreadystatechange = function() {//Call a function when the state changes.
-    if(http.readyState == 4 && http.status == 200) {
-       // alert(http.responseText);
-         document.getElementById("caixadeareia").innerHTML = this.responseText;
-         comeca();
-         
-    }
-}
-//alert(searchItem);
-http.send(searchItem);
-}
-
- function addVehicle()
+function addVehicle()
     {
     	     var vehicle = this.id.slice(7,10);
              this.disabled = true;
-             alert(vehicle);
-
-             
-
-             showItens();
+            
+            showItens();
 
              removeDisplay = 1;
              if (caixa == 0){
@@ -98,10 +92,7 @@ http.send(searchItem);
                 caixa = 1;
                 
                 vehicle_1 = this.id;
-              //  alert("ID da caixa" + vehicle_1);
-              //alert("Caixa" +caixa);
               totalChecks = totalChecks +1;
-              alert("total" + totalChecks);
               disableChecks(totalChecks);     
 
              }
@@ -113,11 +104,9 @@ http.send(searchItem);
              caixa = 2;
 
              vehicle_2 = this.id;
-            // alert("ID da caixa" + vehicle_2);
-            alert("Caixa " + caixa);
-            
+           
             totalChecks = totalChecks +1;
-            alert(" Total de checks = " + totalChecks);
+         
             disableChecks(totalChecks);     
 
              }
@@ -126,23 +115,11 @@ http.send(searchItem);
     }
     
 
-    document.getElementById("remove1").addEventListener("click",removeVehicle);
-    document.getElementById("remove2").addEventListener("click",removeVehicle);
 
-    document.getElementById("remove1").style.visibility = "hidden";
-    document.getElementById("remove2").style.visibility = "hidden";
-
-   
-
-
-
-
-   
-    // showItens();
 
     
 
-     function removeVehicle(){
+function removeVehicle(){
      	var vehicle = this.id;
 
          vehicle = vehicle.slice(6,8);
@@ -155,44 +132,36 @@ http.send(searchItem);
          {
             caixa = 0;
             document.getElementById(vehicle_1).checked = false;
-             alert("Caixa Remove" + caixa);
              document.getElementById(vehicle_1).disabled = false;
-
              totalChecks = totalChecks  - 1;
-            alert("total" + totalChecks);
              disableChecks(totalChecks);                  
 
          }
          else
          {  
             document.getElementById(vehicle_2).checked = false;
-             alert("Caixa Remove" + caixa);
              document.getElementById(vehicle_2).disabled = false; 
              totalChecks = totalChecks  - 1;
-            alert("Total de Checkas" + totalChecks);
-            disableChecks(totalChecks);            
+             disableChecks(totalChecks);            
 
          }
      }
 
 
-     function disableChecks(totalChecks)
+function disableChecks(totalChecks)
    {
      var z  = 1;
      var y = 1;
      
      if (totalChecks === 2)
      {
-        alert("Caixa de selecao desativada");
-    vehicle1.disabled = true;
+       
+        vehicle1.disabled = true;
 
        while (z <= 5){
-                 vehicles[z] = document.getElementById("vehicle" + z);
+                vehicles[z] = document.getElementById("vehicle" + z);
                 vehicles[z].disabled = true;
-                alert("Item " + vehicles[z].value);
-            
-
-            z = z + 1;
+                z = z + 1;
         }
 
      } 
@@ -222,7 +191,6 @@ http.send(searchItem);
         {
             document.getElementById("remove2").style.visibility = "visible";
         }
-        alert("Visivel");
-    
+        
 
    }
