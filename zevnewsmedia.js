@@ -135,7 +135,7 @@ app.get('/mongodb/:valor', function (req, res) {
         result.forEach(element => {
           console.log(element.brand);
         /*console.log("O nome é " + element.brand);*/
-       codigo = codigo + '<li>'+ element.brand + ''  + element.model +'<input type="checkbox" id="vehicle'+soma+'  value="'+ element.model +'" onclick="pow()" ></li>';
+       codigo = codigo + '<li>'+ element.brand + ''  + element.model +'<input type="checkbox" id="vehicle'+soma+'"  value="'+ element.model +'" onclick="comeca()" ></li>';
         soma =  soma + 1;
          });
 
@@ -170,7 +170,8 @@ app.get('/testeenvia', function (req, res) {
         result.forEach(element => {/*console.log("O nome é " + element.brand);*/ });
         var page = "list_documents_test";
         console.log(result + "resul")
-        res.render('comparator.ejs',{result});
+       // res.render('comparator.ejs',{result});
+       res.render('comparator2.ejs',{result});
       });
     });
   // End of Read

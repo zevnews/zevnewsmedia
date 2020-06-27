@@ -1,4 +1,4 @@
-alert("Welcome to EVDI!");
+alert("BEM-VINDO A EVDI!");
 
 var z = 1;
 var totalChecks = 0;
@@ -43,7 +43,7 @@ var vehicles = new Array();
               //alert("Caixa" +caixa);
               totalChecks = totalChecks +1;
               alert("total" + totalChecks);
-               disableChecks(totalChecks);     
+              disableChecks(totalChecks);     
 
              }
              else
@@ -58,8 +58,8 @@ var vehicles = new Array();
             alert("Caixa" + caixa);
             
             totalChecks = totalChecks +1;
-            alert("total" + totalChecks);
-             disableChecks(totalChecks);     
+            alert("total de checks" + totalChecks);
+            disableChecks(totalChecks);     
 
              }
 
@@ -72,10 +72,12 @@ var vehicles = new Array();
     document.getElementById("remove2").style.visibility = "hidden";
 
    function comeca(){
-    alert("comeca aqui");
+   // var xz = document.getElementById("vehicle1");
+    var vehicles = new Array();
+    //alert("comeca aqui" + xz + "op");
     z = 1;
 
-    while (z <= 5)
+    while (z <= 3)
     {
 
         vehicles[z] = document.getElementById("vehicle" + z)
@@ -93,6 +95,7 @@ var vehicles = new Array();
     document.getElementById("remove2").style.visibility = "hidden";
 
     alert("Isso ai");
+    //addVehicle();
 }
 
     // showItens();
