@@ -1,4 +1,4 @@
-alert("BEM-VINDO A EVDI!");
+//alert("BEM-VINDO A EVDI!");
 
 var z = 1;
 var totalChecks = 0;
@@ -15,7 +15,7 @@ var vehicles = new Array();
 
         vehicles[z] = document.getElementById("vehicle" + z)
 
-        alert(vehicles[z].id);
+      //  alert(vehicles[z].id);
         vehicles[z].addEventListener("click",addVehicle);
         z = z + 1;
     }
@@ -43,7 +43,7 @@ var vehicles = new Array();
     document.getElementById("remove1").style.visibility = "hidden";
     document.getElementById("remove2").style.visibility = "hidden";
 
-    alert("Isso ai");
+    alert("Funcao comeca");
     //addVehicle();
 }
 
@@ -52,7 +52,7 @@ function searchVeh()
   {
 
     var valor = document.getElementById("searchBox").value;
-    alert(valor);
+    //alert(valor);
     return valor;
   }
 
@@ -73,10 +73,10 @@ http.onreadystatechange = function() {//Call a function when the state changes.
        // alert(http.responseText);
          document.getElementById("caixadeareia").innerHTML = this.responseText;
          comeca();
-         //comeca();
+         
     }
 }
-alert(searchItem);
+//alert(searchItem);
 http.send(searchItem);
 }
 
@@ -114,10 +114,10 @@ http.send(searchItem);
 
              vehicle_2 = this.id;
             // alert("ID da caixa" + vehicle_2);
-            alert("Caixa" + caixa);
+            alert("Caixa " + caixa);
             
             totalChecks = totalChecks +1;
-            alert("total de checks" + totalChecks);
+            alert(" Total de checks = " + totalChecks);
             disableChecks(totalChecks);     
 
              }
@@ -169,7 +169,7 @@ http.send(searchItem);
              alert("Caixa Remove" + caixa);
              document.getElementById(vehicle_2).disabled = false; 
              totalChecks = totalChecks  - 1;
-            alert("total" + totalChecks);
+            alert("Total de Checkas" + totalChecks);
             disableChecks(totalChecks);            
 
          }
@@ -180,14 +180,16 @@ http.send(searchItem);
    {
      var z  = 1;
      var y = 1;
+     
      if (totalChecks === 2)
      {
-        alert("destivado");
+        alert("Caixa de selecao desativada");
     vehicle1.disabled = true;
 
        while (z <= 5){
-            
+                 vehicles[z] = document.getElementById("vehicle" + z);
                 vehicles[z].disabled = true;
+                alert("Item " + vehicles[z].value);
             
 
             z = z + 1;
