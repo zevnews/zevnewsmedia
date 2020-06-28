@@ -8,6 +8,7 @@ var caixa = 0;
     
 var vehicle_1 = "";
 var vehcile_2 = "";
+var totalSearchs = 0;
 
 
 function startVariables()
@@ -60,6 +61,9 @@ function vehiclesSearchList()
         {
          
          document.getElementById("caixadeareia").innerHTML = this.responseText;
+         var totalResults = document.getElementById("totalSearchs").value;
+         totalSearchs = parseInt(totalResults);
+         //alert("Resultados" + totalSearchs);
          loadSearchResult();
         }
     }
@@ -73,7 +77,7 @@ function loadSearchResult()
     var vehicles = new Array();
     z = 1;
 
-    while (z <= 5)
+    while (z <= totalSearchs)
     {
         vehicles[z] = document.getElementById("vehicle" + z)
         vehicles[z].addEventListener("click",addVehicle);
@@ -170,7 +174,7 @@ function disableChecks(totalChecks)
        
         vehicle1.disabled = true;
 
-       while (z <= 5){
+       while (z <= totalSearchs){
                 vehicles[z] = document.getElementById("vehicle" + z);
                 vehicles[z].disabled = true;
                 z = z + 1;
