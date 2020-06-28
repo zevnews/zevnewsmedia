@@ -26,7 +26,6 @@ function startVariables()
 
 
 
-
 function vehicleSearch()
   {
 
@@ -70,6 +69,39 @@ function vehiclesSearchList()
         http.send();
 }
 
+
+
+function seeVehicleSpecs(ref)
+{
+    
+
+    
+     alert("o id " + ref );
+ var http = new XMLHttpRequest();
+ /* var vehicleToSearch = vehicleSearch();*/
+var vehicleToSearch = "valor";
+var url = '/selecionaveiculo/'+ vehicleToSearch +'';
+   http.open('GET', url, true);
+
+//Send the proper header information along with the request
+    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    http.onreadystatechange = function()
+    {//Call a function when the state changes.
+    if(http.readyState == 4 && http.status == 200) 
+        {
+         
+         document.getElementById("vehicleSpecs").innerHTML = this.responseText;
+        // var totalResults = document.getElementById("totalSearchs").value;
+         //totalSearchs = parseInt(totalResults);
+       //  loadSearchResult();
+        }
+    }
+
+        http.send();
+}
+
+
+
  function avoidCompare(){
     if (totalSearchs <= 1)
     {
@@ -77,6 +109,9 @@ function vehiclesSearchList()
     }
 
  }
+
+
+
 
 function loadSearchResult()
 {

@@ -121,32 +121,27 @@ app.get('/testeenvia', function (req, res) {
 app.get('/mongodb/:valor', function (req, res) {
  
     // Read all the documents in "veiculo" collection
-  conexao.connect(url, function(err, db) {
-      if (err) throw err;
-      var resultado;
-      var dbo = db.db(database);
-     
+  conexao.connect(url, function(err, db)
+  {
+       if (err) throw err;
+       var dbo = db.db(database);
        var referencia = req.params.valor;
-       console.log( "referencia" + referencia);
-      dbo.collection(collection1).find({"brand": new RegExp(referencia, 'i')}).toArray(function(err, result) {
-        if (err) throw err;
-        var codigo = '<ul id="searchResultsList">';
-        var soma = 1;
-        var contador = 0;
-        result.forEach(element => {
-        console.log(element.brand);
-        /*console.log("O nome é " + element.brand);*/
-        codigo = codigo + '<li>'+ element.brand + ''  + element.model +'<input type="checkbox" id="vehicle'+soma+'" name="vehicle'+soma+'"  value="'+ element.model +'" class="selectVehicle"></li>';
-        soma =  soma + 1;
-        contador++;
+       dbo.collection(collection1).find({"brand": new RegExp(referencia, 'i')}).toArray(function(err, result) {
+       if (err) throw err;
+       var codigo = '<ul id="searchResultsList">';
+       var soma = 1
+       var contador = 0;
+       result.forEach(element =>
+        {
+      
+             codigo = codigo + '<li id="'+ element._id+'" onclick="seeVehicleSpecs(this.id)" name="nome" value="lixo">'+ element.brand + ''  + element.model +'<input type="checkbox" id="vehicle'+soma+'" name="vehicle'+soma+'"  value="'+ element.model +'" class="selectVehicle"></li>';
+             soma++;
+             contador++;
          });
 
-         // var page = "list_documents_test";
-        codigo = codigo + '</ul>';
         
+        codigo = codigo + '</ul>';
         codigo = codigo + '<input type="hidden" value="'+ contador +'" id="totalSearchs" name="totalSearchs">'
-       // console.log(result + "resul")
-        //res.render('comparator.ejs',{result});
         console.log(codigo);
         res.send(codigo)
       });
@@ -239,6 +234,10 @@ app.get("/news", function(req, res) { // root route or home route
 
 
 */
+
+app.get("/selecionaveiculo/:x", (req, res) => {
+    res.send('Veiculo carregado');
+});
 
 app.get("/evdi", (req, res) => {
     res.render("evdi.ejs");
