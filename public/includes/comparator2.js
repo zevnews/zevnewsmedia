@@ -54,22 +54,29 @@ function vehiclesSearchList()
    http.open('GET', url, true);
 
 //Send the proper header information along with the request
-     http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     http.onreadystatechange = function()
     {//Call a function when the state changes.
     if(http.readyState == 4 && http.status == 200) 
         {
          
-         document.getElementById("caixadeareia").innerHTML = this.responseText;
+         document.getElementById("vehiclesForComparision").innerHTML = this.responseText;
          var totalResults = document.getElementById("totalSearchs").value;
          totalSearchs = parseInt(totalResults);
-         //alert("Resultados" + totalSearchs);
          loadSearchResult();
         }
     }
 
         http.send();
 }
+
+ function avoidCompare(){
+    if (totalSearchs <= 1)
+    {
+        document.getElementById("vehicle1").style.visibility = "hidden";
+    }
+
+ }
 
 function loadSearchResult()
 {
@@ -89,6 +96,7 @@ function loadSearchResult()
     document.getElementById("remove2").addEventListener("click",removeVehicle);
     document.getElementById("remove1").style.visibility = "hidden";
     document.getElementById("remove2").style.visibility = "hidden";
+    avoidCompare();
 }
 
 
@@ -107,7 +115,7 @@ function addVehicle()
                 vehicleToCompare.innerHTML = this.value;
                 caixa = 1;
                 
-                vehicle_1 = this.id;
+              vehicle_1 = this.id;
               totalChecks = totalChecks +1;
               disableChecks(totalChecks);     
 

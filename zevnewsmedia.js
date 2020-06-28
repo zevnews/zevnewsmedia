@@ -134,7 +134,7 @@ app.get('/mongodb/:valor', function (req, res) {
         var soma = 1;
         var contador = 0;
         result.forEach(element => {
-          console.log(element.brand);
+        console.log(element.brand);
         /*console.log("O nome é " + element.brand);*/
         codigo = codigo + '<li>'+ element.brand + ''  + element.model +'<input type="checkbox" id="vehicle'+soma+'" name="vehicle'+soma+'"  value="'+ element.model +'" class="selectVehicle"></li>';
         soma =  soma + 1;
