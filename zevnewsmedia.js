@@ -245,8 +245,8 @@ conexao.connect(url, function(err, db)
        var referencia = req.params.valor;
        console.log(referencia);
        var codigo = "";
-      var mongox = require('mongodb');
-      var x_id = new mongox.ObjectID(referencia);
+       var mongox = require('mongodb');
+       var x_id = new mongox.ObjectID(referencia);
 
        dbo.collection(collection1).find({"_id": x_id}).toArray(function(err, result)
 
@@ -255,8 +255,16 @@ conexao.connect(url, function(err, db)
           if (err) throw err;
              result.forEach(element =>
                 {
-                  codigo = "okkkk!"
-                });
+                  
+                 codigo = `<img src="photos/`+element.photo1+ `" class="vehicleImage">
+                           <ul class="vehicleSpecs" id="vehicleSpecs">
+                           <li>Brand: `+ element.brand+`</li>
+                           <li>Model: `+ element.model+`</li>
+                           <li>Power: `+ element.power1+`</li>
+                           <li>Torque: `+ element.torque1+`</li>
+                           <li><a href="" class="moreVehicleInfo">See full specs</a></li>
+                           </ul>`
+               });
 
             console.log("codigo de resposta" + codigo); 
         res.send(codigo)
