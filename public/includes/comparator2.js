@@ -10,7 +10,18 @@ var vehicle_1 = "";
 var vehcile_2 = "";
 
 
+function startVariables()
+{
 
+    totalChecks = 0;
+    removeDisplay = 0;
+    caixa = 0;
+    vehicle_1 = "";
+    vehicle_2 = "";
+    document.getElementById("vehicle1ToCompare").innerHTML = "";
+    document.getElementById("vehicle2ToCompare").innerHTML = "";
+   
+}
 
 
 
@@ -18,10 +29,11 @@ var vehcile_2 = "";
 function vehicleSearch()
   {
 
+    startVariables();
     var searchBoxValue = document.getElementById("searchBox").value;
-    
+
     if (searchBoxValue == ""){
-        alert("Not empty");
+        alert("Please fill the search box");
         document.getElementById("searchBox").focus();
     }
     else
