@@ -235,8 +235,35 @@ app.get("/news", function(req, res) { // root route or home route
 
 */
 
-app.get("/selecionaveiculo/:x", (req, res) => {
-    res.send('Veiculo carregado');
+app.get("/selecionaveiculo/:valor", (req, res) => {
+
+
+conexao.connect(url, function(err, db)
+  {
+       if (err) throw err;
+       var dbo = db.db(database);
+       var referencia = req.params.valor;
+       console.log(referencia);
+       var codigo = "";
+      var mongox = require('mongodb');
+      var x_id = new mongox.ObjectID(referencia);
+
+       dbo.collection(collection1).find({"_id": x_id}).toArray(function(err, result)
+
+        
+        {
+          if (err) throw err;
+             result.forEach(element =>
+                {
+                  codigo = "okkkk!"
+                });
+
+            console.log("codigo de resposta" + codigo); 
+        res.send(codigo)
+      });
+    });
+
+    
 });
 
 app.get("/evdi", (req, res) => {

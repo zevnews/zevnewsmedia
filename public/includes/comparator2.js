@@ -79,7 +79,7 @@ function seeVehicleSpecs(ref)
      alert("o id " + ref );
  var http = new XMLHttpRequest();
  /* var vehicleToSearch = vehicleSearch();*/
-var vehicleToSearch = "valor";
+var vehicleToSearch = ref;
 var url = '/selecionaveiculo/'+ vehicleToSearch +'';
    http.open('GET', url, true);
 
