@@ -165,7 +165,7 @@ function addVehicle()
              var vehicleToCompare = document.getElementById("vehicle2ToCompare");
              vehicleToCompare.innerHTML = this.value;
 
-             var photo1 = document.getElementById("vehicleImage1"); 
+             var photo1 = document.getElementById("vehicleImage2"); 
                 var vehicleImage = document.getElementById("vehicleImage"); 
                 photo1.src =  vehicleImage.src ;
                 alert("foto1 mundou" +vehicleImage.src);
