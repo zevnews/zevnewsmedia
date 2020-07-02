@@ -256,7 +256,7 @@ conexao.connect(url, function(err, db)
              result.forEach(element =>
                 {
                   
-                 codigo = `<img src="photos/`+element.photo1+ `" class="vehicleImage">
+                 codigo = `<img src="photos/`+element.photo1+ `" class="vehicleImage" id="vehicleImage">
                            <ul class="vehicleSpecs" id="vehicleSpecs">
                            <li>Brand: `+ element.brand+`</li>
                            <li>Model: `+ element.model+`</li>

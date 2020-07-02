@@ -146,9 +146,13 @@ function addVehicle()
              removeDisplay = 1;
              if (caixa == 0){
                 var vehicleToCompare = document.getElementById("vehicle1ToCompare");
-
                 vehicleToCompare.innerHTML = this.value;
                 caixa = 1;
+
+                var photo1 = document.getElementById("vehicleImage1"); 
+                var vehicleImage = document.getElementById("vehicleImage"); 
+                photo1.src =  vehicleImage.src ;
+                alert("foto1 mundou" +vehicleImage.src);
                 
               vehicle_1 = this.id;
               totalChecks = totalChecks +1;
@@ -160,7 +164,13 @@ function addVehicle()
               showItens();
              var vehicleToCompare = document.getElementById("vehicle2ToCompare");
              vehicleToCompare.innerHTML = this.value;
-             caixa = 2;
+
+             var photo1 = document.getElementById("vehicleImage1"); 
+                var vehicleImage = document.getElementById("vehicleImage"); 
+                photo1.src =  vehicleImage.src ;
+                alert("foto1 mundou" +vehicleImage.src);
+            
+            caixa = 2;
 
              vehicle_2 = this.id;
            
