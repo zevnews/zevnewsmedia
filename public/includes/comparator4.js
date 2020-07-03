@@ -9,7 +9,6 @@ var caixa = 0;
 var vehicle_1 = "";
 var vehcile_2 = "";
 var totalSearchs = 0;
-var wsx = 0;
 
 
 function startVariables()
@@ -76,13 +75,12 @@ function grito()
 }
   
 
-function seeVehicleSpecs(ref, teste)
-{   
-        wsx = teste;
-        alert("wsx" + wsx);
-
+function seeVehicleSpecs(ref,teste)
+{
+    var teste = teste;
+    alert("teste" + teste);
     
-     alert("o id é " + ref );
+     alert("O ID -> " + ref );
       var variavel ="vehicle" + ref.name;
       var teste = document.getElementById(ref);
       alert("variavel é  ---" + teste.name);
@@ -105,7 +103,7 @@ var url = '/selecionaveiculo/'+ vehicleToSearch +'';
          var lixo = qwe.value;
         
          document.getElementById(qwe.value).style.color = "lightblue";
-         var caixacheck = document.getElementById("vehicle"+wsx);
+         var caixacheck = document.getElementsByName(lixo);
          caixacheck.style.visibility = "visible";
           alert("Lixo" + lixo);
 

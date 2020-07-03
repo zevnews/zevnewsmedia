@@ -133,8 +133,8 @@ app.get('/mongodb/:valor', function (req, res) {
        var contador = 0;
        result.forEach(element =>
         {
-             var ok = "um teste";
-             codigo = codigo + '<li id="'+ element._id+'" onclick="seeVehicleSpecs(this.id,'+soma+')" name="'+soma+'" value="lixo">'+ element.brand + ''  + element.model +'<input type="checkbox" id="vehicle'+soma+'" name="'+element._id+'"  value="'+ element.model +'" class="selectVehicle"></li>';
+      
+             codigo = codigo + '<li id="'+ element._id+'" onclick="seeVehicleSpecs(this.id)" name="'+soma+'" value="lixo">'+ element.brand + ''  + element.model +'<input type="checkbox" id="vehicle'+soma+'" name="'+element._id+'"  value="'+ element.model +'" class="selectVehicle"></li>';
              soma++;
              contador++;
          });
