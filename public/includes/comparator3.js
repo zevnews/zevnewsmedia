@@ -100,6 +100,7 @@ var url = '/selecionaveiculo/'+ vehicleToSearch +'';
          document.getElementById("vehicleSpecs").innerHTML = this.responseText;
          var qwe = document.getElementById("escondido"+ref);
          alert("Valor é" + qwe.value);
+         document.getElementById(qwe.value).style.color = "lightblue";
 
          
         
