@@ -69,14 +69,21 @@ function vehiclesSearchList()
         http.send();
 }
 
-
+function grito()
+{
+    alert("Ahhhhhh");
+}
+  
 
 function seeVehicleSpecs(ref)
 {
     
 
     
-     alert("o id " + ref );
+     alert("o id é " + ref );
+      var variavel ="vehicle" + ref.name;
+      var teste = document.getElementById(ref);
+      alert("variavel é  ---" + teste.name);
  var http = new XMLHttpRequest();
  /* var vehicleToSearch = vehicleSearch();*/
 var vehicleToSearch = ref;
@@ -89,8 +96,14 @@ var url = '/selecionaveiculo/'+ vehicleToSearch +'';
     {//Call a function when the state changes.
     if(http.readyState == 4 && http.status == 200) 
         {
-         
+         grito();
          document.getElementById("vehicleSpecs").innerHTML = this.responseText;
+         var qwe = document.getElementById("escondido"+ref);
+         alert("Valor é" + qwe.value);
+
+         
+        
+         
         // var totalResults = document.getElementById("totalSearchs").value;
          //totalSearchs = parseInt(totalResults);
        //  loadSearchResult();
@@ -123,6 +136,7 @@ function loadSearchResult()
     {
         vehicles[z] = document.getElementById("vehicle" + z)
         vehicles[z].addEventListener("click",addVehicle);
+        vehicles[z].style.visibility = "hidden";
         z = z + 1;
     }
 
@@ -185,8 +199,7 @@ function addVehicle()
     
 
 
-
-    
+  
 
 function removeVehicle(){
      	var vehicle = this.id;

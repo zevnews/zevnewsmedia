@@ -134,7 +134,7 @@ app.get('/mongodb/:valor', function (req, res) {
        result.forEach(element =>
         {
       
-             codigo = codigo + '<li id="'+ element._id+'" onclick="seeVehicleSpecs(this.id)" name="nome" value="lixo">'+ element.brand + ''  + element.model +'<input type="checkbox" id="vehicle'+soma+'" name="vehicle'+soma+'"  value="'+ element.model +'" class="selectVehicle"></li>';
+             codigo = codigo + '<li id="'+ element._id+'" onclick="seeVehicleSpecs(this.id)" name="'+soma+'" value="lixo">'+ element.brand + ''  + element.model +'<input type="checkbox" id="vehicle'+soma+'" name="vehicle'+soma+'"  value="'+ element.model +'" class="selectVehicle"></li>';
              soma++;
              contador++;
          });
@@ -169,7 +169,7 @@ app.get('/testeenvia', function (req, res) {
         result.forEach(element => {/*console.log("O nome é " + element.brand);*/ });
         var page = "list_documents_test";
         console.log(result + "resul")
-        res.render('comparator2.ejs',{result});
+        res.render('comparator3.ejs',{result});
       });
     });
   // End of Read
@@ -262,7 +262,8 @@ conexao.connect(url, function(err, db)
                            <li>Model: `+ element.model+`</li>
                            <li>Power: `+ element.power1+`</li>
                            <li>Torque: `+ element.torque1+`</li>
-                           <li><a href="" class="moreVehicleInfo">See full specs</a></li>
+                           <li><a href="" class="moreVehicleInfo" onclick="alert('')">See full specs</a></li>
+                           <input type="hidden"  id="escondido`+ element._id+`" value="`+ element._id+`">
                            </ul>`
                });
 
