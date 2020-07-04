@@ -72,20 +72,22 @@ function vehiclesSearchList()
 
 function grito()
 {
-    alert("Ahhhhhh");
+   // alert("Ahhhhhh");
 }
   
 
 function seeVehicleSpecs(ref, teste)
 {   
         wsx = teste;
-        alert("wsx" + wsx);
+       // alert("wsx" + wsx);
+       alert("Clicado para mostrar vehiculo" + vehicles[1]);
+        //vehicles[1].style.visibility = "hidden";
 
     
-     alert("o id é " + ref );
+   //  alert("o id é " + ref );
       var variavel ="vehicle" + ref.name;
       var teste = document.getElementById(ref);
-      alert("variavel é  ---" + teste.name);
+    //  alert("variavel é  ---" + teste.name);
  var http = new XMLHttpRequest();
  /* var vehicleToSearch = vehicleSearch();*/
 var vehicleToSearch = ref;
@@ -104,10 +106,10 @@ var url = '/selecionaveiculo/'+ vehicleToSearch +'';
         
          var lixo = qwe.value;
         
-         document.getElementById(qwe.value).style.color = "lightblue";
+         //document.getElementById(qwe.value).style.color = "lightblue";
          var caixacheck = document.getElementById("vehicle"+wsx);
          caixacheck.style.visibility = "visible";
-          alert("Lixo" + lixo);
+     //     alert("Lixo" + lixo);
 
          
         
@@ -162,6 +164,8 @@ function addVehicle()
     {
     	     var vehicle = this.id.slice(7,10);
              this.disabled = true;
+
+             alert("Clique no checkbox");
             
             showItens();
 
@@ -174,7 +178,7 @@ function addVehicle()
                 var photo1 = document.getElementById("vehicleImage1"); 
                 var vehicleImage = document.getElementById("vehicleImage"); 
                 photo1.src =  vehicleImage.src ;
-                alert("foto1 mundou" +vehicleImage.src);
+                // alert("foto1 mundou" +vehicleImage.src);
                 
               vehicle_1 = this.id;
               totalChecks = totalChecks +1;
@@ -190,7 +194,7 @@ function addVehicle()
              var photo2 = document.getElementById("vehicleImage2"); 
              var vehicleImage = document.getElementById("vehicleImage"); 
                 photo2.src =  vehicleImage.src ;
-                alert("foto1 mundou" +vehicleImage.src);
+             //   alert("foto1 mundou" +vehicleImage.src);
             
             caixa = 2;
 
@@ -221,7 +225,7 @@ function removeVehicle(){
          if (vehicle == 1)
          {
             caixa = 0;
-            document.getElementById(vehicle_1).checked = false;
+             document.getElementById(vehicle_1).checked = false;
              document.getElementById(vehicle_1).disabled = false;
              totalChecks = totalChecks  - 1;
              disableChecks(totalChecks);                  
@@ -229,7 +233,7 @@ function removeVehicle(){
          }
          else
          {  
-            document.getElementById(vehicle_2).checked = false;
+             document.getElementById(vehicle_2).checked = false;
              document.getElementById(vehicle_2).disabled = false; 
              totalChecks = totalChecks  - 1;
              disableChecks(totalChecks);            
@@ -258,11 +262,16 @@ function disableChecks(totalChecks)
      else
      {
       
-         while (y <= 5){
+         while (y <= totalSearchs){
+
+                 alert("Apagado caixa" + vehicles[y]);
                 
                 if (vehicles[y].checked != true)
                 {
                     vehicles[y].disabled = false;
+                   vehicles[y].style.visibility = "hidden";
+                    alert("Apaga caixa" + vehicles[y]);
+
                 }
             
 

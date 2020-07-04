@@ -157,7 +157,7 @@ app.get("/access", function(req, res) { // root route or home route
     res.render("access.ejs")
 });
 
-app.get('/testeenvia', function (req, res) {
+app.get('/comparevehicles', function (req, res) {
  
     // Read all the documents in "veiculo" collection
   conexao.connect(url, function(err, db) {
@@ -169,7 +169,7 @@ app.get('/testeenvia', function (req, res) {
         result.forEach(element => {/*console.log("O nome é " + element.brand);*/ });
         var page = "list_documents_test";
         console.log(result + "resul")
-        res.render('comparator3.ejs',{result});
+        res.render('comparator4.ejs',{result});
       });
     });
   // End of Read
@@ -263,6 +263,7 @@ conexao.connect(url, function(err, db)
                            <li>Power: `+ element.power1+`</li>
                            <li>Torque: `+ element.torque1+`</li>
                            <li><a href="" class="moreVehicleInfo" onclick="alert('')">See full specs</a></li>
+                           <input type="button" value="Adicionar" name="btnve" id="btnve" onclick="addVehicle2('`+ element.model +`')">
                            <input type="hidden"  id="escondido`+ element._id+`" value="`+ element._id+`">
                            </ul>`
                });
