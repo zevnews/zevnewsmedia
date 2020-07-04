@@ -107,8 +107,8 @@ var url = '/selecionaveiculo/'+ vehicleToSearch +'';
          var lixo = qwe.value;
         
          //document.getElementById(qwe.value).style.color = "lightblue";
-         var caixacheck = document.getElementById("vehicle"+wsx);
-         caixacheck.style.visibility = "visible";
+      //   var caixacheck = document.getElementById("vehicle"+wsx);
+    //    caixacheck.style.visibility = "visible";
      //     alert("Lixo" + lixo);
 
          
@@ -288,16 +288,16 @@ function removeVehicle(){
          if (vehicle == 1)
          {
             caixa = 0;
-             document.getElementById(vehicle_1).checked = false;
-             document.getElementById(vehicle_1).disabled = false;
-             totalChecks = totalChecks  - 1;
+          //   document.getElementById(vehicle_1).checked = false;
+         //    document.getElementById(vehicle_1).disabled = false;
+        //     totalChecks = totalChecks  - 1;
         //     disableChecks(totalChecks);                  
 
          }
          else
          {  
-             document.getElementById(vehicle_2).checked = false;
-             document.getElementById(vehicle_2).disabled = false; 
+     //        document.getElementById(vehicle_2).checked = false;
+       //      document.getElementById(vehicle_2).disabled = false; 
              totalChecks = totalChecks  - 1;
    //          disableChecks(totalChecks);            
 
