@@ -153,8 +153,8 @@ function loadSearchResult()
 */
     document.getElementById("remove1").addEventListener("click",removeVehicle);
     document.getElementById("remove2").addEventListener("click",removeVehicle);
-    document.getElementById("remove1").style.visibility = "hidden";
-    document.getElementById("remove2").style.visibility = "hidden";
+   // document.getElementById("remove1").style.visibility = "hidden";
+  //  document.getElementById("remove2").style.visibility = "hidden";
     avoidCompare();
 }
 
@@ -172,7 +172,7 @@ function addVehicle2(teste)
             vehicle = 1;
              alert("Valor da var vehicle" +teste + "valor" + this.id);
             
-            showItens();
+           // showItens();
 
              removeDisplay = 1;
              if (caixa == 0){
@@ -183,7 +183,8 @@ function addVehicle2(teste)
 
                 var photo1 = document.getElementById("vehicleImage1"); 
                 var vehicleImage = document.getElementById("vehicleImage"); 
-                photo1.src =  vehicleImage.src ;
+                photo1.src =  vehicleImage.src ; 
+                document.getElementById("vehicle1ToCompare_teste").style.visibility = "visible";
                 // alert("foto1 mundou" +vehicleImage.src);
                 
               vehicle_1 = this.id;
@@ -193,7 +194,7 @@ function addVehicle2(teste)
              }
              else
              {
-              showItens();
+           //   showItens();
              var vehicleToCompare = document.getElementById("vehicle2ToCompare");
              //vehicleToCompare.innerHTML = this.value;
              vehicleToCompare.innerHTML = teste;
@@ -201,6 +202,7 @@ function addVehicle2(teste)
              var photo2 = document.getElementById("vehicleImage2"); 
              var vehicleImage = document.getElementById("vehicleImage"); 
                 photo2.src =  vehicleImage.src ;
+                 document.getElementById("vehicle2ToCompare_teste").style.visibility = "visible";
              //   alert("foto1 mundou" +vehicleImage.src);
             
             caixa = 2;
@@ -230,7 +232,7 @@ function addVehicle()
 
              alert("Clique no checkbox");
             
-            showItens();
+           // showItens();
 
              removeDisplay = 1;
              if (caixa == 0){
@@ -250,7 +252,7 @@ function addVehicle()
              }
              else
              {
-              showItens();
+           //   showItens();
              var vehicleToCompare = document.getElementById("vehicle2ToCompare");
              vehicleToCompare.innerHTML = this.value;
 
@@ -280,10 +282,16 @@ function removeVehicle(){
      	var vehicle = this.id;
 
          vehicle = vehicle.slice(6,8);
+
+         alert(vehicle);
     
 
-         var removeVehicle = document.getElementById("vehicle" + vehicle +"ToCompare");
-         removeVehicle.innerHTML = "";
+         //var removeVehicle = document.getElementById("vehicle" + vehicle +"ToCompare");
+         //removeVehicle.innerHTML = "";
+         document.getElementById("vehicle" + vehicle +"ToCompare_teste").style.visibility = "hidden";
+             
+            
+        // document.getElementById("remove" + vehicle).style.visibility = "hidden";
 
          if (vehicle == 1)
          {
