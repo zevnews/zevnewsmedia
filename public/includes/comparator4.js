@@ -138,7 +138,7 @@ var url = '/selecionaveiculo/'+ vehicleToSearch +'';
 
 function loadSearchResult()
 {
-  
+  /*
     var vehicles = new Array();
     z = 1;
 
@@ -150,7 +150,7 @@ function loadSearchResult()
         z = z + 1;
     }
 
-
+*/
     document.getElementById("remove1").addEventListener("click",removeVehicle);
     document.getElementById("remove2").addEventListener("click",removeVehicle);
     document.getElementById("remove1").style.visibility = "hidden";
@@ -188,7 +188,7 @@ function addVehicle2(teste)
                 
               vehicle_1 = this.id;
               totalChecks = totalChecks +1;
-              disableChecks(totalChecks);     
+        //      disableChecks(totalChecks);     
 
              }
              else
@@ -209,7 +209,7 @@ function addVehicle2(teste)
            
             totalChecks = totalChecks +1;
          
-            disableChecks(totalChecks);     
+           // disableChecks(totalChecks);     
 
              }
 
@@ -245,7 +245,7 @@ function addVehicle()
                 
               vehicle_1 = this.id;
               totalChecks = totalChecks +1;
-              disableChecks(totalChecks);     
+           //   disableChecks(totalChecks);     
 
              }
              else
@@ -265,7 +265,7 @@ function addVehicle()
            
             totalChecks = totalChecks +1;
          
-            disableChecks(totalChecks);     
+      //      disableChecks(totalChecks);     
 
              }
 
@@ -291,7 +291,7 @@ function removeVehicle(){
              document.getElementById(vehicle_1).checked = false;
              document.getElementById(vehicle_1).disabled = false;
              totalChecks = totalChecks  - 1;
-             disableChecks(totalChecks);                  
+        //     disableChecks(totalChecks);                  
 
          }
          else
@@ -299,7 +299,7 @@ function removeVehicle(){
              document.getElementById(vehicle_2).checked = false;
              document.getElementById(vehicle_2).disabled = false; 
              totalChecks = totalChecks  - 1;
-             disableChecks(totalChecks);            
+   //          disableChecks(totalChecks);            
 
          }
      }
