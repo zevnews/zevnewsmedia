@@ -74,6 +74,11 @@
 	height: 100%;
 }
 
+#vehicle1ToCompare_teste, #vehicle2ToCompare_teste
+{
+	visibility: hidden;
+}
+
 #searchResultsList li{
 	font-size: 12pt;
 	font-weight:  800;
