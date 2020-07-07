@@ -1,5 +1,3 @@
-
-
 var totalChecks = 0;
 var removeDisplay = 0;
 
@@ -82,11 +80,12 @@ function seeVehicleSpecs(ref, teste)
       
        alert("Clicado para mostrar vehiculo" + vehicles[1]);
      
+
     
- 
+   
       var variavel ="vehicle" + ref.name;
       var teste = document.getElementById(ref);
-    
+   
  var http = new XMLHttpRequest();
 
 var vehicleToSearch = ref;
@@ -105,7 +104,7 @@ var url = '/selecionaveiculo/'+ vehicleToSearch +'';
         
          var lixo = qwe.value;
         
-     
+       
         }
     }
 
@@ -127,12 +126,14 @@ var url = '/selecionaveiculo/'+ vehicleToSearch +'';
 
 function loadSearchResult()
 {
- 
+  
     document.getElementById("remove1").addEventListener("click",removeVehicle);
+    document.getElementById("remove2").addEventListener("click",removeVehicle);
+  
     avoidCompare();
 }
 
-//
+
 
 
 
@@ -140,16 +141,18 @@ function addVehicle2(teste)
     {
              
             alert("add vehicle 2");
-           
+            // var vehicle = this.id.slice(7,10);
+             //this.disabled = true;
+
             vehicle = 1;
              alert("Valor da var vehicle" +teste + "valor" + this.id);
             
-         
+          
 
              removeDisplay = 1;
              if (caixa == 0){
                 var vehicleToCompare = document.getElementById("vehicle1ToCompare");
-                //vehicleToCompare.innerHTML = this.value;
+           
                 vehicleToCompare.innerHTML = teste;
                 caixa = 1;
 
@@ -157,25 +160,25 @@ function addVehicle2(teste)
                 var vehicleImage = document.getElementById("vehicleImage"); 
                 photo1.src =  vehicleImage.src ; 
                 document.getElementById("vehicle1ToCompare_teste").style.visibility = "visible";
-               
+              
                 
               vehicle_1 = this.id;
               totalChecks = totalChecks +1;
-     
+       
 
              }
              else
              {
           
              var vehicleToCompare = document.getElementById("vehicle2ToCompare");
-            
+        
              vehicleToCompare.innerHTML = teste;
 
              var photo2 = document.getElementById("vehicleImage2"); 
              var vehicleImage = document.getElementById("vehicleImage"); 
                 photo2.src =  vehicleImage.src ;
                  document.getElementById("vehicle2ToCompare_teste").style.visibility = "visible";
-            
+         
             
             caixa = 2;
 
@@ -183,7 +186,7 @@ function addVehicle2(teste)
            
             totalChecks = totalChecks +1;
          
-          
+      
 
              }
 
@@ -215,15 +218,16 @@ function addVehicle()
                 var photo1 = document.getElementById("vehicleImage1"); 
                 var vehicleImage = document.getElementById("vehicleImage"); 
                 photo1.src =  vehicleImage.src ;
+              
                 
               vehicle_1 = this.id;
               totalChecks = totalChecks +1;
-      
+        
 
              }
              else
              {
-          
+       
              var vehicleToCompare = document.getElementById("vehicle2ToCompare");
              vehicleToCompare.innerHTML = this.value;
 
@@ -238,7 +242,8 @@ function addVehicle()
            
             totalChecks = totalChecks +1;
          
-     
+   
+
              }
 
              
@@ -256,11 +261,11 @@ function removeVehicle(){
          alert(vehicle);
     
 
-   
+       
          document.getElementById("vehicle" + vehicle +"ToCompare_teste").style.visibility = "hidden";
              
             
-       
+        // document.getElementById("remove" + vehicle).style.visibility = "hidden";
 
          if (vehicle == 1)
          {
@@ -271,7 +276,8 @@ function removeVehicle(){
          {  
    
              totalChecks = totalChecks  - 1;
- 
+     
+
          }
      }
 
