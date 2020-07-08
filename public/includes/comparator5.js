@@ -7,7 +7,7 @@ var caixa = 0;
 var vehicle_1 = "";
 var vehcile_2 = "";
 var totalSearchs = 0;
-var wsx = 0;
+
 
 
 function startVariables()
@@ -68,29 +68,20 @@ function vehiclesSearchList()
         http.send();
 }
 
-function grito()
-{
-   // alert("Ahhhhhh");
-}
+
   
 
 function seeVehicleSpecs(ref, teste)
 {   
-        wsx = teste;
+       
       
-       alert("Clicado para mostrar vehiculo" + vehicles[1]);
-     
-
-    
-   
+         
       var variavel ="vehicle" + ref.name;
-      var teste = document.getElementById(ref);
-   
- var http = new XMLHttpRequest();
-
-var vehicleToSearch = ref;
-var url = '/selecionaveiculo/'+ vehicleToSearch +'';
-   http.open('GET', url, true);
+      var teste = document.getElementById(ref);   
+      var http = new XMLHttpRequest();
+      var vehicleToSearch = ref;
+      var url = '/selecionaveiculo/'+ vehicleToSearch +'';
+      http.open('GET', url, true);
 
 //Send the proper header information along with the request
     http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -98,7 +89,7 @@ var url = '/selecionaveiculo/'+ vehicleToSearch +'';
     {//Call a function when the state changes.
     if(http.readyState == 4 && http.status == 200) 
         {
-         grito();
+         
          document.getElementById("vehicleSpecs").innerHTML = this.responseText;
          var qwe = document.getElementById("escondido"+ref);
         
@@ -140,13 +131,11 @@ function loadSearchResult()
 function addVehicle2(teste)
     {
              
-            alert("add vehicle 2");
-            // var vehicle = this.id.slice(7,10);
-             //this.disabled = true;
+          
+           
 
             vehicle = 1;
-             alert("Valor da var vehicle" +teste + "valor" + this.id);
-            
+           
           
 
              removeDisplay = 1;
@@ -202,10 +191,9 @@ function addVehicle2(teste)
 function addVehicle()
     {
     	     var vehicle = this.id.slice(7,10);
-             alert("v" + vehicle);
+            
              this.disabled = true;
 
-             alert("Clique no checkbox");
             
        
 
@@ -258,7 +246,7 @@ function removeVehicle(){
 
          vehicle = vehicle.slice(6,8);
 
-         alert(vehicle);
+        
     
 
        
@@ -304,13 +292,13 @@ function disableChecks(totalChecks)
       
          while (y <= totalSearchs){
 
-                 alert("Apagado caixa" + vehicles[y]);
+               
                 
                 if (vehicles[y].checked != true)
                 {
                     vehicles[y].disabled = false;
                    vehicles[y].style.visibility = "hidden";
-                    alert("Apaga caixa" + vehicles[y]);
+                    
 
                 }
             
