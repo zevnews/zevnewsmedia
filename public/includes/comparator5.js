@@ -148,7 +148,7 @@ function addVehicle2(teste)
                 var photo1 = document.getElementById("vehicleImage1"); 
                 var vehicleImage = document.getElementById("vehicleImage"); 
                 photo1.src =  vehicleImage.src ; 
-                document.getElementById("vehicle1ToCompare_teste").style.visibility = "visible";
+                document.getElementById("vehicle1ToCompareBox").style.visibility = "visible";
               
                 
               vehicle_1 = this.id;
@@ -166,7 +166,7 @@ function addVehicle2(teste)
              var photo2 = document.getElementById("vehicleImage2"); 
              var vehicleImage = document.getElementById("vehicleImage"); 
                 photo2.src =  vehicleImage.src ;
-                 document.getElementById("vehicle2ToCompare_teste").style.visibility = "visible";
+                 document.getElementById("vehicle2ToCompareBox").style.visibility = "visible";
          
             
             caixa = 2;
@@ -194,6 +194,7 @@ function addVehicle()
             
              this.disabled = true;
 
+             alert("Clique no checkbox");
             
        
 
@@ -250,7 +251,7 @@ function removeVehicle(){
     
 
        
-         document.getElementById("vehicle" + vehicle +"ToCompare_teste").style.visibility = "hidden";
+         document.getElementById("vehicle" + vehicle +"ToCompareBox").style.visibility = "hidden";
              
             
         // document.getElementById("remove" + vehicle).style.visibility = "hidden";
