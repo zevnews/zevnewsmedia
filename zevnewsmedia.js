@@ -265,7 +265,7 @@ conexao.connect(url, function(err, db)
                            <li>Power: `+ element.power1+`</li>
                            <li>Torque: `+ element.torque1+`</li>
                            <li><a href="" class="moreVehicleInfo" onclick="alert('')">See full specs</a></li>
-                           <input type="button" value="Adicionar" name="btnve" id="btnve" onclick="addVehicle2('`+ element.model +`')">
+                           <input type="button" value="Adicionar" name="btnve" id="btnve" onclick="addVehicle('`+ element.model +`')">
                            <input type="hidden"  id="escondido`+ element._id+`" value="`+ element._id+`">
                            </ul>`
                });
