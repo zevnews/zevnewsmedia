@@ -7,7 +7,13 @@ var caixa = 0;
 var vehicle_1 = "";
 var vehcile_2 = "";
 var totalSearchs = 0;
-var showCompareButton = 0;
+
+var v1,v2 = "";
+var cv1, cv2 = 0;
+
+
+var controle1, controle2 = "";
+
 
 
 
@@ -89,10 +95,12 @@ function seeVehicleSpecs(ref, teste)
         {
          
          document.getElementById("vehicleSpecs").innerHTML = this.responseText;
-         var qwe = document.getElementById("escondido"+ref);
-         var lixo = qwe.value;
          var btnve = document.getElementById("btnve");
-         alert("btnve botao");
+         if (controle1 == ref || controle2 == ref )
+         {
+            alert("vai desativar");
+            btnve.style.visibility = "hidden";
+         }
         }
     }
 
@@ -116,10 +124,11 @@ function loadSearchResult()
 
 
 
-function addVehicle(teste)
+function addVehicle(addVeh,valor)
     {
              
             vehicle = 1;
+            alert("O id " + valor);
            
          
 
@@ -127,7 +136,7 @@ function addVehicle(teste)
              if (caixa == 0)
              {
                 var vehicleToCompare = document.getElementById("vehicle1ToCompare");           
-                vehicleToCompare.innerHTML = teste;
+                vehicleToCompare.innerHTML = addVeh;
                 caixa = 1;
                 var photo1 = document.getElementById("vehicleImage1"); 
                 var vehicleImage = document.getElementById("vehicleImage"); 
@@ -135,12 +144,17 @@ function addVehicle(teste)
                 document.getElementById("vehicle1ToCompareBox").style.visibility = "visible";
                 vehicle_1 = this.id;
                 totalChecks = totalChecks +1;
+                controle1 = valor;
+               
+                
+
+              
             }
              
              else
              {
                  var vehicleToCompare = document.getElementById("vehicle2ToCompare");
-                 vehicleToCompare.innerHTML = teste;
+                 vehicleToCompare.innerHTML = addVeh;
                  var photo2 = document.getElementById("vehicleImage2"); 
                  var vehicleImage = document.getElementById("vehicleImage"); 
                  photo2.src =  vehicleImage.src ;
@@ -148,6 +162,8 @@ function addVehicle(teste)
                  caixa = 2;
                  vehicle_2 = this.id;
                  totalChecks = totalChecks +1;
+                 controle2 = valor;
+                
              }
 
              
@@ -168,12 +184,22 @@ function removeVehicle(){
          if (vehicle == 1)
          {
             caixa = 0;
+            v1 = "";
+            cv1 = 0;
+
+            alert (v1 + cv1 );
+            controle1 = "";
+            alert("controle1 zerado");
          
          }
          else
          {  
    
              totalChecks = totalChecks  - 1;
+             controle2 = "";
+            alert("controle2 zerado");
+            
+         
      
 
          }
