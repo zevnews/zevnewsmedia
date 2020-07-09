@@ -135,6 +135,7 @@ function addVehicle(addVeh,valor)
              
             vehicle = 1;
             alert("O id " + valor);
+
            
          
 
@@ -151,6 +152,7 @@ function addVehicle(addVeh,valor)
                 vehicle_1 = this.id;
                 totalChecks = totalChecks +1;
                 controle1 = valor;
+                setBtnInvisible(valor);
                
                 
 
@@ -169,6 +171,7 @@ function addVehicle(addVeh,valor)
                  vehicle_2 = this.id;
                  totalChecks = totalChecks +1;
                  controle2 = valor;
+                 setBtnInvisible(valor);
                 
              }
 
