@@ -8,12 +8,12 @@ var vehicle_1 = "";
 var vehcile_2 = "";
 var totalSearchs = 0;
 
-var refRemove1 = "";
+var refRemove1,refRemove2 = "";
 
 
 var controle1, controle2 = "";
 
-
+var seletor = "";
 
 
 function startVariables()
@@ -78,6 +78,7 @@ function vehiclesSearchList()
 
 function seeVehicleSpecs(ref)
 {   
+
        
       var variavel ="vehicle" + ref.name;
     //  var id_val = document.getElementById(ref);   
@@ -109,17 +110,18 @@ function seeVehicleSpecs(ref)
 
 function setBtnInvisible(ref)
 {
-
+  
+        alert("controle 1" + controle1 + "controle2" + controle2);
     if (controle1 == ref || controle2 == ref || totalChecks > 1 )
          {
             var btnve = document.getElementById("btnve");
-            alert("vai desativar" + "controle1 " + controle1 + "controle2 " + controle2 + "totalChecks " + totalChecks);
+           // alert("vai desativar" + "controle1 " + controle1 + "controle2 " + controle2 + "totalChecks " + totalChecks);
             btnve.style.visibility = "hidden";
          }
-        else
+        else if (controle1 != ref || controle2 != ref && totalChecks < 2)
         {
              var btnve = document.getElementById("btnve");
-            alert("vai desativar" + "controle1 " + controle1 + "controle2 " + controle2 + "totalChecks " + totalChecks);
+          //  alert("vai desativar" + "controle1 " + controle1 + "controle2 " + controle2 + "totalChecks " + totalChecks);
             btnve.style.visibility = "visible";
         }
 }
@@ -141,9 +143,9 @@ function addVehicle(addVeh,valor)
     {
              
             vehicle = 1;
-            alert("O id " + valor);
+          //  alert("O id " + valor);
 
-           
+            seletor = valor;
          
 
              removeDisplay = 1;
@@ -180,6 +182,7 @@ function addVehicle(addVeh,valor)
                  totalChecks = totalChecks +1;
                  controle2 = valor;
                  setBtnInvisible(valor);
+                 refRemove2 = valor;
                 
              }
 
@@ -195,7 +198,7 @@ function addVehicle(addVeh,valor)
 function removeVehicle(){
      	
         var vehicle = this.id;
-        alert(vehicle);
+    //    alert(vehicle);
         vehicle = vehicle.slice(6,8);
 
         document.getElementById("vehicle" + vehicle +"ToCompareBox").style.visibility = "hidden";
@@ -205,11 +208,11 @@ function removeVehicle(){
             caixa = 0;
             
             controle1 = "";
-            alert("controle1 zerado");
+         //   alert("controle1 zerado");
             totalChecks = totalChecks  - 1;
-            alert(refRemove1);
+            alert("Remove 1" + refRemove1);
             setBtnInvisible(refRemove1);
-            refRemove1 = "";
+           // refRemove1 = "";
          
          }
          else
@@ -217,12 +220,21 @@ function removeVehicle(){
    
              totalChecks = totalChecks  - 1;
              controle2 = "";
-            alert("controle2 zerado");
-            setBtnInvisible(vehicle)
+             alert("controle2 zerado");
+             alert("Remove 2" + refRemove1);
+             setBtnInvisible(refRemove2);
+            // refRemove2 = "";
             
          
      
 
+         }
+
+         if (seletor == refRemove1 || seletor == refRemove2)
+         {
+              var btnve = document.getElementById("btnve");
+         
+            btnve.style.visibility = "hidden";
          }
      }
 
