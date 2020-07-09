@@ -8,8 +8,6 @@ var vehicle_1 = "";
 var vehcile_2 = "";
 var totalSearchs = 0;
 
-var v1,v2 = "";
-var cv1, cv2 = 0;
 
 
 var controle1, controle2 = "";
@@ -77,15 +75,17 @@ function vehiclesSearchList()
 
   
 
-function seeVehicleSpecs(ref, teste)
+function seeVehicleSpecs(ref, id_val)
 {   
        
       var variavel ="vehicle" + ref.name;
-      var teste = document.getElementById(ref);   
+      var id_val = document.getElementById(ref);   
       var http = new XMLHttpRequest();
       var vehicleToSearch = ref;
       var url = '/selecionaveiculo/'+ vehicleToSearch +'';
       http.open('GET', url, true);
+
+      alert("id_val " + id_val + "ref " + ref);
 
 //Send the proper header information along with the request
     http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -95,12 +95,9 @@ function seeVehicleSpecs(ref, teste)
         {
          
          document.getElementById("vehicleSpecs").innerHTML = this.responseText;
-         var btnve = document.getElementById("btnve");
-         if (controle1 == ref || controle2 == ref )
-         {
-            alert("vai desativar");
-            btnve.style.visibility = "hidden";
-         }
+         setBtnInvisible(ref);
+        
+         
         }
     }
 
@@ -109,7 +106,16 @@ function seeVehicleSpecs(ref, teste)
 
 
 
+function setBtnInvisible(ref)
+{
 
+    if (controle1 == ref || controle2 == ref || totalChecks > 1 )
+         {
+            var btnve = document.getElementById("btnve");
+            alert("vai desativar" + "controle1 " + controle1 + "controle2 " + controle2 + "totalChecks " + totalChecks);
+            btnve.style.visibility = "hidden";
+         }
+}
 
 
 function loadSearchResult()
@@ -184,12 +190,10 @@ function removeVehicle(){
          if (vehicle == 1)
          {
             caixa = 0;
-            v1 = "";
-            cv1 = 0;
-
-            alert (v1 + cv1 );
+            
             controle1 = "";
             alert("controle1 zerado");
+            totalChecks = totalChecks  - 1;
          
          }
          else
