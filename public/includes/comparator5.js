@@ -7,6 +7,7 @@ var caixa = 0;
 var vehicle_1 = "";
 var vehcile_2 = "";
 var totalSearchs = 0;
+var showCompareButton = 0;
 
 
 
@@ -90,6 +91,8 @@ function seeVehicleSpecs(ref, teste)
          document.getElementById("vehicleSpecs").innerHTML = this.responseText;
          var qwe = document.getElementById("escondido"+ref);
          var lixo = qwe.value;
+         var btnve = document.getElementById("btnve");
+         alert("btnve botao");
         }
     }
 
@@ -97,14 +100,6 @@ function seeVehicleSpecs(ref, teste)
 }
 
 
-
- function avoidCompare(){
-    if (totalSearchs <= 1)
-    {
-        document.getElementById("vehicle1").style.visibility = "hidden";
-    }
-
- }
 
 
 
@@ -115,7 +110,6 @@ function loadSearchResult()
     document.getElementById("remove1").addEventListener("click",removeVehicle);
     document.getElementById("remove2").addEventListener("click",removeVehicle);
   
-    avoidCompare();
 }
 
 
@@ -127,7 +121,7 @@ function addVehicle(teste)
              
             vehicle = 1;
            
-          
+         
 
              removeDisplay = 1;
              if (caixa == 0)
