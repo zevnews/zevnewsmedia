@@ -21,13 +21,13 @@
 
 
 /* The most searched vehicles showed at the bottom */
-#topSearchList {
+.topSearchList {
 	width: 100%;
 	margin: 0;
 	padding: 0;}
 
 
-#topSearchList li{
+.topSearchList li{
 	width: 98%;
 	display: flex;
 	list-style: none;
@@ -37,11 +37,11 @@
 	padding-left: 2%;}
 
 
-#topSearchList li:first-child{
+.topSearchList li:first-child{
 	border: none;}
 
 
-#topSearchList li a{
+.topSearchList li a{
 	font-size: 12pt;
 	font-weight:  800;
 	text-decoration: none;}
