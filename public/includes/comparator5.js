@@ -225,7 +225,7 @@ function removeVehicle(){
             btnve.style.visibility = "hidden";
          }
      }
-
+/*
 
 function disableChecks(totalChecks)
    {
@@ -262,17 +262,4 @@ function disableChecks(totalChecks)
         }
      }
    }
-
-   function showItens(){
-
-        if (removeDisplay == 0)
-        {
-            document.getElementById("remove1").style.visibility = "visible";
-        }
-        else
-        {
-            document.getElementById("remove2").style.visibility = "visible";
-        }
-        
-
-   }
+   */
