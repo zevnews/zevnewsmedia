@@ -87,7 +87,7 @@ function seeVehicleSpecs(ref)
       var url = '/selecionaveiculo/'+ vehicleToSearch +'';
       http.open('GET', url, true);
 
-    //  alert("id_val " + id_val + "ref " + ref);
+  
 
 //Send the proper header information along with the request
     http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -111,18 +111,15 @@ function seeVehicleSpecs(ref)
 function setBtnInvisible(ref)
 {
   
-        alert("controle 1" + controle1 + "controle2" + controle2);
-    if (controle1 == ref || controle2 == ref || totalChecks > 1 )
+     if (controle1 == ref || controle2 == ref || totalChecks > 1 )
          {
             var btnve = document.getElementById("btnve");
-           // alert("vai desativar" + "controle1 " + controle1 + "controle2 " + controle2 + "totalChecks " + totalChecks);
             btnve.style.visibility = "hidden";
          }
         else if (controle1 != ref || controle2 != ref && totalChecks < 2)
         {
              var btnve = document.getElementById("btnve");
-          //  alert("vai desativar" + "controle1 " + controle1 + "controle2 " + controle2 + "totalChecks " + totalChecks);
-            btnve.style.visibility = "visible";
+           btnve.style.visibility = "visible";
         }
 }
 
@@ -143,8 +140,7 @@ function addVehicle(addVeh,valor)
     {
              
             vehicle = 1;
-          //  alert("O id " + valor);
-
+      
             seletor = valor;
          
 
@@ -198,7 +194,6 @@ function addVehicle(addVeh,valor)
 function removeVehicle(){
      	
         var vehicle = this.id;
-    //    alert(vehicle);
         vehicle = vehicle.slice(6,8);
 
         document.getElementById("vehicle" + vehicle +"ToCompareBox").style.visibility = "hidden";
@@ -208,11 +203,8 @@ function removeVehicle(){
             caixa = 0;
             
             controle1 = "";
-         //   alert("controle1 zerado");
             totalChecks = totalChecks  - 1;
-            alert("Remove 1" + refRemove1);
             setBtnInvisible(refRemove1);
-           // refRemove1 = "";
          
          }
          else
@@ -220,12 +212,8 @@ function removeVehicle(){
    
              totalChecks = totalChecks  - 1;
              controle2 = "";
-             alert("controle2 zerado");
-             alert("Remove 2" + refRemove1);
              setBtnInvisible(refRemove2);
-            // refRemove2 = "";
-            
-         
+        
      
 
          }
