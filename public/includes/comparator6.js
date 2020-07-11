@@ -9,12 +9,12 @@ function puxadados(x,y)
  
   var http = new XMLHttpRequest();
  // var vehicleToSearch = vehicleSearch();
- var valorx = "ok"
+ var xx = x;
  var selecao = y;
 
- selecao = selecao.toString();
+// selecao = selecao.toString();
  /* var url = '/fazcomparacao/'+ valorx +'/'+ selecao +'';*/
-    var url = '/fazcomparacao/'+ selecao +'';
+    var url = '/fazcomparacao/'+ selecao +'/'+ x +'';
    http.open('GET', url, true);
 
 //Send the proper header information along with the request
@@ -26,9 +26,9 @@ var x  = 1;
 
     if(http.readyState == 4 && http.status == 200) 
         {
-         var com = "comparave"+x;
+         var com = "comparave"+xx;
          document.getElementById(com).innerHTML = this.responseText;
-          alert("selecao " + selecao + " com " + com);
+     //     alert("selecao " + selecao + " com " + com);
          
         }
     }

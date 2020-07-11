@@ -17,6 +17,8 @@ var seletor = "";
 
 var motoca1,motoca2 = "";
 
+var motoca = new Array();
+
 
 function startVariables()
 {
@@ -162,6 +164,7 @@ function addVehicle(addVeh,valor)
                 setBtnInvisible(valor);
                 refRemove1 = valor;
                 motoca1 = valor;
+                motoca[1] = valor;
                 
 
               
@@ -182,6 +185,7 @@ function addVehicle(addVeh,valor)
                  setBtnInvisible(valor);
                  refRemove2 = valor;
                  motoca2 = valor;
+                 motoca[2] = valor;
                 
              }
 
@@ -234,12 +238,12 @@ function removeVehicle(){
 
 function chama()
 {
-  var x = 0;
-  while (x < 3)
+  var x = 1;
+  while (x <= 2)
   {
-      puxadados(x,motoca1);
-      alert("valor while" + x);
-      alert(motoca1);
+      puxadados(x,motoca[x]);
+     // alert("valor while" + x);
+   //   alert(motoca[x]);
        x++;
   }
    

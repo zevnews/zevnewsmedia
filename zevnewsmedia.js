@@ -156,7 +156,7 @@ app.get('/mongodb/:valor', function (req, res) {
 
 
 
-app.get("/fazcomparacao/:selecao", (req, res) => {
+app.get("/fazcomparacao/:selecao/:x", (req, res) => {
 
 
 conexao.connect(url, function(err, db)
@@ -165,12 +165,13 @@ conexao.connect(url, function(err, db)
        var dbo = db.db(database);
        var sele = req.params.selecao;
        console.log("selecao --->" + sele);
-       var selecao = "5ef258f435303153ccc2284b";
-       console.log(selecao);
+      // var selecao = "5ef258f435303153ccc2284b";
+      var u = req.params.x;
+      // console.log(selecao);
        var codigo = "";
        var mongox = require('mongodb');
        var x_id = new mongox.ObjectID(sele);
-
+       
        dbo.collection(collection1).find({"_id": x_id}).toArray(function(err, result)
 
         
@@ -179,17 +180,24 @@ conexao.connect(url, function(err, db)
              result.forEach(element =>
                 {
                   
-                 codigo = `<ul class="topSearchList" id="comparave`+selecao+`">
-                           <li><a href="">Power:`+ element.power1 +`</a></li>
-                           <li><a href="">Type: 1111</a></li>
+                 codigo = `<ul class="topSearchList" id="comparave`+u+`">
+                           <li><a href="">Power: `+ element.power1 +`</a></li>
+                           <li><a href="">Torque: ` + element.torque1 +`</a></li>
                            <li><a href="">Gearbox: 1111</a></li>
                            <ul>`
+                           
+                           console.log("VALOR DE U " + u);
+                           
+                          
                          
 
                });
 
-            console.log("codigo de resposta" + codigo); 
+            console.log("codigo de resposta" + codigo);
+
         res.send(codigo)
+        
+
       });
     });
 
