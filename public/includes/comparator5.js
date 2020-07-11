@@ -15,6 +15,8 @@ var controle1, controle2 = "";
 
 var seletor = "";
 
+var motoca1,motoca2 = "";
+
 
 function startVariables()
 {
@@ -159,7 +161,7 @@ function addVehicle(addVeh,valor)
                 controle1 = valor;
                 setBtnInvisible(valor);
                 refRemove1 = valor;
-               
+                motoca1 = valor;
                 
 
               
@@ -179,6 +181,7 @@ function addVehicle(addVeh,valor)
                  controle2 = valor;
                  setBtnInvisible(valor);
                  refRemove2 = valor;
+                 motoca2 = valor;
                 
              }
 
@@ -205,6 +208,7 @@ function removeVehicle(){
             controle1 = "";
             totalChecks = totalChecks  - 1;
             setBtnInvisible(refRemove1);
+            motoca1 = "";
          
          }
          else
@@ -213,6 +217,7 @@ function removeVehicle(){
              totalChecks = totalChecks  - 1;
              controle2 = "";
              setBtnInvisible(refRemove2);
+             motoca2 = "";
         
      
 
@@ -224,3 +229,19 @@ function removeVehicle(){
               btnve.style.visibility = "visible";
          }
      }
+
+
+
+function chama()
+{
+  var x = 0;
+  while (x < 3)
+  {
+      puxadados(x,motoca1);
+      alert("valor while" + x);
+      alert(motoca1);
+       x++;
+  }
+   
+    
+}
