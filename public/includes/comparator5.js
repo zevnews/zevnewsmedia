@@ -39,6 +39,7 @@ function vehicleSearch()
 
     startVariables();
     var searchBoxValue = document.getElementById("searchBox").value;
+    alert(superior(10,30));
 
     if (searchBoxValue == ""){
         alert("Please fill the search box");
@@ -239,13 +240,37 @@ function removeVehicle(){
 function chama()
 {
   var x = 1;
-  while (x <= 2)
+  z = 0;
+  while (x <= 4)
+
+
   {
-      puxadados(x,motoca[x]);
+      
+    
+   //   puxadados(x,motoca[z]);
      // alert("valor while" + x);
-   //   alert(motoca[x]);
+     // alert(isOdd(x));
+     // alert(motoca[x]);
+
+      if (isOdd(x) == 1)
+      {
+         puxadados(x,motoca[1]);
+      }
+      else
+    {
+         puxadados(x,motoca[2]);
+    }
+        alert("valor de" + x);
+
        x++;
+
+
+      
+      
   }
    
-    
+    alert("Superioridade é" + superior(10,20));
 }
+
+
+function isOdd(num) { return num % 2;}

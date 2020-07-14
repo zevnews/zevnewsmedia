@@ -154,7 +154,7 @@ app.get('/mongodb/:valor', function (req, res) {
 
 
 
-
+var codigos = new Array();
 
 app.get("/fazcomparacao/:selecao/:x", (req, res) => {
 
@@ -175,30 +175,35 @@ conexao.connect(url, function(err, db)
        dbo.collection(collection1).find({"_id": x_id}).toArray(function(err, result)
 
         
-        {
+      {
           if (err) throw err;
              result.forEach(element =>
-                {
-                  
-                 codigo = `<ul class="topSearchList" id="comparave`+u+`">
-                           <li><a href="">Power: `+ element.power1 +`</a></li>
-                           <li><a href="">Torque: ` + element.torque1 +`</a></li>
-                           <li><a href="">Gearbox: 1111</a></li>
-                           <ul>`
-                           
-                           console.log("VALOR DE U " + u);
+                {                 
+                 codigos[u] = `<ul class="topSearchList" id="comparave`+u+`">
+                                 <li><a href="">Power: `+ torque_power(element.power1, element.power2,element.power3,element.power4) +`</a></li>
+                                  <li><a href="">Torque: `+ torque_power(element.torque1, element.torque2,element.torque3,element.torque4) + `</a></li>
+                                  <li><a href="">Gearbox: 1111</a></li>
+                               <ul>`
                            
                           
-                         
 
-               });
+                           if (u > 2) {
 
-            console.log("codigo de resposta" + codigo);
+                             codigos[u] = `<ul class="topSearchList" id="comparave`+u+`">
+                                            <li><a href=""> Weight: `+ element.weight+`</a></li>
+                                            <li><a href="">Torque: `+ torque_power(element.torque1, element.torque2,element.torque3,element.torque4) + `</a></li>
+                                            <li><a href="">Gearbox: 1111</a></li>
+                                          <ul>`
+                           }
 
-        res.send(codigo)
-        
+                            console.log("VALOR DE U " + u);
+                });
 
+            console.log("codigo de resposta" + codigos[u]);
+
+        res.send(codigos[u])
       });
+    
     });
 
     
@@ -227,11 +232,14 @@ app.get('/comparevehicles', function (req, res) {
         result.forEach(element => {/*console.log("O nome é " + element.brand);*/ });
         var page = "list_documents_test";
         console.log(result + "resul")
+        console.log("SUPERIOR " + superior(50,100))
         res.render('comparator4.ejs',{result});
       });
     });
   // End of Read
 });
+
+
 app.get("/access", function(req, res) { // root route or home route
     //res.send('welcome to home page');
     res.render("access.ejs")
@@ -1223,6 +1231,42 @@ connection.query(variaveis, (err,sugestoes_x) => {if(err) throw err;
 
 
 // INCIA OS SERVIDOR
+
+
+function torque_power(t1,t2,t3,t4)
+{
+
+  totalTorque_Power = parseInt(t1) + parseInt(t2) + parseInt(t3) + parseInt(t4);
+
+  return totalTorque_Power;
+}
+
+
+function superior(v1,v2)
+{
+
+  var newNumber = 0;
+  var originalNumber = 0;
+
+
+  if (v1 > v2)
+  {
+    newNumber = parseInt(v1);
+    originalNumber = parseInt(v2);
+  }
+  else
+  {
+    newNumber = parseInt(v2);
+    originalNumber =  parseInt(v1);
+  }
+
+  var Increase = newNumber - originalNumber;
+  var percentualIcrease = Increase / originalNumber * 100;
+
+  return percentualIcrease;
+
+}
+
 
 app.listen(21171, function() {
     console.log("Servidor em operacao");

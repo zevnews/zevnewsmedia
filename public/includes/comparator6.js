@@ -1,6 +1,6 @@
 
 
-function puxadados(x,y)
+function puxadados(x,motoca)
 
 {
 
@@ -10,7 +10,7 @@ function puxadados(x,y)
   var http = new XMLHttpRequest();
  // var vehicleToSearch = vehicleSearch();
  var xx = x;
- var selecao = y;
+ var selecao = motoca;
 
 // selecao = selecao.toString();
  /* var url = '/fazcomparacao/'+ valorx +'/'+ selecao +'';*/
@@ -36,4 +36,30 @@ var x  = 1;
         http.send();
         
       }
+}
+
+
+function superior(v1,v2)
+{
+
+  var newNumber = 0;
+  var originalNumber = 0;
+
+
+  if (v1 > v2)
+  {
+    newNumber = parseInt(v1);
+    originalNumber = parseInt(v2);
+  }
+  else
+  {
+    newNumber = parseInt(v2);
+    originalNumber =  parseInt(v1);
+  }
+
+  var Increase = newNumber - originalNumber;
+  var percentualIcrease = Increase / originalNumber * 100;
+
+  return percentualIcrease;
+
 }
