@@ -152,6 +152,7 @@ app.get('/mongodb/:valor', function (req, res) {
   // End of Read
 });
 
+function isOdd(num) { return num % 2;}
 
 
 var codigos = new Array();
@@ -181,7 +182,16 @@ conexao.connect(url, function(err, db)
           
           var valo = "";
 
-          if (u == 1)
+        /*  if (u == 1 || u == 3)
+          {
+            valo = "va";
+          }
+          else
+          {
+            valo = "vb";
+          }*/
+
+          if (isOdd(u) == 1)
           {
             valo = "va";
           }
@@ -190,24 +200,26 @@ conexao.connect(url, function(err, db)
             valo = "vb";
           }
 
+
+
           if (err) throw err;
              result.forEach(element =>
                 {                 
                  codigos[u] = `<ul class="topSearchList" id="comparave`+u+`">
-                                 <li><a href="">Power:`+ valo + (p + 1) +` `+ torque_power(element.power1, element.power2,element.power3,element.power4) +`</a></li>
-                                  <li><a href="">Torque: `+ torque_power(element.torque1, element.torque2,element.torque3,element.torque4) + `</a></li>
+                                 <li><a href="">Power:`+ torque_power(element.power1, element.power2,element.power3,element.power4) +`</a><input type="hidden" id="`+ valo + (p = (p+1)) +`" value="`+ torque_power(element.power1, element.power2,element.power3,element.power4) +`"></li>
+                                  <li><a href="">Torque: `+ torque_power(element.torque1, element.torque2,element.torque3,element.torque4) + `</a><input type="hidden" id="`+ valo + (p = (p+1)) +`" value="`+ torque_power(element.torque1, element.torque2,element.torque3,element.torque4) +`"></li>
                                   <li><a href="">Gearbox: 1111</a></li>
-                               <ul>`
+                               </ul>`
                            
                           
 
                            if (u > 2) {
 
                              codigos[u] = `<ul class="topSearchList" id="comparave`+u+`">
-                                            <li><a href=""> Weight: `+ element.weight+`</a></li>
-                                            <li><a href="">Torque: `+ torque_power(element.torque1, element.torque2,element.torque3,element.torque4) + `</a></li>
+                                            <li><a href=""> Weight: `+ element.weight+`</a><input type="hidden" id="`+ valo + (p = (p+1)) +`" value="`+ element.weight +`"></li>
+                                            <li><a href="">Torque: `+ torque_power(element.torque1, element.torque2,element.torque3,element.torque4) + `</a><input type="hidden" id="`+ valo + (p = (p+1)) +`" value="`+ torque_power(element.torque1, element.torque2,element.torque3,element.torque4) +`"></li>
                                             <li><a href="">Gearbox: 1111</a></li>
-                                          <ul>`
+                                          </ul>`
                            }
 
                             console.log("VALOR DE U " + u);
