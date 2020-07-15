@@ -171,16 +171,30 @@ conexao.connect(url, function(err, db)
        var codigo = "";
        var mongox = require('mongodb');
        var x_id = new mongox.ObjectID(sele);
+       var p = 0;
        
        dbo.collection(collection1).find({"_id": x_id}).toArray(function(err, result)
 
-        
+     
+
       {
+          
+          var valo = "";
+
+          if (u == 1)
+          {
+            valo = "va";
+          }
+          else
+          {
+            valo = "vb";
+          }
+
           if (err) throw err;
              result.forEach(element =>
                 {                 
                  codigos[u] = `<ul class="topSearchList" id="comparave`+u+`">
-                                 <li><a href="">Power: `+ torque_power(element.power1, element.power2,element.power3,element.power4) +`</a></li>
+                                 <li><a href="">Power:`+ valo + (p + 1) +` `+ torque_power(element.power1, element.power2,element.power3,element.power4) +`</a></li>
                                   <li><a href="">Torque: `+ torque_power(element.torque1, element.torque2,element.torque3,element.torque4) + `</a></li>
                                   <li><a href="">Gearbox: 1111</a></li>
                                <ul>`
