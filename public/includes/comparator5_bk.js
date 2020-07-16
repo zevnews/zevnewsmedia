@@ -15,6 +15,10 @@ var controle1, controle2 = "";
 
 var seletor = "";
 
+var motoca1,motoca2 = "";
+
+var motoca = new Array();
+
 
 function startVariables()
 {
@@ -35,6 +39,7 @@ function vehicleSearch()
 
     startVariables();
     var searchBoxValue = document.getElementById("searchBox").value;
+    alert(superior(10,30));
 
     if (searchBoxValue == ""){
         alert("Please fill the search box");
@@ -87,7 +92,7 @@ function seeVehicleSpecs(ref)
       var url = '/selecionaveiculo/'+ vehicleToSearch +'';
       http.open('GET', url, true);
 
-    //  alert("id_val " + id_val + "ref " + ref);
+  
 
 //Send the proper header information along with the request
     http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -111,18 +116,15 @@ function seeVehicleSpecs(ref)
 function setBtnInvisible(ref)
 {
   
-        alert("controle 1" + controle1 + "controle2" + controle2);
-    if (controle1 == ref || controle2 == ref || totalChecks > 1 )
+     if (controle1 == ref || controle2 == ref || totalChecks > 1 )
          {
             var btnve = document.getElementById("btnve");
-           // alert("vai desativar" + "controle1 " + controle1 + "controle2 " + controle2 + "totalChecks " + totalChecks);
             btnve.style.visibility = "hidden";
          }
         else if (controle1 != ref || controle2 != ref && totalChecks < 2)
         {
              var btnve = document.getElementById("btnve");
-          //  alert("vai desativar" + "controle1 " + controle1 + "controle2 " + controle2 + "totalChecks " + totalChecks);
-            btnve.style.visibility = "visible";
+           btnve.style.visibility = "visible";
         }
 }
 
@@ -141,10 +143,9 @@ function loadSearchResult()
 
 function addVehicle(addVeh,valor)
     {
-             
+                 
             vehicle = 1;
-          //  alert("O id " + valor);
-
+      
             seletor = valor;
          
 
@@ -163,7 +164,8 @@ function addVehicle(addVeh,valor)
                 controle1 = valor;
                 setBtnInvisible(valor);
                 refRemove1 = valor;
-               
+                motoca1 = valor;
+                motoca[1] = valor;
                 
 
               
@@ -183,6 +185,8 @@ function addVehicle(addVeh,valor)
                  controle2 = valor;
                  setBtnInvisible(valor);
                  refRemove2 = valor;
+                 motoca2 = valor;
+                 motoca[2] = valor;
                 
              }
 
@@ -198,7 +202,6 @@ function addVehicle(addVeh,valor)
 function removeVehicle(){
         
         var vehicle = this.id;
-    //    alert(vehicle);
         vehicle = vehicle.slice(6,8);
 
         document.getElementById("vehicle" + vehicle +"ToCompareBox").style.visibility = "hidden";
@@ -208,11 +211,9 @@ function removeVehicle(){
             caixa = 0;
             
             controle1 = "";
-         //   alert("controle1 zerado");
             totalChecks = totalChecks  - 1;
-            alert("Remove 1" + refRemove1);
             setBtnInvisible(refRemove1);
-           // refRemove1 = "";
+            motoca1 = "";
          
          }
          else
@@ -220,12 +221,9 @@ function removeVehicle(){
    
              totalChecks = totalChecks  - 1;
              controle2 = "";
-             alert("controle2 zerado");
-             alert("Remove 2" + refRemove1);
              setBtnInvisible(refRemove2);
-            // refRemove2 = "";
-            
-         
+             motoca2 = "";
+        
      
 
          }
@@ -233,58 +231,129 @@ function removeVehicle(){
          if (seletor == refRemove1 || seletor == refRemove2)
          {
               var btnve = document.getElementById("btnve");
-         
-            btnve.style.visibility = "hidden";
+              btnve.style.visibility = "visible";
          }
      }
 
 
-function disableChecks(totalChecks)
-   {
-     var z  = 1;
-     var y = 1;
-     
-     if (totalChecks === 2)
-     {
-       
-        vehicle1.disabled = true;
+function chama()
+{
+  var x = 1;
+ // alert("chamou e x" + x);
 
-       while (z <= totalSearchs){
-                vehicles[z] = document.getElementById("vehicle" + z);
-                vehicles[z].disabled = true;
-                z = z + 1;
-        }
+  while (x <= 4)
+   
 
-     } 
-     else
-     {
+
+  {
       
-         while (y <= totalSearchs){
+   
+      if (isOdd(x) != 1)
+      {
+         puxadados(x,motoca[2]);
+      }
+      else
+    {
+         puxadados(x,motoca[1]);
 
-               
-                
-                if (vehicles[y].checked != true)
-                {
-                   vehicles[y].disabled = false;
-                   vehicles[y].style.visibility = "hidden";
-                 }
-            
+        
+    }
+       
 
-            y = y + 1;
-        }
-     }
-   }
+       x++;
 
-   function showItens(){
+   
+      
+      
+  }
+  
+  //  alert("Superioridade é" + superior(10,20));
+     
+   
+}
 
-        if (removeDisplay == 0)
-        {
-            document.getElementById("remove1").style.visibility = "visible";
+
+var w = 1;
+var t = 1;
+var l = 1;
+function testew()
+{
+
+    var n = new Array();
+    var m = new Array();
+
+    var a = 0;
+    var b = 0;
+    while (w <= 4)
+    {
+     //   alert(w);
+        var elemento = "va"+w;
+
+
+
+  //    alert(elemento);
+        var v1 = document.getElementById(elemento);
+     alert("Elemento A ->" + v1.value);
+        a = v1.value;
+        n[w] = v1.value;
+        w++;
+    }
+    while (t <= 4)
+    {
+     //   alert(w);
+        var elementox = "vb"+t;
+
+        
+        
+  //    alert(elemento);
+        var t1 = document.getElementById(elementox);
+      alert("Elemento B ->" + t1.value);
+        b = t1.value;
+        m[w] = v1.value;
+        t++;
+    }
+
+  /*  if (a > b)
+    {
+        alert("a > b");
+    }
+    else
+    {
+         alert("a < b");
+    }*/
+
+    while (l < 4)
+    {
+        if (n[l] > m[l])
+        {   //   alert(n[l]);
+             //   alert("moto 1 > moto2");
+                var evbl = "vbl"+l;
+   //             var vbl = document.getElementById(evbl);
+                vbl.innerHTML = evbl;
         }
         else
         {
-            document.getElementById("remove2").style.visibility = "visible";
-        }
-        
+             //      alert(n[l]);
+  //              alert("moto 1 < moto2");
 
-   }
+        }
+        l++;
+    }
+}
+
+
+/*
+function testew()
+{
+    while (w <= 4)
+    {
+     
+        var elemento = "va"+w;
+        var v1 = document.getElementById(elemento);
+       
+        w++;
+    }
+   
+}*/
+
+function isOdd(num) { return num % 2;}

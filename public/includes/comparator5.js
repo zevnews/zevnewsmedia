@@ -200,7 +200,7 @@ function addVehicle(addVeh,valor)
   
 
 function removeVehicle(){
-     	
+        
         var vehicle = this.id;
         vehicle = vehicle.slice(6,8);
 
@@ -349,8 +349,6 @@ function testew()
     {
      
         var elemento = "va"+w;
-
-
         var v1 = document.getElementById(elemento);
        
         w++;
