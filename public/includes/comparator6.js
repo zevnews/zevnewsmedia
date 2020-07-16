@@ -27,13 +27,22 @@ var x  = 1;
     if(http.readyState == 4 && http.status == 200) 
         {
          var com = "comparave"+xx;
-         document.getElementById(com).innerHTML = this.responseText;
+       
      //     alert("selecao " + selecao + " com " + com);
+       
+            
+           document.getElementById(com).innerHTML = this.responseText;
+           if (xx == 4)
+           {
+            alert("carregou");
+            testew();
+           }
+         
          
         }
     }
-
-        http.send();
+        var teste = "ok";
+        http.send(teste);
         
       }
 }
@@ -63,3 +72,4 @@ function superior(v1,v2)
   return percentualIcrease;
 
 }
+

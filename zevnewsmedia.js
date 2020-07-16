@@ -182,15 +182,6 @@ conexao.connect(url, function(err, db)
           
           var valo = "";
 
-        /*  if (u == 1 || u == 3)
-          {
-            valo = "va";
-          }
-          else
-          {
-            valo = "vb";
-          }*/
-
           if (isOdd(u) == 1)
           {
             valo = "va";
@@ -206,9 +197,11 @@ conexao.connect(url, function(err, db)
              result.forEach(element =>
                 {                 
                  codigos[u] = `<ul class="topSearchList" id="comparave`+u+`">
-                                 <li><a href="">Power:`+ torque_power(element.power1, element.power2,element.power3,element.power4) +`</a><input type="hidden" id="`+ valo + (p = (p+1)) +`" value="`+ torque_power(element.power1, element.power2,element.power3,element.power4) +`"></li>
-                                  <li><a href="">Torque: `+ torque_power(element.torque1, element.torque2,element.torque3,element.torque4) + `</a><input type="hidden" id="`+ valo + (p = (p+1)) +`" value="`+ torque_power(element.torque1, element.torque2,element.torque3,element.torque4) +`"></li>
-                                  <li><a href="">Gearbox: 1111</a></li>
+                                   <li><a href="">Power:`+ torque_power(element.power1, element.power2,element.power3,element.power4) +`</a>
+                                   <input type="hidden" id="`+ valo + (p = (p+1)) +`" value="`+ torque_power(element.power1, element.power2,element.power3,element.power4) +`"></li>
+                                   <li><a href="">Torque: `+ torque_power(element.torque1, element.torque2,element.torque3,element.torque4) + `</a>
+                                   <input type="hidden" id="`+ valo + (p = (p+1)) +`" value="`+ torque_power(element.torque1, element.torque2,element.torque3,element.torque4) +`"></li>
+                                   <li><a href="">Gearbox: 1111</a></li>
                                </ul>`
                            
                           
@@ -217,7 +210,8 @@ conexao.connect(url, function(err, db)
 
                              codigos[u] = `<ul class="topSearchList" id="comparave`+u+`">
                                             <li><a href=""> Weight: `+ element.weight+`</a><input type="hidden" id="`+ valo + (p = (p+1)) +`" value="`+ element.weight +`"></li>
-                                            <li><a href="">Torque: `+ torque_power(element.torque1, element.torque2,element.torque3,element.torque4) + `</a><input type="hidden" id="`+ valo + (p = (p+1)) +`" value="`+ torque_power(element.torque1, element.torque2,element.torque3,element.torque4) +`"></li>
+                                            <li><a href="">Height: `+ element.height+`</a><input type="hidden" id="`+ valo + (p = (p+1)) +`" value="`+ element.height + `"></li>
+                                            <input type="hidden" id="`+ valo + (p = (p+1)) +`" value="`+ torque_power(element.torque1, element.torque2,element.torque3,element.torque4) +`"></li>
                                             <li><a href="">Gearbox: 1111</a></li>
                                           </ul>`
                            }

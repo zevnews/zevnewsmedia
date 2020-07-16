@@ -236,41 +236,121 @@ function removeVehicle(){
      }
 
 
-
 function chama()
 {
   var x = 1;
-  z = 0;
+ // alert("chamou e x" + x);
+
   while (x <= 4)
+   
 
 
   {
       
-    
-   //   puxadados(x,motoca[z]);
-     // alert("valor while" + x);
-     // alert(isOdd(x));
-     // alert(motoca[x]);
-
-      if (isOdd(x) == 1)
+   
+      if (isOdd(x) != 1)
       {
-         puxadados(x,motoca[1]);
+         puxadados(x,motoca[2]);
       }
       else
     {
-         puxadados(x,motoca[2]);
+         puxadados(x,motoca[1]);
+
+        
     }
-        alert("valor de" + x);
+       
 
        x++;
 
-
+   
       
       
   }
+  
+  //  alert("Superioridade é" + superior(10,20));
+     
    
-    alert("Superioridade é" + superior(10,20));
 }
 
+
+var w = 1;
+var t = 1;
+l = 1;
+function testew()
+{
+
+    var n = new Array();
+    var m = new Array();
+
+    var a = 0;
+    var b = 0;
+    while (w <= 4)
+    {
+     //   alert(w);
+        var elemento = "va"+w;
+
+
+
+      //  alert(elemento);
+        var v1 = document.getElementById(elemento);
+    //    alert("Elemento A ->" + v1.value);
+        a = v1.value;
+        n[w] = v1.value;
+        w++;
+    }
+    while (t <= 4)
+    {
+     //   alert(w);
+        var elementox = "vb"+t;
+
+        
+        
+      //  alert(elemento);
+        var t1 = document.getElementById(elementox);
+   //     alert("Elemento B ->" + t1.value);
+        b = t1.value;
+        m[w] = v1.value;
+        t++;
+    }
+
+  /*  if (a > b)
+    {
+        alert("a > b");
+    }
+    else
+    {
+         alert("a < b");
+    }*/
+
+    while (l < 4)
+    {
+        if (n[l] >m[l])
+        {
+                alert("moto 1 > moto2");
+        }
+        else
+        {
+                   alert("moto 1 < moto2");
+        }
+        l++;
+    }
+}
+
+
+/*
+function testew()
+{
+    while (w <= 4)
+    {
+     
+        var elemento = "va"+w;
+
+
+        var v1 = document.getElementById(elemento);
+       
+        w++;
+    }
+   
+}*/
 
 function isOdd(num) { return num % 2;}
