@@ -275,7 +275,7 @@ function chama()
 
 var w = 1;
 var t = 1;
-l = 1;
+var l = 1;
 function testew()
 {
 
@@ -291,9 +291,9 @@ function testew()
 
 
 
-      //  alert(elemento);
+  //    alert(elemento);
         var v1 = document.getElementById(elemento);
-    //    alert("Elemento A ->" + v1.value);
+     alert("Elemento A ->" + v1.value);
         a = v1.value;
         n[w] = v1.value;
         w++;
@@ -305,9 +305,9 @@ function testew()
 
         
         
-      //  alert(elemento);
+  //    alert(elemento);
         var t1 = document.getElementById(elementox);
-   //     alert("Elemento B ->" + t1.value);
+      alert("Elemento B ->" + t1.value);
         b = t1.value;
         m[w] = v1.value;
         t++;
@@ -324,13 +324,18 @@ function testew()
 
     while (l < 4)
     {
-        if (n[l] >m[l])
-        {
-                alert("moto 1 > moto2");
+        if (n[l] > m[l])
+        {   //   alert(n[l]);
+             //   alert("moto 1 > moto2");
+                var evbl = "vbl"+l;
+   //             var vbl = document.getElementById(evbl);
+                vbl.innerHTML = evbl;
         }
         else
         {
-                   alert("moto 1 < moto2");
+             //      alert(n[l]);
+  //              alert("moto 1 < moto2");
+
         }
         l++;
     }

@@ -173,6 +173,7 @@ conexao.connect(url, function(err, db)
        var mongox = require('mongodb');
        var x_id = new mongox.ObjectID(sele);
        var p = 0;
+       var s = 0;
        
        dbo.collection(collection1).find({"_id": x_id}).toArray(function(err, result)
 
@@ -181,26 +182,33 @@ conexao.connect(url, function(err, db)
       {
           
           var valo = "";
+          var valo2 = "";
 
           if (isOdd(u) == 1)
           {
             valo = "va";
+            valo2 = "val";
           }
           else
           {
             valo = "vb";
-          }
-
-
+            valo2 = "vbl";
+            }
 
           if (err) throw err;
              result.forEach(element =>
                 {                 
                  codigos[u] = `<ul class="topSearchList" id="comparave`+u+`">
                                    <li><a href="">Power:`+ torque_power(element.power1, element.power2,element.power3,element.power4) +`</a>
-                                   <input type="hidden" id="`+ valo + (p = (p+1)) +`" value="`+ torque_power(element.power1, element.power2,element.power3,element.power4) +`"></li>
+                                   <span id="`+ valo2 + (s = (s+1)) +`"></span>
+                                   <input type="hidden" id="`+ valo + (p = (p+1)) +`" value="`+ torque_power(element.power1, element.power2,element.power3,element.power4) +`">
+                                   </li>
+                                   
                                    <li><a href="">Torque: `+ torque_power(element.torque1, element.torque2,element.torque3,element.torque4) + `</a>
-                                   <input type="hidden" id="`+ valo + (p = (p+1)) +`" value="`+ torque_power(element.torque1, element.torque2,element.torque3,element.torque4) +`"></li>
+                                   <span id="`+ valo2 + (s = (s+1)) +`"></span>
+                                   <input type="hidden" id="`+ valo + (p = (p+1)) +`" value="`+ torque_power(element.torque1, element.torque2,element.torque3,element.torque4) +`">
+                                   </li>
+                                   
                                    <li><a href="">Gearbox: 1111</a></li>
                                </ul>`
                            
@@ -209,9 +217,15 @@ conexao.connect(url, function(err, db)
                            if (u > 2) {
 
                              codigos[u] = `<ul class="topSearchList" id="comparave`+u+`">
-                                            <li><a href=""> Weight: `+ element.weight+`</a><input type="hidden" id="`+ valo + (p = (p+1)) +`" value="`+ element.weight +`"></li>
-                                            <li><a href="">Height: `+ element.height+`</a><input type="hidden" id="`+ valo + (p = (p+1)) +`" value="`+ element.height + `"></li>
-                                            <input type="hidden" id="`+ valo + (p = (p+1)) +`" value="`+ torque_power(element.torque1, element.torque2,element.torque3,element.torque4) +`"></li>
+                                            <li><a href=""> Weight: `+ element.weight+`</a>
+                                            <span id="`+ valo2 + (s = (s+1)) +`"></span>
+                                            <input type="hidden" id="`+ valo + (p = (p+1)) +`" value="`+ element.weight +`">
+                                            </li>
+                                            
+                                            <li><a href="">Height: `+ element.height+`</a><input type="hidden" id="`+ valo + (p = (p+1)) +`" value="`+ element.height + `">
+                                            <span id="`+ valo2 + (s = (s+1)) +`"></span>
+                                              <input type="hidden" id="`+ valo + (p = (p+1)) +`" value="`+ torque_power(element.torque1, element.torque2,element.torque3,element.torque4) +`"></li>
+                                            </li>
                                             <li><a href="">Gearbox: 1111</a></li>
                                           </ul>`
                            }
