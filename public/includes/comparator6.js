@@ -1,6 +1,6 @@
 
 
-function puxadados(ordem,vehicle)
+function pullVeSpecs(ordem,vehicle)
 
 {
 
@@ -25,6 +25,13 @@ function puxadados(ordem,vehicle)
          var com = "comparave"+ordem;
        
           document.getElementById(com).innerHTML = this.responseText;
+
+          if (ordem == 4)
+          {
+            
+            document.getElementById("vbl4").innerHTML = "carregou";
+            alert("ok!!!");
+          }
                    
         }
     }

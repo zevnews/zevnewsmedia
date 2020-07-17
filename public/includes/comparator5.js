@@ -239,8 +239,6 @@ function removeVehicle(){
 function pullVehicleData()
 {
   var contador = 1;
- // alert("chamou e x" + x);
-
   while (contador <= 4)
    
 
@@ -250,13 +248,11 @@ function pullVehicleData()
    
       if (isOdd(contador) != 1)
       {
-         puxadados(contador,motoca[2]);
+         pullVeSpecs(contador,motoca[2]);
       }
       else
     {
-         puxadados(contador,motoca[1]);
-
-        
+         pullVeSpecs(contador,motoca[1]);
     }
        
 
@@ -267,7 +263,7 @@ function pullVehicleData()
       
   }
   
-  //  alert("Superioridade é" + superior(10,20));
+  //alert("Superioridade é" + superior(10,20));
      
    
 }

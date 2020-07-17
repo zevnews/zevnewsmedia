@@ -230,7 +230,7 @@ conexao.connect(url, function(err, db)
                                           </ul>`
                            }
 
-                            console.log("VALOR DE U " + ordem);
+                            console.log("Ordem de chamada na base " + ordem);
                 });
 
             console.log("codigo de resposta" + codigoHTML);
