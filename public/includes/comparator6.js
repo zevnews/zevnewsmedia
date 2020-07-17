@@ -1,5 +1,6 @@
 
-
+var contadorOrdemPar = 1;
+var contadorOrdemImpar = 1;
 function pullVeSpecs(ordem,vehicle)
 
 {
@@ -30,8 +31,31 @@ function pullVeSpecs(ordem,vehicle)
           {
             
             document.getElementById("vbl4").innerHTML = "carregou";
-            alert("ok!!!");
+
+          //  var va5 = document.getElementById("va5").value;
+         //   alert("ok!!!");
+           // alert(va5);
+
           }
+
+           alert(isOdd(ordem));
+
+               if (isOdd(ordem) == 1)
+               {
+              
+           
+               var alertar = document.getElementById("va"+contadorOrdemImpar).value;
+              alert("va"+contadorOrdemImpar + " " + alertar);
+         
+               contadorOrdemImpar++;
+           }
+           else
+           {
+              var alertar = document.getElementById("vb"+contadorOrdemPar).value;
+              alert("vb" + contadorOrdemPar);
+        
+              contadorOrdemPar++;
+           }
                    
         }
     }

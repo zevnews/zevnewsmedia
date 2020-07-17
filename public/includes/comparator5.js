@@ -238,25 +238,25 @@ function removeVehicle(){
 
 function pullVehicleData()
 {
-  var contador = 1;
-  while (contador <= 4)
+  var ordem = 1;
+  while (ordem <= 4)
    
 
 
   {
       
    
-      if (isOdd(contador) != 1)
+      if (isOdd(ordem) != 1)
       {
-         pullVeSpecs(contador,motoca[2]);
+         pullVeSpecs(ordem,motoca[2]);
       }
       else
     {
-         pullVeSpecs(contador,motoca[1]);
+         pullVeSpecs(ordem,motoca[1]);
     }
        
 
-       contador++;
+       ordem++;
 
    
       
@@ -356,6 +356,6 @@ function testew()
 function isOdd(num) { 
 
     var y = num % 2;
-    alert("numero" + num + "tipo" + y);
+//    alert("numero" + num + "tipo" + y);
     return y;
 }

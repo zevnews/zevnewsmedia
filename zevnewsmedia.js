@@ -222,9 +222,9 @@ conexao.connect(url, function(err, db)
                                             <input type="hidden" id="`+ idInput + (countId = (countId+1)) +`" value="`+ element.weight +`">
                                             </li>
                                             
-                                            <li><a href="">Height: `+ element.height+`</a><input type="hidden" id="`+ idInput + (countId = (countId+1)) +`" value="`+ element.height + `">
-                                            <span id="`+ idSpan + (countSpan = (countSpan+1)) +`"></span>
-                                              <input type="hidden" id="`+ idInput + (countId = (countId+1)) +`" value="`+ torque_power(element.torque1, element.torque2,element.torque3,element.torque4) +`"></li>
+                                            <li><a href="">Height: `+ element.height+`</a>
+                                             <span id="`+ idSpan + (countSpan = (countSpan+1)) +`"></span>
+                                              <input type="hidden" id="`+ idInput + (countId = (countId+1)) +`" value="`+ element.height + `"></li>
                                             </li>
                                             <li><a href="">Gearbox: 1111</a></li>
                                           </ul>`
