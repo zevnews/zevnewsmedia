@@ -157,23 +157,23 @@ function isOdd(num) { return num % 2;}
 
 var codigos = new Array();
 
-app.get("/fazcomparacao/:selecao/:x", (req, res) => {
+var codigoHTML = "";
+
+app.get("/fazcomparacao/:vehicle/:x", (req, res) => {
 
 
 conexao.connect(url, function(err, db)
   {
        if (err) throw err;
        var dbo = db.db(database);
-       var sele = req.params.selecao;
-       console.log("selecao --->" + sele);
-      // var selecao = "5ef258f435303153ccc2284b";
-      var u = req.params.x;
-      // console.log(selecao);
+       var vehicleID = req.params.vehicle;
+       console.log("selecao --->" + vehicleID);
+       var ordem = req.params.x;
        var codigo = "";
        var mongox = require('mongodb');
-       var x_id = new mongox.ObjectID(sele);
-       var p = 0;
-       var s = 0;
+       var x_id = new mongox.ObjectID(vehicleID);
+       var countId = 0;
+       var countSpan = 0;
        
        dbo.collection(collection1).find({"_id": x_id}).toArray(function(err, result)
 
@@ -181,32 +181,32 @@ conexao.connect(url, function(err, db)
 
       {
           
-          var valo = "";
-          var valo2 = "";
+          var idInput = "";
+          var idSpan = "";
 
-          if (isOdd(u) == 1)
+          if (isOdd(ordem) == 1)
           {
-            valo = "va";
-            valo2 = "val";
+            idInput = "va";
+            idSpan = "val";
           }
           else
           {
-            valo = "vb";
-            valo2 = "vbl";
+            idInput = "vb";
+            idSpan = "vbl";
             }
 
           if (err) throw err;
              result.forEach(element =>
                 {                 
-                 codigos[u] = `<ul class="topSearchList" id="comparave`+u+`">
+                  codigoHTML = `<ul class="topSearchList" id="comparave`+ordem+`">
                                    <li><a href="">Power:`+ torque_power(element.power1, element.power2,element.power3,element.power4) +`</a>
-                                   <span id="`+ valo2 + (s = (s+1)) +`"></span>
-                                   <input type="hidden" id="`+ valo + (p = (p+1)) +`" value="`+ torque_power(element.power1, element.power2,element.power3,element.power4) +`">
+                                   <span id="`+ idSpan + (countSpan = (countSpan+1)) +`"></span>
+                                   <input type="hidden" id="`+ idInput + (countId = (countId+1)) +`" value="`+ torque_power(element.power1, element.power2,element.power3,element.power4) +`">
                                    </li>
                                    
                                    <li><a href="">Torque: `+ torque_power(element.torque1, element.torque2,element.torque3,element.torque4) + `</a>
-                                   <span id="`+ valo2 + (s = (s+1)) +`"></span>
-                                   <input type="hidden" id="`+ valo + (p = (p+1)) +`" value="`+ torque_power(element.torque1, element.torque2,element.torque3,element.torque4) +`">
+                                   <span id="`+ idSpan + (countSpan = (countSpan+1)) +`"></span>
+                                   <input type="hidden" id="`+ idInput + (countId = (countId+1)) +`" value="`+ torque_power(element.torque1, element.torque2,element.torque3,element.torque4) +`">
                                    </li>
                                    
                                    <li><a href="">Gearbox: 1111</a></li>
@@ -214,28 +214,28 @@ conexao.connect(url, function(err, db)
                            
                           
 
-                           if (u > 2) {
+                           if (ordem > 2) {
 
-                             codigos[u] = `<ul class="topSearchList" id="comparave`+u+`">
+                             codigoHTML = `<ul class="topSearchList" id="comparave`+ordem+`">
                                             <li><a href=""> Weight: `+ element.weight+`</a>
-                                            <span id="`+ valo2 + (s = (s+1)) +`"></span>
-                                            <input type="hidden" id="`+ valo + (p = (p+1)) +`" value="`+ element.weight +`">
+                                            <span id="`+ idSpan + (countSpan = (countSpan+1)) +`"></span>
+                                            <input type="hidden" id="`+ idInput + (countId = (countId+1)) +`" value="`+ element.weight +`">
                                             </li>
                                             
-                                            <li><a href="">Height: `+ element.height+`</a><input type="hidden" id="`+ valo + (p = (p+1)) +`" value="`+ element.height + `">
-                                            <span id="`+ valo2 + (s = (s+1)) +`"></span>
-                                              <input type="hidden" id="`+ valo + (p = (p+1)) +`" value="`+ torque_power(element.torque1, element.torque2,element.torque3,element.torque4) +`"></li>
+                                            <li><a href="">Height: `+ element.height+`</a><input type="hidden" id="`+ idInput + (countId = (countId+1)) +`" value="`+ element.height + `">
+                                            <span id="`+ idSpan + (countSpan = (countSpan+1)) +`"></span>
+                                              <input type="hidden" id="`+ idInput + (countId = (countId+1)) +`" value="`+ torque_power(element.torque1, element.torque2,element.torque3,element.torque4) +`"></li>
                                             </li>
                                             <li><a href="">Gearbox: 1111</a></li>
                                           </ul>`
                            }
 
-                            console.log("VALOR DE U " + u);
+                            console.log("VALOR DE U " + ordem);
                 });
 
-            console.log("codigo de resposta" + codigos[u]);
+            console.log("codigo de resposta" + codigoHTML);
 
-        res.send(codigos[u])
+        res.send(codigoHTML)
       });
     
     });

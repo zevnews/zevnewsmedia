@@ -1,6 +1,6 @@
 
 
-function puxadados(x,motoca)
+function puxadados(ordem,vehicle)
 
 {
 
@@ -9,40 +9,27 @@ function puxadados(x,motoca)
  
   var http = new XMLHttpRequest();
  // var vehicleToSearch = vehicleSearch();
- var xx = x;
- var selecao = motoca;
-
-// selecao = selecao.toString();
- /* var url = '/fazcomparacao/'+ valorx +'/'+ selecao +'';*/
-    var url = '/fazcomparacao/'+ selecao +'/'+ x +'';
+ var vehicle = vehicle;
+ var url = '/fazcomparacao/'+ vehicle +'/'+ ordem +'';
    http.open('GET', url, true);
 
 //Send the proper header information along with the request
     http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-var x  = 1;
+
 
     http.onreadystatechange = function()
     {//Call a function when the state changes.
 
     if(http.readyState == 4 && http.status == 200) 
         {
-         var com = "comparave"+xx;
+         var com = "comparave"+ordem;
        
-     //     alert("selecao " + selecao + " com " + com);
-       
-            
-           document.getElementById(com).innerHTML = this.responseText;
-           if (xx == 4)
-           {
-            alert("carregou");
-            testew();
-           }
-         
-         
+          document.getElementById(com).innerHTML = this.responseText;
+                   
         }
     }
-        var teste = "ok";
-        http.send(teste);
+     
+       http.send();
         
       }
 }

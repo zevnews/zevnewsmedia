@@ -236,31 +236,31 @@ function removeVehicle(){
      }
 
 
-function chama()
+function pullVehicleData()
 {
-  var x = 1;
+  var contador = 1;
  // alert("chamou e x" + x);
 
-  while (x <= 4)
+  while (contador <= 4)
    
 
 
   {
       
    
-      if (isOdd(x) != 1)
+      if (isOdd(contador) != 1)
       {
-         puxadados(x,motoca[2]);
+         puxadados(contador,motoca[2]);
       }
       else
     {
-         puxadados(x,motoca[1]);
+         puxadados(contador,motoca[1]);
 
         
     }
        
 
-       x++;
+       contador++;
 
    
       
@@ -288,6 +288,7 @@ function testew()
     {
      //   alert(w);
         var elemento = "va"+w;
+        alert(elemento);
 
 
 
@@ -309,7 +310,7 @@ function testew()
         var t1 = document.getElementById(elementox);
       alert("Elemento B ->" + t1.value);
         b = t1.value;
-        m[w] = v1.value;
+        m[t] = t1.value;
         t++;
     }
 
@@ -356,4 +357,9 @@ function testew()
    
 }*/
 
-function isOdd(num) { return num % 2;}
+function isOdd(num) { 
+
+    var y = num % 2;
+    alert("numero" + num + "tipo" + y);
+    return y;
+}
