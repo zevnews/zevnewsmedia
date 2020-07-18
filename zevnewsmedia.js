@@ -154,6 +154,10 @@ app.get('/mongodb/:valor', function (req, res) {
 
 function isOdd(num) { return num % 2;}
 
+var power = new Array();
+var torque = new Array();
+
+
 
 var codigos = new Array();
 
@@ -162,6 +166,8 @@ var codigoHTML = "";
 app.get("/fazcomparacao/:vehicle/:x", (req, res) => {
 
   var moto = req.params.vehicle;
+  var e = 1;
+  e = parseInt(e);
 
   puxa(moto);
 
@@ -173,6 +179,8 @@ conexao.connect(url, function(err, db)
        var vehicleID = req.params.vehicle;
        console.log("selecao --->" + vehicleID);
        var ordem = req.params.x;
+
+        e = parseInt(ordem);
        var codigo = "";
        var mongox = require('mongodb');
        var x_id = new mongox.ObjectID(vehicleID);
@@ -203,7 +211,7 @@ conexao.connect(url, function(err, db)
              result.forEach(element =>
                 {                 
                   codigoHTML = `<ul class="topSearchList" id="comparave`+ordem+`">
-                                   <li><a href="">Power:`+ torque_power(element.power1, element.power2,element.power3,element.power4) +`</a>
+                                   <li><a href="">Power:`+ power[e] +` `+ e +` </a>
                                    <span id="`+ idSpan + (countSpan = (countSpan+1)) +`"></span>
                                    <input type="hidden" id="`+ idInput + (countId = (countId+1)) +`" value="`+ torque_power(element.power1, element.power2,element.power3,element.power4) +`">
                                    </li>
@@ -238,6 +246,7 @@ conexao.connect(url, function(err, db)
                 });
 
             console.log("codigo de resposta" + codigoHTML);
+           
 
         res.send(codigoHTML)
       });
@@ -247,8 +256,6 @@ conexao.connect(url, function(err, db)
     
 });
 
-var power = new Array();
-var torque = new Array();
 
 
 var g = 1;
