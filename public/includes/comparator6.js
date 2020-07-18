@@ -26,7 +26,7 @@ function pullVeSpecs(ordem,vehicle)
          var com = "comparave"+ordem;
        
           document.getElementById(com).innerHTML = this.responseText;
-
+/*
           if (ordem == 4)
           {
             
@@ -36,9 +36,9 @@ function pullVeSpecs(ordem,vehicle)
          //   alert("ok!!!");
            // alert(va5);
 
-          }
+          }*/
 
-           alert(isOdd(ordem));
+         /*  alert(isOdd(ordem));
 
                if (isOdd(ordem) == 1)
                {
@@ -55,7 +55,7 @@ function pullVeSpecs(ordem,vehicle)
               alert("vb" + contadorOrdemPar);
         
               contadorOrdemPar++;
-           }
+           }*/
                    
         }
     }

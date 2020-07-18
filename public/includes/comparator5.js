@@ -246,13 +246,15 @@ function pullVehicleData()
   {
       
    
-      if (isOdd(ordem) != 1)
+      if (isOdd(ordem) == 1)
       {
-         pullVeSpecs(ordem,motoca[2]);
+         pullVeSpecs(ordem,motoca[1]);
+         alert("ordem" + ordem);
       }
       else
     {
-         pullVeSpecs(ordem,motoca[1]);
+         pullVeSpecs(ordem,motoca[2]);
+          alert("ordem" + ordem);
     }
        
 
@@ -355,7 +357,7 @@ function testew()
 
 function isOdd(num) { 
 
-    var y = num % 2;
+  //  var y = num % 2;
 //    alert("numero" + num + "tipo" + y);
-    return y;
+    return num % 2;
 }

@@ -161,6 +161,10 @@ var codigoHTML = "";
 
 app.get("/fazcomparacao/:vehicle/:x", (req, res) => {
 
+  var moto = req.params.vehicle;
+
+  puxa(moto);
+
 
 conexao.connect(url, function(err, db)
   {
@@ -224,7 +228,7 @@ conexao.connect(url, function(err, db)
                                             
                                             <li><a href="">Height: `+ element.height+`</a>
                                              <span id="`+ idSpan + (countSpan = (countSpan+1)) +`"></span>
-                                              <input type="hidden" id="`+ idInput + (countId = (countId+1)) +`" value="`+ element.height + `"></li>
+                                             <input type="hidden" id="`+ idInput + (countId = (countId+1)) +`" value="`+ element.height + `"></li>
                                             </li>
                                             <li><a href="">Gearbox: 1111</a></li>
                                           </ul>`
@@ -243,11 +247,42 @@ conexao.connect(url, function(err, db)
     
 });
 
+var power = new Array();
+var torque = new Array();
 
 
+var g = 1;
 
+function puxa(id){
 
+  if (g <3) {
+          conexao.connect(url, function(err, db)
+          {
+              if (err) throw err;
+            var dbo = db.db(database);
+               var vehicleID = id     
+                var mongox = require('mongodb');
+                var x_id = new mongox.ObjectID(vehicleID);
+      
+              dbo.collection(collection1).find({"_id": x_id}).toArray(function(err, result)
+                 {
+                     result.forEach(element => {
 
+                        power[g] = torque_power(element.power1, element.power2,element.power3,element.power4); 
+                        torque[g] = torque_power(element.torque1, element.torque2,element.torque3,element.torque4)
+                        console.log( " POTENCIA DA  MOTO " + g + " G É " + power[g]);  
+                        console.log( " TORQUE DA  MOTO " + g + " G É " + torque[g]);  
+
+                                          }); 
+                
+                g++;
+             }    );
+
+    
+          });
+
+      }
+}
 
 app.get("/access", function(req, res) { // root route or home route
     //res.send('welcome to home page');
