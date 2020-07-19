@@ -306,6 +306,9 @@ var q = 2;
             var mongox = require('mongodb');
             var x_id1 = new mongox.ObjectID(moto1);
             var x_id2 = new mongox.ObjectID(moto2);
+
+            puxa(x_id1);
+            console.log("Potencia moto1 " + power[1]);
       
               dbo.collection(collection1).find({"_id": x_id1}).toArray(function(err, result)
                  {
@@ -330,7 +333,7 @@ var q = 2;
                      //   console.log( " POTENCIA DA  MOTO " + q + " q É " + power[q]);  
                        // console.log( " TORQUE DA  MOTO " + q + " q É " + torque[q]); 
                         codeHTM = codeHTM + htmCode(q,power[q],torque[q])
-                        console.log(codeHTM);
+                        console.log("potencia 1 na chamada 2" + power[1]);
                         res.send(codeHTM);
                                                }); 
                  });
@@ -361,14 +364,32 @@ var q = 2;
 function htmCode(e1,p1,t1)
 {
 
+  function melhor (v1,v2)
+  {
+    if (e1 == 2)
+    {
+          if (v1 > v2)
+          {
+            return "moto 1 melhor do que moto 2"
+          }
+          else
+          {
+            return "moto 2 melhor do que moto 1"
+          }
+    }
+
+    return "";
+
+  }
+
   var code = `<section class="boxInfo3">
                <ul class="specsToCompare" id="comparave`+e1+`">
-                                   <li><a href="">Power: `+ p1 +`</a>
+                                   <li><a href="">Power: `+ p1 +``+ melhor(power[1],power[2]) +`</a>
                                    <span id="></span>
                                    <input type="hidden" id="" value="">
                                    </li>
                                    
-                                   <li><a href="">Torque: `+t1 +`</a>
+                                   <li><a href="">Torque: `+t1 +` `+ melhor(torque[1],torque[2]) +`</a>
                                    <span id=""></span>
                                    <input type="hidden" id="" value="">
                                    </li>
