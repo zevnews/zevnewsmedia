@@ -297,7 +297,7 @@ function duasMotos(moto1,moto2)
         {
         
        
-          document.getElementById("comparave1").innerHTML = this.responseText;
+          document.getElementById("lixo").innerHTML = this.responseText;
 /*
           if (ordem == 4)
           {

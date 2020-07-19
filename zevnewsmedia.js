@@ -291,6 +291,7 @@ function puxa(id){
       }
 }
 
+var codeHTM = "ok";
 
 app.get("/duasmotos/:moto1/:moto2", function(req, res) { // root route or home route
     //res.send('welcome to home page');
@@ -309,37 +310,75 @@ var q = 2;
               dbo.collection(collection1).find({"_id": x_id1}).toArray(function(err, result)
                  {
                      result.forEach(element => {
-
                         power[g] = torque_power(element.power1, element.power2,element.power3,element.power4); 
                         torque[g] = torque_power(element.torque1, element.torque2,element.torque3,element.torque4)
-                        console.log( " POTENCIA DA  MOTO " + g + " G É " + power[g]);  
-                        console.log( " TORQUE DA  MOTO " + g + " G É " + torque[g]);  
+                    //    console.log( " POTENCIA DA  MOTO " + g + " G É " + power[g]);  
+                   //     console.log( " TORQUE DA  MOTO " + g + " G É " + torque[g]); 
+                        
+                        codeHTM = htmCode(g,power[g],torque[g]);
 
-                                          }); 
+                                               }); 
                 
                
-             }    );
+                  });
 
               dbo.collection(collection1).find({"_id": x_id2}).toArray(function(err, result)
                  {
                      result.forEach(element => {
-
                         power[q] = torque_power(element.power1, element.power2,element.power3,element.power4); 
                         torque[q] = torque_power(element.torque1, element.torque2,element.torque3,element.torque4)
-                        console.log( " POTENCIA DA  MOTO " + q + " q É " + power[q]);  
-                        console.log( " TORQUE DA  MOTO " + q + " q É " + torque[q]);  
-
-                                          }); 
-                
-               
-             }    );
-
-    
+                     //   console.log( " POTENCIA DA  MOTO " + q + " q É " + power[q]);  
+                       // console.log( " TORQUE DA  MOTO " + q + " q É " + torque[q]); 
+                        codeHTM = codeHTM + htmCode(q,power[q],torque[q])
+                        console.log(codeHTM);
+                        res.send(codeHTM);
+                                               }); 
+                 });
+  
           });
 
+   /* codeHTM = `<ul class="topSearchList" id="comparave1">
+                                   <li><a href="">Power: `+ power[1] +`</a>
+                                   <span id="></span>
+                                   <input type="hidden" id="" value="">
+                                   </li>
+                                   
+                                   <li><a href="">Torque: `+ torque[1] +`</a>
+                                   <span id=""></span>
+                                   <input type="hidden" id="" value="">
+                                   </li>
+                                   
+                                   <li><a href="">Gearbox: 1111</a></li>
+                               </ul>`*/
+
+
       
-    res.send("duas motos careregado");
+   
 });
+
+
+
+function htmCode(e1,p1,t1)
+{
+
+  var code = `<section class="boxInfo3">
+               <ul class="specsToCompare" id="comparave`+e1+`">
+                                   <li><a href="">Power: `+ p1 +`</a>
+                                   <span id="></span>
+                                   <input type="hidden" id="" value="">
+                                   </li>
+                                   
+                                   <li><a href="">Torque: `+t1 +`</a>
+                                   <span id=""></span>
+                                   <input type="hidden" id="" value="">
+                                   </li>
+                                   
+                                   <li><a href="">Gearbox: 1111</a></li>
+                               </ul>
+                  </section>`
+
+return code}
+
 
 app.get("/access", function(req, res) { // root route or home route
     //res.send('welcome to home page');
