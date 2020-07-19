@@ -236,7 +236,14 @@ function removeVehicle(){
      }
 
 
-function pullVehicleData()
+function pullVehicleData(){
+
+    alert(motoca[1] + " " + motoca[2]);
+    duasMotos(motoca[1],motoca[2]);
+
+}
+
+/*function pullVehicleData()
 {
   var ordem = 1;
   while (ordem <= 4)
@@ -265,10 +272,70 @@ function pullVehicleData()
       
   }
   
-  //alert("Superioridade é" + superior(10,20));
+  alert("Superioridade é" + superior(10,20));
      
    
-}
+}*/
+
+function duasMotos(moto1,moto2)
+{
+    var http = new XMLHttpRequest();
+ // var vehicleToSearch = vehicleSearch();
+ var vehicle = vehicle;
+ var url = '/duasmotos/'+ moto1+'/'+ moto2 +'';
+ alert(url);
+   http.open('GET', url, true);
+
+//Send the proper header information along with the request
+    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+
+    http.onreadystatechange = function()
+    {//Call a function when the state changes.
+
+    if(http.readyState == 4 && http.status == 200) 
+        {
+        
+       
+          document.getElementById("comparave1").innerHTML = this.responseText;
+/*
+          if (ordem == 4)
+          {
+            
+            document.getElementById("vbl4").innerHTML = "carregou";
+
+          //  var va5 = document.getElementById("va5").value;
+         //   alert("ok!!!");
+           // alert(va5);
+
+          }*/
+
+         /*  alert(isOdd(ordem));
+
+               if (isOdd(ordem) == 1)
+               {
+              
+           
+               var alertar = document.getElementById("va"+contadorOrdemImpar).value;
+              alert("va"+contadorOrdemImpar + " " + alertar);
+         
+               contadorOrdemImpar++;
+           }
+           else
+           {
+              var alertar = document.getElementById("vb"+contadorOrdemPar).value;
+              alert("vb" + contadorOrdemPar);
+        
+              contadorOrdemPar++;
+           }*/
+                   
+        }
+    }
+     
+       http.send();
+        
+      }
+
 
 
 var w = 1;

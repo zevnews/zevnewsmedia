@@ -291,6 +291,56 @@ function puxa(id){
       }
 }
 
+
+app.get("/duasmotos/:moto1/:moto2", function(req, res) { // root route or home route
+    //res.send('welcome to home page');
+var g  = 1;
+var q = 2;
+    conexao.connect(url, function(err, db)
+          {
+              if (err) throw err;
+            var dbo = db.db(database);
+            var moto1 = req.params.moto1;
+            var moto2 = req.params.moto2;    
+            var mongox = require('mongodb');
+            var x_id1 = new mongox.ObjectID(moto1);
+            var x_id2 = new mongox.ObjectID(moto2);
+      
+              dbo.collection(collection1).find({"_id": x_id1}).toArray(function(err, result)
+                 {
+                     result.forEach(element => {
+
+                        power[g] = torque_power(element.power1, element.power2,element.power3,element.power4); 
+                        torque[g] = torque_power(element.torque1, element.torque2,element.torque3,element.torque4)
+                        console.log( " POTENCIA DA  MOTO " + g + " G É " + power[g]);  
+                        console.log( " TORQUE DA  MOTO " + g + " G É " + torque[g]);  
+
+                                          }); 
+                
+               
+             }    );
+
+              dbo.collection(collection1).find({"_id": x_id2}).toArray(function(err, result)
+                 {
+                     result.forEach(element => {
+
+                        power[q] = torque_power(element.power1, element.power2,element.power3,element.power4); 
+                        torque[q] = torque_power(element.torque1, element.torque2,element.torque3,element.torque4)
+                        console.log( " POTENCIA DA  MOTO " + q + " q É " + power[q]);  
+                        console.log( " TORQUE DA  MOTO " + q + " q É " + torque[q]);  
+
+                                          }); 
+                
+               
+             }    );
+
+    
+          });
+
+      
+    res.send("duas motos careregado");
+});
+
 app.get("/access", function(req, res) { // root route or home route
     //res.send('welcome to home page');
     res.render("access.ejs")
