@@ -370,11 +370,12 @@ function htmCode(e1,p1,t1)
     {
           if (v1 > v2)
           {
-            return "moto 1 melhor do que moto 2"
+            return "moto 1 melhor do que moto 2 %" + superior(v1,v2);
+
           }
           else
           {
-            return "moto 2 melhor do que moto 1"
+            return "moto 2 melhor do que moto 1 " + superior(v1,v2);
           }
     }
 
