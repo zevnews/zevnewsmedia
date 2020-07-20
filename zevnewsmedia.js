@@ -156,6 +156,7 @@ function isOdd(num) { return num % 2;}
 
 var power = new Array();
 var torque = new Array();
+var weight = new Array();
 
 
 
@@ -308,13 +309,15 @@ var q = 2;
             var x_id2 = new mongox.ObjectID(moto2);
 
             puxa(x_id1);
-            console.log("Potencia moto1 " + power[1]);
+           // console.log("Potencia moto1 " + power[1]);
       
               dbo.collection(collection1).find({"_id": x_id1}).toArray(function(err, result)
                  {
                      result.forEach(element => {
                         power[g] = torque_power(element.power1, element.power2,element.power3,element.power4); 
                         torque[g] = torque_power(element.torque1, element.torque2,element.torque3,element.torque4)
+                        weight[g] = element.weight;
+
                     //    console.log( " POTENCIA DA  MOTO " + g + " G É " + power[g]);  
                    //     console.log( " TORQUE DA  MOTO " + g + " G É " + torque[g]); 
                         
@@ -330,26 +333,31 @@ var q = 2;
                      result.forEach(element => {
                         power[q] = torque_power(element.power1, element.power2,element.power3,element.power4); 
                         torque[q] = torque_power(element.torque1, element.torque2,element.torque3,element.torque4)
+                        weight[q] = element.weight;
                      //   console.log( " POTENCIA DA  MOTO " + q + " q É " + power[q]);  
                        // console.log( " TORQUE DA  MOTO " + q + " q É " + torque[q]); 
-                        codeHTM = codeHTM + htmCode(q,power[q],torque[q])
-                        console.log("potencia 1 na chamada 2" + power[1]);
+                      //  codeHTM = codeHTM + htmCode(q,power[q],torque[q])
+                     //   console.log("POTENCIA 1 NA CHAMADA 2" + power[1]);
 
                         var codehead = `<span id="caixa1">
                                         <div class="box">
                                         <h1 class="boxTitle">Powertrain</h1>
-                                        <div class="boxContent" id="lixo">`;
+                                         <div class="boxContent" id="lixo">
+                                        `;
 
-                        var codebottom = `</div>      
-                                          <h2 class="boxTitleBottom"></h2>
+                        var codebottom = `</div>
+                                            <h2 class="boxTitleBottom"></h2>
                                           </div>
                                           </span>
                                           `
 
                                           codeHTM = codehead + codeHTM + codebottom;
-                                          console.log(codeHTM);
+                                        //  console.log(codeHTM);
 
-                        res.send(codeHTM);
+                                         console.log(respostaHTM(1,power[1],torque[1],2,power[2],torque[2]));
+
+                       // res.send(codeHTM);
+                       res.send(respostaHTM(1,power[1],torque[1],weight[1],2,power[2],torque[2],weight[2]));
                                                }); 
                  });
   
@@ -381,8 +389,6 @@ function htmCode(e1,p1,t1)
 
   function melhor (v1,v2)
   {
-    if (e1 == 2)
-    {
           if (v1 > v2)
           {
             return "moto 1 melhor do que moto 2 %" + superior(v1,v2);
@@ -392,14 +398,57 @@ function htmCode(e1,p1,t1)
           {
             return "moto 2 melhor do que moto 1 " + superior(v1,v2);
           }
-    }
-
-    return "";
+  
 
   }
 
-  var code = `<section class="boxInfo3">
-               <ul class="specsToCompare" id="comparave`+e1+`">
+  var code = `
+                    
+                       <section class="boxInfo3">
+                            <ul class="specsToCompare" id="comparave`+e1+`">
+                                   <li><a href="">Power: `+ p1 +`</a>
+                                   <span id="></span>
+                                   <input type="hidden" id="" value="">
+                                   </li>
+                                   
+                                   <li><a href="">Torque: `+t1 +` `+ melhor(torque[1],torque[2]) +`</a>
+                                   <span id=""></span>
+                                   <input type="hidden" id="" value="">
+                                   </li>
+                                   <li><a href="">Gearbox: 1111</a></li>
+                               </ul>
+                       </section>
+                  
+                `
+
+
+return code}
+
+
+
+function respostaHTM(e1,t1,p1,w1,e2,t2,p2,w2){
+function melhor (v1,v2)
+  {   if (v1 > v2)
+          {
+            return "moto 1 melhor do que moto 2 %" + superior(v1,v2);
+
+          }
+          else
+          {
+            return "moto 2 melhor do que moto 1 " + superior(v1,v2);
+          }
+   
+
+  }
+
+  var code = `
+                    
+                       <span id="caixa1">
+                       <div class="box">
+                       <h1 class="boxTitle">Powertrain</h1>
+                       <div class="boxContent" id="lixo">
+                       <section class="boxInfo3">
+                            <ul class="specsToCompare" id="comparave`+e1+`">
                                    <li><a href="">Power: `+ p1 +``+ melhor(power[1],power[2]) +`</a>
                                    <span id="></span>
                                    <input type="hidden" id="" value="">
@@ -409,13 +458,69 @@ function htmCode(e1,p1,t1)
                                    <span id=""></span>
                                    <input type="hidden" id="" value="">
                                    </li>
-                                   
                                    <li><a href="">Gearbox: 1111</a></li>
                                </ul>
-                  </section>`
+                       </section>
+                       <section class="boxInfo3">
+                            <ul class="specsToCompare" id="comparave`+e2+`">
+                                   <li><a href="">Power: `+ p2 +``+ melhor(power[1],power[2]) +`</a>
+                                   <span id="></span>
+                                   <input type="hidden" id="" value="">
+                                   </li>
+                                   
+                                   <li><a href="">Torque: `+t2 +` `+ melhor(torque[1],torque[2]) +`</a>
+                                   <span id=""></span>
+                                   <input type="hidden" id="" value="">
+                                   </li>
+                                   <li><a href="">Gearbox: 1111</a></li>
+                               </ul>
+                       </section>
+                       </div>
+                       <h2 class="boxTitleBottom"></h2>
+                      </div>
+
+                      <div class="box">
+                       <h1 class="boxTitle">DIMENSIONS</h1>
+                       <div class="boxContent" id="lixo">
+                       <section class="boxInfo3">
+                            <ul class="specsToCompare" id="comparave`+e1+`">
+                                   <li><a href="">Weight: `+ w1  +``+ melhor(w1,w2) +`</a>
+                                   <span id="></span>
+                                   <input type="hidden" id="" value="">
+                                   </li>
+                                   
+                                   <li><a href="">Torque: `+t1 +` `+ melhor(torque[1],torque[2]) +`</a>
+                                   <span id=""></span>
+                                   <input type="hidden" id="" value="">
+                                   </li>
+                                   <li><a href="">Gearbox: 1111</a></li>
+                               </ul>
+                       </section>
+                       <section class="boxInfo3">
+                            <ul class="specsToCompare" id="comparave`+e2+`">
+                                   <li><a href="">Weight:  `+ w2  +``+ melhor(w1,w2) +`</a>
+                                   <span id="></span>
+                                   <input type="hidden" id="" value="">
+                                   </li>
+                                   
+                                   <li><a href="">Torque: `+t2 +` `+ melhor(torque[1],torque[2]) +`</a>
+                                   <span id=""></span>
+                                   <input type="hidden" id="" value="">
+                                   </li>
+                                   <li><a href="">Gearbox: 1111</a></li>
+                               </ul>
+                       </section>
+                       </div>
+                       <h2 class="boxTitleBottom"></h2>
+                      </div>
+                      </span>
+                  
+                `
 
 
-return code}
+return code
+
+}
 
 
 app.get("/access", function(req, res) { // root route or home route
