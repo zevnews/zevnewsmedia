@@ -334,6 +334,21 @@ var q = 2;
                        // console.log( " TORQUE DA  MOTO " + q + " q É " + torque[q]); 
                         codeHTM = codeHTM + htmCode(q,power[q],torque[q])
                         console.log("potencia 1 na chamada 2" + power[1]);
+
+                        var codehead = `<span id="caixa1">
+                                        <div class="box">
+                                        <h1 class="boxTitle">Powertrain</h1>
+                                        <div class="boxContent" id="lixo">`;
+
+                        var codebottom = `</div>      
+                                          <h2 class="boxTitleBottom"></h2>
+                                          </div>
+                                          </span>
+                                          `
+
+                                          codeHTM = codehead + codeHTM + codebottom;
+                                          console.log(codeHTM);
+
                         res.send(codeHTM);
                                                }); 
                  });
@@ -398,6 +413,7 @@ function htmCode(e1,p1,t1)
                                    <li><a href="">Gearbox: 1111</a></li>
                                </ul>
                   </section>`
+
 
 return code}
 

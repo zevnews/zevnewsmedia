@@ -297,7 +297,7 @@ function duasMotos(moto1,moto2)
         {
         
        
-          document.getElementById("lixo").innerHTML = this.responseText;
+          document.getElementById("caixa1").innerHTML = this.responseText;
 /*
           if (ordem == 4)
           {
