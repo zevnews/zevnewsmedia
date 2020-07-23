@@ -116,7 +116,8 @@
 .boxContent{
 	width: 100%;
 	display: flex;
-	flex-flow: row;}
+	flex-flow: row;
+    }
 
 
 .boxInfo{
@@ -132,10 +133,16 @@
 	background-color: pink;}
 
 .boxInfo3{
-	width: 70%;
+	width: 30%;
 	height: 100%;
 	padding: 0%;
-	background-color: orange;}
+	background-color: pink;}
+
+.boxInfo3_bk{
+	width: 10%;
+	height: 100%;
+	padding: 0%;
+	background-color: cyan;}
 
 
 #boxEnd{
@@ -208,4 +215,3 @@
 #lblNewsletter{
 	display: block;
 	font-weight: bolder;}
-

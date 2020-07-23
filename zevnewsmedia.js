@@ -372,9 +372,11 @@ var q = 2;
                                           codeHTM = codehead + codeHTM + codebottom;
                                         //  console.log(codeHTM);
 
-                                         console.log(respostaHTM(1,power[1],torque[1],2,power[2],torque[2]));
+                                       //  console.log(respostaHTM(1,power[1],torque[1],2,power[2],torque[2]));
 
                        // res.send(codeHTM);
+                       console.log(respostaHTM(1,power[1],torque[1],weight[1],acceleration[1],speed[1],range[1],2,power[2],torque[2],weight[2],acceleration[2],speed[2],range[2]));
+
                        res.send(respostaHTM(1,power[1],torque[1],weight[1],acceleration[1],speed[1],range[1],2,power[2],torque[2],weight[2],acceleration[2],speed[2],range[2]));
                                                }); 
                  });
@@ -444,23 +446,25 @@ return code}
 
 
 
-function respostaHTM(e1,t1,p1,w1,a1,s1,r1,e2,t2,p2,w2,a2,s2,r2){
+function respostaHTM(e1,p1,t1,w1,a1,s1,r1,e2,p2,t2,w2,a2,s2,r2){
+  console.log("VALOR S2" + s2);
 function melhor (v1,v2)
+
   {   if (v1 > v2)
           {
-            return "moto 1 melhor do que moto 2 %" + superior(v1,v2);
+            return "1 melhor 2 %" + superior(v1,v2).toFixed(2);
 
           }
           else
           {
-            return "moto 2 melhor do que moto 1 " + superior(v1,v2);
+            return "2 melhor 1 % " + superior(v1,v2).toFixed(2);
           }
           console.log("VALOR S2" + s2);
    
 
   }
 
-  var code = `
+ /* var code = `
                     
                        <span id="caixa1">
                        <div class="box">
@@ -515,6 +519,7 @@ function melhor (v1,v2)
                                    <li><a href="">Gearbox: 1111</a></li>
                                </ul>
                        </section>
+                       
                        <section class="boxInfo3">
                             <ul class="specsToCompare" id="comparave`+e2+`">
                                    <li><a href="">Weight:  `+ w2  +``+ melhor(w1,w2) +`</a>
@@ -569,12 +574,73 @@ function melhor (v1,v2)
                       </div>
                      
 
-                      </span>
-                  
-                `
+                      </span>`*/
+
+  codex = `<span id="caixa1">
+                     <div class="box">
+                           <h1 class="boxTitle">CAIXA PARA TESTE</h1>
+                               <div class="boxContent">
+                                   <section class="boxInfoTeste">
+                                     <ul class="specsToCompareT">
+                                        <li><a href="">Power: `+ p1 +`</a></li>
+                                        <li><a href="">Torque: `+t1 +` </a></li>
+                                        <li><a href="">Gearbox: 1</a></li>
+                                      <ul>
+                                    </section>
+      
+                                  <section class="boxInfoTeste2">
+                                    <ul class="specsToCompareT2">
+                                       <li><a href="">`+ melhor(p1,p2) +`</a></li>
+                                       <li><a href="">`+ melhor(torque[1],torque[2]) +`</a></li>
+                                       <li><a href="">Gearbox:</a></li>
+                                    <ul>
+                                   </section>
+
+                               <section class="boxInfoTeste">
+                                   <ul class="specsToCompareT">
+                                     <li><a href="">Power: `+ p2 +`</a></li>
+                                     <li><a href="">Torque: `+t2 +`</a></li>
+                                     <li><a href="">Gearbox: 1</a></li>
+                                  <ul>
+                                 </section>
+                     </div>      
+                        <h2 class="boxTitleBottom"></h2>
+                     </div>
+
+                     <div class="box">
+                           <h1 class="boxTitle">CAIXA PARA TESTE</h1>
+                               <div class="boxContent">
+                                   <section class="boxInfoTeste">
+                                     <ul class="specsToCompareT">
+                                        <li><a href="">Acceleration: `+ a1  +`</a></li>
+                                        <li><a href="">Speed:  `+ s1 +` </a></li>
+                                        <li><a href="">Gearbox: 1</a></li>
+                                      <ul>
+                                    </section>
+      
+                                  <section class="boxInfoTeste2">
+                                    <ul class="specsToCompareT2">
+                                       <li><a href="">`+ melhor(a1,a2) +`</a></li>
+                                       <li><a href="">`+  melhor(s1,s2) +`</a></li>
+                                       <li><a href="">Gearbox:</a></li>
+                                    <ul>
+                                   </section>
+
+                               <section class="boxInfoTeste">
+                                   <ul class="specsToCompareT">
+                                     <li><a href="">Acceleration: `+ a2  +`</a></li>
+                                     <li><a href="">Speed:  `+ s2  +`</a></li>
+                                     <li><a href="">Gearbox: 1</a></li>
+                                  <ul>
+                                 </section>
+                     </div>      
+                        <h2 class="boxTitleBottom"></h2>
+                     </div>
+                     </span>
+                    `
 
 
-return code
+return codex;
 
 }
 
@@ -597,7 +663,7 @@ app.get('/comparevehicles', function (req, res) {
         var page = "list_documents_test";
         console.log(result + "resul")
         console.log("SUPERIOR " + superior(50,100))
-        res.render('comparator4.ejs',{result});
+        res.render('comparator4_bk.ejs',{result});
       });
     });
   // End of Read

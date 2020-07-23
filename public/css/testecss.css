@@ -1,0 +1,92 @@
+.boxInfoTeste{
+	width: 40%;
+	height: 100%;
+	padding: 0%;
+	background-color: orange;}
+
+
+
+
+
+	.specsToCompareT {
+	width: 100%;
+	margin: 0;
+	padding: 0;}
+
+
+.specsToCompareT li{
+	width: 98%;
+	display: flex;
+	list-style: none;
+	border-top: solid 2px #666666;
+	padding-top: 2%;
+	padding-bottom: 2%;
+	padding-left: 2%;
+	justify-content: center;
+	background-color: yellow;
+     }
+
+
+.specsToCompareT li:first-child{
+	border: none;}
+
+
+.specsToCompareT li a{
+	font-size: 12pt;
+	font-weight:  800;
+	text-decoration: none;
+     }
+
+
+
+
+
+
+
+
+
+.boxInfoTeste2{
+	width: 20%;
+	height: 100%;
+	padding: 0%;
+	background-color: orange;}
+
+
+
+
+
+
+.specsToCompareT2 {
+	width: 100%;
+	margin: 0;
+	padding: 0;}
+
+
+.specsToCompareT2 li{
+	width: 98%;
+	display: flex;
+	list-style: none;
+	border-top: solid 2px #666666;
+	padding-top: 4%;
+	padding-bottom: 4%;
+	padding-left: 2%;
+	justify-content: center;
+	background-color: cyan;
+     }
+
+
+.specsToCompareT2 li:first-child{
+	border: none;}
+
+
+.specsToCompareT2 li a{
+	font-size: 12pt;
+	font-weight:  800;
+	text-decoration: none;
+     }
+
+
+
+
+
+
