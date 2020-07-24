@@ -90,33 +90,6 @@ app.get('/documento', function (req, res) {
   // End of Read
 });
 
-/*
-app.get('/testeenvia', function (req, res) {
- 
-    // Read all the documents in "veiculo" collection
-  conexao.connect(url, function(err, db) {
-      if (err) throw err;
-      var resultado;
-      var dbo = db.db(database);
-      var teste = new Array();
-      var x = 0;
-
-      var parametro =  dbo.collection(collection1).find();
-
-      dbo.collection(collection1).find({},{fields:{_id: 0, "brand":1}}).toArray(function(err, result)
-      {
-        if (err) throw err;
-        result.forEach(element => {
-          teste[x] = element.brand;
-          console.log(teste[x]);
-          x = x + 1;});
-          res.send(teste);
-      });
-      console.log(parametro);
-    });
-  // End of Read
-});
-*/
 
 app.get('/mongodb/:valor', function (req, res) {
  
@@ -317,7 +290,7 @@ var q = 2;
             var x_id2 = new mongox.ObjectID(moto2);
 
             puxa(x_id1);
-           // console.log("Potencia moto1 " + power[1]);
+         
       
               dbo.collection(collection1).find({"_id": x_id1}).toArray(function(err, result)
                  {
@@ -329,12 +302,6 @@ var q = 2;
                         acceleration[1] = element.acceleration;
                         speed[1] = element.speed;
                         range[1]= element.range;
-
-
-                    //    console.log( " POTENCIA DA  MOTO " + g + " G É " + power[g]);  
-                   //     console.log( " TORQUE DA  MOTO " + g + " G É " + torque[g]); 
-                        
-                     //   codeHTM = htmCode(g,power[g],torque[g]);
 
                                                }); 
                 
@@ -359,69 +326,10 @@ var q = 2;
   
           });
 
-   /* codeHTM = `<ul class="topSearchList" id="comparave1">
-                                   <li><a href="">Power: `+ power[1] +`</a>
-                                   <span id="></span>
-                                   <input type="hidden" id="" value="">
-                                   </li>
-                                   
-                                   <li><a href="">Torque: `+ torque[1] +`</a>
-                                   <span id=""></span>
-                                   <input type="hidden" id="" value="">
-                                   </li>
-                                   
-                                   <li><a href="">Gearbox: 1111</a></li>
-                               </ul>`*/
-
 
       
    
 });
-
-/*
-
-
-function htmCode(e1,p1,t1)
-{
-
-  function melhor (v1,v2)
-  {
-          if (v1 > v2)
-          {
-            return "moto 1 melhor do que moto 2 %" + superior(v1,v2);
-
-          }
-          else
-          {
-            return "moto 2 melhor do que moto 1 " + superior(v1,v2);
-          }
-  
-
-  }
-
-  var code = `
-                    
-                       <section class="boxInfo3">
-                            <ul class="specsToCompare" id="comparave`+e1+`">
-                                   <li><a href="">Power: `+ p1 +`</a>
-                                   <span id="></span>
-                                   <input type="hidden" id="" value="">
-                                   </li>
-                                   
-                                   <li><a href="">Torque: `+t1 +` `+ melhor(torque[1],torque[2]) +`</a>
-                                   <span id=""></span>
-                                   <input type="hidden" id="" value="">
-                                   </li>
-                                   <li><a href="">Gearbox: 1111</a></li>
-                               </ul>
-                       </section>
-                  
-                `
-
-
-return code}
-*/
-
 
 
 function respostaHTM(e1,p1,t1,w1,a1,s1,r1,e2,p2,t2,w2,a2,s2,r2){
@@ -446,118 +354,6 @@ var va2 = parseInt(v2);
    
 
   }
-
- /* var code = `
-                    
-                       <span id="caixa1">
-                       <div class="box">
-                       <h1 class="boxTitle">Powertrain</h1>
-                       <div class="boxContent" id="lixo">
-                       <section class="boxInfo3">
-                            <ul class="specsToCompare" id="comparave`+e1+`">
-                                   <li><a href="">Power: `+ p1 +``+ melhor(power[1],power[2]) +`</a>
-                                   <span id="></span>
-                                   <input type="hidden" id="" value="">
-                                   </li>
-                                   
-                                   <li><a href="">Torque: `+t1 +` `+ melhor(torque[1],torque[2]) +`</a>
-                                   <span id=""></span>
-                                   <input type="hidden" id="" value="">
-                                   </li>
-                                   <li><a href="">Gearbox: 1111</a></li>
-                               </ul>
-                       </section>
-                       <section class="boxInfo3">
-                            <ul class="specsToCompare" id="comparave`+e2+`">
-                                   <li><a href="">Power: `+ p2 +``+ melhor(power[1],power[2]) +`</a>
-                                   <span id="></span>
-                                   <input type="hidden" id="" value="">
-                                   </li>
-                                   
-                                   <li><a href="">Torque: `+t2 +` `+ melhor(torque[1],torque[2]) +`</a>
-                                   <span id=""></span>
-                                   <input type="hidden" id="" value="">
-                                   </li>
-                                   <li><a href="">Gearbox: 1111</a></li>
-                               </ul>
-                       </section>
-                       </div>
-                       <h2 class="boxTitleBottom"></h2>
-                      </div>
-
-                      <div class="box">
-                       <h1 class="boxTitle">PERFORMANCE</h1>
-                       <div class="boxContent" id="lixo">
-                       <section class="boxInfo3">
-                            <ul class="specsToCompare" id="comparave`+e1+`">
-                                   <li><a href="">Weight: `+ w1  +``+ melhor(w1,w2) +`</a>
-                                   <span id="></span>
-                                   <input type="hidden" id="" value="">
-                                   </li>
-                                   
-                                   <li><a href="">Torque: `+t1 +` `+ melhor(torque[1],torque[2]) +`</a>
-                                   <span id=""></span>
-                                   <input type="hidden" id="" value="">
-                                   </li>
-                                   <li><a href="">Gearbox: 1111</a></li>
-                               </ul>
-                       </section>
-                       
-                       <section class="boxInfo3">
-                            <ul class="specsToCompare" id="comparave`+e2+`">
-                                   <li><a href="">Weight:  `+ w2  +``+ melhor(w1,w2) +`</a>
-                                   <span id="></span>
-                                   <input type="hidden" id="" value="">
-                                   </li>
-                                   
-                                   <li><a href="">Weight:  `+ w2  +``+ melhor(w1,w2) +`</a>
-                                   <span id=""></span>
-                                   <input type="hidden" id="" value="">
-                                   </li>
-                                   <li><a href="">Gearbox: 1111</a></li>
-                               </ul>
-                       </section>
-                       </div>
-                       <h2 class="boxTitleBottom"></h2>
-                      </div>
-                      
- <div class="box">
-                       <h1 class="boxTitle">DIMENSIONS</h1>
-                       <div class="boxContent" id="lixo">
-                       <section class="boxInfo3">
-                            <ul class="specsToCompare" id="comparave`+e1+`">
-                                   <li><a href="">Acceleration: `+ a1  +``+ melhor(a1,a2) +`</a>
-                                   <span id="></span>
-                                   <input type="hidden" id="" value="">
-                                   </li>
-                                   
-                                   <li><a href="">Speed: `+s1 +` `+ melhor(s1,s2) +`</a>
-                                   <span id=""></span>
-                                   <input type="hidden" id="" value="">
-                                   </li>
-                                   <li><a href="">Gearbox: 1111</a></li>
-                               </ul>
-                       </section>
-                       <section class="boxInfo3">
-                            <ul class="specsToCompare" id="comparave`+e2+`">
-                                   <li><a href="">Acceleration:  `+ a2  +``+ melhor(a1,a2) +`</a>
-                                   <span id="></span>
-                                   <input type="hidden" id="" value="">
-                                   </li>
-                                   
-                                   <li><a href="">Speed:  `+ s2  +``+ melhor(s1,s2) +`</a>
-                                   <span id=""></span>
-                                   <input type="hidden" id="" value="">
-                                   </li>
-                                   <li><a href="">Gearbox: 1111</a></li>
-                               </ul>
-                       </section>
-                       </div>
-                       <h2 class="boxTitleBottom"></h2>
-                      </div>
-                     
-
-                      </span>`*/
 
   codex = `<span id="caixa1">
                      <div class="box">
@@ -676,8 +472,6 @@ app.get('/comparevehicles', function (req, res) {
         if (err) throw err;
         result.forEach(element => {/*console.log("O nome é " + element.brand);*/ });
         var page = "list_documents_test";
- //       console.log(result + "resul")
-   //     console.log("SUPERIOR " + superior(50,100))
         res.render('comparator4_bk.ejs',{result});
       });
     });
@@ -686,13 +480,11 @@ app.get('/comparevehicles', function (req, res) {
 
 
 app.get("/access", function(req, res) { // root route or home route
-    //res.send('welcome to home page');
     res.render("access.ejs")
 });
 
 
 app.post("/login", function(req, res) { // root route or home route
-    //res.send('welcome to home page');
      var login = "gaspar";
      var password = "zevnews2020"
 
@@ -718,33 +510,6 @@ app.post("/login", function(req, res) { // root route or home route
 
 // AQUI COMEÇAM AS ROTAS DO CMS
 
-/*
-
-app.get("/news", function(req, res) { // root route or home route
-    //res.send('Motos');
-    //res.render("news.ejs")
-    connection.query("SELECT * FROM ARTICLES ORDER BY COD DESC LIMIT 9 ", (err,rows) => {
-      if(err) throw err;
-      
-      var estado = "";
-      if (Array.isArray(rows) && rows.length === 0.)
-      {
-           // estado vazio
-           res.render("vazio.ejs");
-      }
-      else
-      {
-          //estado = "cheio";
-          res.render("news.ejs", {rows});
-
-      } 
-
-      //console.log(estado);
-       });
-});
-
-
-*/
 
 app.get("/selecionaveiculo/:valor", (req, res) => {
 
@@ -895,11 +660,7 @@ app.get("/search", function(req, res) { // root route or home route
 });
 
 app.post("/search", function(req, res) { // user route
-   // res.render("testes.ejs", {
-
-     //searchItem = req.params.searchItem;
-      //var section = req.params.x; 
-     var searchItem = req.body.searchItem;
+    var searchItem = req.body.searchItem;
       console.log("valor" + searchItem);
       searchTest = searchItem;
       connection.query("select * from ARTICLES where article like '%"+ searchItem +"%' ORDER BY PUBLI_DATE DESC LIMIT 9", (err,rows) => {
@@ -908,9 +669,6 @@ app.post("/search", function(req, res) { // user route
       var estado = "";
       if (Array.isArray(rows) && rows.length === 0.)
       {
-           // estado vazio
-           //res.render("vazio.ejs");
-           //res.render("vazio.ejs");
           pagina = 0;
           section = "Nenhum resultado";
           linha = null;
@@ -940,11 +698,7 @@ app.post("/search", function(req, res) { // user route
 });
 
 app.get("/searchteste/:valor", function(req, res) { // user route
-   // res.render("testes.ejs", {
-
-     //searchItem = req.params.searchItem;
-      //var section = req.params.x; 
-     var searchItem = req.params.valor;
+    var searchItem = req.params.valor;
       console.log("valor " + searchItem);
       searchTest = searchItem;
       connection.query("select * from ARTICLES where article like '%"+ searchItem +"%' ORDER BY PUBLI_DATE DESC LIMIT 9", (err,rows) => {
@@ -990,15 +744,13 @@ app.get("/searchteste/:valor", function(req, res) { // user route
 
       } 
 
-      //console.log(estado);
        });
 });
 
 
 
 app.get("/author/:id", function(req, res) { // user route
-   // res.render("testes.ejs", {
-
+ 
       var section = req.params.x;
       connection.query("SELECT * FROM ARTICLES ORDER BY PUBLI_DATE DESC LIMIT 9 ", (err,rows) => {
       if(err) throw err;
@@ -1098,8 +850,6 @@ app.post('/sugestao2',function(req,res){
                     
                     zx = zx + 1;
                 }
-                //res.render("cms.ejs", {rows, sessao_usuario});
-               //res.redirect('/all');
                 console.log(sugestoes[1] + " " + sugestoes[2] + " " + sugestoes[3] + " " + sugestoes[4])
                 console.log(sql);
 
@@ -1504,56 +1254,7 @@ app.get("/:navega/:cod/:section/:ordem", function(req, res) {
 
     });
 
-/*
-   if (ordem == "next")
-   {
-     operador = "<"
-     fim = " ORDER by cod DESC"
 
-   }
-   else
-   {
-       operador = ">"
-       fim = ""
-   }
- 
- if (section == "all" )
- { 
-        var cod2 = (parseInt(cod)) + (9-2);
-        cod2 = cod2.toString();
-
-        cod3 = (parseInt(cod)) + 18;
-        cod3 = cod3.toString();
-
-        if (ordem == "before"){
-          operador = ">"
-           conexao1 = "select * from ARTICLES where cod "+ operador +" "+ cod3 +" ORDER BY COD DESC LIMIT 9";
-        }
-        else
-        {
-        conexao1 = "select * from ARTICLES where cod "+ operador +" "+ cod +" ORDER BY COD DESC LIMIT 9";
-        }
-        // precisa pegar os 9 anteriores
-        
-        console.log (" primeira conexao " + conexao1 + "ordem1 " + ordem);
-        console.log ("secao " + section + " operador 1 é " + operador + "o fim é" + fim );
-       
- }
- else
- {
-    conexao1 = "select * from ARTICLES where cod "+ operador +" "+ cod + " and section ='"+ section +"' ORDER by cod DESC";
- }
-
-   connection.query(conexao1, (err,rows) => {
-      if(err) throw err;
-     conexao1 = "";
-     ordem = "";
-     operador = "";
-
-      console.log ( " a conexao é " + conexao1 + "operador é" + operador);
-      res.render("news.ejs", {rows, section});
-
-    });*/
    
 });
 
@@ -1600,22 +1301,7 @@ app.get("/:x", function(req, res) { // user route
        });
       }
      
-      /*
-      connection.query(conexao1, (err,rows) => {
-      if(err) throw err;
-      
-      var estado = "";
-      if (Array.isArray(rows) && rows.length === 0.)
-      {
-           // estado vazi
-           res.render("vazio.ejs");
-      }*
-      else
-      {
-          //estado = "cheio";
-          res.render("vazio.ejs");
-
-      } 
+     
 
       //console.log(estado);*/
        });
@@ -1675,7 +1361,7 @@ connection.query(variaveis, (err,sugestoes_x) => {if(err) throw err;
 
 
 
-// INCIA OS SERVIDOR
+
 
 
 function torque_power(t1,t2,t3,t4)
@@ -1714,6 +1400,7 @@ function superior(v1,v2)
 
 }
 
+// INCIA OS SERVIDOR
 
 app.listen(21171, function() {
     console.log("Servidor em operacao");
