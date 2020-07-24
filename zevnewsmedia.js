@@ -428,14 +428,19 @@ function respostaHTM(e1,p1,t1,w1,a1,s1,r1,e2,p2,t2,w2,a2,s2,r2){
  
 function melhor (v1,v2)
 
-  {   if (v1 > v2)
+  {  
+
+var va1 = parseInt(v1);
+var va2 = parseInt(v2);
+
+   if (v1 > v2)
           {
-            return "1 melhor 2 %" + Math.abs(superior(v1,v2).toFixed(2));
+            return "1 melhor 2 %" + Math.abs(superior(va1,va2).toFixed(2));
 
           }
           else
           {
-            return "2 melhor 1 % " + Math.abs(superior(v1,v2).toFixed(2));
+            return "2 melhor 1 % " + Math.abs(superior(va1,va2).toFixed(2));
           }
        //   console.log("VALOR S2" + s2);
    
