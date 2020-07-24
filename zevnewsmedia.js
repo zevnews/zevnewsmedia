@@ -322,19 +322,19 @@ var q = 2;
               dbo.collection(collection1).find({"_id": x_id1}).toArray(function(err, result)
                  {
                      result.forEach(element => {
-                        power[g] = torque_power(element.power1, element.power2,element.power3,element.power4); 
-                        torque[g] = torque_power(element.torque1, element.torque2,element.torque3,element.torque4)
-                        weight[g] = element.weight;
+                        power[1] = torque_power(element.power1, element.power2,element.power3,element.power4); 
+                        torque[1] = torque_power(element.torque1, element.torque2,element.torque3,element.torque4)
+                        weight[1] = element.weight;
                         
-                        acceleration[g] = element.acceleration;
-                        speed[g] = element.speed;
-                        range[g]= element.range;
+                        acceleration[1] = element.acceleration;
+                        speed[1] = element.speed;
+                        range[1]= element.range;
 
 
                     //    console.log( " POTENCIA DA  MOTO " + g + " G É " + power[g]);  
                    //     console.log( " TORQUE DA  MOTO " + g + " G É " + torque[g]); 
                         
-                        codeHTM = htmCode(g,power[g],torque[g]);
+                     //   codeHTM = htmCode(g,power[g],torque[g]);
 
                                                }); 
                 
@@ -344,38 +344,14 @@ var q = 2;
               dbo.collection(collection1).find({"_id": x_id2}).toArray(function(err, result)
                  {
                      result.forEach(element => {
-                        power[q] = torque_power(element.power1, element.power2,element.power3,element.power4); 
-                        torque[q] = torque_power(element.torque1, element.torque2,element.torque3,element.torque4)
-                        weight[q] = element.weight;
-
-
-                        acceleration[q] = element.acceleration;
-                        speed[q] = element.speed;
-                        range[q] = element.range;
-                     //   console.log( " POTENCIA DA  MOTO " + q + " q É " + power[q]);  
-                       // console.log( " TORQUE DA  MOTO " + q + " q É " + torque[q]); 
-                      //  codeHTM = codeHTM + htmCode(q,power[q],torque[q])
-                     //   console.log("POTENCIA 1 NA CHAMADA 2" + power[1]);
-
-                        var codehead = `<span id="caixa1">
-                                        <div class="box">
-                                        <h1 class="boxTitle">Powertrain</h1>
-                                         <div class="boxContent" id="lixo">
-                                        `;
-
-                        var codebottom = `</div>
-                                            <h2 class="boxTitleBottom"></h2>
-                                          </div>
-                                          </span>
-                                          `
-
-                                          codeHTM = codehead + codeHTM + codebottom;
-                                        //  console.log(codeHTM);
-
-                                       //  console.log(respostaHTM(1,power[1],torque[1],2,power[2],torque[2]));
-
-                       // res.send(codeHTM);
-                       console.log(respostaHTM(1,power[1],torque[1],weight[1],acceleration[1],speed[1],range[1],2,power[2],torque[2],weight[2],acceleration[2],speed[2],range[2]));
+                        power[2] = torque_power(element.power1, element.power2,element.power3,element.power4); 
+                        torque[2] = torque_power(element.torque1, element.torque2,element.torque3,element.torque4);
+                        weight[2] = element.weight;
+                        acceleration[2] = element.acceleration; 
+                        speed[2] = element.speed;
+                      
+                    
+  
 
                        res.send(respostaHTM(1,power[1],torque[1],weight[1],acceleration[1],speed[1],range[1],2,power[2],torque[2],weight[2],acceleration[2],speed[2],range[2]));
                                                }); 
@@ -402,6 +378,7 @@ var q = 2;
    
 });
 
+/*
 
 
 function htmCode(e1,p1,t1)
@@ -443,23 +420,24 @@ function htmCode(e1,p1,t1)
 
 
 return code}
+*/
 
 
 
 function respostaHTM(e1,p1,t1,w1,a1,s1,r1,e2,p2,t2,w2,a2,s2,r2){
-  console.log("VALOR S2" + s2);
+ 
 function melhor (v1,v2)
 
   {   if (v1 > v2)
           {
-            return "1 melhor 2 %" + superior(v1,v2).toFixed(2);
+            return "1 melhor 2 %" + Math.abs(superior(v1,v2).toFixed(2));
 
           }
           else
           {
-            return "2 melhor 1 % " + superior(v1,v2).toFixed(2);
+            return "2 melhor 1 % " + Math.abs(superior(v1,v2).toFixed(2));
           }
-          console.log("VALOR S2" + s2);
+       //   console.log("VALOR S2" + s2);
    
 
   }
@@ -578,13 +556,13 @@ function melhor (v1,v2)
 
   codex = `<span id="caixa1">
                      <div class="box">
-                           <h1 class="boxTitle">CAIXA PARA TESTE</h1>
+                           <h1 class="boxTitle">POWERTRAIN</h1>
                                <div class="boxContent">
                                    <section class="boxInfoTeste">
                                      <ul class="specsToCompareT">
                                         <li><a href="">Power: `+ p1 +`</a></li>
                                         <li><a href="">Torque: `+t1 +` </a></li>
-                                        <li><a href="">Gearbox: 1</a></li>
+                                        <li><a href="">Line</a></li>
                                       <ul>
                                     </section>
       
@@ -592,7 +570,7 @@ function melhor (v1,v2)
                                     <ul class="specsToCompareT2">
                                        <li><a href="">`+ melhor(p1,p2) +`</a></li>
                                        <li><a href="">`+ melhor(torque[1],torque[2]) +`</a></li>
-                                       <li><a href="">Gearbox:</a></li>
+                                       <li><a href="">Line</a></li>
                                     <ul>
                                    </section>
 
@@ -600,21 +578,53 @@ function melhor (v1,v2)
                                    <ul class="specsToCompareT">
                                      <li><a href="">Power: `+ p2 +`</a></li>
                                      <li><a href="">Torque: `+t2 +`</a></li>
-                                     <li><a href="">Gearbox: 1</a></li>
+                                     <li><a href="">Peso: `+w2 +`</a></li>
                                   <ul>
                                  </section>
                      </div>      
                         <h2 class="boxTitleBottom"></h2>
                      </div>
 
+                       <div class="box">
+                           <h1 class="boxTitle">DIMENSIONS</h1>
+                               <div class="boxContent">
+                                   <section class="boxInfoTeste">
+                                     <ul class="specsToCompareT">
+                                        <li><a href="">Weight: `+ w1  +`</a></li>
+                                        <li><a href="">Line </a></li>
+                                        <li><a href="">Line</a></li>
+                                      <ul>
+                                    </section>
+      
+                                  <section class="boxInfoTeste2">
+                                    <ul class="specsToCompareT2">
+                                       <li><a href="">`+ melhor(w1,w2) +`</a></li>
+                                       <li><a href=""> Line</a></li>
+                                       <li><a href="">Line</a></li>
+                                    <ul>
+                                   </section>
+
+                               <section class="boxInfoTeste">
+                                   <ul class="specsToCompareT">
+                                     <li><a href="">Weight: `+ w2  +`</a></li>
+                                     <li><a href="">Line</a></li>
+                                     <li><a href="">Line</a></li>
+                                  <ul>
+                                 </section>
+                     </div>      
+                        <h2 class="boxTitleBottom"></h2>
+                     </div>
+                    
+
+
                      <div class="box">
-                           <h1 class="boxTitle">CAIXA PARA TESTE</h1>
+                           <h1 class="boxTitle">PERFORMANCE</h1>
                                <div class="boxContent">
                                    <section class="boxInfoTeste">
                                      <ul class="specsToCompareT">
                                         <li><a href="">Acceleration: `+ a1  +`</a></li>
                                         <li><a href="">Speed:  `+ s1 +` </a></li>
-                                        <li><a href="">Gearbox: 1</a></li>
+                                        <li><a href="">Line</a></li>
                                       <ul>
                                     </section>
       
@@ -622,7 +632,7 @@ function melhor (v1,v2)
                                     <ul class="specsToCompareT2">
                                        <li><a href="">`+ melhor(a1,a2) +`</a></li>
                                        <li><a href="">`+  melhor(s1,s2) +`</a></li>
-                                       <li><a href="">Gearbox:</a></li>
+                                       <li><a href="">Line</a></li>
                                     <ul>
                                    </section>
 
@@ -630,7 +640,7 @@ function melhor (v1,v2)
                                    <ul class="specsToCompareT">
                                      <li><a href="">Acceleration: `+ a2  +`</a></li>
                                      <li><a href="">Speed:  `+ s2  +`</a></li>
-                                     <li><a href="">Gearbox: 1</a></li>
+                                     <li><a href="">Line</a></li>
                                   <ul>
                                  </section>
                      </div>      
@@ -661,8 +671,8 @@ app.get('/comparevehicles', function (req, res) {
         if (err) throw err;
         result.forEach(element => {/*console.log("O nome é " + element.brand);*/ });
         var page = "list_documents_test";
-        console.log(result + "resul")
-        console.log("SUPERIOR " + superior(50,100))
+ //       console.log(result + "resul")
+   //     console.log("SUPERIOR " + superior(50,100))
         res.render('comparator4_bk.ejs',{result});
       });
     });
@@ -1674,24 +1684,26 @@ function torque_power(t1,t2,t3,t4)
 
 function superior(v1,v2)
 {
-
+  var va1 = parseInt(v1);
+  var va2 = parseInt(v2);
+  
   var newNumber = 0;
   var originalNumber = 0;
 
 
-  if (v1 > v2)
+  if (va1 > va2)
   {
-    newNumber = parseInt(v1);
-    originalNumber = parseInt(v2);
+    newNumber = parseInt(va1);
+    originalNumber = parseInt(va2);
   }
   else
   {
-    newNumber = parseInt(v2);
-    originalNumber =  parseInt(v1);
+    newNumber = parseInt(va2);
+    originalNumber =  parseInt(va1);
   }
 
   var Increase = newNumber - originalNumber;
-  var percentualIcrease = Increase / originalNumber * 100;
+  var percentualIcrease = (Increase / originalNumber) * 100;
 
   return percentualIcrease;
 
