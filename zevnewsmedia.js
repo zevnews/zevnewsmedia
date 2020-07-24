@@ -145,136 +145,6 @@ var codigos = new Array();
 
 var codigoHTML = "";
 
-app.get("/fazcomparacao/:vehicle/:x", (req, res) => {
-
-  var moto = req.params.vehicle;
-  var e = 1;
-  e = parseInt(e);
-
-  puxa(moto);
-
-
-conexao.connect(url, function(err, db)
-  {
-       if (err) throw err;
-       var dbo = db.db(database);
-       var vehicleID = req.params.vehicle;
-       console.log("selecao --->" + vehicleID);
-       var ordem = req.params.x;
-
-        e = parseInt(ordem);
-       var codigo = "";
-       var mongox = require('mongodb');
-       var x_id = new mongox.ObjectID(vehicleID);
-       var countId = 0;
-       var countSpan = 0;
-       
-       dbo.collection(collection1).find({"_id": x_id}).toArray(function(err, result)
-
-     
-
-      {
-          
-          var idInput = "";
-          var idSpan = "";
-
-          if (isOdd(ordem) == 1)
-          {
-            idInput = "va";
-            idSpan = "val";
-          }
-          else
-          {
-            idInput = "vb";
-            idSpan = "vbl";
-            }
-
-          if (err) throw err;
-             result.forEach(element =>
-                {                 
-                  codigoHTML = `<ul class="topSearchList" id="comparave`+ordem+`">
-                                   <li><a href="">Power:`+ power[e] +` `+ e +` </a>
-                                   <span id="`+ idSpan + (countSpan = (countSpan+1)) +`"></span>
-                                   <input type="hidden" id="`+ idInput + (countId = (countId+1)) +`" value="`+ torque_power(element.power1, element.power2,element.power3,element.power4) +`">
-                                   </li>
-                                   
-                                   <li><a href="">Torque: `+ torque_power(element.torque1, element.torque2,element.torque3,element.torque4) + `</a>
-                                   <span id="`+ idSpan + (countSpan = (countSpan+1)) +`"></span>
-                                   <input type="hidden" id="`+ idInput + (countId = (countId+1)) +`" value="`+ torque_power(element.torque1, element.torque2,element.torque3,element.torque4) +`">
-                                   </li>
-                                   
-                                   <li><a href="">Gearbox: 1111</a></li>
-                               </ul>`
-                           
-                          
-
-                           if (ordem > 2) {
-
-                             codigoHTML = `<ul class="topSearchList" id="comparave`+ordem+`">
-                                            <li><a href=""> Weight: `+ element.weight+`</a>
-                                            <span id="`+ idSpan + (countSpan = (countSpan+1)) +`"></span>
-                                            <input type="hidden" id="`+ idInput + (countId = (countId+1)) +`" value="`+ element.weight +`">
-                                            </li>
-                                            
-                                            <li><a href="">Height: `+ element.height+`</a>
-                                             <span id="`+ idSpan + (countSpan = (countSpan+1)) +`"></span>
-                                             <input type="hidden" id="`+ idInput + (countId = (countId+1)) +`" value="`+ element.height + `"></li>
-                                            </li>
-                                            <li><a href="">Gearbox: 1111</a></li>
-                                          </ul>`
-                           }
-
-                            console.log("Ordem de chamada na base " + ordem);
-                });
-
-            console.log("codigo de resposta" + codigoHTML);
-           
-
-        res.send(codigoHTML)
-      });
-    
-    });
-
-    
-});
-
-
-
-var g = 1;
-
-function puxa(id){
-
-  if (g <3) {
-          conexao.connect(url, function(err, db)
-          {
-              if (err) throw err;
-            var dbo = db.db(database);
-               var vehicleID = id     
-                var mongox = require('mongodb');
-                var x_id = new mongox.ObjectID(vehicleID);
-      
-              dbo.collection(collection1).find({"_id": x_id}).toArray(function(err, result)
-                 {
-                     result.forEach(element => {
-
-                        power[g] = torque_power(element.power1, element.power2,element.power3,element.power4); 
-                        torque[g] = torque_power(element.torque1, element.torque2,element.torque3,element.torque4)
-                        console.log( " POTENCIA DA  MOTO " + g + " G É " + power[g]);  
-                        console.log( " TORQUE DA  MOTO " + g + " G É " + torque[g]);  
-
-                                          }); 
-                
-                g++;
-             }    );
-
-    
-          });
-
-      }
-}
-
-var codeHTM = "ok";
-
 app.get("/duasmotos/:moto1/:moto2", function(req, res) { // root route or home route
     //res.send('welcome to home page');
 var g  = 1;
@@ -289,7 +159,7 @@ var q = 2;
             var x_id1 = new mongox.ObjectID(moto1);
             var x_id2 = new mongox.ObjectID(moto2);
 
-            puxa(x_id1);
+     
          
       
               dbo.collection(collection1).find({"_id": x_id1}).toArray(function(err, result)
@@ -316,10 +186,6 @@ var q = 2;
                         weight[2] = element.weight;
                         acceleration[2] = element.acceleration; 
                         speed[2] = element.speed;
-                      
-                    
-  
-
                        res.send(respostaHTM(1,power[1],torque[1],weight[1],acceleration[1],speed[1],range[1],2,power[2],torque[2],weight[2],acceleration[2],speed[2],range[2]));
                                                }); 
                  });
@@ -355,7 +221,7 @@ var va2 = parseInt(v2);
 
   }
 
-  codex = `<span id="caixa1">
+  code = `<span id="caixa1">
                      <div class="box">
                            <h1 class="boxTitle">POWERTRAIN</h1>
                                <div class="boxContent">
@@ -451,7 +317,7 @@ var va2 = parseInt(v2);
                     `
 
 
-return codex;
+return code;
 
 }
 
@@ -902,8 +768,6 @@ app.post('/insert_article',function(req,res){
 
   var publi_date = converte_data(publi_date);
 
-//var current_datetime = new Date()
-//var formatted_date = current_datetime.getDate() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getFullYear();
 
 
   var sql = "INSERT INTO ARTICLES (title, subtitle, publi_date, section, subsection, author, article, photo1,legend1, photo2,legend2, photo3,legend3,photo4,legend4,photo5,legend5, highlight, photo_highlight,tags) VALUES ('"+ titulo +"', '"+ subtitulo +"', '"+ publi_date +"','"+ section +"','"+ subsection +"','"+ author +"','"+ article +"','"+ photo1 +"','"+ legend1 +"','"+ photo2 +"','"+ legend2 +"','"+ photo3 +"','"+ legend3 +"','"+ photo4 +"','"+ legend4 +"','"+ photo5 +"','"+ legend5 +"','"+ highlight +"','"+ photo_highlight +"','"+ tags +"')";
@@ -961,7 +825,7 @@ return publica;
 
 
 app.get("/update_article/:cod", function(req, res) { // user route
-   // res.render("testes.ejs", {
+ 
 
 
      if (req.session.name == "junior")
@@ -1131,7 +995,7 @@ app.get("/next/:pagina/:secao", function(req, res) { // user route
           
 
      
-      //console.log(estado);
+    
        });
 
 
@@ -1259,8 +1123,7 @@ app.get("/:navega/:cod/:section/:ordem", function(req, res) {
 });
 
 app.get("/:x", function(req, res) { // user route
-   // res.render("testes.ejs", {
-
+ 
 
       searchTest = "";
 
@@ -1271,10 +1134,7 @@ app.get("/:x", function(req, res) { // user route
       if (section == "mercado" || section == "carros" || section == "motos" || section == "startups" || section == "bikes" || section == "tech" || section == "racing")
       {
          
-        //  conexao1 = "SELECT * FROM ARTICLES WHERE section='"+ section +"' OR subsection='"+ section +"' ORDER BY COD DESC LIMIT 9 "
-
-        //conexao1 = "SELECT * FROM ARTICLES WHERE section='"+ section +"' ORDER BY publi_date DESC LIMIT 9 "
-        route_selector = 1;
+       route_selector = 1;
          
          var url = '/next/0/'+ section +'';
         res.redirect(url);
@@ -1297,13 +1157,13 @@ app.get("/:x", function(req, res) { // user route
              res.render("conteudos.ejs", {rows, pagina, section, linha});
         
          
-         //res.render("vazio.ejs");
+        
        });
       }
      
      
 
-      //console.log(estado);*/
+  
        });
 
 
