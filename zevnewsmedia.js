@@ -433,7 +433,7 @@ function melhor (v1,v2)
 var va1 = parseInt(v1);
 var va2 = parseInt(v2);
 
-   if (v1 > v2)
+   if (va1 > va2)
           {
             return "1 melhor 2 %" + Math.abs(superior(va1,va2).toFixed(2));
 
