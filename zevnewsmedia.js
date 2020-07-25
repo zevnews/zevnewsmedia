@@ -91,7 +91,7 @@ app.get('/documento', function (req, res) {
 });
 
 
-app.get('/mongodb/:valor', function (req, res) {
+app.get('/mongodb/:valor/:v', function (req, res) {
  
     // Read all the documents in "veiculo" collection
   conexao.connect(url, function(err, db)
@@ -99,7 +99,21 @@ app.get('/mongodb/:valor', function (req, res) {
        if (err) throw err;
        var dbo = db.db(database);
        var referencia = req.params.valor;
-       dbo.collection(collection1).find({"brand": new RegExp(referencia, 'i')}).toArray(function(err, result) {
+       var vx = req.params.v;
+       console.log("-------------> ABERTA <--------------------------" + vx + "  " + referencia);
+      var busca ="";
+
+      if (vx == "1")
+      {
+        busca = dbo.collection(collection1).find({'brand': new RegExp(referencia, 'i')});
+      }
+      else
+      {
+         busca = dbo.collection(collection1).find({"vclass": referencia});
+      }
+       
+     
+       busca.toArray(function(err, result) {
        if (err) throw err;
        var codigo = '<ul id="searchResultsList">';
        var soma = 1
@@ -123,7 +137,7 @@ app.get('/mongodb/:valor', function (req, res) {
   // End of Read
 });
 
-function isOdd(num) { return num % 2;}
+/*function isOdd(num) { return num % 2;}*/
 
 //POWER TRAIN
 var power = new Array();
@@ -139,9 +153,9 @@ var range = new Array();
 
 
 
-var codigos = new Array();
+/*var codigos = new Array();
 
-var codigoHTML = "";
+var codigoHTML = "";*/
 
 app.get("/duasmotos/:moto1/:moto2", function(req, res) { // root route or home route
     //res.send('welcome to home page');

@@ -34,31 +34,38 @@ function startVariables()
 
 
 
-function vehicleSearch()
+function vehicleSearch(testex)
   {
 
     startVariables();
-    var searchBoxValue = document.getElementById("searchBox").value;
-    alert(superior(10,30));
-
-    if (searchBoxValue == ""){
-        alert("Please fill the search box");
-        document.getElementById("searchBox").focus();
+   
+   var searchBoxValue = "";
+    if (testex != 0){
+      searchBoxValue = "Cake";
+      alert("link" + testex)
     }
     else
     {
-        document.getElementById("searchBox").value = "";
-        return searchBoxValue;
+     searchBoxValue = document.getElementById("searchBox").value;
+      alert("caixa" + testex)
     }
+  
+    return searchBoxValue;
+    
   }
 
 
 
-function vehiclesSearchList()
+function vehiclesSearchList(teste)
+
 {
+ 
+   alert(teste);
   var http = new XMLHttpRequest();
-  var vehicleToSearch = vehicleSearch();
-  var url = '/mongodb/'+ vehicleToSearch +'';
+//  alert(vehicleSearch(teste));
+  var vehicleToSearch = vehicleSearch(teste);
+  alert("veiculo" + vehicleToSearch);
+  var url = '/mongodb/'+ vehicleToSearch +'/1';
    http.open('GET', url, true);
 
 //Send the proper header information along with the request
@@ -71,7 +78,9 @@ function vehiclesSearchList()
          document.getElementById("vehiclesForComparision").innerHTML = this.responseText;
          var totalResults = document.getElementById("totalSearchs").value;
          totalSearchs = parseInt(totalResults);
+
          loadSearchResult();
+          alert("epa");
         }
     }
 
@@ -79,6 +88,36 @@ function vehiclesSearchList()
 }
 
 
+function carregalistalixo(valor)
+
+{
+ 
+   
+  var http = new XMLHttpRequest();
+//  alert(vehicleSearch(teste));
+  var vehicleToSearch = valor;
+  alert("veiculo" + valor);
+  var url = '/mongodb/'+ valor +'/2';
+   http.open('GET', url, true);
+
+//Send the proper header information along with the request
+    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    http.onreadystatechange = function()
+    {//Call a function when the state changes.
+    if(http.readyState == 4 && http.status == 200) 
+        {
+         
+         document.getElementById("vehiclesForComparision").innerHTML = this.responseText;
+         var totalResults = document.getElementById("totalSearchs").value;
+         totalSearchs = parseInt(totalResults);
+
+         loadSearchResult();
+          alert("epa");
+        }
+    }
+
+        http.send();
+}
   
 
 function seeVehicleSpecs(ref)

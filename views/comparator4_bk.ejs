@@ -14,15 +14,9 @@
 	<div id="boxStart">
 		<section id="startNavigation">
 			<form id="formSearchBox" name="formSearchBox">
-				<input type="text" name="searchBox" id="searchBox"><input type="button" name="btnSearchBox" value="SEARCH" id="btnSearchBox" onclick="vehiclesSearchList()">
+				<input type="text" name="searchBox" id="searchBox"><input type="button" name="btnSearchBox" value="SEARCH" id="btnSearchBox" onclick="vehiclesSearchList(0)">
 			</form>
-					<ul id="mainMenu">
-						<li><a href="">Type</a></li>
-						<li><a href="">Brand</a></li>
-						<li><a href="">Range</a></li>
-						<li><a href="">Speed</a></li>
-						<li><a href="">Acceleration</a></li>
-					</ul>
+				  <%- include('main_menu_evdi') %>	
 		</section>
 	</div>
 	<div class="box">
