@@ -107,9 +107,7 @@ app.get('/mongodb/:valor', function (req, res) {
        result.forEach(element =>
         {
              var ok = "um teste";
-          //   codigo = codigo + '<li id="'+ element._id+'" onclick="seeVehicleSpecs(this.id,'+soma+')" name="'+soma+'" value="lixo">'+ element.brand + ''  + element.model +'<input type="checkbox" id="vehicle'+soma+'" name="'+element._id+'"  value="'+ element.model +'" class="selectVehicle"></li>';
-           //    codigo = codigo + '<li id="'+ element._id+'" onclick="seeVehicleSpecs(this.id,'+soma+')" name="'+soma+'" value="lixo">'+ element.brand + ''  + element.model +'</li>';
-                codigo = codigo + '<li id="'+ element._id+'" onclick="seeVehicleSpecs(this.id)" name="'+soma+'" value="lixo">'+ element.brand + ''  + element.model +'</li>';
+              codigo = codigo + '<li id="'+ element._id+'" onclick="seeVehicleSpecs(this.id)" name="'+soma+'" value="lixo">'+ element.brand + ''  + element.model +'</li>';
             
              soma++;
              contador++;
@@ -209,15 +207,34 @@ var va2 = parseInt(v2);
 
    if (va1 > va2)
           {
-            return "1 melhor 2 %" + Math.abs(superior(va1,va2).toFixed(2));
+            return "<-- " + Math.abs(superior(va1,va2).toFixed(2)) + " %";
 
           }
           else
           {
-            return "2 melhor 1 % " + Math.abs(superior(va1,va2).toFixed(2));
+            return "" + Math.abs(superior(va1,va2).toFixed(2)) + " % -->";
           }
-       //   console.log("VALOR S2" + s2);
-   
+
+
+      
+
+  }
+
+  function menor(v1,v2)
+  {
+
+      var va1 = parseInt(v1);
+      var va2 = parseInt(v2);
+
+   if (va1 < va2)
+          {
+            return "<-- " + Math.abs(superior(va1,va2).toFixed(2)) + " %";
+
+          }
+          else
+          {
+            return "" + Math.abs(superior(va1,va2).toFixed(2)) + " % -->";
+          }
 
   }
 
@@ -265,7 +282,7 @@ var va2 = parseInt(v2);
       
                                   <section class="boxInfoTeste2">
                                     <ul class="specsToCompareT2">
-                                       <li><a href="">`+ melhor(w1,w2) +`</a></li>
+                                       <li><a href="">`+ menor(w1,w2) +`</a></li>
                                        <li><a href=""> Line</a></li>
                                        <li><a href="">Line</a></li>
                                     <ul>
@@ -297,7 +314,7 @@ var va2 = parseInt(v2);
       
                                   <section class="boxInfoTeste2">
                                     <ul class="specsToCompareT2">
-                                       <li><a href="">`+ melhor(a1,a2) +`</a></li>
+                                       <li><a href="">`+ menor(a1,a2) +`</a></li>
                                        <li><a href="">`+  melhor(s1,s2) +`</a></li>
                                        <li><a href="">Line</a></li>
                                     <ul>
