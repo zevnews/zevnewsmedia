@@ -55,13 +55,18 @@
 #mainMenu li{
 	display: inline;
 	margin-left: 3%;
-	margin-right:  3%;}
-
-#mainMenu li a{
+	margin-right:  3%;
 	font-size: 14pt;
 	font-weight: 400;
 	text-decoration: none;
 	font-weight: bold;}
+
+#mainMenu li:hover{
+	color: red;
+	cursor: pointer;
+}
+
+
 
 
 

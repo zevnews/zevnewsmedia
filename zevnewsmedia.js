@@ -153,6 +153,7 @@ var range = new Array();
 
 
 
+
 /*var codigos = new Array();
 
 var codigoHTML = "";*/
@@ -211,7 +212,12 @@ var q = 2;
 
 
 function respostaHTM(e1,p1,t1,w1,a1,s1,r1,e2,p2,t2,w2,a2,s2,r2){
- 
+
+  var p_w_r1 = power_weight_ratio(10,2);
+  var p_w_r2 = power_weight_ratio(w2,p2);
+  console.log("pwr1" + p_w_r1);
+  console.log("pwr1" + p_w_r1);
+
 function melhor (v1,v2)
 
   {  
@@ -252,6 +258,9 @@ var va2 = parseInt(v2);
 
   }
 
+ 
+
+
   code = `<span id="caixa1">
                      <div class="box">
                            <h1 class="boxTitle">POWERTRAIN</h1>
@@ -260,7 +269,7 @@ var va2 = parseInt(v2);
                                      <ul class="specsToCompareT">
                                         <li><a href="">Power: `+ p1 +`</a></li>
                                         <li><a href="">Torque: `+t1 +` </a></li>
-                                        <li><a href="">Line</a></li>
+                                        <li><a href="">Power Weight Ratio:`+ p_w_r1 +` </a></li>
                                       <ul>
                                     </section>
       
@@ -268,7 +277,7 @@ var va2 = parseInt(v2);
                                     <ul class="specsToCompareT2">
                                        <li><a href="">`+ melhor(p1,p2) +`</a></li>
                                        <li><a href="">`+ melhor(torque[1],torque[2]) +`</a></li>
-                                       <li><a href="">Line</a></li>
+                                       <li><a href="">`+ melhor(p_w_r1,p_w_r2) +`</a></li>
                                     <ul>
                                    </section>
 
@@ -276,7 +285,7 @@ var va2 = parseInt(v2);
                                    <ul class="specsToCompareT">
                                      <li><a href="">Power: `+ p2 +`</a></li>
                                      <li><a href="">Torque: `+t2 +`</a></li>
-                                     <li><a href="">Peso: `+w2 +`</a></li>
+                                     <li><a href=""><a href="">Power Weight Ratio:`+ p_w_r2 +` </a></a></li>
                                   <ul>
                                  </section>
                      </div>      
@@ -1252,13 +1261,23 @@ connection.query(variaveis, (err,sugestoes_x) => {if(err) throw err;
 
 
 
+function power_weight_ratio(v1,v2)
+{
 
+  var p_w_r = (parseInt(v1)/parseInt(v2))
+
+  p_w_r = parseInt(p_w_r);
+
+  return p_w_r;
+}
 
 
 function torque_power(t1,t2,t3,t4)
 {
 
-  totalTorque_Power = parseInt(t1) + parseInt(t2) + parseInt(t3) + parseInt(t4);
+  var totalTorque_Power = parseInt(t1) + parseInt(t2) + parseInt(t3) + parseInt(t4);
+
+  totalTorque_Power = totalTorque_Power.toFixed(2);
 
   return totalTorque_Power;
 }
