@@ -213,17 +213,21 @@ var q = 2;
 
 function respostaHTM(e1,p1,t1,w1,a1,s1,r1,e2,p2,t2,w2,a2,s2,r2){
 
-  var p_w_r1 = power_weight_ratio(10,2);
+  var p_w_r1 = power_weight_ratio(w1,p1);
   var p_w_r2 = power_weight_ratio(w2,p2);
-  console.log("pwr1" + p_w_r1);
-  console.log("pwr1" + p_w_r1);
+  console.log("PWR1 " + p_w_r1);
+  console.log("PWR 2" + p_w_r2);
+
+  var resu  = (10.5/2.3)
+  resu = resu.toFixed(2);
+  console.log("RESULTADO" + resu);
 
 function melhor (v1,v2)
 
   {  
 
-var va1 = parseInt(v1);
-var va2 = parseInt(v2);
+var va1 = parseFloat(v1);
+var va2 = parseFloat(v2);
 
    if (va1 > va2)
           {
@@ -277,7 +281,7 @@ var va2 = parseInt(v2);
                                     <ul class="specsToCompareT2">
                                        <li><a href="">`+ melhor(p1,p2) +`</a></li>
                                        <li><a href="">`+ melhor(torque[1],torque[2]) +`</a></li>
-                                       <li><a href="">`+ melhor(p_w_r1,p_w_r2) +`</a></li>
+                                       <li><a href="">`+ menor(p_w_r1,p_w_r2) +`</a></li>
                                     <ul>
                                    </section>
 
@@ -1264,20 +1268,20 @@ connection.query(variaveis, (err,sugestoes_x) => {if(err) throw err;
 function power_weight_ratio(v1,v2)
 {
 
-  var p_w_r = (parseInt(v1)/parseInt(v2))
+  var p_w_r = ( (parseInt(v1)) / (parseInt(v2))) ;
 
-  p_w_r = parseInt(p_w_r);
 
-  return p_w_r;
+
+  return p_w_r.toFixed(2);
 }
 
 
 function torque_power(t1,t2,t3,t4)
 {
 
-  var totalTorque_Power = parseInt(t1) + parseInt(t2) + parseInt(t3) + parseInt(t4);
+  var totalTorque_Power = t1 + t2 + t3  + t4;
 
-  totalTorque_Power = totalTorque_Power.toFixed(2);
+    totalTorque_Power = parseFloat(totalTorque_Power).toFixed(2);
 
   return totalTorque_Power;
 }
