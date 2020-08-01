@@ -271,7 +271,7 @@ var va2 = parseFloat(v2);
                                <div class="boxContent">
                                    <section class="boxInfoTeste">
                                      <ul class="specsToCompareT">
-                                        <li><a href="">Power: `+ p1 +`</a></li>
+                                        <li><a href="">Power: `+ p1 +`Kw `+ kw_hp(p1) +`</a></li>
                                         <li><a href="">Torque: `+t1 +` </a></li>
                                         <li><a href="">Power Weight Ratio:`+ p_w_r1 +` </a></li>
                                       <ul>
@@ -287,7 +287,7 @@ var va2 = parseFloat(v2);
 
                                <section class="boxInfoTeste">
                                    <ul class="specsToCompareT">
-                                     <li><a href="">Power: `+ p2 +`</a></li>
+                                     <li><a href="">Power: `+ p2 +`Kw `+ kw_hp(p2) +`</a></li>
                                      <li><a href="">Torque: `+t2 +`</a></li>
                                      <li><a href=""><a href="">Power Weight Ratio:`+ p_w_r2 +` </a></a></li>
                                   <ul>
@@ -301,7 +301,7 @@ var va2 = parseFloat(v2);
                                <div class="boxContent">
                                    <section class="boxInfoTeste">
                                      <ul class="specsToCompareT">
-                                        <li><a href="">Weight: `+ w1  +`</a></li>
+                                        <li><a href="">Weight: `+ w1 +`Kg `+ kg_lbs(w1) +`</a></li>
                                         <li><a href="">Line </a></li>
                                         <li><a href="">Line</a></li>
                                       <ul>
@@ -317,7 +317,7 @@ var va2 = parseFloat(v2);
 
                                <section class="boxInfoTeste">
                                    <ul class="specsToCompareT">
-                                     <li><a href="">Weight: `+ w2  +`</a></li>
+                                     <li><a href="">Weight: `+ w2 +`Kg `+ kg_lbs(w2) +`</a></li>
                                      <li><a href="">Line</a></li>
                                      <li><a href="">Line</a></li>
                                   <ul>
@@ -334,7 +334,7 @@ var va2 = parseFloat(v2);
                                    <section class="boxInfoTeste">
                                      <ul class="specsToCompareT">
                                         <li><a href="">Acceleration: `+ a1  +`</a></li>
-                                        <li><a href="">Speed:  `+ s1 +` </a></li>
+                                        <li><a href="">Top Speed:  `+ s1 +`Km/h `+ km_miles(s1) +`</a></li>
                                         <li><a href="">Line</a></li>
                                       <ul>
                                     </section>
@@ -350,7 +350,7 @@ var va2 = parseFloat(v2);
                                <section class="boxInfoTeste">
                                    <ul class="specsToCompareT">
                                      <li><a href="">Acceleration: `+ a2  +`</a></li>
-                                     <li><a href="">Speed:  `+ s2  +`</a></li>
+                                     <li><a href="">Top Speed: `+ s2 +`Km/h `+ km_miles(s2) +`</a></li>
                                      <li><a href="">Line</a></li>
                                   <ul>
                                  </section>
@@ -1286,6 +1286,24 @@ function torque_power(t1,t2,t3,t4)
   return totalTorque_Power;
 }
 
+function km_miles(v)
+{
+  var miles = (v*0.62).toFixed(2);
+  return  "(" + miles + " mph)";
+}
+
+function kg_lbs(v)
+{
+  var lbs = (v* 2.2046226218).toFixed(2);
+
+  return  "(" + lbs + " lbs)";
+}
+function kw_hp(v)
+{
+  var power = (v * 1.36).toFixed(2);
+
+  return "(" + power + " Hp)";
+}
 
 function superior(v1,v2)
 {
