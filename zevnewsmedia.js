@@ -151,8 +151,8 @@ var acceleration = new Array();
 var speed = new Array();
 var range = new Array();
 
-
-
+//CHARGING
+var home_charging = new Array();
 
 /*var codigos = new Array();
 
@@ -181,10 +181,10 @@ var q = 2;
                         power[1] = torque_power(element.power1, element.power2,element.power3,element.power4); 
                         torque[1] = torque_power(element.torque1, element.torque2,element.torque3,element.torque4)
                         weight[1] = element.weight;
-                        
                         acceleration[1] = element.acceleration;
                         speed[1] = element.speed;
                         range[1]= element.range;
+                        home_charging[1] = element.home_charging;
 
                                                }); 
                 
@@ -199,7 +199,10 @@ var q = 2;
                         weight[2] = element.weight;
                         acceleration[2] = element.acceleration; 
                         speed[2] = element.speed;
-                       res.send(respostaHTM(1,power[1],torque[1],weight[1],acceleration[1],speed[1],range[1],2,power[2],torque[2],weight[2],acceleration[2],speed[2],range[2]));
+                        range[2]= element.range;
+                        home_charging[2] = element.home_charging;
+                        
+                        res.send(respostaHTM(1,power[1],torque[1],weight[1],acceleration[1],speed[1],range[1],home_charging[1],2,power[2],torque[2],weight[2],acceleration[2],speed[2],range[2],home_charging[2]));
                                                }); 
                  });
   
@@ -211,10 +214,10 @@ var q = 2;
 });
 
 
-function respostaHTM(e1,p1,t1,w1,a1,s1,r1,e2,p2,t2,w2,a2,s2,r2){
+function respostaHTM(e1,p1,t1,w1,a1,s1,r1,h_c1,e2,p2,t2,w2,a2,s2,r2,h_c2){
 
-  var p_w_r1 = power_weight_ratio(w1,p1);
-  var p_w_r2 = power_weight_ratio(w2,p2);
+  var p_w_r1 = power_weight_ratio(p1,w1);
+  var p_w_r2 = power_weight_ratio(p2,w2);
   console.log("PWR1 " + p_w_r1);
   console.log("PWR 2" + p_w_r2);
 
@@ -267,13 +270,13 @@ var va2 = parseFloat(v2);
 
   code = `<span id="caixa1">
                      <div class="box">
-                           <h1 class="boxTitle">POWERTRAIN</h1>
+                           <h1 class="boxTitle">MOTOR</h1>
                                <div class="boxContent">
                                    <section class="boxInfoTeste">
                                      <ul class="specsToCompareT">
                                         <li><a href="">Power: `+ p1 +`Kw `+ kw_hp(p1) +`</a></li>
                                         <li><a href="">Torque: `+t1 +` </a></li>
-                                        <li><a href="">Power Weight Ratio:`+ p_w_r1 +` </a></li>
+                                       
                                       <ul>
                                     </section>
       
@@ -281,7 +284,7 @@ var va2 = parseFloat(v2);
                                     <ul class="specsToCompareT2">
                                        <li><a href="">`+ melhor(p1,p2) +`</a></li>
                                        <li><a href="">`+ melhor(torque[1],torque[2]) +`</a></li>
-                                       <li><a href="">`+ menor(p_w_r1,p_w_r2) +`</a></li>
+                                     
                                     <ul>
                                    </section>
 
@@ -289,38 +292,57 @@ var va2 = parseFloat(v2);
                                    <ul class="specsToCompareT">
                                      <li><a href="">Power: `+ p2 +`Kw `+ kw_hp(p2) +`</a></li>
                                      <li><a href="">Torque: `+t2 +`</a></li>
-                                     <li><a href=""><a href="">Power Weight Ratio:`+ p_w_r2 +` </a></a></li>
-                                  <ul>
+                                    <ul>
                                  </section>
                      </div>      
                         <h2 class="boxTitleBottom"></h2>
                      </div>
 
                        <div class="box">
-                           <h1 class="boxTitle">DIMENSIONS</h1>
+                           <h1 class="boxTitle">WEIGHT</h1>
                                <div class="boxContent">
                                    <section class="boxInfoTeste">
                                      <ul class="specsToCompareT">
                                         <li><a href="">Weight: `+ w1 +`Kg `+ kg_lbs(w1) +`</a></li>
-                                        <li><a href="">Line </a></li>
-                                        <li><a href="">Line</a></li>
-                                      <ul>
+                                        <ul>
                                     </section>
       
                                   <section class="boxInfoTeste2">
                                     <ul class="specsToCompareT2">
                                        <li><a href="">`+ menor(w1,w2) +`</a></li>
-                                       <li><a href=""> Line</a></li>
-                                       <li><a href="">Line</a></li>
+                                       
                                     <ul>
                                    </section>
 
                                <section class="boxInfoTeste">
                                    <ul class="specsToCompareT">
                                      <li><a href="">Weight: `+ w2 +`Kg `+ kg_lbs(w2) +`</a></li>
-                                     <li><a href="">Line</a></li>
-                                     <li><a href="">Line</a></li>
-                                  <ul>
+                                   <ul>
+                                 </section>
+                     </div>      
+                        <h2 class="boxTitleBottom"></h2>
+                     </div>
+
+                        <div class="box">
+                           <h1 class="boxTitle">BATTERY & CHARGING</h1>
+                               <div class="boxContent">
+                                   <section class="boxInfoTeste">
+                                     <ul class="specsToCompareT">
+                                        <li><a href="">Standard: `+ h_c1 +` Hours </a></li>
+                                        <ul>
+                                    </section>
+      
+                                  <section class="boxInfoTeste2">
+                                    <ul class="specsToCompareT2">
+                                       <li><a href="">`+ menor(h_c1,h_c2) +`</a></li>
+                                       
+                                    <ul>
+                                   </section>
+
+                               <section class="boxInfoTeste">
+                                   <ul class="specsToCompareT">
+                                     <li><a href="">Standard: `+ h_c2 +` Hours</a></li>
+                                   <ul>
                                  </section>
                      </div>      
                         <h2 class="boxTitleBottom"></h2>
@@ -335,7 +357,8 @@ var va2 = parseFloat(v2);
                                      <ul class="specsToCompareT">
                                         <li><a href="">Acceleration: `+ a1  +`</a></li>
                                         <li><a href="">Top Speed:  `+ s1 +`Km/h `+ km_miles(s1) +`</a></li>
-                                        <li><a href="">Line</a></li>
+                                        <li><a href="">Power Weight Ratio:`+ p_w_r1 +` </a></li>
+                                        <li><a href="">Range: `+ r1 +`Km `+ km_miles(r1) +`</a></li>
                                       <ul>
                                     </section>
       
@@ -343,7 +366,8 @@ var va2 = parseFloat(v2);
                                     <ul class="specsToCompareT2">
                                        <li><a href="">`+ menor(a1,a2) +`</a></li>
                                        <li><a href="">`+  melhor(s1,s2) +`</a></li>
-                                       <li><a href="">Line</a></li>
+                                       <li><a href="">`+ menor(p_w_r1,p_w_r2) +`</a></li>
+                                       <li><a href="">`+ melhor(r1,r2) +`</a></li>
                                     <ul>
                                    </section>
 
@@ -351,12 +375,15 @@ var va2 = parseFloat(v2);
                                    <ul class="specsToCompareT">
                                      <li><a href="">Acceleration: `+ a2  +`</a></li>
                                      <li><a href="">Top Speed: `+ s2 +`Km/h `+ km_miles(s2) +`</a></li>
-                                     <li><a href="">Line</a></li>
+                                     <li><a href=""><a href="">Power Weight Ratio:`+ p_w_r2 +` </a></a></li>
+                                     <li><a href="">Range: `+ r2 +`Km `+ km_miles(r2) +`</a></li>
                                   <ul>
                                  </section>
                      </div>      
                         <h2 class="boxTitleBottom"></h2>
                      </div>
+
+
                      </span>
                     `
 
@@ -1265,14 +1292,14 @@ connection.query(variaveis, (err,sugestoes_x) => {if(err) throw err;
 
 
 
-function power_weight_ratio(v1,v2)
+function power_weight_ratio(power,weight)
 {
 
-  var p_w_r = ( (parseInt(v1)) / (parseInt(v2))) ;
+  var p_w_r = ( (parseInt(power)) / (parseInt(weight))) ;
 
 
 
-  return p_w_r.toFixed(2);
+  return p_w_r.toFixed(3);
 }
 
 
