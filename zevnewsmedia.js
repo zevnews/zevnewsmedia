@@ -141,6 +141,7 @@ app.get('/mongodb/:valor/:v', function (req, res) {
 
 //POWER TRAIN
 var power = new Array();
+var power_u = new Array();
 var torque = new Array();
 
 //DIMENSIONS
@@ -179,12 +180,14 @@ var q = 2;
                  {
                      result.forEach(element => {
                         power[1] = torque_power(element.power1, element.power2,element.power3,element.power4); 
+                        power_u[1] = element.power_u;
                         torque[1] = torque_power(element.torque1, element.torque2,element.torque3,element.torque4)
                         weight[1] = element.weight;
                         acceleration[1] = element.acceleration;
                         speed[1] = element.speed;
                         range[1]= element.range;
                         home_charging[1] = element.home_charging;
+                        console.log("Power U" + power_u[1]);
 
                                                }); 
                 
@@ -202,7 +205,7 @@ var q = 2;
                         range[2]= element.range;
                         home_charging[2] = element.home_charging;
                         
-                        res.send(respostaHTM(1,power[1],torque[1],weight[1],acceleration[1],speed[1],range[1],home_charging[1],2,power[2],torque[2],weight[2],acceleration[2],speed[2],range[2],home_charging[2]));
+                        res.send(respostaHTM(1,power[1],torque[1],weight[1],acceleration[1],speed[1],range[1],home_charging[1],power_u[1],2,power[2],torque[2],weight[2],acceleration[2],speed[2],range[2],home_charging[2]));
                                                }); 
                  });
   
@@ -214,7 +217,9 @@ var q = 2;
 });
 
 
-function respostaHTM(e1,p1,t1,w1,a1,s1,r1,h_c1,e2,p2,t2,w2,a2,s2,r2,h_c2){
+function respostaHTM(e1,p1,t1,w1,a1,s1,r1,h_c1,pu1,e2,p2,t2,w2,a2,s2,r2,h_c2){
+
+  console.log("POWEERRR u" + pu1);
 
   var p_w_r1 = power_weight_ratio(p1,w1);
   var p_w_r2 = power_weight_ratio(p2,w2);
@@ -274,7 +279,7 @@ var va2 = parseFloat(v2);
                                <div class="boxContent">
                                    <section class="boxInfoTeste">
                                      <ul class="specsToCompareT">
-                                        <li><a href="">Power: `+ p1 +`Kw `+ kw_hp(p1) +`</a></li>
+                                        <li><a href="">Power: `+ p1 +`Kw `+ kw_hp(p1) +` - `+ checkUnits(pu1,w1) +`</a></li>
                                         <li><a href="">Torque: `+t1 +` </a></li>
                                        
                                       <ul>
@@ -303,7 +308,7 @@ var va2 = parseFloat(v2);
                                <div class="boxContent">
                                    <section class="boxInfoTeste">
                                      <ul class="specsToCompareT">
-                                        <li><a href="">Weight: `+ w1 +`Kg `+ kg_lbs(w1) +`</a></li>
+                                        <li><a href="">Weight: `+ w1 +`Kg `+ kg_lbs(w1) +``+  checkUnits("kg",w1)+`</a></li>
                                         <ul>
                                     </section>
       
@@ -316,7 +321,7 @@ var va2 = parseFloat(v2);
 
                                <section class="boxInfoTeste">
                                    <ul class="specsToCompareT">
-                                     <li><a href="">Weight: `+ w2 +`Kg `+ kg_lbs(w2) +`</a></li>
+                                     <li><a href="">Weight: `+ w2 +`Kg `+ kg_lbs(w2) +` `+  checkUnits("lbs",w2)+`</a></li>
                                    <ul>
                                  </section>
                      </div>      
@@ -356,7 +361,7 @@ var va2 = parseFloat(v2);
                                    <section class="boxInfoTeste">
                                      <ul class="specsToCompareT">
                                         <li><a href="">Acceleration: `+ a1  +`</a></li>
-                                        <li><a href="">Top Speed:  `+ s1 +`Km/h `+ km_miles(s1) +`</a></li>
+                                        <li><a href="">Top Speed:  `+ s1 +`Km/h `+ km_miles(s1) +` `+ checkUnits("km",s1) +` </a></li>
                                         <li><a href="">Power Weight Ratio:`+ p_w_r1 +` </a></li>
                                         <li><a href="">Range: `+ r1 +`Km `+ km_miles(r1) +`</a></li>
                                       <ul>
@@ -1290,6 +1295,37 @@ connection.query(variaveis, (err,sugestoes_x) => {if(err) throw err;
 
 // End of starting route
 
+function checkUnits(unit, measure)
+{
+
+ if (unit == "lbs")
+ {
+      return (measure * 0.45);
+ }
+
+  if (unit == "kg")
+ {
+      return (measure * 2.20);
+ }
+
+ if (unit == "mph")
+ {
+
+   return (measure * 1.60934);
+ }
+
+  if (unit == "km")
+ {
+
+   return (measure * 0.621371);
+ }
+
+ if (unit == "hp")
+ {
+
+   return (measure * 0.7457);
+ }
+}
 
 
 function power_weight_ratio(power,weight)
