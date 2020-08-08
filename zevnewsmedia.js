@@ -146,6 +146,7 @@ var torque = new Array();
 
 //DIMENSIONS
 var weight = new Array();
+var weight_u = new Array();
 
 //PERFORMANCE
 var acceleration = new Array();
@@ -182,10 +183,15 @@ var q = 2;
                         power[1] = torque_power(element.power1, element.power2,element.power3,element.power4); 
                         power_u[1] = element.power_u;
                         torque[1] = torque_power(element.torque1, element.torque2,element.torque3,element.torque4)
+                        
                         weight[1] = element.weight;
+                        weight_u[1] = element.weight_u;
+                        
                         acceleration[1] = element.acceleration;
                         speed[1] = element.speed;
+                        
                         range[1]= element.range;
+                        
                         home_charging[1] = element.home_charging;
                         console.log("Power U" + power_u[1]);
 
@@ -197,15 +203,21 @@ var q = 2;
               dbo.collection(collection1).find({"_id": x_id2}).toArray(function(err, result)
                  {
                      result.forEach(element => {
-                        power[2] = torque_power(element.power1, element.power2,element.power3,element.power4); 
+                        power[2] = torque_power(element.power1, element.power2,element.power3,element.power4);
+                        power_u[2] = element.power_u;
+
                         torque[2] = torque_power(element.torque1, element.torque2,element.torque3,element.torque4);
+                        
                         weight[2] = element.weight;
+                        weight_u[2] = element.weight_u;
+
                         acceleration[2] = element.acceleration; 
                         speed[2] = element.speed;
                         range[2]= element.range;
                         home_charging[2] = element.home_charging;
+
                         
-                        res.send(respostaHTM(1,power[1],torque[1],weight[1],acceleration[1],speed[1],range[1],home_charging[1],power_u[1],2,power[2],torque[2],weight[2],acceleration[2],speed[2],range[2],home_charging[2]));
+                        res.send(respostaHTM(1,power[1],torque[1],weight[1],acceleration[1],speed[1],range[1],home_charging[1],power_u[1],weight_u[1],2,power[2],torque[2],weight[2],acceleration[2],speed[2],range[2],home_charging[2],power_u[2],weight_u[2]));
                                                }); 
                  });
   
@@ -217,9 +229,9 @@ var q = 2;
 });
 
 
-function respostaHTM(e1,p1,t1,w1,a1,s1,r1,h_c1,pu1,e2,p2,t2,w2,a2,s2,r2,h_c2){
+function respostaHTM(e1,p1,t1,w1,a1,s1,r1,h_c1,pu1,wu1,e2,p2,t2,w2,a2,s2,r2,h_c2,pu2,wu2){
 
-  console.log("POWEERRR u" + pu1);
+  console.log("WU2" + wu2);
 
   var p_w_r1 = power_weight_ratio(p1,w1);
   var p_w_r2 = power_weight_ratio(p2,w2);
@@ -271,7 +283,20 @@ var va2 = parseFloat(v2);
   }
 
  
+function unit_measure(x, y)
+{
+  if (x == "lbs")
+  {
+    return y;
+  }
 
+  if (x == "kg")
+  {
+   var r =  kg_lbs(y)
+
+   return r;
+  }
+}
 
   code = `<span id="caixa1">
                      <div class="box">
@@ -279,7 +304,7 @@ var va2 = parseFloat(v2);
                                <div class="boxContent">
                                    <section class="boxInfoTeste">
                                      <ul class="specsToCompareT">
-                                        <li><a href="">Power: `+ p1 +`Kw `+ kw_hp(p1) +` - `+ checkUnits(pu1,w1) +`</a></li>
+                                        <li><a href="">Power: `+ p1 +``+ pu1 +` - `+ checkUnits(pu1,p1) +`</a></li>
                                         <li><a href="">Torque: `+t1 +` </a></li>
                                        
                                       <ul>
@@ -295,7 +320,7 @@ var va2 = parseFloat(v2);
 
                                <section class="boxInfoTeste">
                                    <ul class="specsToCompareT">
-                                     <li><a href="">Power: `+ p2 +`Kw `+ kw_hp(p2) +`</a></li>
+                                     <li><a href="">Power: `+ p2 +``+ pu2 +` - `+ checkUnits(pu2,p2) +`</a></li>
                                      <li><a href="">Torque: `+t2 +`</a></li>
                                     <ul>
                                  </section>
@@ -308,20 +333,21 @@ var va2 = parseFloat(v2);
                                <div class="boxContent">
                                    <section class="boxInfoTeste">
                                      <ul class="specsToCompareT">
-                                        <li><a href="">Weight: `+ w1 +`Kg `+ kg_lbs(w1) +``+  checkUnits("kg",w1)+`</a></li>
+                                        <li><a href="">Weight: `+ w1 +``+ wu1 +` - `+ checkUnits(wu1,w1) +`</a></li>
                                         <ul>
                                     </section>
       
                                   <section class="boxInfoTeste2">
                                     <ul class="specsToCompareT2">
-                                       <li><a href="">`+ menor(w1,w2) +`</a></li>
+                                       <li><a href="">`+ menor(unit_measure(wu1,w1),unit_measure(wu2,w2)) +` `+ unit_measure(wu1,w1) +` | `+ unit_measure(wu2,w2) +` </a></li>
+                                     
                                        
                                     <ul>
                                    </section>
 
                                <section class="boxInfoTeste">
                                    <ul class="specsToCompareT">
-                                     <li><a href="">Weight: `+ w2 +`Kg `+ kg_lbs(w2) +` `+  checkUnits("lbs",w2)+`</a></li>
+                                     <li><a href="">Weight: `+ w2 +``+ wu2 +` - `+ checkUnits(wu2,w2) +`</a></li>
                                    <ul>
                                  </section>
                      </div>      
@@ -1325,6 +1351,14 @@ function checkUnits(unit, measure)
 
    return (measure * 0.7457);
  }
+
+
+  if (unit == "kw")
+ {
+
+   return (measure * 1.359622).toFixed(2);
+ }
+
 }
 
 
@@ -1359,13 +1393,13 @@ function kg_lbs(v)
 {
   var lbs = (v* 2.2046226218).toFixed(2);
 
-  return  "(" + lbs + " lbs)";
+  return  lbs;
 }
 function kw_hp(v)
 {
   var power = (v * 1.36).toFixed(2);
 
-  return "(" + power + " Hp)";
+  return  power;
 }
 
 function superior(v1,v2)
