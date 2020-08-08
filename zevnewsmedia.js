@@ -150,7 +150,10 @@ var weight_u = new Array();
 
 //PERFORMANCE
 var acceleration = new Array();
+
 var speed = new Array();
+var speed_u = new Array();
+
 var range = new Array();
 
 //CHARGING
@@ -188,7 +191,9 @@ var q = 2;
                         weight_u[1] = element.weight_u;
                         
                         acceleration[1] = element.acceleration;
+                        
                         speed[1] = element.speed;
+                        speed_u[1] = element.speed_u;
                         
                         range[1]= element.range;
                         
@@ -211,13 +216,16 @@ var q = 2;
                         weight[2] = element.weight;
                         weight_u[2] = element.weight_u;
 
-                        acceleration[2] = element.acceleration; 
+                        acceleration[2] = element.acceleration;
+
                         speed[2] = element.speed;
+                        speed_u[2] = element.speed_u;
+                        
                         range[2]= element.range;
                         home_charging[2] = element.home_charging;
 
                         
-                        res.send(respostaHTM(1,power[1],torque[1],weight[1],acceleration[1],speed[1],range[1],home_charging[1],power_u[1],weight_u[1],2,power[2],torque[2],weight[2],acceleration[2],speed[2],range[2],home_charging[2],power_u[2],weight_u[2]));
+                        res.send(respostaHTM(1,power[1],torque[1],weight[1],acceleration[1],speed[1],range[1],home_charging[1],power_u[1],weight_u[1],speed_u[1],2,power[2],torque[2],weight[2],acceleration[2],speed[2],range[2],home_charging[2],power_u[2],weight_u[2],speed_u[2]));
                                                }); 
                  });
   
@@ -229,9 +237,9 @@ var q = 2;
 });
 
 
-function respostaHTM(e1,p1,t1,w1,a1,s1,r1,h_c1,pu1,wu1,e2,p2,t2,w2,a2,s2,r2,h_c2,pu2,wu2){
+function respostaHTM(e1,p1,t1,w1,a1,s1,r1,h_c1,pu1,wu1,su1,e2,p2,t2,w2,a2,s2,r2,h_c2,pu2,wu2,su2){
 
-  console.log("WU2" + wu2);
+  console.log("WU2" + su1 + su2);
 
   var p_w_r1 = power_weight_ratio(p1,w1);
   var p_w_r2 = power_weight_ratio(p2,w2);
@@ -296,6 +304,20 @@ function unit_measure(x, y)
 
    return r;
   }
+
+  if (x == "km")
+  {
+    console.log("KM POR HORA" + y);
+    return x;
+  }
+
+  if (x == "mph")
+  {
+    var r = km_miles(y);
+    console.log("MPH POR HORA" + r)
+
+    return r;
+  }
 }
 
   code = `<span id="caixa1">
@@ -333,7 +355,7 @@ function unit_measure(x, y)
                                <div class="boxContent">
                                    <section class="boxInfoTeste">
                                      <ul class="specsToCompareT">
-                                        <li><a href="">Weight: `+ w1 +``+ wu1 +` - `+ checkUnits(wu1,w1) +`</a></li>
+                                        <li><a href="">Weight: `+ checkUnits(wu1,w1) +`</a></li>
                                         <ul>
                                     </section>
       
@@ -347,7 +369,7 @@ function unit_measure(x, y)
 
                                <section class="boxInfoTeste">
                                    <ul class="specsToCompareT">
-                                     <li><a href="">Weight: `+ w2 +``+ wu2 +` - `+ checkUnits(wu2,w2) +`</a></li>
+                                     <li><a href="">Weight: `+ checkUnits(wu2,w2) +`</a></li>
                                    <ul>
                                  </section>
                      </div>      
@@ -387,7 +409,7 @@ function unit_measure(x, y)
                                    <section class="boxInfoTeste">
                                      <ul class="specsToCompareT">
                                         <li><a href="">Acceleration: `+ a1  +`</a></li>
-                                        <li><a href="">Top Speed:  `+ s1 +`Km/h `+ km_miles(s1) +` `+ checkUnits("km",s1) +` </a></li>
+                                        <li><a href="">Top Speed:  `+ checkUnits(su1,s1) +` </a></li>
                                         <li><a href="">Power Weight Ratio:`+ p_w_r1 +` </a></li>
                                         <li><a href="">Range: `+ r1 +`Km `+ km_miles(r1) +`</a></li>
                                       <ul>
@@ -396,7 +418,7 @@ function unit_measure(x, y)
                                   <section class="boxInfoTeste2">
                                     <ul class="specsToCompareT2">
                                        <li><a href="">`+ menor(a1,a2) +`</a></li>
-                                       <li><a href="">`+  melhor(s1,s2) +`</a></li>
+                                       <li><a href="">`+  melhor(unit_measure(su1,s1),unit_measure(su2,s2)) +`</a></li>
                                        <li><a href="">`+ menor(p_w_r1,p_w_r2) +`</a></li>
                                        <li><a href="">`+ melhor(r1,r2) +`</a></li>
                                     <ul>
@@ -405,7 +427,7 @@ function unit_measure(x, y)
                                <section class="boxInfoTeste">
                                    <ul class="specsToCompareT">
                                      <li><a href="">Acceleration: `+ a2  +`</a></li>
-                                     <li><a href="">Top Speed: `+ s2 +`Km/h `+ km_miles(s2) +`</a></li>
+                                     <li><a href="">Top Speed:  `+ checkUnits(su2,s2) +`</a></li>
                                      <li><a href=""><a href="">Power Weight Ratio:`+ p_w_r2 +` </a></a></li>
                                      <li><a href="">Range: `+ r2 +`Km `+ km_miles(r2) +`</a></li>
                                   <ul>
@@ -1326,24 +1348,29 @@ function checkUnits(unit, measure)
 
  if (unit == "lbs")
  {
-      return (measure * 0.45);
+      return (measure * 0.45) + "Kg (" + measure + "lbs)";
  }
 
   if (unit == "kg")
  {
-      return (measure * 2.20);
+      return measure +"Kg (" + (measure * 2.20) + "lbs)";
+
+
  }
+
+
 
  if (unit == "mph")
  {
 
-   return (measure * 1.60934);
+   return (measure * 1.60934).toFixed(2) + "Km (" + measure +" Mph)" ;
  }
 
+ 
   if (unit == "km")
  {
 
-   return (measure * 0.621371);
+   return  measure + "Km (" + (measure * 0.621371).toFixed(2) + "Mph)";
  }
 
  if (unit == "hp")
@@ -1386,7 +1413,7 @@ function torque_power(t1,t2,t3,t4)
 function km_miles(v)
 {
   var miles = (v*0.62).toFixed(2);
-  return  "(" + miles + " mph)";
+  return  miles;
 }
 
 function kg_lbs(v)
