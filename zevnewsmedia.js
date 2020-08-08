@@ -318,10 +318,26 @@ function unit_measure(x, y)
   if (x == "km")
   {
     var r = km_miles(y);
+    console.log("Milhas" + r)
+
+    return r;
+  }
+
+    if (x == "kmh")
+  {
+    var r = km_miles(y);
     console.log("MPH POR HORA" + r)
 
     return r;
   }
+
+   if (x == "miles")
+  {
+    console.log("miles de distancia" + y);
+    return y;
+  }
+
+
 }
 
   code = `<span id="caixa1">
@@ -330,7 +346,7 @@ function unit_measure(x, y)
                                <div class="boxContent">
                                    <section class="boxInfoTeste">
                                      <ul class="specsToCompareT">
-                                        <li><a href="">Power: `+ p1 +``+ pu1 +` - `+ checkUnits(pu1,p1) +`</a></li>
+                                        <li><a href="">Power: `+ checkUnits(pu1,p1) +`</a></li>
                                         <li><a href="">Torque: `+t1 +` </a></li>
                                        
                                       <ul>
@@ -346,7 +362,7 @@ function unit_measure(x, y)
 
                                <section class="boxInfoTeste">
                                    <ul class="specsToCompareT">
-                                     <li><a href="">Power: `+ p2 +``+ pu2 +` - `+ checkUnits(pu2,p2) +`</a></li>
+                                     <li><a href="">Power: `+ checkUnits(pu2,p2) +`</a></li>
                                      <li><a href="">Torque: `+t2 +`</a></li>
                                     <ul>
                                  </section>
@@ -365,7 +381,7 @@ function unit_measure(x, y)
       
                                   <section class="boxInfoTeste2">
                                     <ul class="specsToCompareT2">
-                                       <li><a href="">`+ menor(unit_measure(wu1,w1),unit_measure(wu2,w2)) +` `+ unit_measure(wu1,w1) +` | `+ unit_measure(wu2,w2) +` </a></li>
+                                       <li><a href="">`+ menor(unit_measure(wu1,w1),unit_measure(wu2,w2)) +`</a></li>
                                      
                                        
                                     <ul>
@@ -422,7 +438,7 @@ function unit_measure(x, y)
                                   <section class="boxInfoTeste2">
                                     <ul class="specsToCompareT2">
                                        <li><a href="">`+ menor(a1,a2) +`</a></li>
-                                       <li><a href=""> Ae`+ unit_measure(su1,s1) +` `+  melhor(unit_measure(su1,s1),unit_measure(su2,s2)) +` `+ unit_measure(su2,s2) +`</a></li>
+                                       <li><a href=""> `+  melhor(unit_measure(su1,s1),unit_measure(su2,s2)) +` </a></li>
                                        <li><a href="">`+ menor(p_w_r1,p_w_r2) +`</a></li>
                                        <li><a href="">`+ melhor(unit_measure(ru1,r1),unit_measure(ru2,r2))+`</a></li>
                                     <ul>
@@ -1352,12 +1368,12 @@ function checkUnits(unit, measure)
 
  if (unit == "lbs")
  {
-      return (measure * 0.45) + "Kg (" + measure + "lbs)";
+      return (measure * 0.45).toFixed(2) + "Kg (" + measure + "lbs)";
  }
 
   if (unit == "kg")
  {
-      return measure +"Kg (" + (measure * 2.20) + "lbs)";
+      return measure +"Kg (" + (measure * 2.20).toFixed(2) + "lbs)";
 
 
  }
@@ -1367,33 +1383,40 @@ function checkUnits(unit, measure)
  if (unit == "mph")
  {
 
-   return (measure * 1.60934).toFixed(2) + "Km (" + measure +" Mph)" ;
+   return (measure * 1.60934).toFixed(2) + "Km/h (" + measure +" Mph)" ;
+ }
+
+
+  if (unit == "kmh")
+ {
+
+   return  measure + "Km/h (" + (measure * 0.621371).toFixed(2) + "Mph)";
  }
 
  if (unit == "miles")
  {
 
-   return (measure * 1.60934).toFixed(2) + "Km (" + measure +" Mph)" ;
+   return (measure * 1.60934).toFixed(2) + "Km (" + measure +" Miles)" ;
  }
 
  
   if (unit == "km")
  {
 
-   return  measure + "Km (" + (measure * 0.621371).toFixed(2) + "Mph)";
+   return  measure + "Km (" + (measure * 0.621371).toFixed(2) + "Miles)";
  }
 
  if (unit == "hp")
  {
 
-   return (measure * 0.7457);
+   return (measure * 0.7457).toFixed(2) + "kW (" + measure + ")";
  }
 
 
   if (unit == "kw")
  {
 
-   return (measure * 1.359622).toFixed(2);
+   return measure + "kW (" + (measure * 1.359622).toFixed(2) +"Hp)";
  }
 
 }
