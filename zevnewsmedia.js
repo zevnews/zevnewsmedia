@@ -261,6 +261,13 @@ function melhor (v1,v2)
 var va1 = parseFloat(v1);
 var va2 = parseFloat(v2);
 
+if (va1 == 0 || v2 == 0)
+{
+  return "No data for comparasion"
+}
+else
+{
+
    if (va1 > va2)
           {
             return "<-- " + Math.abs(superior(va1,va2).toFixed(2)) + " %";
@@ -271,7 +278,7 @@ var va2 = parseFloat(v2);
             return "" + Math.abs(superior(va1,va2).toFixed(2)) + " % -->";
           }
 
-
+  }
       
 
   }
@@ -282,6 +289,13 @@ var va2 = parseFloat(v2);
       var va1 = parseInt(v1);
       var va2 = parseInt(v2);
 
+   if (va1 == 0 || va2 == 0)
+  {
+
+    return "No data to compare";
+  }
+  else
+  {
    if (va1 < va2)
           {
             return "<-- " + Math.abs(superior(va1,va2).toFixed(2)) + " %";
@@ -291,7 +305,8 @@ var va2 = parseFloat(v2);
           {
             return "" + Math.abs(superior(va1,va2).toFixed(2)) + " % -->";
           }
-
+  }
+  
   }
 
  
