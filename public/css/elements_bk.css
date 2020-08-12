@@ -17,6 +17,9 @@
 	font-weight: 800;}
 
 
+.winner  {color: green; background-color: pink}
+.looser { color: red; background-color: #000000; }
+
 /* The most searched vehicles showed at the bottom */
 .topSearchList {
 	width: 100%;

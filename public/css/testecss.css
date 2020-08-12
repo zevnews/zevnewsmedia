@@ -23,7 +23,7 @@
 	padding-bottom: 2%;
 	padding-left: 2%;
 	justify-content: center;
-	background-color: yellow;
+/*	background-color: yellow;*/
      }
 
 
@@ -71,7 +71,7 @@
 	padding-bottom: 4%;
 	padding-left: 2%;
 	justify-content: center;
-	background-color: cyan;
+	/*background-color: cyan;*/
      }
 
 
@@ -85,6 +85,9 @@
 	text-decoration: none;
      }
 
+
+.specsToCompareT2 li .winner  {color: green; background-color: pink}
+.specsToCompareT2 li .looser { color: red; background-color: #000000; }
 
 
 

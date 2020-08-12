@@ -139,6 +139,9 @@ app.get('/mongodb/:valor/:v', function (req, res) {
 
 /*function isOdd(num) { return num % 2;}*/
 
+var member1, member2 = "";
+
+
 //POWER TRAIN
 var power = new Array();
 var power_u = new Array();
@@ -258,6 +261,8 @@ function melhor (v1,v2)
 
   {  
 
+member1, member2 = "";
+
 var va1 = parseFloat(v1);
 var va2 = parseFloat(v2);
 
@@ -270,12 +275,18 @@ else
 
    if (va1 > va2)
           {
+           
+            console.log ("Comparação ativada 1")
             return "<-- " + Math.abs(superior(va1,va2).toFixed(2)) + " %";
+            
 
           }
           else
           {
-            return "" + Math.abs(superior(va1,va2).toFixed(2)) + " % -->";
+          
+           console.log ("Comparação ativada 2") ;        
+            return ">" + Math.abs(superior(va1,va2).toFixed(2)) + " % -->";
+           
           }
 
   }
@@ -283,11 +294,30 @@ else
 
   }
 
+  function cssWinner(f1,c1)
+  {
+    var f = f1;
+    f = f.substring(0,1);
+
+    if (f == "<" && c1 == 1)
+    {
+      console.log("Vencedor");
+      return "winner"
+    }
+    if (f == ">" && c1 == 2)
+    {
+      console.log("Vencedor");
+      return "winner";
+    }
+  }
+
   function menor(v1,v2)
   {
 
       var va1 = parseInt(v1);
       var va2 = parseInt(v2);
+    
+     
 
    if (va1 == 0 || va2 == 0)
   {
@@ -298,12 +328,15 @@ else
   {
    if (va1 < va2)
           {
-            return "<-- " + Math.abs(superior(va1,va2).toFixed(2)) + " %";
+
+            console.log("Menor 1");
+            return "<" + Math.abs(superior(va1,va2).toFixed(2)) + " %";
 
           }
           else
           {
-            return "" + Math.abs(superior(va1,va2).toFixed(2)) + " % -->";
+           console.log("Menor 2");
+            return ">" + Math.abs(superior(va1,va2).toFixed(2)) + " % -->";
           }
   }
   
@@ -361,24 +394,24 @@ function unit_measure(x, y)
                                <div class="boxContent">
                                    <section class="boxInfoTeste">
                                      <ul class="specsToCompareT">
-                                        <li><a href="">Power: `+ checkUnits(pu1,p1) +`</a></li>
-                                        <li><a href="">Torque: `+t1 +` </a></li>
+                                        <li class="`+ cssWinner(melhor(p1,p2),1) +`"><a href="">Power: `+ checkUnits(pu1,p1) +`</a></li>
+                                        <li class="`+ member1 +`"><a href="">Torque: `+t1 +` </a></li>
                                        
                                       <ul>
                                     </section>
       
                                   <section class="boxInfoTeste2">
                                     <ul class="specsToCompareT2">
-                                       <li><a href="">`+ melhor(p1,p2) +`</a></li>
-                                       <li><a href="">`+ melhor(torque[1],torque[2]) +`</a></li>
+                                       <li class="winner"><a href="">`+ melhor(p1,p2) +`</a></li>
+                                       <li class="winner"><a href="">`+ melhor(torque[1],torque[2]) +`</a></li>
                                      
                                     <ul>
                                    </section>
 
                                <section class="boxInfoTeste">
                                    <ul class="specsToCompareT">
-                                     <li><a href="">Power: `+ checkUnits(pu2,p2) +`</a></li>
-                                     <li><a href="">Torque: `+t2 +`</a></li>
+                                     <li class="`+ cssWinner(melhor(p1,p2),2) +`"><a href="" >Power: `+ checkUnits(pu2,p2) +`</a></li>
+                                     <li class="`+ member2 +`"><a href="">Torque: `+t2 +`</a></li>
                                     <ul>
                                  </section>
                      </div>      
@@ -390,13 +423,13 @@ function unit_measure(x, y)
                                <div class="boxContent">
                                    <section class="boxInfoTeste">
                                      <ul class="specsToCompareT">
-                                        <li><a href="">Weight: `+ checkUnits(wu1,w1) +`</a></li>
+                                        <li class="`+ cssWinner(menor(w1,w2),1) +`"><a href="">Weight: `+ checkUnits(wu1,w1) +`</a></li>
                                         <ul>
                                     </section>
       
                                   <section class="boxInfoTeste2">
                                     <ul class="specsToCompareT2">
-                                       <li><a href="">`+ menor(unit_measure(wu1,w1),unit_measure(wu2,w2)) +`</a></li>
+                                       <li class="winner"><a href="">`+ menor(unit_measure(wu1,w1),unit_measure(wu2,w2)) +`</a></li>
                                      
                                        
                                     <ul>
@@ -404,7 +437,7 @@ function unit_measure(x, y)
 
                                <section class="boxInfoTeste">
                                    <ul class="specsToCompareT">
-                                     <li><a href="">Weight: `+ checkUnits(wu2,w2) +`</a></li>
+                                     <li class="`+ cssWinner(menor(w1,w2),2) +`"><a href="">Weight: `+ checkUnits(wu2,w2) +`</a></li>
                                    <ul>
                                  </section>
                      </div>      
@@ -416,20 +449,20 @@ function unit_measure(x, y)
                                <div class="boxContent">
                                    <section class="boxInfoTeste">
                                      <ul class="specsToCompareT">
-                                        <li><a href="">Standard: `+ h_c1 +` Hours </a></li>
+                                        <li class="`+ cssWinner(menor(h_c1,h_c2),1) +`"><a href="">Standard: `+ h_c1 +` Hours </a></li>
                                         <ul>
                                     </section>
       
                                   <section class="boxInfoTeste2">
                                     <ul class="specsToCompareT2">
-                                       <li><a href="">`+ menor(h_c1,h_c2) +`</a></li>
+                                       <li class="winner"><a href="">`+ menor(h_c1,h_c2) +`</a></li>
                                        
                                     <ul>
                                    </section>
 
                                <section class="boxInfoTeste">
                                    <ul class="specsToCompareT">
-                                     <li><a href="">Standard: `+ h_c2 +` Hours</a></li>
+                                     <li class="`+ cssWinner(menor(h_c1,h_c2),2) +`"><a href="">Standard: `+ h_c2 +` Hours</a></li>
                                    <ul>
                                  </section>
                      </div>      
@@ -443,28 +476,28 @@ function unit_measure(x, y)
                                <div class="boxContent">
                                    <section class="boxInfoTeste">
                                      <ul class="specsToCompareT">
-                                        <li><a href="">Acceleration: `+ a1  +`</a></li>
-                                        <li><a href="">Top Speed:  `+ checkUnits(su1,s1) +` </a></li>
-                                        <li><a href="">Power Weight Ratio:`+ p_w_r1 +` </a></li>
-                                        <li><a href="">Range:  `+ checkUnits(ru1,r1) +` </a></li>
+                                        <li class="`+ cssWinner(menor(a1,a2),1) +`"><a href="">Acceleration: `+ a1  +`</a></li>
+                                        <li class="`+ cssWinner(melhor(s1,s2),1) +`"><a href="">Top Speed:  `+ checkUnits(su1,s1) +` </a></li>
+                                        <li class="`+ member1 +`"><a href="">Power Weight Ratio:`+ p_w_r1 +` </a></li>
+                                        <li class="`+ cssWinner(melhor(r1,r2),1) +`"><a href="">Range:  `+ checkUnits(ru1,r1) +` </a></li>
                                       <ul>
                                     </section>
       
                                   <section class="boxInfoTeste2">
                                     <ul class="specsToCompareT2">
-                                       <li><a href="">`+ menor(a1,a2) +`</a></li>
-                                       <li><a href=""> `+  melhor(unit_measure(su1,s1),unit_measure(su2,s2)) +` </a></li>
-                                       <li><a href="">`+ menor(p_w_r1,p_w_r2) +`</a></li>
-                                       <li><a href="">`+ melhor(unit_measure(ru1,r1),unit_measure(ru2,r2))+`</a></li>
+                                       <li class="winner"><a href="">`+ menor(a1,a2) +`</a></li>
+                                       <li class="winner"><a href=""> `+  melhor(unit_measure(su1,s1),unit_measure(su2,s2)) +` </a></li>
+                                       <li class="winner"><a href="">`+ menor(p_w_r1,p_w_r2) +`</a></li>
+                                       <li class="winner"><a href="">`+ melhor(unit_measure(ru1,r1),unit_measure(ru2,r2))+`</a></li>
                                     <ul>
                                    </section>
 
                                <section class="boxInfoTeste">
                                    <ul class="specsToCompareT">
-                                     <li><a href="">Acceleration: `+ a2  +`</a></li>
-                                     <li><a href="">Top Speed:  `+ checkUnits(su2,s2) +`</a></li>
-                                     <li><a href=""><a href="">Power Weight Ratio:`+ p_w_r2 +` </a></a></li>
-                                     <li><a href="">Range: `+ checkUnits(ru2,r2) +`</a></li>
+                                     <li class="`+ cssWinner(menor(a1,a2),2) +`"><a href="">Acceleration: `+ a2  +`</a></li>
+                                     <li class="`+ cssWinner(melhor(s1,s2),2) +`"><a href="">Top Speed:  `+ checkUnits(su2,s2) +`</a></li>
+                                     <li class="`+ member2 +`"><a href="">Power Weight Ratio:`+ p_w_r2 +` </a></a></li>
+                                     <li class="`+ cssWinner(melhor(r1,r2),2) +`"><a href="">Range: `+ checkUnits(ru2,r2) +`</a></li>
                                   <ul>
                                  </section>
                      </div>      
@@ -475,7 +508,7 @@ function unit_measure(x, y)
                      </span>
                     `
 
-
+console.log(code);
 return code;
 
 }
