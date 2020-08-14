@@ -261,18 +261,17 @@ function melhor (v1,v2)
 
   {  
 
-member1, member2 = "";
 
-var va1 = parseFloat(v1);
-var va2 = parseFloat(v2);
 
-if (va1 == 0 || v2 == 0)
+
+if (v1 == 0 || v2 == 0 || v1 == "na" || v2 ==  "na")
 {
-  return "No data for comparasion"
+  return "No data to compare"
 }
 else
 {
-
+ var va1 = parseFloat(v1);
+var va2 = parseFloat(v2);
   if (va1 == va2)
   {
 
@@ -322,18 +321,19 @@ else
   function menor(v1,v2)
   {
 
-      var va1 = parseInt(v1);
-      var va2 = parseInt(v2);
+      
     
-     
+     console.log("VALOR DE VA1" + v1);
 
-   if (va1 == 0 || va2 == 0)
+   if (v1 == 0 || v2 == 0 || v1 == "na" || v2 ==  "na")
   {
 
     return "No data to compare";
   }
   else
      {
+      var va1 = parseFloat(v1);
+      var va2 = parseFloat(v2);
         if (va1 == va2)
         {
           return "Even";
@@ -343,12 +343,12 @@ else
 
              if (va1 < va2)
                         {
-                            console.log("Menor 1");
+                           // console.log("Menor 1");
                              return "<" + Math.abs(superior(va1,va2).toFixed(2)) + " %";
                         }
                         else
                        {
-                            console.log("Menor 2");
+                           // console.log("Menor 2");
                             return ">" + Math.abs(superior(va1,va2).toFixed(2)) + " % -->";
                        } 
       }
@@ -373,29 +373,29 @@ function unit_measure(x, y)
 
   if (x == "mph")
   {
-    console.log("Milhas POR HORA" + y);
+//    console.log("Milhas POR HORA" + y);
     return y;
   }
 
   if (x == "km")
   {
     var r = km_miles(y);
-    console.log("Milhas" + r)
+  //  console.log("Milhas" + r)
 
     return r;
   }
 
     if (x == "kmh")
   {
-    var r = km_miles(y);
-    console.log("MPH POR HORA" + r)
+//    var r = km_miles(y);
+    console.log("MPH POR HORA" + y)
 
-    return r;
+    return y;
   }
 
    if (x == "miles")
   {
-    console.log("miles de distancia" + y);
+//    console.log("miles de distancia" + y);
     return y;
   }
 
@@ -514,7 +514,7 @@ function showColor(z)
                                   <section class="boxInfoTeste2">
                                     <ul class="specsToCompareT2">
                                        <li class="`+ showColor(menor(a1,a2)) +`"><a href="">`+ menor(a1,a2) +`</a></li>
-                                       <li class="`+ showColor(melhor(su1,su2)) +`"><a href=""> `+  melhor(unit_measure(su1,s1),unit_measure(su2,s2)) +` </a></li>
+                                       <li class="`+ showColor(melhor(unit_measure(su1,s1),unit_measure(su2,s2))) +`"><a href=""> `+  melhor(unit_measure(su1,s1),unit_measure(su2,s2)) +` </a></li>
                                        <li class="`+ showColor(menor(p_w_r1,p_w_r2)) +`"><a href="">`+ menor(p_w_r1,p_w_r2) +`</a></li>
                                        <li class="`+ showColor(melhor(ru1,ru2)) +`"><a href="">`+ melhor(unit_measure(ru1,r1),unit_measure(ru2,r2))+`</a></li>
                                     <ul>
@@ -630,7 +630,7 @@ conexao.connect(url, function(err, db)
                            </ul>`
                });
 
-            console.log("codigo de resposta" + codigo); 
+          //  console.log("codigo de resposta" + codigo); 
         res.send(codigo)
       });
     });
@@ -1501,22 +1501,30 @@ function checkUnits(unit, measure)
 function power_weight_ratio(power,weight)
 {
 
-  var p_w_r = ( (parseInt(power)) / (parseInt(weight))) ;
+  var p_w_r = ( (parseFloat(power)) / (parseFloat(weight))) ;
 
 
 
-  return p_w_r.toFixed(3);
+  return (p_w_r *1000).toFixed(3);
 }
 
 
 function torque_power(t1,t2,t3,t4)
 {
 
+  if (t1 == "na")
+  {
+    return "na";
+
+  }
+  else
+  {
   var totalTorque_Power = t1 + t2 + t3  + t4;
 
     totalTorque_Power = parseFloat(totalTorque_Power).toFixed(2);
 
   return totalTorque_Power;
+}
 }
 
 function km_miles(v)
@@ -1540,8 +1548,8 @@ function kw_hp(v)
 
 function superior(v1,v2)
 {
-  var va1 = parseInt(v1);
-  var va2 = parseInt(v2);
+  var va1 = parseFloat(v1);
+  var va2 = parseFloat(v2);
   
   var newNumber = 0;
   var originalNumber = 0;
@@ -1549,13 +1557,13 @@ function superior(v1,v2)
 
   if (va1 > va2)
   {
-    newNumber = parseInt(va1);
-    originalNumber = parseInt(va2);
+    newNumber = parseFloat(va1);
+    originalNumber = parseFloat(va2);
   }
   else
   {
-    newNumber = parseInt(va2);
-    originalNumber =  parseInt(va1);
+    newNumber = parseFloat(va2);
+    originalNumber =  parseFloat(va1);
   }
 
   var Increase = newNumber - originalNumber;
