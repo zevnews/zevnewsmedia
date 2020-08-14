@@ -273,6 +273,14 @@ if (va1 == 0 || v2 == 0)
 else
 {
 
+  if (va1 == va2)
+  {
+
+    return "Even";
+  }
+  else
+  {
+
    if (va1 > va2)
           {
            
@@ -290,7 +298,7 @@ else
           }
 
   }
-      
+ }   
 
   }
 
@@ -325,20 +333,26 @@ else
     return "No data to compare";
   }
   else
-  {
-   if (va1 < va2)
-          {
+     {
+        if (va1 == va2)
+        {
+          return "Even";
+        }
+        else
+        {
 
-            console.log("Menor 1");
-            return "<" + Math.abs(superior(va1,va2).toFixed(2)) + " %";
-
-          }
-          else
-          {
-           console.log("Menor 2");
-            return ">" + Math.abs(superior(va1,va2).toFixed(2)) + " % -->";
-          }
-  }
+             if (va1 < va2)
+                        {
+                            console.log("Menor 1");
+                             return "<" + Math.abs(superior(va1,va2).toFixed(2)) + " %";
+                        }
+                        else
+                       {
+                            console.log("Menor 2");
+                            return ">" + Math.abs(superior(va1,va2).toFixed(2)) + " % -->";
+                       } 
+      }
+    }
   
   }
 
