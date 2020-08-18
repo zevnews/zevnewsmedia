@@ -457,7 +457,7 @@ function showColor(z)
       
                                   <section class="boxInfoTeste2">
                                     <ul class="specsToCompareT2">
-                                       <li class="`+ showColor(menor(w1,w2)) +`"><a href="">`+ menor(unit_measure(wu1,w1),unit_measure(wu2,w2)) +`</a></li>
+                                       <li class="`+ showColor(menor(w1,w2)) +`"><a href="">`+ menor(libras_para_quilos(wu1,w1),libras_para_quilos(wu2,w2)) +`</a></li>
                                      
                                        
                                     <ul>
@@ -506,7 +506,7 @@ function showColor(z)
                                      <ul class="specsToCompareT">
                                         <li class="`+ cssWinner(menor(a1,a2),1) +`"><a href="">Acceleration: `+ a1  +`</a></li>
                                         <li class="`+ cssWinner(melhor(s1,s2),1) +`"><a href="">Top Speed:  `+ checkUnits(su1,s1) +` </a></li>
-                                        <li class="`+ cssWinner(melhor(p_w_r1,p_w_r2),1) +`"><a href="">Power Weight Ratio:`+ calcula_potencia_peso(p1,libras_para_quilos(wu1,w1)) +` </a></li>
+                                        <li class="`+ cssWinner(melhor(p_w_r1,p_w_r2),1) +`"><a href="">Power Weight Ratio: `+ calcula_potencia_peso(p1,libras_para_quilos(wu1,w1)) +` W/Kg </a></li>
                                         <li class="`+ cssWinner(melhor(r1,r2),1) +`"><a href="">Range:  `+ checkUnits(ru1,r1) +` </a></li>
                                       <ul>
                                     </section>
@@ -514,7 +514,7 @@ function showColor(z)
                                   <section class="boxInfoTeste2">
                                     <ul class="specsToCompareT2">
                                        <li class="`+ showColor(menor(a1,a2)) +`"><a href="">`+ menor(a1,a2) +`</a></li>
-                                       <li class="`+ showColor(melhor(unit_measure(su1,s1),unit_measure(su2,s2))) +`"><a href=""> dddd `+  melhor(milhas_para_km(su1,s1),milhas_para_km(su2,s2)) +` </a></li>
+                                       <li class="`+ showColor(melhor(unit_measure(su1,s1),unit_measure(su2,s2))) +`"><a href="">`+  melhor(milhas_para_km(su1,s1),milhas_para_km(su2,s2)) +` </a></li>
                                        <li class="`+ showColor(melhor(p_w_r1,p_w_r2)) +`"><a href="">`+ melhor(calcula_potencia_peso(p1,libras_para_quilos(wu1,w1)),calcula_potencia_peso(p2,libras_para_quilos(wu2,w2))) +`</a></li>
                                        <li class="`+ showColor(melhor(ru1,ru2)) +`"><a href="">`+ melhor(unit_measure(ru1,r1),unit_measure(ru2,r2))+`</a></li>
                                     <ul>
@@ -524,7 +524,7 @@ function showColor(z)
                                    <ul class="specsToCompareT">
                                      <li class="`+ cssWinner(menor(a1,a2),2) +`"><a href="">Acceleration: `+ a2  +`</a></li>
                                      <li class="`+ cssWinner(melhor(s1,s2),2) +`"><a href="">Top Speed:  `+ checkUnits(su2,s2) +`</a></li>
-                                     <li class="`+ cssWinner(melhor(p_w_r1,p_w_r2),2) +`"><a href="">Power Weight Ratio:`+ calcula_potencia_peso(p2,libras_para_quilos(wu2,w2))+` </a></a></li>
+                                     <li class="`+ cssWinner(melhor(p_w_r1,p_w_r2),2) +`"><a href="">Power Weight Ratio: `+ calcula_potencia_peso(p2,libras_para_quilos(wu2,w2))+` W/Kg</a></li>
                                      <li class="`+ cssWinner(melhor(r1,r2),2) +`"><a href="">Range: `+ checkUnits(ru2,r2) +`</a></li>
                                   <ul>
                                  </section>
@@ -1584,17 +1584,45 @@ app.listen(21171, function() {
 function milhas_para_km (unidade,velocidade)
 
 {
+  if (unidade == "km")
+  {
+    return velocidade;
+  }
+
+
   
   if (unidade == "kmh")
   {
     return velocidade;
   }
+
+
+   if (unidade == "miles")
+  {
+
+      return (velocidade * 1.60934).toFixed(2);
+  }
+
   if (unidade == "mph")
   {
 
       return (velocidade * 1.60934).toFixed(2);
   }
 
+}
+
+function cavalos_para_kw(unidade,potencia)
+{
+  if (unidade == "kw")
+  {
+    return potencia;
+  }
+
+  if (unidade = "hp")
+  {
+
+    return (0.735499).toFixed(2);
+  }
 }
 
 function libras_para_quilos(unidade,peso){
@@ -1614,4 +1642,18 @@ function calcula_potencia_peso(power,weight)
   var result = (parseFloat(power)/parseFloat(weight)) * 1000;
 
   return result.toFixed(3);
+}
+
+function pe_libra_para_kg_fm(unidade,forca)
+{
+    if (unidade = "kgfm")
+    {
+      return forca;
+    }
+
+    if (unidade = "lbft")
+    {
+      return (forca * 0.138255).toFixed(2);
+    }
+
 }
