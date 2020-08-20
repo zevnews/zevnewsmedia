@@ -262,8 +262,8 @@ function respostaHTM(e1,p1,t1,w1,a1,s1,r1,h_c1,pu1,wu1,su1,ru1,tu1,e2,p2,t2,w2,a
   resu = resu.toFixed(2);
  // console.log("RESULTADO" + resu);
 
- console.log("POWER 2" + p2);
-  console.log("TOQUE 2" + t2);
+console.log("-------------------> TORQUE 1 " + t1 + " = "+ conversor_de_torque(tu1,t1));
+console.log("-------------------> TORQUE 2 " + t2  +" = "+ + conversor_de_torque(tu2,t2));
 
 function melhor (v1,v2)
 
@@ -1674,20 +1674,20 @@ function pe_libra_para_kg_fm(unidade,forca)
           if (unidade = "lb")
               {
 
-                return (forca * 0.13825).toFixed(2);
+                return (parseFloat(forca) * 0.13825).toFixed(2);
               }
 
           if (unidade = "nm")
              {
 
-              return (forca * 0.101972).toFixed(2);
+              return (parseFloat(forca)  * 0.101972).toFixed(2);
               }
 
 
            if (unidade == "kg")
               {
 
-              return forca;
+              return parseFloat(forca);
               }
 
 }
