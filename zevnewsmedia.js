@@ -145,7 +145,9 @@ var member1, member2 = "";
 //POWER TRAIN
 var power = new Array();
 var power_u = new Array();
+
 var torque = new Array();
+var torque_u = new Array();
 
 //DIMENSIONS
 var weight = new Array();
@@ -189,7 +191,9 @@ var q = 2;
                      result.forEach(element => {
                         power[1] = torque_power(element.power1, element.power2,element.power3,element.power4); 
                         power_u[1] = element.power_u;
-                        torque[1] = torque_power(element.torque1, element.torque2,element.torque3,element.torque4)
+                        
+                        torque[1] = torque_power(element.torque1, element.torque2,element.torque3,element.torque4);
+                        torque_u[1] = element.torque_u;
                         
                         weight[1] = element.weight;
                         weight_u[1] = element.weight_u;
@@ -217,6 +221,7 @@ var q = 2;
                         power_u[2] = element.power_u;
 
                         torque[2] = torque_power(element.torque1, element.torque2,element.torque3,element.torque4);
+                        torque_u[2] = element.torque_u;
                         
                         weight[2] = element.weight;
                         weight_u[2] = element.weight_u;
@@ -232,7 +237,7 @@ var q = 2;
                         home_charging[2] = element.home_charging;
 
                         
-                        res.send(respostaHTM(1,power[1],torque[1],weight[1],acceleration[1],speed[1],range[1],home_charging[1],power_u[1],weight_u[1],speed_u[1],range_u[1],2,power[2],torque[2],weight[2],acceleration[2],speed[2],range[2],home_charging[2],power_u[2],weight_u[2],speed_u[2],range_u[2]));
+                        res.send(respostaHTM(1,power[1],torque[1],weight[1],acceleration[1],speed[1],range[1],home_charging[1],power_u[1],weight_u[1],speed_u[1],range_u[1],torque_u[1],2,power[2],torque[2],weight[2],acceleration[2],speed[2],range[2],home_charging[2],power_u[2],weight_u[2],speed_u[2],range_u[2],torque_u[2]));
                                                }); 
                  });
   
@@ -244,18 +249,21 @@ var q = 2;
 });
 
 
-function respostaHTM(e1,p1,t1,w1,a1,s1,r1,h_c1,pu1,wu1,su1,ru1,e2,p2,t2,w2,a2,s2,r2,h_c2,pu2,wu2,su2,ru2){
+function respostaHTM(e1,p1,t1,w1,a1,s1,r1,h_c1,pu1,wu1,su1,ru1,tu1,e2,p2,t2,w2,a2,s2,r2,h_c2,pu2,wu2,su2,ru2,tu2){
 
   console.log("WU2" + su1 + su2);
 
   var p_w_r1 = power_weight_ratio(p1,w1);
   var p_w_r2 = power_weight_ratio(p2,w2);
-  console.log("PWR1 " + p_w_r1);
-  console.log("PWR 2" + p_w_r2);
+//  console.log("PWR1 " + p_w_r1);
+//  console.log("PWR 2" + p_w_r2);
 
   var resu  = (10.5/2.3)
   resu = resu.toFixed(2);
-  console.log("RESULTADO" + resu);
+ // console.log("RESULTADO" + resu);
+
+ console.log("POWER 2" + p2);
+  console.log("TOQUE 2" + t2);
 
 function melhor (v1,v2)
 
@@ -416,6 +424,8 @@ function showColor(z)
   }
 }
 
+
+
   code = `<span id="caixa1">
                      <div class="box">
                            <h1 class="boxTitle">MOTOR</h1>
@@ -431,7 +441,7 @@ function showColor(z)
                                   <section class="boxInfoTeste2">
                                     <ul class="specsToCompareT2">
                                        <li class="`+ showColor(melhor(p1,p2)) +`"><a href="">`+ melhor(p1,p2) +`</a></li>
-                                       <li class="`+ showColor(melhor(t1,t2)) +`"><a href="">`+ melhor(t1,t2) +`</a></li>
+                                       <li class="`+ showColor(melhor(conversor_de_torque(tu1,t1),conversor_de_torque(tu2,t2))) +`"><a href="">`+ melhor(conversor_de_torque(tu1,t1),conversor_de_torque(tu2,t2)) +`</a></li>
                                      
                                     <ul>
                                    </section>
@@ -439,7 +449,7 @@ function showColor(z)
                                <section class="boxInfoTeste">
                                    <ul class="specsToCompareT">
                                      <li class="`+ cssWinner(melhor(p1,p2),2) +`"><a href="" >Power: `+ checkUnits(pu2,p2) +`</a></li>
-                                     <li class="`+ cssWinner(melhor(t1,t2),2) +`"><a href="">Torque: `+t2 +`</a></li>
+                                     <li class="`+ cssWinner(melhor(t1,t2),2) +`"><a href="">Torque ->: `+t2 +`</a></li>
                                     <ul>
                                  </section>
                      </div>      
@@ -1655,5 +1665,30 @@ function pe_libra_para_kg_fm(unidade,forca)
     {
       return (forca * 0.138255).toFixed(2);
     }
+}
+
+    function conversor_de_torque(unidade,forca)
+    {
+
+
+          if (unidade = "lb")
+              {
+
+                return (forca * 0.13825).toFixed(2);
+              }
+
+          if (unidade = "nm")
+             {
+
+              return (forca * 0.101972).toFixed(2);
+              }
+
+
+           if (unidade == "kg")
+              {
+
+              return forca;
+              }
 
 }
+
