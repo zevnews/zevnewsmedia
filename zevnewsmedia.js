@@ -433,7 +433,7 @@ function showColor(z)
                                    <section class="boxInfoTeste">
                                      <ul class="specsToCompareT">
                                         <li class="`+ cssWinner(melhor(p1,p2),1) +`"><a href="">Power: `+ checkUnits(pu1,p1) +`</a></li>
-                                        <li class="`+ cssWinner(melhor(t1,t2),1) +`"><a href="">Torque: `+t1 +` </a></li>
+                                        <li class="`+ cssWinner(melhor(t1,t2),1) +`"><a href="">Torque: `+t1 +` - `+ checkUnits(tu1,t1) +` </a></li>
                                        
                                       <ul>
                                     </section>
@@ -449,7 +449,7 @@ function showColor(z)
                                <section class="boxInfoTeste">
                                    <ul class="specsToCompareT">
                                      <li class="`+ cssWinner(melhor(p1,p2),2) +`"><a href="" >Power: `+ checkUnits(pu2,p2) +`</a></li>
-                                     <li class="`+ cssWinner(melhor(t1,t2),2) +`"><a href="">Torque ->: `+t2 +`</a></li>
+                                     <li class="`+ cssWinner(melhor(t1,t2),2) +`"><a href="">Torque ->: `+t2 +` - `+ checkUnits(tu2,t2) +` </a></li>
                                     <ul>
                                  </section>
                      </div>      
@@ -1505,7 +1505,22 @@ function checkUnits(unit, measure)
    return measure + "kW (" + (measure * 1.359622).toFixed(2) +"Hp)";
  }
 
+
+ if (unit == "nm")
+ {
+
+   return conversor_de_torque("nm",measure) + "Kgfm";
+ }
+
+  if (unit == "lbft")
+ {
+
+   return conversor_de_torque("lbft",measure) + "Kgfm";
+ }
+
 }
+
+
 
 
 function power_weight_ratio(power,weight)
@@ -1671,7 +1686,7 @@ function pe_libra_para_kg_fm(unidade,forca)
     {
 
 
-          if (unidade = "lb")
+          if (unidade = "lbft")
               {
 
                 return (parseFloat(forca) * 0.13825).toFixed(2);
@@ -1684,7 +1699,7 @@ function pe_libra_para_kg_fm(unidade,forca)
               }
 
 
-           if (unidade == "kg")
+           if (unidade == "kgfm")
               {
 
               return parseFloat(forca);
