@@ -1,0 +1,15 @@
+1 newton meter N m 	= 0.10 	kilogram force meters kgfm
+
+1 newton meter  =  0.74 pound force foot (lbf-ft)
+
+
+1 kilogram force meter (kgf-m) = 9.81 newton meter (N-m)
+
+1 kilogram force meter (kgf-m) = 7.23 pound force foot (lbf-ft)
+
+
+1 pound force foot (lbf-ft) = 1.36 newton meter (N-m)
+
+1 pound force foot (lbf-ft) =  0.14 kilogram force meter (kgf-m)
+
+

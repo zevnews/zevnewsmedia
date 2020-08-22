@@ -1509,13 +1509,16 @@ function checkUnits(unit, measure)
  if (unit == "nm")
  {
 
-   return conversor_de_torque("nm",measure) + "Kgfm";
+    var kgfm = conversor_de_torque("nm",measure);
+   return " ||| "+ kgfm + "Kgfm -"+ measure + " Nm" + (kgfm * 7.233013851209).toFixed(2) + " Lbft"  ;
  }
 
   if (unit == "lbft")
  {
 
-   return conversor_de_torque("lbft",measure) + "Kgfm";
+     var kgfm = conversor_de_torque("lbft",measure);
+   // return conversor_de_torque("lbft",measure) + "Kgfm";
+   return  " ||| "+ kgfm + " Kgfm "+ (kgfm *  9.80665).toFixed(2) + " Nm " + measure + " Lbft" ;
  }
 
 }
@@ -1695,14 +1698,14 @@ function pe_libra_para_kg_fm(unidade,forca)
           if (unidade = "nm")
              {
 
-              return (parseFloat(forca)  * 0.101972).toFixed(2);
+              return (parseFloat(forca)  * 0.10197).toFixed(2);
               }
 
 
            if (unidade == "kgfm")
               {
 
-              return parseFloat(forca);
+              return parseFloat(forca).toFixed(2);
               }
 
 }
