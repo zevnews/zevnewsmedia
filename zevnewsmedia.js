@@ -100,7 +100,7 @@ app.get('/mongodb/:valor/:v', function (req, res) {
        var dbo = db.db(database);
        var referencia = req.params.valor;
        var vx = req.params.v;
-       console.log("-------------> ABERTA <--------------------------" + vx + "  " + referencia);
+   //    console.log("-------------> ABERTA <--------------------------" + vx + "  " + referencia);
       var busca ="";
 
       if (vx == "1")
@@ -130,7 +130,7 @@ app.get('/mongodb/:valor/:v', function (req, res) {
         
         codigo = codigo + '</ul>';
         codigo = codigo + '<input type="hidden" value="'+ contador +'" id="totalSearchs" name="totalSearchs">'
-        console.log(codigo);
+     //   console.log(codigo);
         res.send(codigo)
       });
     });
@@ -207,7 +207,7 @@ var q = 2;
                         range_u[1]= element.range_u;
                         
                         home_charging[1] = element.home_charging;
-                        console.log("Power U" + power_u[1]);
+                 //       console.log("Power U" + power_u[1]);
 
                                                }); 
                 
@@ -251,7 +251,7 @@ var q = 2;
 
 function respostaHTM(e1,p1,t1,w1,a1,s1,r1,h_c1,pu1,wu1,su1,ru1,tu1,e2,p2,t2,w2,a2,s2,r2,h_c2,pu2,wu2,su2,ru2,tu2){
 
-  console.log("WU2" + su1 + su2);
+ // console.log("WU2" + su1 + su2);
 
   var p_w_r1 = power_weight_ratio(p1,w1);
   var p_w_r2 = power_weight_ratio(p2,w2);
@@ -262,8 +262,8 @@ function respostaHTM(e1,p1,t1,w1,a1,s1,r1,h_c1,pu1,wu1,su1,ru1,tu1,e2,p2,t2,w2,a
   resu = resu.toFixed(2);
  // console.log("RESULTADO" + resu);
 
-console.log("-------------------> TORQUE 1 " + t1 + " = "+ conversor_de_torque(tu1,t1));
-console.log("-------------------> TORQUE 2 " + t2  +" = "+ + conversor_de_torque(tu2,t2));
+// console.log("-------------------> TORQUE 1 " + t1 + " = "+ conversor_de_torque(tu1,t1));
+// console.log("-------------------> TORQUE 2 " + t2  +" = "+ + conversor_de_torque(tu2,t2));
 
 function melhor (v1,v2)
 
@@ -291,7 +291,7 @@ var va2 = parseFloat(v2);
    if (va1 > va2)
           {
            
-            console.log ("Comparação ativada 1")
+           // console.log ("Comparação ativada 1")
             return "<-- " + Math.abs(superior(va1,va2).toFixed(2)) + " %";
             
 
@@ -299,7 +299,7 @@ var va2 = parseFloat(v2);
           else
           {
           
-           console.log ("Comparação ativada 2") ;        
+        //   console.log ("Comparação ativada 2") ;        
             return ">" + Math.abs(superior(va1,va2).toFixed(2)) + " % -->";
            
           }
@@ -316,12 +316,12 @@ var va2 = parseFloat(v2);
 
     if (f == "<" && c1 == 1)
     {
-      console.log("Vencedor");
+  //    console.log("Vencedor");
       return "winner"
     }
     if (f == ">" && c1 == 2)
     {
-      console.log("Vencedor");
+  //    console.log("Vencedor");
       return "winner";
     }
   }
@@ -331,7 +331,7 @@ var va2 = parseFloat(v2);
 
       
     
-     console.log("VALOR DE VA1" + v1);
+  //   console.log("VALOR DE VA1" + v1);
 
    if (v1 == 0 || v2 == 0 || v1 == "na" || v2 ==  "na")
   {
@@ -396,7 +396,7 @@ function unit_measure(x, y)
     if (x == "kmh")
   {
 //    var r = km_miles(y);
-    console.log("MPH POR HORA" + y)
+  //  console.log("MPH POR HORA" + y)
 
     return y;
   }
@@ -415,7 +415,7 @@ function showColor(z)
 
   if (z == "Even" || z == "No data to compare")
   {
-    console.log("SHOW COLOR É" + z);
+   // console.log("SHOW COLOR É" + z);
     return "nada";
   }
   else
@@ -441,7 +441,7 @@ function showColor(z)
                                   <section class="boxInfoTeste2">
                                     <ul class="specsToCompareT2">
                                        <li class="`+ showColor(melhor(p1,p2)) +`"><a href="">`+ melhor(p1,p2) +`</a></li>
-                                       <li class="`+ showColor(melhor(conversor_de_torque(tu1,t1),conversor_de_torque(tu2,t2))) +`"><a href="">`+ melhor(conversor_de_torque(tu1,t1),conversor_de_torque(tu2,t2)) +`</a></li>
+                                       <li class="`+ showColor(melhor(conversor_de_torque(tu1,t1),conversor_de_torque(tu2,t2))) +`"><a href=""> TU `+ tu1 +`T1 `+ t1 +` - `+ conversor_universal_torque(tu1,t1) +` - `+ conversor_universal_torque(tu2,t2)  +` `+ melhor(conversor_universal_torque(tu1,t1),conversor_universal_torque(tu2,t2)) +`</a></li>
                                      
                                     <ul>
                                    </section>
@@ -546,7 +546,7 @@ function showColor(z)
                      </span>
                     `
 
-console.log(code);
+// console.log(code);
 return code;
 
 }
@@ -588,7 +588,7 @@ app.post("/login", function(req, res) { // root route or home route
      password1 =req.param('password');
      if (login == login1 && password == password1){
      req.session.name = 'junior'
-     console.log(req.session.name) 
+     //console.log(req.session.name) 
      sessao_usuario = req.session.name; 
       
          res.redirect('/cms')
@@ -615,7 +615,7 @@ conexao.connect(url, function(err, db)
        if (err) throw err;
        var dbo = db.db(database);
        var referencia = req.params.valor;
-       console.log(referencia);
+   //    console.log(referencia);
        var codigo = "";
        var mongox = require('mongodb');
        var x_id = new mongox.ObjectID(referencia);
@@ -682,13 +682,13 @@ app.get("/cms", function(req, res) { // user route
        
     
     rows.forEach(row => { 
-  console.log(row.publi_date); 
+ // console.log(row.publi_date); 
 }); 
 
        
     });
 
-    console.log( "Sessao" + req.session.name);
+  //  console.log( "Sessao" + req.session.name);
     }
     else
     {
@@ -757,7 +757,7 @@ app.get("/search", function(req, res) { // root route or home route
 
 app.post("/search", function(req, res) { // user route
     var searchItem = req.body.searchItem;
-      console.log("valor" + searchItem);
+    //  console.log("valor" + searchItem);
       searchTest = searchItem;
       connection.query("select * from ARTICLES where article like '%"+ searchItem +"%' ORDER BY PUBLI_DATE DESC LIMIT 9", (err,rows) => {
       if(err) throw err;
@@ -768,7 +768,7 @@ app.post("/search", function(req, res) { // user route
           pagina = 0;
           section = "Nenhum resultado";
           linha = null;
-          console.log("nada");
+        //  console.log("nada");
           res.render("conteudos.ejs", {rows, section, pagina, linha});
       }
       else
@@ -776,13 +776,13 @@ app.post("/search", function(req, res) { // user route
           pagina = 0;
           section = "all";
           linha = 1;
-          console.log("Refe " + searchTest);
+        //  console.log("Refe " + searchTest);
 
 
           paginaBuscas = 0;
 
            rows.forEach(row => { 
-              console.log(row.publi_date); 
+            //  console.log(row.publi_date); 
               paginaBuscas = paginaBuscas + 1;
           }); 
           res.render("conteudos.ejs", {rows, section, pagina, linha, paginaBuscas});
@@ -1215,7 +1215,7 @@ app.get("/next/:pagina/:secao", function(req, res) { // user route
          
             linhas.forEach(linha => { 
             linha = linha.cod; 
-              console.log ("linha é" + linha);
+            //  console.log ("linha é" + linha);
               console.log("O termo é " + searchTest);
              res.render("conteudos.ejs", {rows, pagina, section, linha});
              }); 
@@ -1508,9 +1508,8 @@ function checkUnits(unit, measure)
 
  if (unit == "nm")
  {
-
-    var kgfm = conversor_de_torque("nm",measure);
-   return " ||| "+ kgfm + "Kgfm -"+ measure + " Nm" + (kgfm * 7.233013851209).toFixed(2) + " Lbft"  ;
+  
+   return " |->| "+ (measure * 0.102).toFixed(2) + "Kgfm -"+ measure + " Nm" + (measure * 0.737).toFixed(2) + " Lbft"  ;
  }
 
   if (unit == "lbft")
@@ -1519,6 +1518,14 @@ function checkUnits(unit, measure)
      var kgfm = conversor_de_torque("lbft",measure);
    // return conversor_de_torque("lbft",measure) + "Kgfm";
    return  " ||| "+ kgfm + " Kgfm "+ (kgfm *  9.80665).toFixed(2) + " Nm " + measure + " Lbft" ;
+ }
+
+   if (unit == "kgfm")
+ {
+
+ 
+   // return conversor_de_torque("lbft",measure) + "Kgfm";
+   return  " ||| "+ measure + " Kgfm "+ (measure *  9.8066499997).toFixed(2) + " Nm " + (measure *  7.2330138512).toFixed(2) + " Lbft" ;
  }
 
 }
@@ -1691,14 +1698,13 @@ function pe_libra_para_kg_fm(unidade,forca)
 
           if (unidade = "lbft")
               {
-
+              //  console.log(forca + " " + (parseFloat(forca) * 0.13825).toFixed(2));
                 return (parseFloat(forca) * 0.13825).toFixed(2);
               }
 
-          if (unidade = "nm")
+          if (unidade == "nm")
              {
-
-              return (parseFloat(forca)  * 0.10197).toFixed(2);
+               console.log("Chamou Nm");
               }
 
 
@@ -1707,6 +1713,31 @@ function pe_libra_para_kg_fm(unidade,forca)
 
               return parseFloat(forca).toFixed(2);
               }
+
+}
+
+
+function conversor_universal_torque(n1,v1)
+{
+    if (n1 == "nm")
+      {
+
+        return (v1 * 0.102).toFixed(2);
+
+      }
+
+    if (n1 == "lbft")
+    {
+
+      return (v1 * 0.1382549544).toFixed(2);
+    }
+
+    if (n1 = "kgfm")
+    {
+
+      return v1;
+    }
+
 
 }
 
