@@ -253,13 +253,29 @@ function respostaHTM(e1,p1,t1,w1,a1,s1,r1,h_c1,pu1,wu1,su1,ru1,tu1,e2,p2,t2,w2,a
 
  // console.log("WU2" + su1 + su2);
 
-  var p_w_r1 = power_weight_ratio(p1,w1);
-  var p_w_r2 = power_weight_ratio(p2,w2);
+  var p_w_r1 = calcula_potencia_peso(p1,w1);
+  var p_w_r2 = calcula_potencia_peso(p2,w2);
 //  console.log("PWR1 " + p_w_r1);
 //  console.log("PWR 2" + p_w_r2);
 
   var resu  = (10.5/2.3)
   resu = resu.toFixed(2);
+
+
+  var peso1 = checkUnits(wu1,w1);
+  var peso2 = checkUnits(wu2,w2)
+
+  var peso_compara_1 = libras_para_quilos(wu1,w1);
+  var peso_compara_2 = libras_para_quilos(wu2,w2);
+
+  var p1 = conversor_universal_grandezas(pu1,p1);
+  var p2 = conversor_universal_grandezas(pu2,p2);
+
+
+  var potencia_peso1 =  ((p1 / peso_compara_1) * 1000).toFixed(2);
+  var potencia_peso2 =  ((p2 / peso_compara_2) * 1000).toFixed(2);
+
+
  // console.log("RESULTADO" + resu);
 
 // console.log("-------------------> TORQUE 1 " + t1 + " = "+ conversor_de_torque(tu1,t1));
@@ -433,7 +449,7 @@ function showColor(z)
                                    <section class="boxInfoTeste">
                                      <ul class="specsToCompareT">
                                         <li class="`+ cssWinner(melhor(p1,p2),1) +`"><a href="">Power: `+ checkUnits(pu1,p1) +`</a></li>
-                                        <li class="`+ cssWinner(melhor(t1,t2),1) +`"><a href="">Torque: `+t1 +` - `+ checkUnits(tu1,t1) +` </a></li>
+                                        <li class="`+ cssWinner(melhor(t1,t2),1) +`"><a href="">Torque: `+ checkUnits(tu1,t1) +` </a></li>
                                        
                                       <ul>
                                     </section>
@@ -441,7 +457,7 @@ function showColor(z)
                                   <section class="boxInfoTeste2">
                                     <ul class="specsToCompareT2">
                                        <li class="`+ showColor(melhor(p1,p2)) +`"><a href="">`+ melhor(p1,p2) +`</a></li>
-                                       <li class="`+ showColor(melhor(conversor_de_torque(tu1,t1),conversor_de_torque(tu2,t2))) +`"><a href=""> TU `+ tu1 +`T1 `+ t1 +` - `+ conversor_universal_torque(tu1,t1) +` - `+ conversor_universal_torque(tu2,t2)  +` `+ melhor(conversor_universal_torque(tu1,t1),conversor_universal_torque(tu2,t2)) +`</a></li>
+                                       <li class="`+ showColor(melhor(conversor_universal_grandezas(tu1,t1),conversor_universal_grandezas(tu2,t2))) +`"><a href="">`+ melhor(conversor_universal_grandezas(tu1,t1),conversor_universal_grandezas(tu2,t2)) +`</a></li>
                                      
                                     <ul>
                                    </section>
@@ -449,7 +465,7 @@ function showColor(z)
                                <section class="boxInfoTeste">
                                    <ul class="specsToCompareT">
                                      <li class="`+ cssWinner(melhor(p1,p2),2) +`"><a href="" >Power: `+ checkUnits(pu2,p2) +`</a></li>
-                                     <li class="`+ cssWinner(melhor(t1,t2),2) +`"><a href="">Torque ->: `+t2 +` - `+ checkUnits(tu2,t2) +` </a></li>
+                                     <li class="`+ cssWinner(melhor(t1,t2),2) +`"><a href="">Torque: `+ checkUnits(tu2,t2) +` </a></li>
                                     <ul>
                                  </section>
                      </div>      
@@ -461,13 +477,13 @@ function showColor(z)
                                <div class="boxContent">
                                    <section class="boxInfoTeste">
                                      <ul class="specsToCompareT">
-                                        <li class="`+ cssWinner(menor(w1,w2),1) +`"><a href="">Weight: `+ checkUnits(wu1,w1) +`</a></li>
+                                        <li class="`+ cssWinner(menor(peso_compara_1,peso_compara_2),1) +`"><a href="">Weight: `+ peso1 +`</a></li>
                                         <ul>
                                     </section>
       
                                   <section class="boxInfoTeste2">
                                     <ul class="specsToCompareT2">
-                                       <li class="`+ showColor(menor(w1,w2)) +`"><a href="">`+ menor(libras_para_quilos(wu1,w1),libras_para_quilos(wu2,w2)) +`</a></li>
+                                       <li class="`+ showColor(menor(peso_compara_1,peso_compara_2)) +`"><a href="">`+ menor(peso_compara_1,peso_compara_2) +`</a></li>
                                      
                                        
                                     <ul>
@@ -475,7 +491,7 @@ function showColor(z)
 
                                <section class="boxInfoTeste">
                                    <ul class="specsToCompareT">
-                                     <li class="`+ cssWinner(menor(w1,w2),2) +`"><a href="">Weight: `+ checkUnits(wu2,w2) +`</a></li>
+                                     <li class="`+ cssWinner(menor(peso_compara_1,peso_compara_2),2) +`"><a href="">Weight: `+ peso2 +`</a></li>
                                    <ul>
                                  </section>
                      </div>      
@@ -516,7 +532,7 @@ function showColor(z)
                                      <ul class="specsToCompareT">
                                         <li class="`+ cssWinner(menor(a1,a2),1) +`"><a href="">Acceleration: `+ a1  +`</a></li>
                                         <li class="`+ cssWinner(melhor(s1,s2),1) +`"><a href="">Top Speed:  `+ checkUnits(su1,s1) +` </a></li>
-                                        <li class="`+ cssWinner(melhor(p_w_r1,p_w_r2),1) +`"><a href="">Power Weight Ratio: `+ calcula_potencia_peso(p1,libras_para_quilos(wu1,w1)) +` W/Kg </a></li>
+                                        <li class="`+ cssWinner(melhor(p_w_r1,p_w_r2),1) +`"><a href="">Power Weight Ratio: `+ potencia_peso1 +` W/Kg </a></li>
                                         <li class="`+ cssWinner(melhor(r1,r2),1) +`"><a href="">Range:  `+ checkUnits(ru1,r1) +` </a></li>
                                       <ul>
                                     </section>
@@ -525,7 +541,7 @@ function showColor(z)
                                     <ul class="specsToCompareT2">
                                        <li class="`+ showColor(menor(a1,a2)) +`"><a href="">`+ menor(a1,a2) +`</a></li>
                                        <li class="`+ showColor(melhor(unit_measure(su1,s1),unit_measure(su2,s2))) +`"><a href="">`+  melhor(milhas_para_km(su1,s1),milhas_para_km(su2,s2)) +` </a></li>
-                                       <li class="`+ showColor(melhor(p_w_r1,p_w_r2)) +`"><a href="">`+ melhor(calcula_potencia_peso(p1,libras_para_quilos(wu1,w1)),calcula_potencia_peso(p2,libras_para_quilos(wu2,w2))) +`</a></li>
+                                       <li class="`+ showColor(melhor(potencia_peso1,potencia_peso2)) +`"><a href="">`+ melhor(potencia_peso1,potencia_peso2) +`</a></li>
                                        <li class="`+ showColor(melhor(ru1,ru2)) +`"><a href="">`+ melhor(unit_measure(ru1,r1),unit_measure(ru2,r2))+`</a></li>
                                     <ul>
                                    </section>
@@ -534,7 +550,7 @@ function showColor(z)
                                    <ul class="specsToCompareT">
                                      <li class="`+ cssWinner(menor(a1,a2),2) +`"><a href="">Acceleration: `+ a2  +`</a></li>
                                      <li class="`+ cssWinner(melhor(s1,s2),2) +`"><a href="">Top Speed:  `+ checkUnits(su2,s2) +`</a></li>
-                                     <li class="`+ cssWinner(melhor(p_w_r1,p_w_r2),2) +`"><a href="">Power Weight Ratio: `+ calcula_potencia_peso(p2,libras_para_quilos(wu2,w2))+` W/Kg</a></li>
+                                     <li class="`+ cssWinner(melhor(p_w_r1,p_w_r2),2) +`"><a href="">Power Weight Ratio: `+ potencia_peso2+` W/Kg</a></li>
                                      <li class="`+ cssWinner(melhor(r1,r2),2) +`"><a href="">Range: `+ checkUnits(ru2,r2) +`</a></li>
                                   <ul>
                                  </section>
@@ -1509,7 +1525,7 @@ function checkUnits(unit, measure)
  if (unit == "nm")
  {
   
-   return " |->| "+ (measure * 0.102).toFixed(2) + "Kgfm -"+ measure + " Nm" + (measure * 0.737).toFixed(2) + " Lbft"  ;
+   return " "+ (measure * 0.102).toFixed(2) + "Kgfm ("+ measure + " Nm) (" + (measure * 0.737).toFixed(2) + " Lbft)"  ;
  }
 
   if (unit == "lbft")
@@ -1517,7 +1533,7 @@ function checkUnits(unit, measure)
 
      var kgfm = conversor_de_torque("lbft",measure);
    // return conversor_de_torque("lbft",measure) + "Kgfm";
-   return  " ||| "+ kgfm + " Kgfm "+ (kgfm *  9.80665).toFixed(2) + " Nm " + measure + " Lbft" ;
+   return  " "+ kgfm + " Kgfm ("+ (kgfm *  9.80665).toFixed(2) + " Nm) (" + measure + " Lbft)" ;
  }
 
    if (unit == "kgfm")
@@ -1525,7 +1541,7 @@ function checkUnits(unit, measure)
 
  
    // return conversor_de_torque("lbft",measure) + "Kgfm";
-   return  " ||| "+ measure + " Kgfm "+ (measure *  9.8066499997).toFixed(2) + " Nm " + (measure *  7.2330138512).toFixed(2) + " Lbft" ;
+   return  " "+ measure + " Kgfm ("+ (measure *  9.8066499997).toFixed(2) + " Nm) (" + (measure *  7.2330138512).toFixed(2) + " Lbft)" ;
  }
 
 }
@@ -1717,7 +1733,7 @@ function pe_libra_para_kg_fm(unidade,forca)
 }
 
 
-function conversor_universal_torque(n1,v1)
+function conversor_universal_grandezas(n1,v1)
 {
     if (n1 == "nm")
       {
@@ -1732,7 +1748,20 @@ function conversor_universal_torque(n1,v1)
       return (v1 * 0.1382549544).toFixed(2);
     }
 
-    if (n1 = "kgfm")
+    if (n1 == "kgfm")
+    {
+
+      return v1;
+    }
+
+
+    if (n1 == "hp")
+    {
+
+      return (v1 * 0.7457).toFixed(2);
+    }
+
+     if (n1 == "kw")
     {
 
       return v1;
