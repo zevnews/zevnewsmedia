@@ -429,7 +429,7 @@ function showColor(z)
                                     </section>
       
                                   <section class="boxInfoTeste2">
-                                    <ul class="specsToCompareT2">
+                                    <ul class="comparasionResult">
                                        <li class="`+ showColor(melhor(p1,p2)) +`"><a href="">`+ melhor(p1,p2) +`</a></li>
                                        <li class="`+ showColor(melhor(conversor_universal_grandezas(tu1,t1),conversor_universal_grandezas(tu2,t2))) +`"><a href="">`+ melhor(conversor_universal_grandezas(tu1,t1),conversor_universal_grandezas(tu2,t2)) +`</a></li>
                                      
@@ -456,7 +456,7 @@ function showColor(z)
                                     </section>
       
                                   <section class="boxInfoTeste2">
-                                    <ul class="specsToCompareT2">
+                                    <ul class="comparasionResult">
                                        <li class="`+ showColor(menor(peso_compara_1,peso_compara_2)) +`"><a href="">`+ menor(peso_compara_1,peso_compara_2) +`</a></li>
                                      
                                        
@@ -482,7 +482,7 @@ function showColor(z)
                                     </section>
       
                                   <section class="boxInfoTeste2">
-                                    <ul class="specsToCompareT2">
+                                    <ul class="comparasionResult">
                                        <li class="`+ showColor(menor(h_c1,h_c2)) +`"><a href="">`+ menor(h_c1,h_c2) +`</a></li>
                                        
                                     <ul>
@@ -512,7 +512,7 @@ function showColor(z)
                                     </section>
       
                                   <section class="boxInfoTeste2">
-                                    <ul class="specsToCompareT2">
+                                    <ul class="comparasionResult">
                                        <li class="`+ showColor(menor(a1,a2)) +`"><a href="">`+ menor(a1,a2) +`</a></li>
                                        <li class="`+ showColor(melhor(conversor_universal_grandezas(su1,s1),conversor_universal_grandezas(su2,s2))) +`"><a href="">`+  melhor(milhas_para_km(su1,s1),milhas_para_km(su2,s2)) +` </a></li>
                                        <li class="`+ showColor(melhor(potencia_peso1,potencia_peso2)) +`"><a href="">`+ melhor(potencia_peso1,potencia_peso2) +`</a></li>

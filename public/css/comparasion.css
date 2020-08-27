@@ -8,13 +8,13 @@
 
 
 
-.specsToCompareT,.motorSpecs{
+.specsToCompareT{
 	width: 100%;
 	margin: 0;
 	padding: 0;}
 
 
-.specsToCompareT li, .motorSpecs li{
+.specsToCompareT li{
 	width: 98%;
 	display: flex;
 	list-style: none;
@@ -55,13 +55,13 @@
 
 
 
-.specsToCompareT2 {
+.comparasionResult {
 	width: 100%;
 	margin: 0;
 	padding: 0;}
 
 
-.specsToCompareT2 li{
+.comparasionResult li{
 	width: 98%;
 	display: flex;
 	list-style: none;
@@ -70,23 +70,23 @@
 	padding-bottom: 4%;
 	padding-left: 2%;
 	justify-content: center;
-	/*background-color: cyan;*/
+	
      }
 
 
-.specsToCompareT2 li:first-child{
+.comparasionResult li:first-child{
 	border: none;}
 
 
-.specsToCompareT2 li a{
+.comparasionResult li a{
 	font-size: 12pt;
 	font-weight:  800;
 	text-decoration: none;
      }
 
 
-.specsToCompareT2 li .winner  {color: green; background-color: pink}
-.specsToCompareT2 li .looser { color: red; background-color: #000000; }
+.comparasionResult li .winner  {color: green; background-color: pink}
+.comparasionResult li .looser { color: red; background-color: #000000; }
 
 
 
