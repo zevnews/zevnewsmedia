@@ -421,7 +421,7 @@ function showColor(z)
                            <h1 class="boxTitle">MOTOR</h1>
                                <div class="boxContent">
                                    <section class="boxInfoTeste">
-                                     <ul class="specsToCompareT">
+                                     <ul class="specsForComparasion">
                                         <li class="`+ cssWinner(melhor(p1,p2),1) +`"><a href="">Power: `+ checkUnits(pu1,p1) +`</a></li>
                                         <li class="`+ cssWinner(melhor(t1,t2),1) +`"><a href="">Torque: `+ checkUnits(tu1,t1) +` </a></li>
                                        
@@ -437,7 +437,7 @@ function showColor(z)
                                    </section>
 
                                <section class="boxInfoTeste">
-                                   <ul class="specsToCompareT">
+                                   <ul class="specsForComparasion">
                                      <li class="`+ cssWinner(melhor(p1,p2),2) +`"><a href="" >Power: `+ checkUnits(pu2,p2) +`</a></li>
                                      <li class="`+ cssWinner(melhor(t1,t2),2) +`"><a href="">Torque: `+ checkUnits(tu2,t2) +` </a></li>
                                     <ul>
@@ -450,7 +450,7 @@ function showColor(z)
                            <h1 class="boxTitle">WEIGHT</h1>
                                <div class="boxContent">
                                    <section class="boxInfoTeste">
-                                     <ul class="specsToCompareT">
+                                     <ul class="specsForComparasion">
                                         <li class="`+ cssWinner(menor(peso_compara_1,peso_compara_2),1) +`"><a href="">Weight: `+ peso1 +`</a></li>
                                         <ul>
                                     </section>
@@ -464,7 +464,7 @@ function showColor(z)
                                    </section>
 
                                <section class="boxInfoTeste">
-                                   <ul class="specsToCompareT">
+                                   <ul class="specsForComparasion">
                                      <li class="`+ cssWinner(menor(peso_compara_1,peso_compara_2),2) +`"><a href="">Weight: `+ peso2 +`</a></li>
                                    <ul>
                                  </section>
@@ -476,7 +476,7 @@ function showColor(z)
                            <h1 class="boxTitle">BATTERY & CHARGING</h1>
                                <div class="boxContent">
                                    <section class="boxInfoTeste">
-                                     <ul class="specsToCompareT">
+                                     <ul class="specsForComparasion">
                                         <li class="`+ cssWinner(menor(h_c1,h_c2),1) +`"><a href="">Standard: `+ h_c1 +` Hours </a></li>
                                         <ul>
                                     </section>
@@ -489,7 +489,7 @@ function showColor(z)
                                    </section>
 
                                <section class="boxInfoTeste">
-                                   <ul class="specsToCompareT">
+                                   <ul class="specsForComparasion">
                                      <li class="`+ cssWinner(menor(h_c1,h_c2),2) +`"><a href="">Standard: `+ h_c2 +` Hours</a></li>
                                    <ul>
                                  </section>
@@ -503,7 +503,7 @@ function showColor(z)
                            <h1 class="boxTitle">PERFORMANCE</h1>
                                <div class="boxContent">
                                    <section class="boxInfoTeste">
-                                     <ul class="specsToCompareT">
+                                     <ul class="specsForComparasion">
                                         <li class="`+ cssWinner(menor(a1,a2),1) +`"><a href="">Acceleration: `+ a1  +`</a></li>
                                         <li class="`+ cssWinner(melhor(s1,s2),1) +`"><a href="">Top Speed:  `+ checkUnits(su1,s1) +` </a></li>
                                         <li class="`+ cssWinner(m,1) +`"><a href="">Power Weight Ratio: `+ potencia_peso1 +` W/Kg </a></li>
@@ -521,7 +521,7 @@ function showColor(z)
                                    </section>
 
                                <section class="boxInfoTeste">
-                                   <ul class="specsToCompareT">
+                                   <ul class="specsForComparasion">
                                      <li class="`+ cssWinner(menor(a1,a2),2) +`"><a href="">Acceleration: `+ a2  +`</a></li>
                                      <li class="`+ cssWinner(melhor(s1,s2),2) +`"><a href="">Top Speed:  `+ checkUnits(su2,s2) +`</a></li>
                                      <li class="`+ cssWinner(m,2) +`"><a href="">Power Weight Ratio: `+ potencia_peso2+` W/Kg</a></li>
