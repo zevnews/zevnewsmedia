@@ -350,12 +350,16 @@ var va2 = parseFloat(v2);
     if (f == "<" && c1 == 1)
     {
        console.log("ESQUERDA");
-      return "winner"
+      return "winner";
     }
-    if (f == ">" && c1 == 2)
+    else if (f == ">" && c1 == 2)
     {
      console.log("DIREITA");
       return "winner";
+    }
+    else
+    {
+      return "looser";
     }
   }
 
