@@ -286,6 +286,9 @@ console.log("melhor 2= " + melhor(g1,g2));
 
 var powerWeightRatioWinner = melhor(g1,g2);
 var powerWinner = melhor(potencia1,potencia2);
+var torqueWinner = melhor(t1,t2);
+var weightWinner = menor(peso_compara_1,peso_compara_2);
+var chargeWinner = menor(h_c1,h_c2);
 
 console.log("peso 1 g ->" + g1);
 console.log("peso 2 g ->" + g2);
@@ -429,14 +432,14 @@ function showColor(z)
                                    <section class="boxWithSpecs">
                                      <ul class="specsForComparasion">
                                         <li class="`+ cssWinner(powerWinner,1) +`"><a href="">Power: `+ checkUnits(pu1,p1) +`</a></li>
-                                        <li class="`+ cssWinner(melhor(t1,t2),1) +`"><a href="">Torque: `+ checkUnits(tu1,t1) +` </a></li>
+                                        <li class="`+ cssWinner(torqueWinner,1) +`"><a href="">Torque: `+ checkUnits(tu1,t1) +` </a></li>
                                        
                                       <ul>
                                     </section>
       
                                   <section class="boxInfoTeste2">
                                     <ul class="comparasionResult">
-                                       <li class="`+ showColor(melhor(p1,p2)) +`"><a href="">`+ melhor(p1,p2) +`</a></li>
+                                       <li class="`+ showColor(powerWinner) +`"><a href="">`+ powerWinner +`</a></li>
                                        <li class="`+ showColor(melhor(conversor_universal_grandezas(tu1,t1),conversor_universal_grandezas(tu2,t2))) +`"><a href="">`+ melhor(conversor_universal_grandezas(tu1,t1),conversor_universal_grandezas(tu2,t2)) +`</a></li>
                                      
                                     <ul>
@@ -445,7 +448,7 @@ function showColor(z)
                                <section class="boxWithSpecs">
                                    <ul class="specsForComparasion">
                                      <li class="`+ cssWinner(powerWinner,2) +`"><a href="" >Power: `+ checkUnits(pu2,p2) +`</a></li>
-                                     <li class="`+ cssWinner(melhor(t1,t2),2) +`"><a href="">Torque: `+ checkUnits(tu2,t2) +` </a></li>
+                                     <li class="`+ cssWinner(torqueWinner,2) +`"><a href="">Torque: `+ checkUnits(tu2,t2) +` </a></li>
                                     <ul>
                                  </section>
                      </div>      
@@ -457,13 +460,13 @@ function showColor(z)
                                <div class="boxContent">
                                    <section class="boxWithSpecs">
                                      <ul class="specsForComparasion">
-                                        <li class="`+ cssWinner(menor(peso_compara_1,peso_compara_2),1) +`"><a href="">Weight: `+ peso1 +`</a></li>
+                                        <li class="`+ cssWinner(weightWinner,1) +`"><a href="">Weight: `+ peso1 +`</a></li>
                                         <ul>
                                     </section>
       
                                   <section class="boxInfoTeste2">
                                     <ul class="comparasionResult">
-                                       <li class="`+ showColor(menor(peso_compara_1,peso_compara_2)) +`"><a href="">`+ menor(peso_compara_1,peso_compara_2) +`</a></li>
+                                       <li class="`+ showColor(weightWinner) +`"><a href="">`+ weightWinner +`</a></li>
                                      
                                        
                                     <ul>
@@ -471,7 +474,7 @@ function showColor(z)
 
                                <section class="boxWithSpecs">
                                    <ul class="specsForComparasion">
-                                     <li class="`+ cssWinner(menor(peso_compara_1,peso_compara_2),2) +`"><a href="">Weight: `+ peso2 +`</a></li>
+                                     <li class="`+ cssWinner(weightWinner,2) +`"><a href="">Weight: `+ peso2 +`</a></li>
                                    <ul>
                                  </section>
                      </div>      
@@ -483,20 +486,20 @@ function showColor(z)
                                <div class="boxContent">
                                    <section class="boxWithSpecs">
                                      <ul class="specsForComparasion">
-                                        <li class="`+ cssWinner(menor(h_c1,h_c2),1) +`"><a href="">Standard: `+ h_c1 +` Hours </a></li>
+                                        <li class="`+ cssWinner(chargeWinner,1) +`"><a href="">Standard: `+ h_c1 +` Hours </a></li>
                                         <ul>
                                     </section>
       
                                   <section class="boxInfoTeste2">
                                     <ul class="comparasionResult">
-                                       <li class="`+ showColor(menor(h_c1,h_c2)) +`"><a href="">`+ menor(h_c1,h_c2) +`</a></li>
+                                       <li class="`+ showColor(chargeWinner) +`"><a href="">`+ chargeWinner +`</a></li>
                                        
                                     <ul>
                                    </section>
 
                                <section class="boxWithSpecs">
                                    <ul class="specsForComparasion">
-                                     <li class="`+ cssWinner(menor(h_c1,h_c2),2) +`"><a href="">Standard: `+ h_c2 +` Hours</a></li>
+                                     <li class="`+ cssWinner(chargeWinner,2) +`"><a href="">Standard: `+ h_c2 +` Hours</a></li>
                                    <ul>
                                  </section>
                      </div>      
