@@ -284,7 +284,7 @@ console.log("melhor 1= " + melhor(g1,g2));
 console.log("melhor 2= " + melhor(g1,g2));
 
 
-var m = melhor(g1,g2);
+var picWinner = melhor(g1,g2);
 console.log("peso 1 g ->" + g1);
 console.log("peso 2 g ->" + g2);
 
@@ -510,7 +510,7 @@ function showColor(z)
                                      <ul class="specsForComparasion">
                                         <li class="`+ cssWinner(menor(a1,a2),1) +`"><a href="">Acceleration: `+ a1  +`</a></li>
                                         <li class="`+ cssWinner(melhor(s1,s2),1) +`"><a href="">Top Speed:  `+ checkUnits(su1,s1) +` </a></li>
-                                        <li class="`+ cssWinner(m,1) +`"><a href="">Power Weight Ratio: `+ potencia_peso1 +` W/Kg </a></li>
+                                        <li class="`+ cssWinner(picWinner,1) +`"><a href="">Power Weight Ratio: `+ potencia_peso1 +` W/Kg </a></li>
                                         <li class="`+ cssWinner(melhor(r1,r2),1) +`"><a href="">Range:  `+ checkUnits(ru1,r1) +` </a></li>
                                       <ul>
                                     </section>
@@ -528,7 +528,7 @@ function showColor(z)
                                    <ul class="specsForComparasion">
                                      <li class="`+ cssWinner(menor(a1,a2),2) +`"><a href="">Acceleration: `+ a2  +`</a></li>
                                      <li class="`+ cssWinner(melhor(s1,s2),2) +`"><a href="">Top Speed:  `+ checkUnits(su2,s2) +`</a></li>
-                                     <li class="`+ cssWinner(m,2) +`"><a href="">Power Weight Ratio: `+ potencia_peso2+` W/Kg</a></li>
+                                     <li class="`+ cssWinner(picWinner,2) +`"><a href="">Power Weight Ratio: `+ potencia_peso2+` W/Kg</a></li>
                                      <li class="`+ cssWinner(melhor(r1,r2),2) +`"><a href="">Range: `+ checkUnits(ru2,r2) +`</a></li>
                                   <ul>
                                  </section>
