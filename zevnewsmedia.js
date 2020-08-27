@@ -267,12 +267,12 @@ function respostaHTM(e1,p1,t1,w1,a1,s1,r1,h_c1,pu1,wu1,su1,ru1,tu1,e2,p2,t2,w2,a
   var peso_compara_1 = libras_para_quilos(wu1,w1);
   var peso_compara_2 = libras_para_quilos(wu2,w2);
 
-  var p1 = conversor_universal_grandezas(pu1,p1);
-  var p2 = conversor_universal_grandezas(pu2,p2);
+  var potencia1 = conversor_universal_grandezas(pu1,p1);
+  var potencia2 = conversor_universal_grandezas(pu2,p2);
 
 
-  var potencia_peso1 =  ((p1 / peso_compara_1) * 1000).toFixed(2);
-  var potencia_peso2 =  ((p2 / peso_compara_2) * 1000).toFixed(2);
+  var potencia_peso1 =  ((potencia1 / peso_compara_1) * 1000).toFixed(2);
+  var potencia_peso2 =  ((potencia2 / peso_compara_2) * 1000).toFixed(2);
 
   var g1 = potencia_peso1;
   var g2 = potencia_peso2;
@@ -284,7 +284,9 @@ console.log("melhor 1= " + melhor(g1,g2));
 console.log("melhor 2= " + melhor(g1,g2));
 
 
-var picWinner = melhor(g1,g2);
+var powerWeightRatioWinner = melhor(g1,g2);
+var powerWinner = melhor(potencia1,potencia2);
+
 console.log("peso 1 g ->" + g1);
 console.log("peso 2 g ->" + g2);
 
@@ -426,7 +428,7 @@ function showColor(z)
                                <div class="boxContent">
                                    <section class="boxWithSpecs">
                                      <ul class="specsForComparasion">
-                                        <li class="`+ cssWinner(melhor(p1,p2),1) +`"><a href="">Power: `+ checkUnits(pu1,p1) +`</a></li>
+                                        <li class="`+ cssWinner(powerWinner,1) +`"><a href="">Power: `+ checkUnits(pu1,p1) +`</a></li>
                                         <li class="`+ cssWinner(melhor(t1,t2),1) +`"><a href="">Torque: `+ checkUnits(tu1,t1) +` </a></li>
                                        
                                       <ul>
@@ -442,7 +444,7 @@ function showColor(z)
 
                                <section class="boxWithSpecs">
                                    <ul class="specsForComparasion">
-                                     <li class="`+ cssWinner(melhor(p1,p2),2) +`"><a href="" >Power: `+ checkUnits(pu2,p2) +`</a></li>
+                                     <li class="`+ cssWinner(powerWinner,2) +`"><a href="" >Power: `+ checkUnits(pu2,p2) +`</a></li>
                                      <li class="`+ cssWinner(melhor(t1,t2),2) +`"><a href="">Torque: `+ checkUnits(tu2,t2) +` </a></li>
                                     <ul>
                                  </section>
@@ -510,7 +512,7 @@ function showColor(z)
                                      <ul class="specsForComparasion">
                                         <li class="`+ cssWinner(menor(a1,a2),1) +`"><a href="">Acceleration: `+ a1  +`</a></li>
                                         <li class="`+ cssWinner(melhor(s1,s2),1) +`"><a href="">Top Speed:  `+ checkUnits(su1,s1) +` </a></li>
-                                        <li class="`+ cssWinner(picWinner,1) +`"><a href="">Power Weight Ratio: `+ potencia_peso1 +` W/Kg </a></li>
+                                        <li class="`+ cssWinner(powerWeightRatioWinner,1) +`"><a href="">Power Weight Ratio: `+ potencia_peso1 +` W/Kg </a></li>
                                         <li class="`+ cssWinner(melhor(r1,r2),1) +`"><a href="">Range:  `+ checkUnits(ru1,r1) +` </a></li>
                                       <ul>
                                     </section>
@@ -528,7 +530,7 @@ function showColor(z)
                                    <ul class="specsForComparasion">
                                      <li class="`+ cssWinner(menor(a1,a2),2) +`"><a href="">Acceleration: `+ a2  +`</a></li>
                                      <li class="`+ cssWinner(melhor(s1,s2),2) +`"><a href="">Top Speed:  `+ checkUnits(su2,s2) +`</a></li>
-                                     <li class="`+ cssWinner(picWinner,2) +`"><a href="">Power Weight Ratio: `+ potencia_peso2+` W/Kg</a></li>
+                                     <li class="`+ cssWinner(powerWeightRatioWinner,2) +`"><a href="">Power Weight Ratio: `+ potencia_peso2+` W/Kg</a></li>
                                      <li class="`+ cssWinner(melhor(r1,r2),2) +`"><a href="">Range: `+ checkUnits(ru2,r2) +`</a></li>
                                   <ul>
                                  </section>
