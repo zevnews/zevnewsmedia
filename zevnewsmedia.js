@@ -260,18 +260,40 @@ function respostaHTM(e1,p1,t1,w1,a1,s1,r1,h_c1,pu1,wu1,su1,ru1,tu1,e2,p2,t2,w2,a
   var resu  = (10.5/2.3)
   resu = resu.toFixed(2);
 
-
-  var peso1 = checkUnits(wu1,w1);
-  var peso2 = checkUnits(wu2,w2)
-  var speed1 = checkUnits(su1,s1);
-  var speed2 = checkUnits(su2,s2);
-  
-
-  var peso_compara_1 = libras_para_quilos(wu1,w1);
-  var peso_compara_2 = libras_para_quilos(wu2,w2);
+  /* MOTOR VARIABLES*/
 
   var potencia1 = conversor_universal_grandezas(pu1,p1);
   var potencia2 = conversor_universal_grandezas(pu2,p2);
+
+  var torque1 = conversor_universal_grandezas(tu1,t1);
+  var torque2 = conversor_universal_grandezas(tu2,t2);
+
+
+   /* WEIGHT */
+
+
+  var peso1 = checkUnits(wu1,w1);
+  var peso2 = checkUnits(wu2,w2);
+
+
+
+ /*BATTERY CHARGING */
+
+ var range1 =  checkUnits(ru1,r1);
+ var range2 =  checkUnits(ru2,r2);
+
+
+/* PERFORMANCE */
+
+  var speed1 = checkUnits(su1,s1);
+  var speed2 = checkUnits(su2,s2);
+  
+  var peso_compara_1 = libras_para_quilos(wu1,w1);
+  var peso_compara_2 = libras_para_quilos(wu2,w2);
+
+
+
+  
   
   var topSpeed1 = conversor_universal_grandezas(su1,s1);
   var topSpeed2 = conversor_universal_grandezas(su2,s2);
@@ -296,6 +318,8 @@ var weightWinner = menor(peso_compara_1,peso_compara_2);
 var chargeWinner = menor(h_c1,h_c2);
 var accelerationWinner = menor(a1,a2);
 var speedWinner = melhor(topSpeed1,topSpeed2);
+var rangeWinner = melhor(range1,range2);
+var potencia_pesoWinner = melhor(potencia_peso1,potencia_peso2);
 
 console.log("peso 1 g ->" + g1);
 console.log("peso 2 g ->" + g2);
@@ -438,8 +462,8 @@ function showColor(z)
                                <div class="boxContent">
                                    <section class="boxWithSpecs">
                                      <ul class="specsForComparasion">
-                                        <li class="`+ cssWinner(powerWinner,1) +`"><a href="">Power: `+ checkUnits(pu1,p1) +`</a></li>
-                                        <li class="`+ cssWinner(torqueWinner,1) +`"><a href="">Torque: `+ checkUnits(tu1,t1) +` </a></li>
+                                        <li class="`+ cssWinner(powerWinner,1) +`"><a href="">Power: `+ potencia1 +`</a></li>
+                                        <li class="`+ cssWinner(torqueWinner,1) +`"><a href="">Torque: `+ torque1 +` </a></li>
                                        
                                       <ul>
                                     </section>
@@ -447,15 +471,15 @@ function showColor(z)
                                   <section class="boxInfoTeste2">
                                     <ul class="comparasionResult">
                                        <li class="`+ showColor(powerWinner) +`"><a href="">`+ powerWinner +`</a></li>
-                                       <li class="`+ showColor(melhor(conversor_universal_grandezas(tu1,t1),conversor_universal_grandezas(tu2,t2))) +`"><a href="">`+ melhor(conversor_universal_grandezas(tu1,t1),conversor_universal_grandezas(tu2,t2)) +`</a></li>
+                                       <li class="`+ showColor(torqueWinner) +`"><a href="">`+ torqueWinner +`</a></li>
                                      
                                     <ul>
                                    </section>
 
                                <section class="boxWithSpecs">
                                    <ul class="specsForComparasion">
-                                     <li class="`+ cssWinner(powerWinner,2) +`"><a href="" >Power: `+ checkUnits(pu2,p2) +`</a></li>
-                                     <li class="`+ cssWinner(torqueWinner,2) +`"><a href="">Torque: `+ checkUnits(tu2,t2) +` </a></li>
+                                     <li class="`+ cssWinner(powerWinner,2) +`"><a href="" >Power: `+ potencia2 +`</a></li>
+                                     <li class="`+ cssWinner(torqueWinner,2) +`"><a href="">Torque: `+ torque2 +` </a></li>
                                     <ul>
                                  </section>
                      </div>      
@@ -523,16 +547,16 @@ function showColor(z)
                                         <li class="`+ cssWinner(accelerationWinner,1) +`"><a href="">Acceleration: `+ a1  +`</a></li>
                                         <li class="`+ cssWinner(speedWinner,1) +`"><a href="">Top Speed:  `+ speed1 +` </a></li>
                                         <li class="`+ cssWinner(powerWeightRatioWinner,1) +`"><a href="">Power Weight Ratio: `+ potencia_peso1 +` W/Kg </a></li>
-                                        <li class="`+ cssWinner(melhor(r1,r2),1) +`"><a href="">Range:  `+ checkUnits(ru1,r1) +` </a></li>
+                                        <li class="`+ cssWinner(rangeWinner,1) +`"><a href="">Range:  `+ range1 +` </a></li>
                                       <ul>
                                     </section>
       
                                   <section class="boxInfoTeste2">
                                     <ul class="comparasionResult">
                                        <li class="`+ showColor(accelerationWinner) +`"><a href="">`+ accelerationWinner +`</a></li>
-                                       <li class="`+ showColor(melhor(conversor_universal_grandezas(su1,s1),conversor_universal_grandezas(su2,s2))) +`"><a href="">`+  melhor(milhas_para_km(su1,s1),milhas_para_km(su2,s2)) +` </a></li>
-                                       <li class="`+ showColor(melhor(potencia_peso1,potencia_peso2)) +`"><a href="">`+ melhor(potencia_peso1,potencia_peso2) +`</a></li>
-                                       <li class="`+ showColor(melhor(ru1,ru2)) +`"><a href="">`+ melhor(conversor_universal_grandezas(ru1,r1),conversor_universal_grandezas(ru2,r2))+`</a></li>
+                                       <li class="`+ showColor(speedWinner) +`"><a href="">`+  speedWinner +` </a></li>
+                                       <li class="`+ showColor(potencia_pesoWinner) +`"><a href="">`+ potencia_pesoWinner +`</a></li>
+                                       <li class="`+ showColor(rangeWinner) +`"><a href="">`+ rangeWinner +`</a></li>
                                     <ul>
                                    </section>
 
@@ -541,7 +565,7 @@ function showColor(z)
                                      <li class="`+ cssWinner(accelerationWinner,2) +`"><a href="">Acceleration: `+ a2  +`</a></li>
                                      <li class="`+ cssWinner(speedWinner,2) +`"><a href="">Top Speed:  `+ speed2 +`</a></li>
                                      <li class="`+ cssWinner(powerWeightRatioWinner,2) +`"><a href="">Power Weight Ratio: `+ potencia_peso2+` W/Kg</a></li>
-                                     <li class="`+ cssWinner(melhor(r1,r2),2) +`"><a href="">Range: `+ checkUnits(ru2,r2) +`</a></li>
+                                     <li class="`+ cssWinner(rangeWinner,2) +`"><a href="">Range: `+ range2 +`</a></li>
                                   <ul>
                                  </section>
                      </div>      
