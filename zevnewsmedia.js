@@ -1576,7 +1576,7 @@ function checkUnits(unit, measure)
   if (unit == "lbft")
  {
 
-     var kgfm = conversor_de_torque("lbft",measure);
+     var kgfm = conversor_universal_grandezas ("lbft",measure);
    // return conversor_de_torque("lbft",measure) + "Kgfm";
    return  " "+ kgfm + " Kgfm ("+ (kgfm *  9.80665).toFixed(2) + " Nm) (" + measure + " Lbft)" ;
  }
@@ -1623,18 +1623,8 @@ function torque_power(t1,t2,t3,t4)
 }
 }
 
-function km_miles(v)
-{
-  var miles = (v*0.62).toFixed(2);
-  return  miles;
-}
 
-function kg_lbs(v)
-{
-  var lbs = (v* 2.2046226218).toFixed(2);
 
-  return  lbs;
-}
 function kw_hp(v)
 {
   var power = (v * 1.36).toFixed(2);
@@ -1676,78 +1666,7 @@ app.listen(21171, function() {
 });
 
 
-
-function milhas_para_km (unidade,velocidade)
-
-{
-  if (unidade == "km")
-  {
-    return velocidade;
-  }
-
-
-  
-  if (unidade == "kmh")
-  {
-    return velocidade;
-  }
-
-
-   if (unidade == "miles")
-  {
-
-      return (velocidade * 1.60934).toFixed(2);
-  }
-
-  if (unidade == "mph")
-  {
-
-      return (velocidade * 1.60934).toFixed(2);
-  }
-
-}
-
-
-
-function libras_para_quilos(unidade,peso){
-
-  if (unidade == "kg")
-      {
-        return peso;
-      }
-  if (unidade = "lbs")
-    {
-      return (peso * 0.453592).toFixed(2);
-    }
-}
-
-
-
-
-    function conversor_de_torque(unidade,forca)
-    {
-
-
-          if (unidade = "lbft")
-              {
-              //  console.log(forca + " " + (parseFloat(forca) * 0.13825).toFixed(2));
-                return (parseFloat(forca) * 0.13825).toFixed(2);
-              }
-
-          if (unidade == "nm")
-             {
-               console.log("Chamou Nm");
-              }
-
-
-           if (unidade == "kgfm")
-              {
-
-              return parseFloat(forca).toFixed(2);
-              }
-
-}
-
+ 
 
 function conversor_universal_grandezas(n1,v1)
 {
@@ -1783,7 +1702,7 @@ if (n1 == "lbs")
 
   if (n1 == "km")
   {
-    var r = km_miles(v1);
+   // var r = km_miles(v1);
   //  console.log("Milhas" + r)
 
     return v1;
