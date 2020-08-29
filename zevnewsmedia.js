@@ -260,13 +260,18 @@ function respostaHTM(e1,p1,t1,w1,a1,s1,r1,h_c1,pu1,wu1,su1,ru1,tu1,e2,p2,t2,w2,a
   var resu  = (10.5/2.3)
   resu = resu.toFixed(2);
 
-  /* MOTOR VARIABLES*/
+  /* MOTOR */
 
   var potencia1 = conversor_universal_grandezas(pu1,p1);
   var potencia2 = conversor_universal_grandezas(pu2,p2);
+  var power1 = checkUnits(pu1,p1);
+  var power2 = checkUnits(pu2,p2);
 
   var torque1 = conversor_universal_grandezas(tu1,t1);
   var torque2 = conversor_universal_grandezas(tu2,t2);
+
+  var tor1 = checkUnits(tu1,t1);
+  var tor2 = checkUnits(tu2,t2);
 
 
    /* WEIGHT */
@@ -462,8 +467,8 @@ function showColor(z)
                                <div class="boxContent">
                                    <section class="boxWithSpecs">
                                      <ul class="specsForComparasion">
-                                        <li class="`+ cssWinner(powerWinner,1) +`"><a href="">Power: `+ potencia1 +`</a></li>
-                                        <li class="`+ cssWinner(torqueWinner,1) +`"><a href="">Torque: `+ torque1 +` </a></li>
+                                        <li class="`+ cssWinner(powerWinner,1) +`"><a href="">Power: `+ power1 +`</a></li>
+                                        <li class="`+ cssWinner(torqueWinner,1) +`"><a href="">Torque: `+ tor1 +` </a></li>
                                        
                                       <ul>
                                     </section>
@@ -478,8 +483,8 @@ function showColor(z)
 
                                <section class="boxWithSpecs">
                                    <ul class="specsForComparasion">
-                                     <li class="`+ cssWinner(powerWinner,2) +`"><a href="" >Power: `+ potencia2 +`</a></li>
-                                     <li class="`+ cssWinner(torqueWinner,2) +`"><a href="">Torque: `+ torque2 +` </a></li>
+                                     <li class="`+ cssWinner(powerWinner,2) +`"><a href="" >Power: `+ power2 +`</a></li>
+                                     <li class="`+ cssWinner(torqueWinner,2) +`"><a href="">Torque: `+ tor2 +` </a></li>
                                     <ul>
                                  </section>
                      </div>      
@@ -1525,7 +1530,7 @@ function checkUnits(unit, measure)
  if (unit == "hp")
  {
 
-   return (measure * 0.7457).toFixed(2) + "kW (" + measure + ")";
+   return (measure * 0.7457).toFixed(2) + "kW (" + measure + "Hp)";
  }
 
 
