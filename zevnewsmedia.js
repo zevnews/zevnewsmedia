@@ -295,6 +295,22 @@ function respostaHTM(e1,p1,t1,w1,a1,s1,r1,h_c1,pu1,wu1,su1,ru1,tu1,e2,p2,t2,w2,a
 /* PERFORMANCE */
 
 
+ function power_ratio_us(power, weight)
+  {
+
+      var powerx = (power * 1.34102).toFixed(2);
+      var weightx = weight *2.20462.toFixed(2);
+
+      console.log("Power" + powerx);
+      console.log("Weight" + weightx);
+      
+
+
+      return (powerx / weightx).toFixed(2);
+  }
+
+
+ 
 
   var speed1 = checkUnits(su1,s1);
   var speed2 = checkUnits(su2,s2);
@@ -315,11 +331,15 @@ function respostaHTM(e1,p1,t1,w1,a1,s1,r1,h_c1,pu1,wu1,su1,ru1,tu1,e2,p2,t2,w2,a
   var g1 = potencia_peso1;
   var g2 = potencia_peso2;
 
+  var power_ratio_us1 = power_ratio_us(potencia1, peso_compara_1);
+  var power_ratio_us2 = power_ratio_us(potencia2, peso_compara_2);
+
+console.log("English power" + power_ratio_us1);
+console.log("English power" + power_ratio_us2);
 
 
-
-console.log("melhor 1= " + melhor(g1,g2));
-console.log("melhor 2= " + melhor(g1,g2));
+// console.log("melhor 1= " + melhor(g1,g2));
+// console.log("melhor 2= " + melhor(g1,g2));
 
 
 var powerWeightRatioWinner = melhor(g1,g2);
@@ -332,15 +352,15 @@ var speedWinner = melhor(topSpeed1,topSpeed2);
 var rangeWinner = melhor(range1,range2);
 var potencia_pesoWinner = melhor(potencia_peso1,potencia_peso2);
 
-console.log("peso 1 g ->" + g1);
-console.log("peso 2 g ->" + g2);
+// console.log("peso 1 g ->" + g1);
+// console.log("peso 2 g ->" + g2);
 
 // console.log("css 1 " + cssWinner("<",1));
 // console.log("css 2 " + cssWinner(">",2));
 
-console.log(" CSS Winner 1" + cssWinner(melhor(g1,g2,1)));
+// console.log(" CSS Winner 1" + cssWinner(melhor(g1,g2,1)));
 
-console.log(" CSS Winner 2" + cssWinner(melhor(g1,g2,2)));
+// console.log(" CSS Winner 2" + cssWinner(melhor(g1,g2,2)));
 
 
 
@@ -392,16 +412,16 @@ var va2 = parseFloat(v2);
   {
     var f = f1;
     f = f.substring(0,1);
-    console.log("F " + f + "C1 " + c1);
+  //  console.log("F " + f + "C1 " + c1);
 
     if (f == "<" && c1 == 1)
     {
-       console.log("ESQUERDA");
+    //   console.log("ESQUERDA");
       return "winner";
     }
     else if (f == ">" && c1 == 2)
     {
-     console.log("DIREITA");
+   //  console.log("DIREITA");
       return "winner";
     }
     else
@@ -557,7 +577,7 @@ function showColor(z)
                                      <ul class="specsForComparasion">
                                         <li class="`+ cssWinner(accelerationWinner,1) +`"><a href="">Acceleration: `+ a1  +`</a></li>
                                         <li class="`+ cssWinner(speedWinner,1) +`"><a href="">Top Speed:  `+ speed1 +` </a></li>
-                                        <li class="`+ cssWinner(powerWeightRatioWinner,1) +`"><a href="">Power Weight Ratio: `+ potencia_peso1 +` W/Kg </a></li>
+                                        <li class="`+ cssWinner(powerWeightRatioWinner,1) +`"><a href="">Power Weight Ratio: `+ potencia_peso1 +` W/Kg `+ power_ratio_us1+` (hp/lbs) </a></li>
                                         <li class="`+ cssWinner(rangeWinner,1) +`"><a href="">Range:  `+ range1 +` </a></li>
                                       <ul>
                                     </section>
@@ -575,7 +595,7 @@ function showColor(z)
                                    <ul class="specsForComparasion">
                                      <li class="`+ cssWinner(accelerationWinner,2) +`"><a href="">Acceleration: `+ a2  +`</a></li>
                                      <li class="`+ cssWinner(speedWinner,2) +`"><a href="">Top Speed:  `+ speed2 +`</a></li>
-                                     <li class="`+ cssWinner(powerWeightRatioWinner,2) +`"><a href="">Power Weight Ratio: `+ potencia_peso2+` W/Kg</a></li>
+                                     <li class="`+ cssWinner(powerWeightRatioWinner,2) +`"><a href="">Power Weight Ratio: `+ potencia_peso2+` W/Kg `+ power_ratio_us2+` (hp/lbs)</a></li>
                                      <li class="`+ cssWinner(rangeWinner,2) +`"><a href="">Range: `+ range2 +`</a></li>
                                   <ul>
                                  </section>
@@ -587,7 +607,7 @@ function showColor(z)
                      </span>
                     `
 
-console.log(code);
+ // console.log(code);
 return code;
 
 }
@@ -1734,12 +1754,13 @@ function conversor_universal_grandezas(n1,v1)
     
 if (n1 == "lbs")
   {
-    return v1;
+    p = (v1 * 0.453592).toFixed(2);
+    return p;
   }
 
   if (n1 == "kg")
   {
-   var r =  kg_lbs(v1)
+   
 
    return v1;
   }
@@ -1750,18 +1771,20 @@ if (n1 == "lbs")
     return v1;
   }
 
-  if (n1 == "km")
-  {
-    var r = km_miles(v1);
-  //  console.log("Milhas" + r)
-
-    return v1;
-  }
+  
 
     if (n1 == "kmh")
   {
 //    var r = km_miles(y);
   //  console.log("MPH POR HORA" + y)
+
+    return v1;
+  }
+
+  if (n1 == "km")
+  {
+    var r = km_miles(v1);
+  //  console.log("Milhas" + r)
 
     return v1;
   }
