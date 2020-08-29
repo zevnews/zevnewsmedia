@@ -274,6 +274,10 @@ function respostaHTM(e1,p1,t1,w1,a1,s1,r1,h_c1,pu1,wu1,su1,ru1,tu1,e2,p2,t2,w2,a
   var tor2 = checkUnits(tu2,t2);
 
 
+
+
+
+
    /* WEIGHT */
 
 
@@ -290,11 +294,13 @@ function respostaHTM(e1,p1,t1,w1,a1,s1,r1,h_c1,pu1,wu1,su1,ru1,tu1,e2,p2,t2,w2,a
 
 /* PERFORMANCE */
 
+
+
   var speed1 = checkUnits(su1,s1);
   var speed2 = checkUnits(su2,s2);
   
-  var peso_compara_1 = libras_para_quilos(wu1,w1);
-  var peso_compara_2 = libras_para_quilos(wu2,w2);
+  var peso_compara_1 = conversor_universal_grandezas(wu1,w1);
+  var peso_compara_2 = conversor_universal_grandezas(wu2,w2);
 
 
 
