@@ -328,39 +328,21 @@ function respostaHTM(e1,p1,t1,w1,a1,s1,r1,h_c1,pu1,wu1,su1,ru1,tu1,e2,p2,t2,w2,a
   var potencia_peso1 =  ((potencia1 / peso_compara_1) * 1000).toFixed(2);
   var potencia_peso2 =  ((potencia2 / peso_compara_2) * 1000).toFixed(2);
 
-  var g1 = potencia_peso1;
-  var g2 = potencia_peso2;
+
 
   var power_ratio_us1 = power_ratio_us(potencia1, peso_compara_1);
   var power_ratio_us2 = power_ratio_us(potencia2, peso_compara_2);
 
-console.log("English power" + power_ratio_us1);
-console.log("English power" + power_ratio_us2);
+  var powerWeightRatioWinner = melhor(potencia_peso1,potencia_peso2);
+  var powerWinner = melhor(potencia1,potencia2);
+  var torqueWinner = melhor(t1,t2);
+  var weightWinner = menor(peso_compara_1,peso_compara_2);
+  var chargeWinner = menor(h_c1,h_c2);
+  var accelerationWinner = menor(a1,a2);
+  var speedWinner = melhor(topSpeed1,topSpeed2);
+  var rangeWinner = melhor(range1,range2);
+  var potencia_pesoWinner = melhor(potencia_peso1,potencia_peso2);
 
-
-// console.log("melhor 1= " + melhor(g1,g2));
-// console.log("melhor 2= " + melhor(g1,g2));
-
-
-var powerWeightRatioWinner = melhor(g1,g2);
-var powerWinner = melhor(potencia1,potencia2);
-var torqueWinner = melhor(t1,t2);
-var weightWinner = menor(peso_compara_1,peso_compara_2);
-var chargeWinner = menor(h_c1,h_c2);
-var accelerationWinner = menor(a1,a2);
-var speedWinner = melhor(topSpeed1,topSpeed2);
-var rangeWinner = melhor(range1,range2);
-var potencia_pesoWinner = melhor(potencia_peso1,potencia_peso2);
-
-// console.log("peso 1 g ->" + g1);
-// console.log("peso 2 g ->" + g2);
-
-// console.log("css 1 " + cssWinner("<",1));
-// console.log("css 2 " + cssWinner(">",2));
-
-// console.log(" CSS Winner 1" + cssWinner(melhor(g1,g2,1)));
-
-// console.log(" CSS Winner 2" + cssWinner(melhor(g1,g2,2)));
 
 
 
@@ -1478,7 +1460,7 @@ app.get("/article/:cod/:valor", function(req, res) { // user route
       var titulo_noticia = "teste";
       var sugestoes;
       var variaveis;
-     variaveis = "select sugestoes.artigo, ARTICLES.title, ARTICLES.photo1 from sugestoes inner join ARTICLES on sugestoes.artigo = ARTICLES.COD where sugestoes.COD = "+ cod +" LIMIT 4"; 
+      variaveis = "select sugestoes.artigo, ARTICLES.title, ARTICLES.photo1 from sugestoes inner join ARTICLES on sugestoes.artigo = ARTICLES.COD where sugestoes.COD = "+ cod +" LIMIT 4"; 
 
 //connection.query("select * from empresas", (err,empresas_x) => {if(err) throw err;empresas = empresas_x});
 
@@ -1594,15 +1576,7 @@ function checkUnits(unit, measure)
 
 
 
-function power_weight_ratio(power,weight)
-{
 
-  var p_w_r = ( (parseFloat(power)) / (parseFloat(weight))) ;
-
-
-
-  return (p_w_r *1000).toFixed(3);
-}
 
 
 function torque_power(t1,t2,t3,t4)
@@ -1625,12 +1599,7 @@ function torque_power(t1,t2,t3,t4)
 
 
 
-function kw_hp(v)
-{
-  var power = (v * 1.36).toFixed(2);
 
-  return  power;
-}
 
 function superior(v1,v2)
 {
