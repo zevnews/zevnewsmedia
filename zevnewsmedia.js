@@ -416,9 +416,7 @@ var va2 = parseFloat(v2);
   {
 
       
-    
-  //   console.log("VALOR DE VA1" + v1);
-
+ 
    if (v1 == 0 || v2 == 0 || v1 == "na" || v2 ==  "na")
   {
 
@@ -1496,24 +1494,23 @@ function checkUnits(unit, measure)
 {
 
  if (unit == "lbs")
- {
+    {
       return (measure * 0.45).toFixed(2) + "Kg (" + measure + "lbs)";
- }
+    }
 
+  
   if (unit == "kg")
- {
+    {
       return measure +"Kg (" + (measure * 2.20).toFixed(2) + "lbs)";
-
-
- }
+    }
 
 
 
- if (unit == "mph")
- {
+  if (unit == "mph")
+    {
 
-   return (measure * 1.60934).toFixed(2) + "Km/h (" + measure +" Mph)" ;
- }
+    return (measure * 1.60934).toFixed(2) + "Km/h (" + measure +" Mph)" ;
+    }
 
 
   if (unit == "kmh")
