@@ -381,6 +381,12 @@ h2 {
 }
 
 
+#box_story h3
+{
+	padding-left: 25%;
+}
+
+
 #box_autor p{
 	margin-top: 0px;
 	line-height: 20pt;
@@ -390,6 +396,8 @@ h2 {
 	width: 80%; 
 	margin-left: 2%;
 }
+
+
 
 #interview p:nth-child(odd) {
    margin: 0px;

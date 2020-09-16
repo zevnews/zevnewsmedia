@@ -81,7 +81,7 @@ padding-left: 12%;
 padding-left: 0%;	
 border-left: 6px solid #e1e8f0;
 border-right: 6px solid #e1e8f0;
-background-color: yellow;}
+/*background-color: yellow;*/}
 
 	
 	
@@ -127,7 +127,7 @@ background-color: yellow;}
 
 
 #btnSearch2, #searchItem2 {
-  background-color: orange;
+  /*background-color: orange;*/
   width: 30%;
   height: 30pt;
   border: none;
@@ -142,7 +142,7 @@ border-right: 0px solid #e1e8f0;
 margin-right: 0%;
 padding-left:  0%;
 padding-right: 0%;
-background-color: green;
+/*background-color: green;*/
 }
 
 
@@ -215,12 +215,12 @@ border-right: 0px solid #e1e8f0;
 margin-right: 0%;
 padding-left:  0%;
 padding-right: 0%;
-background-color: pink;
+/*background-color: pink;*/
 }
 
 
 #btnSearch2, #searchItem2 {
-  background-color: green;
+  /*background-color: green;*/
   width: 20%;
   height: 30pt;
   border: none;
