@@ -14,6 +14,8 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 app.use(express.json());       // to support JSON-encoded bodies
 app.use(express.urlencoded());
 
+const Vehicle = require('./vehicle.js')
+
 
 // CRIA SESSÃO
 
@@ -250,6 +252,9 @@ var q = 2;
 
 
 function respostaHTM(e1,p1,t1,w1,a1,s1,r1,h_c1,pu1,wu1,su1,ru1,tu1,e2,p2,t2,w2,a2,s2,r2,h_c2,pu2,wu2,su2,ru2,tu2){
+
+  let bike = new Vehicle("MOTO");
+  console.log(bike.model);
 
  // console.log("WU2" + su1 + su2);
 
