@@ -29,6 +29,10 @@ var sessao_usuario = "";
 
 var searchTest = "";
 
+
+
+
+
 // CRIA A CONEXÃO MYSQL
 
 var mysql = require('mysql'); //Inclui a biblioteca instalada do Mysql
@@ -72,6 +76,15 @@ var url = "mongodb://zev01:r4ps4g08@mongodb.zev.news/zev01";
 //var url = "mongodb://zev01:zevnews2020@mongodb.zev.news/zev01";
 var database = "zev01";
 var collection1 = "vehicles";
+
+/* IMPORTA CONVERSOR UNIVERSAL */
+const Conversor = require('./conversor.js');
+
+
+
+let carro = new Conversor("kw",100);
+
+console.log("Potencia em  kw" + carro.potencia);
 
 
 app.get('/documento', function (req, res) {

@@ -59,11 +59,26 @@ border-left: 6px solid #e1e8f0;
 border-right: 6px solid #e1e8f0;
 padding-left: 12%;
 }
-	
+
+.logo_social {
+  height: 18px;
+  width: 18px;
+  /*background-color: yellow;*/
+  /*padding-top: 10px;*/
+
+}
 
 
 }
 
+@media screen and (max-device-width: 480px) {
+
+
+ .logo_social {
+  height: 250pt;
+  width: 250pt;
+background-color: red;}
+}
 
 
  /* */ 
@@ -147,6 +162,14 @@ padding-right: 0%;
 /*background-color: green;*/
 }
 
+
+.logo_social {
+  height: 30px;
+  width: 30px;
+  /*background-color: yellow;*/
+  /*padding-top: 10px;*/
+
+}
 
   
 }
