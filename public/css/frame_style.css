@@ -63,7 +63,10 @@ body {
 	
 }
 
-
+#privacyBox{
+	background-color: blue;
+	width: 100%;
+}
 
 #top{
 	background-color: #ffffff;

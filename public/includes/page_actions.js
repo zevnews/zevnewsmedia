@@ -9,6 +9,12 @@ function myFunction() {
   }
 }
 
+function closePrivacy()
+{
+  alert("Privacidade");
+  var privacyBox = document.getElementById("privacyBox");
+  privacyBox.style.display = "none";
+}
 
 /*
   document.getElementById("searchForm").addEventListener("submit", function(event){
