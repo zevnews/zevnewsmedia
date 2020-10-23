@@ -172,7 +172,7 @@
 	padding: 0px;}
 
 
-#btnSearchBox{
+#btnSearchBox, #privacy_btn{
 	height: 40pt;
 	width: 19%;
 	background-color: var(--btnColor);

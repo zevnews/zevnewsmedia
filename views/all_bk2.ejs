@@ -372,7 +372,10 @@ var largura = document.getElementById('news1').clientWidth;
 <body onload="activate_main_menu()">
 <input type="hidden" name="page_section" id="page_section" value="home"></input>
 <div id="container">
- <%- include('privacybox') %>
+<div id="privacyBox">
+ <span class="zev_news_media">Zev.News</a> utiliza cookies e tecnlogias semelhantes a fim de melhorar a sua experiência em nosso site. Ao continua, você concorda aceita a nossa <a href="https://www.zev.news/politica_de_privacidade_zevnews">Política de Privacidade</a>
+  <input type="button" id="privacy_btn" name="privacy_btn" value="Aceito" onclick="closePrivacy()" />
+</div>
 	<div id="top">
     <img src="icons/logo_zev_news.png" id="main_logo">
     <h1 id="zev_description"> ANÁLISES & NOTÍCIAS SOBRE VEÍCULOS COM EMISSÃO ZERO</h1>
@@ -394,7 +397,7 @@ var largura = document.getElementById('news1').clientWidth;
 		</div> 
 		<div id="box2">
 
-			<% rows.slice(0,3).forEach(function(row) { %>
+			<% rows.slice(0,4).forEach(function(row) { %>
  
 
        		   <%if (row.highlight == 0 && contador < 5) { %>
@@ -416,7 +419,7 @@ var largura = document.getElementById('news1').clientWidth;
 		</div>
 		<div id="box3">
 			<%contador = 1 %>	   
-			<% rows.slice(3,9).forEach(function(row) { %>
+			<% rows.slice(4,9).forEach(function(row) { %>
        		<%if (row.highlight == 0 && contador < 5) { %>
        	 <div class="news_inside">
  				<a href="article/<%=row.cod%>/<%=row.title.replace(/,/g, '').replace(/ /g, '-').replace(/%/g,'').toLowerCase()%>"><img src="images/<%=row.photo1%>" class="news_photo" /></a>
