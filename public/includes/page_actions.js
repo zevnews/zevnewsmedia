@@ -11,9 +11,20 @@ function myFunction() {
 
 function closePrivacy()
 {
-  alert("Privacidade");
+  alert("Fechará");
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+     document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "http://localhost:21171/testesessaocookie", true);
+  xhttp.send();
   var privacyBox = document.getElementById("privacyBox");
   privacyBox.style.display = "none";
+
+
 }
 
 /*

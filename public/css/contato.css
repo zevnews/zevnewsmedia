@@ -110,6 +110,16 @@ ol li {
 	font-weight: bold;
 	font-style: italic;
 }
+
+#privacyBox{
+	background-color: #cccccc;
+	width: 100%;
+	height: 50pt;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+}
 /*--> END CONTACT FORM <--*/
 
 

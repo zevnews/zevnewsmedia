@@ -32,6 +32,8 @@ var searchTest = "";
 
 // CRIA PIVACY
 
+
+
 var cookieSession = require('cookie-session')
 var app2 = express();
 
@@ -815,6 +817,15 @@ app.get("/sobre_zevnews", function(req, res) { // root route or home route
 app.get("/all", function(req, res) { // user route
    // res.render("testes.ejs", {
 
+     privacy = req.session.views;
+
+     if (privacy == null)
+     {
+      privacy = 0;
+      console.log("Nullllo");
+     }
+     console.log("Checagem de secao-> " + privacy);
+
       searchTest = "";
       var section = req.params.x;
       connection.query("SELECT * FROM ARTICLES ORDER BY PUBLI_DATE DESC LIMIT 9 ", (err,rows) => {
@@ -830,7 +841,7 @@ app.get("/all", function(req, res) { // user route
       {
           pagina = 0;
           paginaBuscas = 9;
-          res.render("all.ejs", {rows, section, pagina, paginaBuscas});
+          res.render("all.ejs", {rows, section, pagina, paginaBuscas, privacy});
 
       } 
 
