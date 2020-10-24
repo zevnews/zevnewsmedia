@@ -1322,7 +1322,7 @@ app.get("/next/:pagina/:secao", function(req, res) { // user route
             linha = linha.cod; 
             //  console.log ("linha é" + linha);
               console.log("O termo é " + searchTest);
-             res.render("conteudos.ejs", {rows, pagina, section, linha});
+             res.render("conteudos.ejs", {rows, pagina, section, linha, privacy});
              }); 
       
       });

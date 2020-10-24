@@ -71,6 +71,8 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	position: fixed;
+	top: 90%;
 
 
 }
@@ -1029,6 +1031,34 @@ form{
 
 
 @media screen and (max-device-width: 480px) {
+
+
+	#privacyBox{
+	background-color: #cccccc;
+	width: 76%;
+	height: 500pt;
+	display: flex;
+	flex-flow: column wrap;
+	position: fixed;
+	top: 20%;
+	left: 10%;
+	font-size: 40pt;
+	flex-flow: column wrap;
+	justify-content: space-around;
+	align-items: center;
+	text-align: center;
+	padding-top: 5%;
+	padding: 2%;
+
+
+}
+
+#privacyBox #privacy_btn
+{
+	display: block;
+	width: 70%;
+	height: 50pt;
+}
 
 	#search_item{
 		display: block;
