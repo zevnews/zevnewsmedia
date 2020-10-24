@@ -30,6 +30,36 @@ var sessao_usuario = "";
 var searchTest = "";
 
 
+// CRIA PIVACY
+
+var cookieSession = require('cookie-session')
+var app2 = express();
+
+app2.set('trust proxy', 1) // trust first proxy
+
+app2.use(cookieSession({
+  name: 'session_2',
+  keys: ['key1', 'key2']
+}))
+
+
+
+
+console.log("cookie ok");
+
+app.get('/testesessaocookie', function (req, res, next) {
+  // Update views
+  req.session.views = (req.session.views || 0) + 1
+
+  // Write response
+  res.end(req.session.views + ' views')
+})
+
+
+//
+
+
+
 
 
 
