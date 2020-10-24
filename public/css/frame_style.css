@@ -53,12 +53,13 @@ a:hover .news_photo  {
 body {
 	
 	background-color: #e1e8f0;
+
 }
 
 
 #container{
 	
-	zzbackground-color: #e1e8f0;f
+	background-color: #e1e8f0;f
 /*background-color: green;*/
 	
 }
@@ -70,12 +71,14 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	position: fixed;
+
 
 }
 
 #top{
 	background-color: #ffffff;
+
+	
 		
 }
 

@@ -52,6 +52,7 @@ console.log("cookie ok");
 app.get('/testesessaocookie', function (req, res, next) {
   // Update views
   req.session.views = (req.session.views || 0) + 1
+  console.log("achinado sessao" + req.session.views )
 
   // Write response
   res.end(req.session.views + ' views')
@@ -822,9 +823,13 @@ app.get("/all", function(req, res) { // user route
      if (privacy == null)
      {
       privacy = 0;
-      console.log("Nullllo");
+      console.log("NULO mas virou " + privacy);
      }
-     console.log("Checagem de secao-> " + privacy);
+     else
+     {
+       console.log("Checagem de secao-> " + privacy);
+     }
+     
 
       searchTest = "";
       var section = req.params.x;
@@ -960,7 +965,7 @@ app.get("/author/:id", function(req, res) { // user route
       else
       {
           pagina = 0;
-          res.render("author.ejs", {rows, section, pagina});
+          res.render("author.ejs", {rows, section, pagina, privacy});
 
       } 
 
