@@ -795,23 +795,67 @@ app.get("/cms", function(req, res) { // user route
 
 app.get("/politica_de_privacidade_zevnews", function(req, res) { // root route or home route
     //res.send('welcome to home page');
-    res.render("politica_de_privacidade_zevnews.ejs")
+     privacy = req.session.views;
+
+     if (privacy == null)
+     {
+      privacy = 0;
+      console.log("NULO mas virou " + privacy);
+     }
+     else
+     {
+       console.log("Checagem de secao-> " + privacy);
+     }
+    res.render("politica_de_privacidade_zevnews.ejs", privacy)
 });
 
 
 app.get("/termos_de_uso_zevnews", function(req, res) { // root route or home route
     //res.send('welcome to home page');
-    res.render("termos_de_uso_zevnews.ejs")
+    privacy = req.session.views;
+
+     if (privacy == null)
+     {
+      privacy = 0;
+      console.log("NULO mas virou " + privacy);
+     }
+     else
+     {
+       console.log("Checagem de secao-> " + privacy);
+     }
+    res.render("termos_de_uso_zevnews.ejs", privacy)
 });
 
 app.get("/contato", function(req, res) { // root route or home route
     //res.send('welcome to home page');
-    res.render("contato.ejs")
+     privacy = req.session.views;
+
+     if (privacy == null)
+     {
+      privacy = 0;
+      console.log("NULO mas virou " + privacy);
+     }
+     else
+     {
+       console.log("Checagem de secao-> " + privacy);
+     }
+    res.render("contato.ejs", privacy)
 });
 
 app.get("/sobre_zevnews", function(req, res) { // root route or home route
     //res.send('welcome to home page');
-    res.render("sobre_zevnews.ejs")
+     privacy = req.session.views;
+
+     if (privacy == null)
+     {
+      privacy = 0;
+      console.log("NULO mas virou " + privacy);
+     }
+     else
+     {
+       console.log("Checagem de secao-> " + privacy);
+     }
+    res.render("sobre_zevnews.ejs", privacy)
 });
 
 
@@ -986,7 +1030,20 @@ app.get("/author/:id", function(req, res) { // user route
 });
 
 
+function checkPrivacy(z)
+{
 
+  privacy = z
+
+     if (privacy == null)
+     {
+      return 0;
+     }
+     else
+     {
+       return privacy;
+     }
+}
 
 
 
