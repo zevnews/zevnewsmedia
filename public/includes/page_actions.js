@@ -18,7 +18,8 @@ function closePrivacy()
   //   document.getElementById("demo").innerHTML = this.responseText;
     }
   };
-  xhttp.open("GET", "http://localhost:21171/testesessaocookie", true);
+  //xhttp.open("GET", "http://localhost:21171/testesessaocookie", true); funcionando no local host
+  xhttp.open("GET", "/testesessaocookie", true);
   xhttp.send();
   var privacyBox = document.getElementById("privacyBox");
   privacyBox.style.display = "none";

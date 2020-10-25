@@ -309,8 +309,9 @@ switch (mes) {
 </head>
 <body onload="activate_main_menu()">
 <input type="hidden" name="page_section" id="page_section" value="<%= section%>"></input>
+ <%- include('privacybox') %>
 <div id="container_news">
-  <%- include('privacybox') %>
+ 
 	<div id="top">
     <img src="/icons/logo_zev_news.png" id="main_logo">
     <h1 id="zev_description"> ANÁLISES & NOTÍCIAS SOBRE VEÍCULOS COM EMISSÃO ZERO</h1>
@@ -413,7 +414,7 @@ switch (mes) {
   
     <%}%>
 
-    <%if (secao !="Nenhum resultado") {%>
+    <%if (secao !="Nenhum resultado" ) {%>
      <% if (proxima != linha && paginaBuscas == 9) {%>
     
      
