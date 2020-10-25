@@ -846,7 +846,22 @@ form{
 
 @media screen and (max-device-width: 480px) {
 	
-
+#privacyBox{
+	background-color: #cccccc;
+	width: 76%;
+	height: 500pt;
+	display: flex;
+	flex-flow: column wrap;
+	position: fixed;
+	top: 20%;
+	left: 10%;
+	font-size: 40pt;
+	flex-flow: column wrap;
+	justify-content: space-around;
+	align-items: center;
+	text-align: center;
+	padding-top: 5%;
+	padding: 2%
 
 /*---> MOBILE cONTACT FORM <---*/
 

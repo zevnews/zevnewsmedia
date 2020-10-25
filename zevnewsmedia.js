@@ -806,7 +806,7 @@ app.get("/politica_de_privacidade_zevnews", function(req, res) { // root route o
      {
        console.log("Checagem de secao-> " + privacy);
      }
-    res.render("politica_de_privacidade_zevnews.ejs", privacy)
+    res.render("politica_de_privacidade_zevnews.ejs", {privacy})
 });
 
 
@@ -823,7 +823,7 @@ app.get("/termos_de_uso_zevnews", function(req, res) { // root route or home rou
      {
        console.log("Checagem de secao-> " + privacy);
      }
-    res.render("termos_de_uso_zevnews.ejs", privacy)
+    res.render("termos_de_uso_zevnews.ejs", {privacy})
 });
 
 app.get("/contato", function(req, res) { // root route or home route
@@ -839,7 +839,7 @@ app.get("/contato", function(req, res) { // root route or home route
      {
        console.log("Checagem de secao-> " + privacy);
      }
-    res.render("contato.ejs", privacy)
+    res.render("contato.ejs", {privacy})
 });
 
 app.get("/sobre_zevnews", function(req, res) { // root route or home route
@@ -855,7 +855,7 @@ app.get("/sobre_zevnews", function(req, res) { // root route or home route
      {
        console.log("Checagem de secao-> " + privacy);
      }
-    res.render("sobre_zevnews.ejs", privacy)
+    res.render("sobre_zevnews.ejs", {privacy})
 });
 
 
