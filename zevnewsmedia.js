@@ -951,6 +951,18 @@ app.get("/searchteste/:valor", function(req, res) { // user route
 
 
 app.get("/author/:id", function(req, res) { // user route
+
+    privacy = req.session.views;
+
+     if (privacy == null)
+     {
+      privacy = 0;
+      console.log("NULO mas virou " + privacy);
+     }
+     else
+     {
+       console.log("Checagem de secao-> " + privacy);
+     }
  
       var section = req.params.x;
       connection.query("SELECT * FROM ARTICLES ORDER BY PUBLI_DATE DESC LIMIT 9 ", (err,rows) => {
@@ -1458,6 +1470,18 @@ app.get("/:navega/:cod/:section/:ordem", function(req, res) {
 });
 
 app.get("/:x", function(req, res) { // user route
+
+     privacy = req.session.views;
+
+     if (privacy == null)
+     {
+      privacy = 0;
+      console.log("NULO mas virou " + privacy);
+     }
+     else
+     {
+       console.log("Checagem de secao-> " + privacy);
+     }
  
 
       searchTest = "";
@@ -1489,7 +1513,7 @@ app.get("/:x", function(req, res) { // user route
             pagina = 0;
              console.log("Linha"  + linha + " secao " + section);
            })
-             res.render("conteudos.ejs", {rows, pagina, section, linha});
+             res.render("conteudos.ejs", {rows, pagina, section, linha, privacy});
         
          
         
@@ -1515,6 +1539,18 @@ app.get("/", function(req, res) { // root route or home route
 
 
 app.get("/article/:cod/:valor", function(req, res) { // user route
+
+     privacy = req.session.views;
+
+     if (privacy == null)
+     {
+      privacy = 0;
+      console.log("NULO mas virou " + privacy);
+     }
+     else
+     {
+       console.log("Checagem de secao-> " + privacy);
+     }
    // res.render("testes.ejs", {
       var cod = req.params.cod;
       var empresas;
