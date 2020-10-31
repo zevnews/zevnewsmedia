@@ -79,11 +79,11 @@ var connection = mysql.createConnection({
 */
 
 
-  /*
+  
   host: 'localhost',
   user: 'root',
-  database: 'lixo'
-*/
+  database: 'copia1_zevnews'
+
 
   /*host: 'mysql.zevnews.kinghost.net',
   user: 'zevnews',
@@ -92,11 +92,11 @@ var connection = mysql.createConnection({
 */
 
 
-  host: 'mysql.zev.news',
+/*  host: 'mysql.zev.news',
   user: 'zevnews',
   password: 'r4ps4g08',
   database: 'zevnews'
-
+*/
 
 
 });
@@ -1294,7 +1294,10 @@ app.post('/update_article2',function(req,res){
   publi_date = converte_data(publi_date);
 
 
-
+ if (highlight == null)
+ {
+  highlight = 0;
+ }
   var sql = "UPDATE ARTICLES SET title = '"+ titulo +"', subtitle='"+ subtitulo +"', publi_date='"+ publi_date +"', author='"+ author +"', article='"+ article +"', section='"+ section +"', subsection='"+ subsection +"', photo1='"+ photo1 +"', legend1='"+ legend1 +"', photo2='"+ photo2 +"', legend2='"+ legend2 +"', photo3='"+ photo3 +"', legend3='"+ legend3 +"', photo4='"+ photo4 +"', legend4='"+ legend4 +"', photo5='"+ photo5 +"', legend5='"+ legend5 +"', highlight='"+ highlight +"', photo_highlight='"+ photo_highlight +"', tags='"+ tags +"' WHERE COD ="+ cod +" ;";
   connection.query(sql, function (err, result) {
     if (err) throw err;

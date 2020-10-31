@@ -239,4 +239,6 @@ select * from empresas where nome = "Karma";
 
 insert into empresas (nome,descricao) values ("Lordstown","EUA");
 
+delete from ARTICLES where cod = 301;
+
 
